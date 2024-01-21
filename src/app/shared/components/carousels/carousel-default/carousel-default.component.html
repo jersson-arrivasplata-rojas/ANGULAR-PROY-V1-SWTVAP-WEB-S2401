@@ -1,0 +1,27 @@
+<div class="carousel_wrap">
+    <div class="carousel slide" [attr.data-interval]="autoInterval" id="carouselExampleControls" data-ride="carousel">
+        <ol class="carousel-indicators "  *ngIf="activateIndicator=='true'" >
+            <li class="cursor-pointer " [ngClass]="{active: i==0}" *ngFor="let item of images; let i = index" data-target="#carouselExampleControls" [attr.data-slide-to]="i"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item " [ngClass]="{active: i==0}"  *ngFor="let item of images; let i = index">
+                <img class="d-block w-100" src="{{item}}" alt="First slide" />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <i class="i-Arrow-Left-2" aria-hidden="true"></i>
+            <span class="" *ngIf="activateText=='true'" >{{prev}}</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="" *ngIf="activateText=='true'" >{{next}}</span>
+            <i class="i-Arrow-Right-2" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+<!--
+      <app-carousel-default [images]="carouselImg" [activateText]="'true'" [activateIndicator]="'true'" [autoInterval]="'2000'"></app-carousel-default>
+      <app-carousel-default [images]="carouselImg" [activateText]="'true'" [activateIndicator]="'true'" [autoInterval]="'false'"></app-carousel-default>
+
+
+    -->

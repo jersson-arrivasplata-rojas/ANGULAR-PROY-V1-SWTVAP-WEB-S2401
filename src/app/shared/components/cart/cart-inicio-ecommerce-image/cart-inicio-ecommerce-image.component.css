@@ -1,0 +1,17 @@
+.input-cart-inicio-ecommerce-image{
+    height: 35px;
+    width: 75px;
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    font-size: 14px;
+    padding: 0px;
+}
+.button-cart-inicio-ecommerce-image{
+    height: 35px;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    width: 40px;
+    font-size: 18px;
+}

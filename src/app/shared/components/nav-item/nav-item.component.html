@@ -1,0 +1,10 @@
+<li class="nav-item " data-item="dashboard" [ngClass]="{ 'active' :  activate }">
+  <a class="nav-item-hold"  [ngClass]="{'no-drop': drop == true}"><!-- -->
+      <i class="nav-icon {{icon}}"></i>
+      <span class="nav-text" [innerHTML]="name | sanitizeHtml "></span>
+  </a>
+  <div class="triangle"></div>
+</li>
+<!--drop
+  scrollToTop()
+-->

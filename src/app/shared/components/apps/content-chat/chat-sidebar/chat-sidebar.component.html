@@ -1,0 +1,26 @@
+<div data-sidebar="chat" class="chat-sidebar-wrap bg-whatsapp" style="">
+    <div class="border-right">
+        <app-chat-topbar-left></app-chat-topbar-left>
+        <h5 class="mt-2 mb-2 ml-2">Usuarios Registrados</h5>
+        <div class="contacts-scrollable perfect-scrollbar">
+            <div class="mt-3 pb-2 pl-3 pr-3 font-weight-bold text-muted-2 border-bottom sr-only">Contactos</div>
+            <app-chat-contact *ngFor="let item of contacts; let i = index" [name]="item.name" [url]="item.url" [status]="item.status"></app-chat-contact>
+        </div>
+        <h5 class="mt-2 mb-2 ml-2">Usuarios No Registrados</h5>
+
+        <div class="contacts-scrollable perfect-scrollbar">
+          <div class="mt-3 pb-2 pl-3 pr-3 font-weight-bold text-muted-2 border-bottom sr-only">Contactos</div>
+          <app-chat-contact *ngFor="let item of contacts; let i = index" [name]="item.name" [url]="item.url" [status]="item.status"></app-chat-contact>
+      </div>
+    </div>
+</div>
+<!--
+<div class="mt-4 pb-2 pl-3 pr-3 font-weight-bold text-muted-2 border-bottom">Recent</div>
+  <div class="p-3 d-flex align-items-center border-bottom online contact">
+    <img src="../assets/images/faces/13.jpg" class="avatar-sm rounded-circle mr-3" alt="">
+  <div>
+    <h6 class="m-0">William Wills</h6>
+    <span class="text-muted-2 text-small">3 Oct, 2018</span>
+  </div>
+</div>
+-->

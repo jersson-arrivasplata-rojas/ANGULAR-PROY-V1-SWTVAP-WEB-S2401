@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato");
+html,
+body {
+  font-family: "Lato", sans-serif, Arial, Helvetica, sans-serif !important;
+}
+:root {
+  --theme_color_first: #0b09a5;
+  --theme_color_first_text: #ffffff;
+
+  --theme_color_second: #fb3366;
+  --theme_color_second_text: #ffffff;
+
+  --theme_color_background: #ffffff;
+  --theme_color_background_text: #000;
+
+  --icon_whatsapp: #4dc247;
+
+  --border-radius: 15px;
+
+  --theme_color_info: #003473;
+  --theme_color_info_text: #ffffff;
+
+  --theme_color_warning: #fec928;
+  --theme_color_warning_text: #ffffff;
+
+  --theme_color_danger: #f44336;
+  --theme_color_danger_text: #ffffff;
+
+  --theme_color_success: #009b37;
+  --theme_color_success_text: #ffffff;
+
+  --theme_color_light: #e9ecef;
+  --theme_color_light_text: #000000;
+
+  --wrapper-width: 185px;
+}

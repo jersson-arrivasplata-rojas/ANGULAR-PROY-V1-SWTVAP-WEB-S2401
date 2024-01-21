@@ -1,0 +1,330 @@
+/* Button used to open the chat form - fixed at the bottom of the page */
+/*.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  */
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 999;
+  }
+  
+  /*.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }*/
+
+  .allUsersList{
+    width: 300px;
+    margin: 20px;
+  }
+  .allUsersList .card-header{
+    background:var(--theme_color_first);
+    color: #FFF;
+    padding: 10px;
+  }
+  .allUsersList .image img{
+    border-radius: 16px;
+  }
+  .usersChatList{
+    position: absolute;
+    width: 250px;
+    bottom: 0;
+    margin-bottom: 0;
+    right: 360px;
+  }
+  .show{
+    display: block;
+  }
+  .thumb-user-list{
+    display: none;
+  }
+  .thumb-user-list .image img{
+    border-radius: 30px;
+  }
+  .usersChatList .card-header{
+    background: var(--theme_color_first);
+    font-size: 13px;
+  }
+  .chatBox{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    margin: 40px;
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+  .chat-content{
+    overflow: auto;
+    height: 300px;
+  }
+  .chatBox .card{
+    border-radius: 0px;
+    border-style: solid;
+    border-color: var(--theme_color_first);
+    border-width: 2px;
+  }
+  .chatBox .card-header{
+    background: var(--theme_color_first);
+    border-color: var(--theme_color_first_text);
+    border-style: solid;
+    border-width: 1px;
+  }
+  .header-title{
+    height: 150px;
+  }
+  .card-header-title i{
+    font-size: 10px;
+    color: var(--theme_color_success);
+    margin-right: 6px;
+  }
+  .card-header .card-header-title{
+    color: #FFF;
+  }
+  .chat-content small{
+    margin: 0;
+  }
+  .chat-content p{
+    background: #ecf1f8;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+  .my-content .media-content{
+    width: 80%;
+  }
+  .my-content .message{
+    float: right;
+    background: var(--theme_color_first);
+    color: #FFF;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+  .my-content .chat-content small{
+    float: right;
+  }
+  .my-content small{
+    display: block;
+    float: right;
+    width: 100%;
+    text-align: right;
+  }
+  .chat-textarea{
+    font-size: 14px;
+    padding: 8px;
+    height: 40px;
+    width: 100%;
+    border: none;
+    overflow: auto;
+    outline: none;
+  
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+  }
+  .chat-message-group{
+    
+  }
+  .chat-message-group .chat-thumb{
+    float: left;
+    width: 20%;
+  }
+  .chat-message-group .chat-messages{
+    float: left;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .chat-message-group .message{
+    float: left;
+    padding: 10px;
+    background: #ecf1f8;
+    font-size: 13px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+  }
+  .chat-messages .from{
+    float: left;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 11px;
+  }
+  .chat-thumb img{
+    border-radius: 40px;
+  }
+  .writer-user .chat-messages{
+    float: right;
+    width: 100%;
+  }
+  .writer-user .chat-messages .message{
+    float: right;
+    background:var(--theme_color_first);
+    color: #FFF;
+  }
+  .writer-user .chat-messages .from{
+    float: left;
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+  .chat-message-group .typing{
+    float: left;
+  }
+  .chatBox .card-header-icon i{
+    /*color: #FFF;*/
+    color: var(--theme_color_first_text)!important;
+    font-size: 18px;
+  }
+  /* CSSS */
+  .outside-box{
+    height: 100px;
+    background: #F8C;
+    width: 200px;
+    margin: 20px;
+    overflow: auto;
+  }
+  .outside-box .content-insider{
+    height: 300px;
+    background: #C9C;
+  }
+  /* CSS Spinner */
+  .spinner {
+    margin: 0 30px;
+    width: 70px;
+    text-align: center;
+  }
+  
+  .spinner > div {
+    width: 4px;
+    height: 4px;
+    background-color: #888;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
+  /* EmojiBox */
+  .emojiBox{
+    width: 150px;
+    margin: 30px;
+  }
+  .emojiBox .box{
+    height: 100px;
+    padding: 4px;
+  }
+  /* */
+  .card-header-title img{
+    border-radius: 40px;
+  }
+  .card-header:first-child{
+    border-radius: 0px;
+  }
+  .form-group-input{
+    outline: none;
+    border-radius: 0px;
+    border-style: none;
+  }
+  .btn-chat-windows{
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 35px;
+    border-radius: 0px;
+    display: flex;
+    bottom: 0;
+    z-index: 99;
+    font-size: 15px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: var(--theme_color_first);
+    opacity: 1;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+  }

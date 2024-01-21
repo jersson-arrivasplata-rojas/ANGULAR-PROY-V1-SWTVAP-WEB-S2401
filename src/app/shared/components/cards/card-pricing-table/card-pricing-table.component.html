@@ -1,0 +1,44 @@
+<div class="ul-pricing__table-2 ">
+    <div class="ul-pricing__header m-0">
+        <div class="ul-pricing__image text-{{color}} m-0 pt-4 pb-4">
+            <i class="{{icon}}"></i>
+        </div>
+        <div class="ul-pricing__main-number m-0">
+            <h1 class="heading text-{{color}} t-font-boldest m-0">{{price}}</h1>
+        </div>
+        <div class="ul-pricing__month">
+            <small class="text-purple-100">{{howOften}}</small>
+        </div>
+    </div>
+    <div class="ul-pricing__title flex-align-justify-center" style="height: 80px;">
+        <h2 class="heading text-{{color}} m-0">{{title}}</h2>
+    </div>
+    <div class="ul-pricing__table-listing mb-4">
+        <ul>
+            <li *ngFor="let item of description; let i = index"  class="{{item.classLi}}">
+              {{item.text}}
+              <span *ngIf="item.activateSpan==true" class="t-font-bold text-{{item.colorSpan}} ml-1">{{item.textSpan}}</span>
+            </li>
+        </ul>
+    </div>
+    <app-button-default [color]="color" [title]="buttonText" [claseButton]="'m-1 btn-rounded btn-lg'" ></app-button-default>
+</div>
+
+<!--
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-3 col-xl-3 m-0 p-0">
+          <app-card-pricing-table [color]="'primary'" [howOften]="'por mes'" [icon]="'i-Shop'" [title]="'Gratuito'" [price]="'S/0.00'"></app-card-pricing-table>
+        </div>
+        <div class="col-lg-3 col-xl-3 m-0 p-0">
+          <app-card-pricing-table [color]="'warning'" [howOften]="'por mes'" [icon]="'i-Shop-2'" [title]="'Emprendedor'" [price]="'S/0.00'"></app-card-pricing-table>
+        </div>
+        <div class="col-lg-3 col-xl-3 m-0 p-0">
+          <app-card-pricing-table [color]="'danger'" [howOften]="'por mes'" [icon]="'i-Shop-3'" [title]="'Emprendedor Premium'" [price]="'S/0.00'"></app-card-pricing-table>
+        </div>
+        <div class="col-lg-3 col-xl-3 m-0 p-0">
+          <app-card-pricing-table [color]="'success'" [howOften]="'por mes'" [icon]="'i-Shop-4'" [title]="'Emprendedor Avanzado'" [price]="'S/0.00'"></app-card-pricing-table>
+        </div>
+    </div>
+</div>
+-->

@@ -1,0 +1,15 @@
+
+<div  class="progress "><!--#progressBarStripe-->
+  <div class="progress-bar {{claseProgressBar}} bg-{{tipo}}" role="progressbar" [style.width]="valueTextNow" >
+    <span *ngIf="now=='100' && textoActivate=='true'">{{completado}}</span><span *ngIf="now!='100' && textoActivate=='true'">{{now}}%</span>
+  </div>
+</div>
+<!--
+  aria-valuenow="valuenow" aria-valuemin="{{valuemin}}" aria-valuemax="valuemax"
+   <app-progress-bar-stripes  [claseProgressBar]="'progress-bar-striped progress-bar-animated'" [textoActivate]="'false'" [tipo]="'warning'" [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+  <app-progress-bar-stripes  [claseProgressBar]="'progress-bar-striped'" [textoActivate]="'false'" [tipo]="'info'" [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+  <app-progress-bar-stripes  [claseProgressBar]="'progress-bar'" [textoActivate]="'false'" [tipo]="'success'" [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+  <app-progress-bar-stripes  [claseProgressBar]="'progress-bar-striped progress-bar-animated'" [textoActivate]="'true'" [tipo]="'primary'" [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+  <app-progress-bar-stripes  [claseProgressBar]="'progress-bar-striped'" [textoActivate]="'true'" [tipo]="'secondary'"  [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+  <app-progress-bar-stripes  [claseProgressBar]="'progress-bar'" [textoActivate]="'true'" [tipo]="'dark'" [max]="'100'" [min]="'0'" [now]="'0'" [second]="'1000'" [aumentar]="'10'" [loop]="'true'" ></app-progress-bar-stripes>
+-->

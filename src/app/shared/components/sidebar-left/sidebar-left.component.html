@@ -1,0 +1,4 @@
+<ul class="navigation-left">
+  <app-nav-item *ngFor="let item of sidebarLeft; let i = index"  [name]="item.name" [drop]="item.drop"  [icon]="item.icon" [activate]="item.activate" [url]="item.url"></app-nav-item>
+</ul>
+<!--(event)="changeUrlIFrame($event)"-->

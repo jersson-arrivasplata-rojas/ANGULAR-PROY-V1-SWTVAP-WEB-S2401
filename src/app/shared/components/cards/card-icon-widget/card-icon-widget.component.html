@@ -1,0 +1,16 @@
+<div class="card mb-0  card-icon-bg card-icon-bg-{{tipo}} o-hidden mb-4 {{clase}}  d-contents" style="    display: contents;"
+[ngClass]="{'no-drop': block == 'true'}" >
+  <div class="card-body text-center  p-2">
+      <i class="{{icono}} text-first"></i>
+      <div class="content">
+          <p class="text-muted-2 mt-2 mb-0 text-{{tipo}} text-first" [innerHTML]="titulo | sanitizeHtml "></p>
+          <p class="text-{{tipo}} text-24 line-height-1 mb-2 text-first" [innerHTML]="cantidad | sanitizeHtml "></p>
+      </div>
+  </div>
+</div>
+<!--  <app-card-icon-large [titulo]="'New Leads'" [cantidad]="'205'" [icono]="'i-Add-User'" [tipo]="'primary'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Sales'" [cantidad]="'4021'" [icono]="'i-Financial'" [tipo]="'warning'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Orders'" [cantidad]="'80'" [icono]="'i-Checkout-Basket'" [tipo]="'danger'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Expense'" [cantidad]="'120'" [icono]="'i-Money-2'" [tipo]="'info'"></app-card-icon-large>
+      https://valor-software.com/ngx-bootstrap/#/dropdowns
+-->

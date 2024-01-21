@@ -1,0 +1,54 @@
+<div class="card o-hidden" >
+  <div class="card-body">
+      <span class="text-28">{{contenido.priceTitle | currency:'S/. '}}</span>
+      <p class="text-small text-muted-2 m-0">{{contenido.title}}</p>
+      <div id="echart1" style="height: 65px;"></div>
+      <div class="d-flex justify-content-between mt-4">
+
+          <div class="flex-grow-1">
+              <span class="text-small">{{contenido.subTitleOne}}</span>
+              <h5 class="m-0 font-weight-bold text-muted-2">{{contenido.quantityOne}}</h5>
+          </div>
+          <div class="flex-grow-1 text-right">
+              <span class="text-small">{{contenido.subTitleSecond}}</span>
+              <h5 class="m-0 font-weight-bold text-muted-2">{{contenido.priceSecond | currency:'S/. '}}</h5>
+          </div>
+      </div>
+  </div>
+</div>
+<!--https://codingpotions.com/angular-pipes
+
+https://edupala.com/custom-pipe-in-ionic/
+
+ // Chart in Dashboard version 1
+    var echartElem1 = document.getElementById('echart1');
+    if (echartElem1) {
+        var echart1 = echarts.init(echartElem1);
+        echart1.setOption(_extends({}, echartOptions.lineFullWidth, {
+            series: [_extends({
+                data: [30, 40, 20, 50, 40, 80, 90]
+            }, echartOptions.smoothLine, {
+                markArea: {
+                    label: {
+                        show: true
+                    }
+                },
+                areaStyle: {
+                    color: 'rgba(102, 51, 153, .2)',
+                    origin: 'start'
+                },
+                lineStyle: {
+                    color: '#663399'
+                },
+                itemStyle: {
+                    color: '#663399'
+                }
+            })]
+        }));
+        $(window).on('resize', function () {
+            setTimeout(function () {
+                echart1.resize();
+            }, 500);
+        });
+    }
+-->

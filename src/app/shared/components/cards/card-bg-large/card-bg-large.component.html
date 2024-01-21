@@ -1,0 +1,16 @@
+<div class="card bg-dark text-warning-2 o-hidden {{claseprincipal}}">
+    <img class="card-img" src="{{url}}" alt="Card image">
+    <div class="card-img-overlay">
+        <div class="text-center pt-4">
+            <h5 class="card-title mb-2 text-{{tipo}}">{{titulo}}</h5>
+            <div class="separator border-{{tipo}} border-top mb-2"></div>
+            <p class="text-small font-italic  text-{{tipo}}">{{subtitulo}}</p>
+        </div>
+        <div class="p-1 text-left card-footer font-weight-light d-flex" [innerHTML]="contenidoFooter | sanitizeHtml "></div>
+    </div>
+</div>
+<!--
+<div  class="col-md-3" >
+  <app-card-bg-large [titulo]="'Card title'" [subtitulo]="'Last updated 3 mins ago'" [claseprincipal]="'mb-2'" [tipo]="'primary'" [url]="'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHzXK8AzFzc7HV9O1QcELVaLXpG_b0S1-Y5A&usqp=CAU'" [contenidoFooter]="contenidoFooter"></app-card-bg-large>
+</div>
+-->

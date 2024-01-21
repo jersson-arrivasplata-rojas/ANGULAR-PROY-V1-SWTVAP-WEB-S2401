@@ -13,7 +13,7 @@ describe('@AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`#should have as title 'ANGULAR-PROY-V1-SWTVAP-WEB-S2401'`, () => {
-    expect(component.title).toEqual('ANGULAR-PROY-V1-SWTVAP-WEB-S2401');
+  it(`#should have as title 'ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401'`, () => {
+    expect(component.title).toEqual('ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401');
   });
 });

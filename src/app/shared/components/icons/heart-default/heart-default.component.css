@@ -1,0 +1,24 @@
+
+.btn-heart-store{
+    position: absolute;
+    z-index: 9;
+    left: 10px;
+    top: 0px;
+  }
+  
+  .heart-icon{
+    color:#d52b1e;
+  }
+  .heart-icon.is-active:hover{
+  }
+
+  .heart-icon.is-active:hover i::before {
+    content: "\F2D1";
+  }
+
+  .heart-icon:not(.is-active):hover{
+  }
+
+  .heart-icon:not(.is-active):hover i::before {
+    content: "\F2D5";
+  }

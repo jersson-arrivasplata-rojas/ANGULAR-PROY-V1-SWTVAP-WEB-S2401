@@ -1,0 +1,163 @@
+<header id="header-snapstore"
+    class="navbar shadow-lg navbar-expand navbar-dark flex-column  w-100 flex-md-row bd-navbar justify-content-between">
+
+    <a class="navbar-brand mr-0 ml-5 mr-md-2" href="{{APP_URL}}" aria-label="Bootstrap">
+        <img src="{{APP_URL}}assets/images/snapstore/LOGO_WEB.png" alt="Image" height="45px" />
+    </a>
+    <!--{ {url('/images/logos/LOGO.png')} }-->
+
+    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+            <a class="nav-link p-2" target="_blank" href="{{APP_FACEBOOK_LINK}}">
+                <h5 class="mdi mdi-facebook mb-0" style="font-size: 18;"></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-2" target="_blank" href="{{APP_FACEBOOK_GROUP_LINK}}">
+                <h5 class="mdi mdi-home-group mb-0" style="font-size: 18;"></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-2" target="_blank" href="{{APP_INSTAGRAM_LINK}}">
+                <h5 class="mdi mdi-instagram mb-0" style="font-size: 18;"></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-2" target="_blank" href="{{APP_WEB_LINK}}">
+                <h5 class="mdi mdi-web mb-0" style="font-size: 18;"></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-2" target="_blank" href="{{APP_DEVINNOVA_LINK}}">
+                <img style="width: 35px;" src="{{APP_DEVINNOVA_LINK}}assets/img-company/logo-devinnova-1.png">
+            </a>
+        </li>
+
+
+    </ul>
+    <a target="_blank" class="btn btn-bd-warning d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3 border-input"
+        href="https://drive.google.com/file/d/1sxU7puiirnSr6p1p_9KOGzp4F-72pRC9/view" style="    line-height: 2;">
+        Brochure <i class="mdi mdi-download"></i>
+    </a>
+    <!-- class="dropdown-toggle  btn btn-bd-default d-none d-lg-inline-block mb-3 mb-md-0 ml-md-5 border-input" -->
+    <div  *ngIf="type==0" class="drop-down " [ngClass]='{"drop-down--active":dropdown_active==true}'>
+        <div id="dropDown" class="drop-down__button btn btn-outline-first  border-input" #DropDown
+            style="  " (click)="dropdown(DropDown)">
+            <i class="mdi mdi-chevron-down mr-1 "></i>
+            <span class="drop-down__name mr-1">Menú</span>
+        </div>
+        <div class="drop-down__menu-box">
+            <ul class="drop-down__menu">
+
+                <li data-name="perfil" class="drop-down__item">
+
+                    <a class="d-block w-100" [routerLink]="['/home/perfil']">
+                        <i class="dripicons-user mr-1"></i> Mi perfil
+                    </a>
+                </li>
+                <li data-name="shopping" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/compras']">
+                        <i class="mdi mdi-shopping mr-1"></i> Mis compras
+                    </a>
+                </li>
+                <li data-name="favorites" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/favoritos']">
+                        <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
+                    </a>
+
+                </li>
+                <li data-name="shopping-basket" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/carrito']">
+                        <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                    </a>
+                </li>
+                <li data-name="dashboard" class="drop-down__item" *ngIf="store_active==true">
+                    <a [routerLink]="['/'+storeUri+'/dashboard/inicio']" class="d-block w-100" ><!--(click)="goAdmin()"-->
+                        <i class="mdi mdi-storefront mr-1"></i> Mi Administrador
+                    </a>
+                </li>
+                <li data-name="ayuda" class="drop-down__item">
+                    <a class="d-block w-100" target="_blank"
+                        href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                        <i class="dripicons-help mr-1"></i> Ayuda SnapStore
+                    </a>
+                </li>
+
+                <li data-name="salir" class="drop-down__item">
+                    <a href="#" class="d-block w-100" (click)="logout()">
+                        <i class="mdi mdi-logout-variant mr-1"></i> Salir
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;"
+                (click)="dropdown(DropDown)">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div  *ngIf="type==2" class="drop-down " [ngClass]='{"drop-down--active":dropdown_active==true}'>
+        <div id="dropDown" class="drop-down__button btn btn-outline-first  border-input" #DropDown
+            style="  " (click)="dropdown(DropDown)">
+            <i class="mdi mdi-chevron-down mr-1 "></i>
+            <span class="drop-down__name mr-1">Menú</span>
+        </div>
+        <div class="drop-down__menu-box">
+            <ul class="drop-down__menu">
+
+                <li data-name="perfil" class="drop-down__item">
+
+                    <a class="d-block w-100" [routerLink]="['/home/perfil']">
+                        <i class="dripicons-user mr-1"></i> Mi perfil
+                    </a>
+                </li>
+                <li data-name="shopping" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/compras']">
+                        <i class="mdi mdi-shopping mr-1"></i> Mis compras
+                    </a>
+                </li>
+                <li data-name="favorites" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/favoritos']">
+                        <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
+                    </a>
+
+                </li>
+                <li data-name="shopping-basket" class="drop-down__item">
+                    <a class="d-block w-100" [routerLink]="['/home/carrito']">
+                        <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                    </a>
+                </li>
+                <li data-name="ayuda" class="drop-down__item">
+                    <a class="d-block w-100" target="_blank"
+                        href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                        <i class="dripicons-help mr-1"></i> Ayuda SnapStore
+                    </a>
+                </li>
+
+                <li data-name="salir" class="drop-down__item">
+                    <a href="#" class="d-block w-100" (click)="logout()">
+                        <i class="mdi mdi-logout-variant mr-1"></i> Salir
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;"
+                (click)="dropdown(DropDown)">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="type==1" class="drop-down drop-down-auth-snap-bar" [ngClass]='{"drop-down--active":dropdown_active==true}'>
+        <div  class="drop-down__button btn btn-outline-first  mr-2 border-input" style="">
+            <a class="d-block w-100" [routerLink]="['/auth/login']">
+                <i class="mdi mdi-login-variant mr-1"></i> 
+                <span class="drop-down__name  mr-1">Ingresar</span>
+            </a>
+        </div>
+        <div  class="drop-down__button btn btn-outline-first  border-input" style="" >
+            <a class="d-block w-100" [routerLink]="['/auth/signup']">
+                <i class="mdi mdi-account-plus mr-1"></i>   
+                <span class="drop-down__name  mr-1">Registrar</span>
+            </a>
+        </div>
+    </div>
+
+</header>

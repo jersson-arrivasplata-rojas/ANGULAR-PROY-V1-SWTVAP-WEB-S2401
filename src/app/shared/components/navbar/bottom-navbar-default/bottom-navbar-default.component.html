@@ -1,0 +1,82 @@
+<div class=""><!--container-->
+    
+
+    
+    <button class="mt-auto cursor-pointer btn-info-store btn btn-info-2 text-first btn-open-alert is-active " #infoBottomButton 
+    type="button" (click)="alertShowModal(infoBottomButton)" >
+        <i class="dripicons-wallet " ></i>
+    </button> 
+</div>
+
+<div class="wrap">
+    <div class="modal-alert js-modal" style="top: 0;width: 100%;max-height: 100%;max-width: 100%;    overflow-y: scroll;" #infoModal>
+        
+        <h2 class="mb-3">MÉTODOS DE PAGO</h2>
+        <div class="d-flex flex-column mb-4">
+            <div>
+                <h6 *ngIf="pagoEfectivo==1" class="widget-box__title mb-3">
+                    Aceptamos
+                </h6>
+                <div class="d-flex items-center justify-content-center flex-wrap mt3 ">
+                    <div *ngFor="let item of payment_card; let i=index" >
+                        <div *ngIf="item.type==0" class="mt-0 m-auto w-50 pb-4 cards-store-product-2">
+                            <!--<span *ngFor="let cd of item.payment; let i=index">{{cd.description}}</span>-->
+                            <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h6 *ngIf="pagoTransferencia==1" class="widget-box__title mb-3">
+                    Pagos con Transferencia
+                </h6>
+                <div class="d-flex items-center justify-content-center flex-wrap mt3 flex-store-bottom-transferencia-default">
+                    <div *ngFor="let item of payment_card; let i=index"  class="d-flex">
+                        <div *ngIf="item.type==1" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product">
+                            <img *ngFor="let cd of item.card; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                            <p class="d-flex pr-1 pl-1 vm">
+                                <span *ngIf="item.visa==1&& item.mastercard==0">Visa</span>
+                                <span *ngIf="item.visa==1 && item.mastercard==1" >Visa y Mastercard</span>
+                                <span *ngIf="item.visa==0&& item.mastercard==1">Mastercard</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+            <div class="d-flex flex-store-bottom-apps-default justify-content-center">
+                <div>
+                    <h6 *ngIf="pagoAppBanco==1" class="widget-box__title mb-3">
+                        Pagos con Aplicaciones
+                    </h6>
+                    <div class="d-flex items-center flex-wrap mt3 flex-store-bottom-default">
+                        <div *ngFor="let item of payment_card; let i=index" >
+                            <div *ngIf="item.type==2" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product-3">
+                                <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                            </div>
+                        </div>
+                    </div>
+    
+                    
+                </div>
+               <div>
+                    <h6 *ngIf="pagoOtroMetodoPago==1" class="widget-box__title mb-3">
+                        También Aceptamos 
+                    </h6>
+                    <div class="d-flex items-center flex-wrap mt3 flex-store-bottom-default">
+                        <div *ngFor="let item of payment_card; let i=index" class="d-flex">
+                            <div *ngIf="item.type==3" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product-3">
+                                <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <button class="btn btn-danger-2 border-radius-15 mt-2"  #closeInfoModal (click)="alertCloseModal(closeInfoModal)"
+         style="border-radius: 50px;width: 40px; height: 40px!important;">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+</div>

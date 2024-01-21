@@ -1,0 +1,21 @@
+.input-search-double input:first-child{
+  border-top-left-radius: 20px;
+  margin: 0px; 
+  padding: 0; 
+  border-style: none;    
+  margin-right: 2px;
+}
+
+.input-search-double input:last-child{
+  border-top-right-radius: 20px;
+  margin: 0px; 
+  padding: 0; 
+  border-style: none;
+}
+.input-search-one input{
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 0px; 
+  padding: 0; 
+  border-style: none;
+}

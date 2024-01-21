@@ -1,0 +1,124 @@
+
+<div class="row">
+  <div class="col-lg-8 col-md-6 col-sm-6 col-12">
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-12 form-group mb-3"><!--(keyup)="FilterPipe($event.target.value)"-->
+    <app-input-default [color]="'primary'" [inputClass]="'form-control '" [placeholder]="'Ingrese nombre para buscar'" ></app-input-default>
+  </div>
+</div>
+<table class="table {{tableClass}}" role="table">
+  <caption>
+    <p class="m-0 text-left" [innerHTML]="getTextFooter() | sanitizeHtml "></p>
+  </caption>
+  <thead role="rowgroup">
+    <tr [attr.role]="'row'">
+      <th [attr.role]="'columnheader'"  *ngFor="let item of table.header; let i = index">
+        <div [innerHTML]="item.item | sanitizeHtml "></div>
+       </th>
+    </tr>
+  </thead>
+  <tbody role="rowgroup">
+    <ng-container *ngIf="getValidation() == true">
+      <tr [attr.role]="'row'" *ngFor="let group of table.body; let i = index">
+        <td role="cell" *ngFor="let item of group; let j = index" [attr.data-column]="header[j].item" >
+          <div [innerHTML]="item.item.toString() | sanitizeHtml "></div>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="getValidation() == false">
+      <tr [attr.role]="'row'" class="text-center">
+        <td [attr.colspan]="lenghtHeader" role="cell"  [attr.data-column]="'Resultado de Registros'" >No se encuentran resultados de consultas</td>
+      </tr>
+    </ng-container>
+  </tbody>
+  <tfoot *ngIf="table.bottomTable == 'true'" role="rowgroup">
+    <tr [attr.role]="'row'">
+      <th [attr.role]="'columnheader'"  *ngFor="let item of table.header; let i = index">
+        <div [innerHTML]="item.item | sanitizeHtml "></div>
+       </th>
+    </tr>
+  </tfoot>
+</table>
+<app-pagination-default [color]="table.color" [align]="table.alignPagination" [page]="table.page.toString()" [total]="table.total.toString()" [pagination]="table.pagination.toString()"></app-pagination-default>
+
+<!--
+  <app-table-default></app-table-default>
+-->
+
+<!--Showing 1 to 5 of 5 entries-->
+<!--<table class="table" role="table"> tabla lenght
+  <thead role="rowgroup">
+    <tr [attr.role]="'row'">
+      <th [attr.role]="'columnheader'"  *ngFor="let item of header; let i = index">{{item.item}}</th>
+    </tr>
+  </thead>
+  <tbody role="rowgroup">
+    <tr [attr.role]="'row'" *ngFor="let group of body; let i = index">
+      <td role="cell" *ngFor="let item of group; let j = index" [attr.data-column]="header[j].item" >{{item.item}}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+<!--
+file:///C:/My%20Web%20Sites/https___themesbrand.com_skote_/themesbrand.com/skote/layouts/vertical/tables-basic.html
+https://codepen.io/emilcarlsson/pen/XbZprZ
+<table class="table" role="table">
+  <thead role="rowgroup">
+    <tr role="row">
+      <th role="columnheader" >#</th>
+      <th role="columnheader" >First Name</th>
+      <th role="columnheader" >Last Name</th>
+      <th role="columnheader" >Job Title</th>
+      <th role="columnheader">Favorite Color</th>
+      <th role="columnheader" >Wars or Trek?</th>
+      <th role="columnheader" >Secret Alias</th>
+      <th role="columnheader" >Date of Birth</th>
+      <th role="columnheader" >Dream Vacation City</th>
+      <th role="columnheader" >GPA</th>
+      <th role="columnheader" >Arbitrary Data</th>
+    </tr>
+  </thead>
+  <tbody role="rowgroup">
+    <tr role="row">
+      <td role="cell" data-column="Fila n°">1</td>
+      <td role="cell" data-column="First Name">James</td>
+      <td role="cell" data-column="Last Name">Matman</td>
+      <td role="cell" data-column="Job Title">Chief Sandwich Eater</td>
+      <td role="cell" data-column="Favorite Color">Lettuce Green</td>
+      <td role="cell" data-column="Wars or Trek?">Trek</td>
+      <td role="cell" data-column="Secret Alias">Digby Green</td>
+      <td role="cell" data-column="Date of Birth">January 13, 1979</td>
+      <td role="cell" data-column="Dream Vacation City">Gotham City</td>
+      <td role="cell" data-column="GPA">3.1</td>
+      <td role="cell" data-column="Arbitrary Data">RBX-12</td>
+    </tr>
+    <tr role="row">
+      <td role="cell" data-column="Fila n°">2</td>
+      <td role="cell" data-column="First Name">James</td>
+      <td role="cell" data-column="Last Name">Matman</td>
+      <td role="cell" data-column="Job Title">Chief Sandwich Eater</td>
+      <td role="cell" data-column="Favorite Color">Lettuce Green</td>
+      <td role="cell" data-column="Wars or Trek?">Trek</td>
+      <td role="cell" data-column="Secret Alias">Digby Green</td>
+      <td role="cell" data-column="Date of Birth">January 13, 1979</td>
+      <td role="cell" data-column="Dream Vacation City">Gotham City</td>
+      <td role="cell" data-column="GPA">3.1</td>
+      <td role="cell" data-column="Arbitrary Data">RBX-12</td>
+    </tr>
+    <tr role="row">
+      <td role="cell" data-column="Fila n°">3</td>
+      <td role="cell" data-column="First Name">James</td>
+      <td role="cell" data-column="Last Name">Matman</td>
+      <td role="cell" data-column="Job Title">Chief Sandwich Eater</td>
+      <td role="cell" data-column="Favorite Color">Lettuce Green</td>
+      <td role="cell" data-column="Wars or Trek?">Trek</td>
+      <td role="cell" data-column="Secret Alias">Digby Green</td>
+      <td role="cell" data-column="Date of Birth">January 13, 1979</td>
+      <td role="cell" data-column="Dream Vacation City">Gotham City</td>
+      <td role="cell" data-column="GPA">3.1</td>
+      <td role="cell" data-column="Arbitrary Data">RBX-12</td>
+    </tr>
+  </tbody>
+</table>
+
+-->

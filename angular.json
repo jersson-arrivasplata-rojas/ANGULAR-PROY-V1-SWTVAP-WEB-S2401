@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ANGULAR-PROY-V1-SWTVAP-WEB-S2401": {
+    "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,20 +17,29 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-proy-v1-swtvap-web-s2401",
+            "outputPath": "dist/angular-proy-v1-swtvap-web-administrator-s2401",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "./src/favicon.ico",
+              "./src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/animate.css/animate.min.css",
+              "./src/assets/css/app.css",
+              "./src/assets/css/icons.min.css",
+              "./src/assets/css/vendor/quill.bubble.css",
+              "./src/assets/css/vendor/quill.snow.css",
+              "./src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "prod": {
@@ -51,8 +60,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
                 }
               ]
             },
@@ -74,8 +83,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
                 }
               ]
             },
@@ -97,8 +106,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
                 }
               ]
             },
@@ -120,8 +129,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
                 }
               ]
             }
@@ -132,28 +141,28 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "prod": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build:prod"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:prod"
             },
             "local": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build:local"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:local"
             },
             "dev": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build:dev"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:dev"
             },
             "cert": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build:cert"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:cert"
             }
           },
           "defaultConfiguration": "local",
           "options": {
-            "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build",
+            "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build",
             "port": 4200
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-S2401:build"
+            "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build"
           }
         },
         "test": {
@@ -162,13 +171,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": [],
             "main": "src/test.ts",
             "karmaConfig": "karma.conf.js"
@@ -177,13 +181,13 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

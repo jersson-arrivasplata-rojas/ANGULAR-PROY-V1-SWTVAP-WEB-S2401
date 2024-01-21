@@ -1,0 +1,76 @@
+<div data-sidebar-content="chat" class="chat-content-wrap bg-whatsapp" style="">
+  <app-chat-topbar [name]="content.principal.name" [url]="content.principal.url"></app-chat-topbar>
+
+  <div class="chat-content perfect-scrollbar" data-suppress-scroll-x="true" style="">
+    <ng-container *ngFor="let item of content.message; let i = index">
+      <div *ngIf="item.direction == 1" class="d-flex mb-4">
+        <div class="message flex-grow-1">
+          <div class="d-flex" style="padding: 0 2em;">
+            
+            <div class="single-message-user d-flex flex-direction-column  w-100">
+              <div class="d-flex">
+                <p class="mb-1 text-title text-16 flex-grow-1">{{item.name}}</p>
+                <span class="text-small "  style="color:white!important;">{{item.time}}</span>
+              </div>
+              <div>
+                <p class="m-0">{{item.message}}</p>
+              </div>
+            </div>
+            <span>
+              <svg class="user-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13">
+                <path opacity=".13" d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z"></path>
+                <path fill="currentColor" d="M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z"></path>
+              </svg>
+            </span>
+           
+          </div>
+        </div>
+        <img src="{{item.url}}" alt="" class="avatar-sm rounded-circle ml-3">
+      </div>
+      <div *ngIf="item.direction == 0" class="d-flex mb-4 user">
+        <img src="{{item.url}}" alt="" class="avatar-sm rounded-circle mr-3">
+        <div class="message flex-grow-1">
+          <div class="d-flex" style="padding: 0 2em;">
+            <span>
+              <svg class="incoming-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13">
+                <path opacity=".13" d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z"></path>
+                <path fill="currentColor" d="M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z"></path>
+              </svg>
+            </span>
+            <div class="single-message d-flex flex-direction-column w-100">
+              <div class="d-flex">
+                <p class="mb-1 text-title text-16 flex-grow-1">{{item.name}}</p>
+                <span class="text-small " style="color:white!important;">{{item.time}}</span>
+              </div>
+              <div>
+                <p class="m-0">{{item.message}}</p>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+
+  <div class="pl-3 pr-3 pt-3 pb-3 box-shadow-1 chat-input-area" style="padding-bottom: 1.0em;">
+    <form class="inputForm">
+      <input type="file" id="FileUpload" class="form-control sr-only">
+      <div class="form-group">
+        <textarea class="msger-inputarea form-control form-control-rounded" placeholder='Ingrese su mensaje'></textarea>
+      </div>
+      <div class="d-flex">
+        <div class="flex-grow-1"></div>
+        <button class="btn btn-icon btn-rounded btn-first mr-2">
+          <i class="i-Paper-Plane"></i> Enviar
+        </button>
+        <button class="btn btn-icon btn-rounded btn-outline-first" (click)="saveFile()" type="button">
+         <i class="i-Add-File"></i> Subir Archivo
+        </button>
+
+      </div>
+    </form>
+  </div>
+</div>

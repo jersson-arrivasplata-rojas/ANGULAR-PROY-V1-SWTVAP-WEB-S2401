@@ -1,0 +1,14 @@
+<div class="card card-icon-bg card-icon-bg-{{tipo}} o-hidden mb-4 {{clase}}">
+  <div class="card-body text-center">
+      <i class="{{icono}}"></i>
+      <div class="content">
+          <p class="text-muted-2 mt-2 mb-0 text-{{tipo}}" [innerHTML]="titulo | sanitizeHtml "></p>
+          <p class="text-{{tipo}} text-24 line-height-1 mb-2 " [innerHTML]="cantidad | sanitizeHtml "></p>
+      </div>
+  </div>
+</div>
+<!--  <app-card-icon-large [titulo]="'New Leads'" [cantidad]="'205'" [icono]="'i-Add-User'" [tipo]="'primary'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Sales'" [cantidad]="'4021'" [icono]="'i-Financial'" [tipo]="'warning'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Orders'" [cantidad]="'80'" [icono]="'i-Checkout-Basket'" [tipo]="'danger'"></app-card-icon-large>
+      <app-card-icon-large [titulo]="'Expense'" [cantidad]="'120'" [icono]="'i-Money-2'" [tipo]="'info'"></app-card-icon-large>
+-->

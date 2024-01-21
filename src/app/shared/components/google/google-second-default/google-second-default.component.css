@@ -1,0 +1,22 @@
+#google-map-second{
+    width: 100%;
+    height: 85vh;
+}
+#FORM-INPUT-SECOND-GOOGLE{
+    display: block!important;
+}
+
+input.input-map-second,select.input-map-second{
+    height: 45px;
+    border-radius: 15px;
+}
+
+button.button-map-second{
+    border-radius: 15px;
+}
+
+#INPUTLATITUDLONGITUD-SECOND{
+    display: flex;
+    font-size: 14px;
+    color: white;
+}

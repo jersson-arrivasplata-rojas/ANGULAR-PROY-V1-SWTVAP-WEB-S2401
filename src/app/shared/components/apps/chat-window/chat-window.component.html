@@ -1,0 +1,106 @@
+<button class="open-button btn-chat-windows" (click)="openForm()">
+  <i class="mdi mdi-chat-outline mr-1"></i> Chat de la tienda <span class="badge badge-light">9</span>
+</button>
+
+<div class="chat-popup" id="myForm">
+  <!--<form action="/action_page.php" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>-->
+  <div class="chatBox" id="chatBox">
+    <div class="card">
+
+      <header class="card-header header-title d-flex justify-content-between flex-direction-column">
+
+        <div class="d-flex justify-content-between">
+          <p class="card-header-title">
+            <i class="fa fa-circle is-online"></i>
+            <!--<img src="https://k0.okccdn.com/php/load_okc_image.php/images/32x0/971x939/0/10846088441021659030.webp?v=2" style="width: 30px;">-->
+            Ejemplo
+          </p>
+          <button class="card-header-icon btn btn-light-2" style="  display:contents;  line-height: 1;">
+            <span class="icon">
+              <i class="fas fa-times" (click)="closeForm()"></i>
+            </span>
+          </button>
+        </div>
+        <div class="form-group ">
+          <div class="col p-0 mb-2">
+            <input type="text" class="form-control form-group-input" name="name" placeholder="Nombre">
+          </div>
+          <div class="col p-0 mb-0">
+            <input type="text" class="form-control form-group-input" name="email" placeholder="Correo">
+          </div>
+        </div>
+      </header>
+
+      <div id="chatbox-area">
+        <div class="card-content chat-content">
+
+          <div class="content pt-2 pb-2">
+            <div class="chat-message-group">
+              <div class="chat-thumb">
+                <figure class="image is-32x32">
+                  <!--<img src="https://k0.okccdn.com/php/load_okc_image.php/images/32x0/971x939/0/10846088441021659030.webp?v=2">-->
+                </figure>
+              </div>
+              <div class="chat-messages">
+                <div class="message">Olá meu nome é Camila</div>
+                <div class="from">Hoje 04:55</div>
+              </div>
+            </div>
+            <div class="chat-message-group writer-user">
+              <div class="chat-messages">
+                <div class="message">Olá meu nome é Marinho</div>
+                <div class="from">Hoje 04:55</div>
+              </div>
+            </div>
+            <div class="chat-message-group">
+              <div class="chat-thumb">
+                <figure class="image is-32x32">
+                  <!--<img src="https://k0.okccdn.com/php/load_okc_image.php/images/32x0/971x939/0/10846088441021659030.webp?v=2">-->
+                </figure>
+              </div>
+              <div class="chat-messages">
+                <div class="message">Olá meu nome é Marinho</div>
+                <div class="message">Caro marinho</div>
+                <div class="from">Hoje 04:55</div>
+              </div>
+            </div>
+            <div class="chat-message-group">
+              <div class="typing w-100 text-center">Esperando a que responda ..</div>
+              <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="file" id="FileUploadNoAuth" class="form-control sr-only">
+
+        <footer class="card-footer" id="chatBox-textbox">
+          <div style="width: 100%">
+            <textarea id="chatTextarea" class="chat-textarea" placeholder="Ingrese su mensaje"></textarea>
+          </div>
+          <div class="has-text-centered" style="width: 100%">
+            <a class="button is-white">
+              <i class="fa fa-smile-o fa-5" aria-hidden="true"></i>
+            </a>
+            <button class="button btn btn-first btn-sm is-white">Enviar mensaje</button>
+            <button class="btn btn-icon btn-rounded  btn-sm btn-outline-first ml-2" (click)="saveFile()" type="button">
+              <i class="i-Add-File"></i> Subir Archivo
+            </button>
+
+          </div>
+
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

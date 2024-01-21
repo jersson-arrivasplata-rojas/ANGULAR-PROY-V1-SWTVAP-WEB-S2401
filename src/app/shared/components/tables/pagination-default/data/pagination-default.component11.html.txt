@@ -1,0 +1,19 @@
+
+<!-- [innerHTML]="code | sanitizeHtml " -->
+<nav>
+  <ul class="pagination ">
+    <li class="page-item">
+      <button class="page-link" href="#" (click)="Prev($event)" >Anterior</button>
+    </li>
+    <li class="page-item cursor-pointer " [ngClass]="{'active': (i+1) == 1}" *ngFor="let item of counter(); let i = index">
+      <button class="page-link" (click)="Bind($event,i)" href="#">{{(i+1)}}</button>
+    </li>
+    <li class="page-item">
+      <button class="page-link" (click)="Next($event)">Siguiente</button>
+    </li>
+  </ul>
+
+</nav>
+<!--
+  ,'d-none': (((i+1) > 5) && ((i+1) < totalInt()- 4 ))
+-->

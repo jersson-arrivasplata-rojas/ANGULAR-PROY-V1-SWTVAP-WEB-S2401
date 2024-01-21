@@ -1,9 +1,9 @@
 version: '3.9'
-name: ANGULAR-PROY-V1-SWTVAP-WEB-S2401
+name: ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401
 services:
     web:
-        image: ANGULAR-PROY-V1-SWTVAP-WEB-S2401
-        container_name: ANGULAR-PROY-V1-SWTVAP-WEB-S2401
+        image: ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401
+        container_name: ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401
         build:
             context: .
             dockerfile: Dockerfile

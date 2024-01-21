@@ -1,0 +1,106 @@
+<main class="row login-default m-0">
+  <section class="col-md-6 pr-0 pl-0 panel-left" id="panel-left">
+    <div class="align-self-center">
+      <img src="assets/img/bg.jpg" alt="Sumac Logo" class="item-left-img" />
+    </div>
+  </section>
+  <section class="col-md-6 panel-right" id="panel-right">
+    <div class="container d-flex flex-column justify-content-between" style="height: 100vh">
+      <div class="row">
+        <div class="col-12">
+          <img class="logo-img cursor-pointer" [routerLink]="['/home']" src="https://via.placeholder.com/100x100" />
+        </div>
+      </div>
+      <div class="row">
+        <form #loginForm="ngForm" appIdentityRevealed class="col-12 col-md-8 offset-md-2">
+          <div class="spinner-block-white" id="PRELOAD-LOGIN" [hidden]="!loginForm.submitted"></div>
+          <div>
+            <div class="cross-validation" [class.cross-validation-error]="
+                loginForm.errors?.identityRevealed &&
+                (loginForm.touched || loginForm.dirty)
+              ">
+              <div class="row mb-4">
+                <h2 class="col-12 mt-0 mb-2 text-center">Iniciar Sesión</h2>
+                <h2 class="col-12 mt-0 mb-0 text-center" *ngIf="store_name != ''">
+                  {{ store_name }}
+                </h2>
+              </div>
+              <div class="input-group border-input-group-prepend mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <span class="mdi mdi-email-outline"></span>
+                  </div>
+                </div>
+                <input type="email" appForbiddenName="bob" [(ngModel)]="user.email" #email="ngModel"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  class="form-control border-input-left input-middle-prepend" name="email" id="email"
+                  placeholder="Correo electrónico" required />
+              </div>
+
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert alert-danger alert-invalid-dirty">
+                Correo electrónico ingresado incorrectamente
+                <span class="mdi mdi-arrow-up-bold"></span>
+              </div>
+
+              <div class="input-group border-input-group-prepend mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <span class="mdi mdi-lock-outline"></span>
+                  </div>
+                </div>
+                <input appForbiddenName="bob" [(ngModel)]="user.password" #password="ngModel" type="{{ typePassword }}"
+                  (keyup)="passwordKeyUp($event)" (blur)="passwordBlur($event)" (focus)="passwordFocus($event)"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  class="form-control border-input-left input-middle-prepend-append" name="password" id="password"
+                  placeholder="Contraseña" required />
+                <div class="input-group-append">
+                  <div class="input-group-text bg-info p-0">
+                    <button class="btn btn-info-2" id="showPAssword" (click)="showPassword($event)">
+                      {{ textPassword }}
+                    </button>
+                  </div>
+                </div>
+                <small id="passwordHelpBlock" class="form-text text-muted-2">
+                  Su contraseña debe tener entre 6 y 20 caracteres, contener
+                  letras y números, y no debe contener espacios, caracteres
+                  especiales ni emoji.
+                </small>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="message">
+                    <h5>La contraseña debe contener lo siguiente:</h5>
+                    <p id="letter" class="invalid mb-1">
+                      Una letra <b> minúscula </b>
+                    </p>
+                    <p id="capital" class="invalid mb-1">
+                      Una letra <b> mayúscula (mayúscula) </b>
+                    </p>
+                    <p id="number" class="invalid mb-1">Un <b> número </b></p>
+                    <p id="length" class="invalid mb-4">
+                      Mínimo <b> 6 caracteres </b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-6 links text-center">
+                  <div class="form-group text-center pt-0 mb-0">
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-first btn-block border-input">
+                      Continuar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="d-flex justify-content-right">
+        <p class="small">©2024 Sumac Chasca Perú S.A.C.</p>
+      </div>
+    </div>
+  </section>
+</main>

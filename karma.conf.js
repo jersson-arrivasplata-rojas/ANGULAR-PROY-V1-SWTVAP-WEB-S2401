@@ -26,7 +26,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ANGULAR-PROY-V1-SWTVAP-WEB-S2401'),
+      dir: require('path').join(__dirname, './coverage/ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401'),
       subdir: '.',
       fixWebpackSourcePaths: true,
       reporters: [

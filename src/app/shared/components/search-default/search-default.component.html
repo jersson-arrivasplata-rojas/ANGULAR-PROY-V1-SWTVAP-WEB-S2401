@@ -1,0 +1,44 @@
+<form #searchForm="ngForm" (ngSubmit)="onSubmit()" class="form-search" action="" method="get" role="search">
+    <div class="col-lg-5 col-md-6 col-sm-12 col-12">
+        <div class="nav-scroller border-input bg-yellow py-1 mb-2">
+            <nav class="nav d-flex justify-content-center align-items-center">
+                <label class="pr-2 pl-2 mt-2 mb-2 text-first font-weight-400" for="CHECKBOX_EN_PROMOCION" >
+                    <input type="checkbox"  [(ngModel)]="search.check_promotions" #check_promotions="ngModel"
+                    name="check_promotions"  id="CHECKBOX_EN_PROMOCION" name="CHECKBOX_EN_PROMOCION" value="">
+                    <img class="img-icons-yellow" src="{{APP_URL}}assets/images/icons/EN_PROMOCION.svg"> EN PROMOCION
+                </label>
+            </nav>
+        </div>
+
+        <div class="input-group input-search-double" style="    margin-bottom: -3px;">
+     
+            <input type="text"  [(ngModel)]="search.address" #address="ngModel"
+            name="address" id="address" class="form-control input  text-center" placeholder="¿En que ubicación busca?" >
+            <input type="text" [(ngModel)]="search.product" #product="ngModel"
+            name="product" id="product"  class="form-control input text-center" placeholder="¿Qué producto buscar?" >
+        </div>
+        <div class="input-group input-search-one mt-2" >
+            <input type="text" [(ngModel)]="search.name" #name="ngModel"
+            name="name" id="name" class="form-control input  text-center" placeholder="¿Qué tienda busca?">
+        </div>
+        <button class="btn btn-secondary shadow  btn-block mt-3 border-input" (click)="busquedaExplorar()">
+            Buscar <i class="dripicons-search"></i>
+        </button>
+
+    </div>
+</form>
+
+<!--
+    <label class="pr-2 pl-2 mt-2 mb-2 text-first font-weight-400 position-relative not-allowed"  for="CHECKBOX_VISTA" hidden>
+    <input type="checkbox" id="CHECKBOX_VISTA" name="CHECKBOX_VISTA" value="">
+    <img class="img-icons-yellow" src="{{APP_URL}}assets/images/icons/VISTA.svg"> LOS MAS VISTOS
+</label>
+-->
+<!--<a class="pr-2 pl-2 mt-2 mb-2 text-muted-2 position-relative not-allowed" href="javascript:void(0)">
+    <span class="block-a-href"></span>
+    <img class="img-icons-yellow" src="https://www.snapstore.app/assets/images/icons/LIKE.svg"> MEJOR CALIFICADOS
+</a>
+<a class="pr-2 pl-2 mt-2 mb-2 text-muted-2 position-relative not-allowed" href="javascript:void(0)">
+    <span class="block-a-href"></span>
+    <img class="img-icons-yellow" src="https://www.snapstore.app/assets/images/icons/MAS_VENDIDOS.svg"> TOP EN VENTAS
+</a>-->

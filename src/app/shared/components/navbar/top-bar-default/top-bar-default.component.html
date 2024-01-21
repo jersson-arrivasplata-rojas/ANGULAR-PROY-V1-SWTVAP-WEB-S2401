@@ -1,0 +1,231 @@
+<div class="header-top shadow pt-2 pb-2" [ngClass]="[getClassHeaderTop()]"  style="background:var(--theme_color_first)">
+    <!--[style.background]="store_customizer_bootstrap[0].theme_color_info"-->
+    <a *ngIf="type==0" style="left: 0.8rem;"
+        class="text-first   pr-3 text-decoration-auto position-absolute  m-auto cursor-pointer text-decoration-auto d-flex justify-content-center align-items-center"
+        id="dripIconsChevRonLeftStore" (click)="goBackLeft($event)">
+        <i class="dripicons-chevron-left dropdown-left-store "></i>
+    </a>
+    <a *ngIf="type==1" style="left: 0.8rem;"
+        class="text-first   pr-3 text-decoration-auto position-absolute  m-auto cursor-pointer text-decoration-auto d-flex justify-content-center align-items-center"
+        id="dripIconsChevRonLeftStore" (click)="goBackLeftStore($event)">
+        <i class="dripicons-chevron-left dropdown-left-store "></i>
+    </a>
+    <a *ngIf="type==2" style="left: 0.8rem;"
+        class="text-first   pr-3 text-decoration-auto position-absolute  m-auto cursor-pointer text-decoration-auto d-flex justify-content-center align-items-center"
+        id="dripIconsChevRonLeftStore" (click)="goBackLeftCartStore($event)">
+        <i class="dripicons-chevron-left dropdown-left-store "></i>
+    </a>
+    <div class="container clearfix top-bar-container ">
+        <!--Top Left-->
+        <div class="top-left float-left list-container" style=" line-height: 2;">
+            <ul class="links-nav d-flex align-items-center mb-0 pl-0 " style="    list-style: none;">
+                <li>
+                    <span class="text-first ">Celular:</span>
+                    <a href="tel:(51) {{stores_celphone}}" class="text-first  cursor-pointer" style="font-size: 14px;">
+                        +51 {{stores_celphone}}
+                    </a>
+                </li>
+                <li class="ml-2">
+                    <span class="text-first ">Correo:</span>
+                    <a href="mailto:{{stores_email}}" class="text-first   cursor-pointer" style="font-size: 14px;">
+                        {{stores_email}}
+                    </a>
+                </li>
+                <li class="ml-2">
+                    <span class="text-first ">Redes Sociales:</span>
+                    <a href="{{stores_whatsapp}}" class="  font-weight-bold ml-2 cursor-pointer" target="_blank"><span
+                            style="font-size: 20px;" class="mdi mdi-whatsapp cursor-pointer text-first "></span></a>
+                    <a href="{{stores_facebook}}" class=" font-weight-bold ml-2 cursor-pointer" target="_blank"><span
+                            style="font-size: 20px;" class="mdi mdi-facebook cursor-pointer text-first "></span></a>
+                    <a href="{{stores_instagram}}" class=" font-weight-bold ml-2 cursor-pointer" target="_blank"><span
+                            style="font-size: 20px;" class="mdi mdi-instagram cursor-pointer text-first "></span></a>
+                </li>
+            </ul>
+
+        </div>
+        <!--Top Right-->
+        <div class="top-right  float-right d-flex ">
+            <!--float-right-->
+            <div class=" btn-cart-container-store d-flex flex-row" *ngIf="store_active==false">
+                <a class="btn-second mr-2 text-first mt-auto cursor-pointer btn-bell-storefront  btn-bell-store"
+                    style="position: relative;width: 125px;word-break: break-word;">
+                    <i class="mdi mdi-storefront "></i>
+                    <span>Crea tu tienda</span>
+                </a>
+            </div>
+
+            <!--style=" position: absolute; right: 9.5rem;" -->
+            <!--<div class=" btn-cart-container-store d-flex flex-row" style="position: relative;"  *ngIf="hide_cart==false">
+                <p class="txt-white font-weight-bold mr-2 mb-0" style="line-height: 3;">{{price | moneda:2 }}</p>
+                <a class="btn-secondary text-first mt-auto cursor-pointer  btn-cart-store"  (click)="addCart()">
+                    <i class="mdi mdi-cart-outline" ></i>
+                </a>
+            </div>-->
+            <div class=" btn-cart-container-store d-flex flex-row" *ngIf="hide_cart==false">
+                <a class="btn-second mr-2 mt-auto cursor-pointer btn-cart-store  btn-bell-store" (click)="addCart()">
+                    <span class="mdi mr-2 mdi-cart-outline"></span>
+                    <span class="">S/{{price | number : '.1-3' }}</span>
+                </a>
+            </div>
+
+           <!--
+ <div class=" btn-cart-container-store d-flex flex-row" [ngStyle]='style_bell'>
+                <a class="btn-warning-2 mr-3 text-first mt-auto cursor-pointer  btn-bell-store"
+                    style="position: relative;">
+                    <i class="mdi mdi mdi-bell-outline"></i>
+                    <span class="badge  badge-light icon-bell">9</span>
+                </a>
+            </div>
+           -->
+            <div *ngIf="dropDownType==0" class="drop-down " [ngClass]='{"drop-down--active":dropdown_active==true}'>
+                <div id="dropDown" class="drop-down__button btn btn-outline-first  border-input"  #DropDown
+                    style="     " (click)="dropdown(DropDown)">
+                    <i class="mdi mdi-chevron-down  mr-1 "></i>
+                    <span class="drop-down__name  mr-1">Menú</span>
+                </div>
+                <div class="drop-down__menu-box">
+                    <ul  class="drop-down__menu">
+
+                        <li data-name="home" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home']">
+                                <i class="mdi mdi-home-outline mr-1"></i> Inicio Sumac Chasca Perú S.A.C.
+                            </a>
+                        </li>
+                        <li data-name="perfil" class="drop-down__item">
+
+                            <a class="d-block w-100" [routerLink]="['/home/perfil']">
+                                <i class="dripicons-user mr-1"></i> Mi perfil
+                            </a>
+                        </li>
+                        <li data-name="shopping" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/compras']">
+                                <i class="mdi mdi-shopping mr-1"></i> Mis compras
+                            </a>
+                        </li>
+                        <li data-name="favorites" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/favoritos']">
+                                <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
+                            </a>
+
+                        </li>
+                        <li data-name="shopping-basket" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/carrito']">
+                                <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                            </a>
+                        </li>
+                        <li data-name="dashboard" class="drop-down__item" *ngIf="store_active==true">
+                            <a class="d-block w-100" [routerLink]="['/'+stores_uri+'/dashboard/inicio']">
+                                <i class="mdi mdi-storefront mr-1"></i> Mi Administrador
+                            </a>
+                        </li>
+                        <li data-name="ayuda" class="drop-down__item">
+                            <a class="d-block w-100" target="_blank"
+                                href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                                <i class="dripicons-help mr-1"></i> Ayuda SnapStore
+                            </a>
+                        </li>
+
+                        <li data-name="salir" class="drop-down__item">
+                            <a href="#" class="d-block w-100" (click)="logout()">
+                                <i class="mdi mdi-logout-variant mr-1"></i> Salir
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div  *ngIf="dropDownType==2" class="drop-down " [ngClass]='{"drop-down--active":dropdown_active==true}'>
+                <div id="dropDown" class="drop-down__button btn btn-outline-first  border-input" #DropDown
+                    style="  " (click)="dropdown(DropDown)">
+                    <i class="mdi mdi-chevron-down mr-1 "></i>
+                    <span class="drop-down__name mr-1">Menú</span>
+                </div>
+                <div class="drop-down__menu-box">
+                    <ul class="drop-down__menu">
+
+                        <li data-name="perfil" class="drop-down__item">
+
+                            <a class="d-block w-100" [routerLink]="['/home/perfil']">
+                                <i class="dripicons-user mr-1"></i> Mi perfil
+                            </a>
+                        </li>
+                        <li data-name="shopping" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/compras']">
+                                <i class="mdi mdi-shopping mr-1"></i> Mis compras
+                            </a>
+                        </li>
+                        <li data-name="favorites" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/favoritos']">
+                                <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
+                            </a>
+
+                        </li>
+                        <li data-name="shopping-basket" class="drop-down__item">
+                            <a class="d-block w-100" [routerLink]="['/home/carrito']">
+                                <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                            </a>
+                        </li>
+                        <li data-name="ayuda" class="drop-down__item">
+                            <a class="d-block w-100" target="_blank"
+                                href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                                <i class="dripicons-help mr-1"></i> Ayuda SnapStore
+                            </a>
+                        </li>
+
+                        <li data-name="salir" class="drop-down__item">
+                            <a href="#" class="d-block w-100" (click)="logout()">
+                                <i class="mdi mdi-logout-variant mr-1"></i> Salir
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;"
+                        (click)="dropdown(DropDown)">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="dropDownType==1" class="drop-down drop-down-auth-bar" [ngClass]='{"drop-down--active":dropdown_active==true}'>
+                <div class="drop-down__button btn btn-outline-first  mr-2  border-input" >
+                    <a class="d-block w-100" (click)="login()">
+                        <i class="mdi mdi-login-variant mr-1"></i>
+                        <span class="drop-down__name  mr-1">Ingresar</span>
+                    </a>
+                </div>
+
+                <div  class="drop-down__button btn btn-outline-first  border-input" (click)="register()" >
+                    <button type="button" class=" cursor-pointer btn-register position-relative"   (click)="register()" >
+                        <i class="mdi mdi-account-plus mr-1"></i>
+                        <span class="drop-down__name  mr-1">Crear usuario o tienda</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--                        <span class="tooltiptext">Crear usuario o tienda</span> Registrar
+
+    <ng-template #popContent><b>Crear usuario o tienda</b></ng-template>
+
+                <div  class="drop-down__button btn btn-outline-first  border-input" (click)="register()" >
+                    <button type="button" class=" cursor-pointer btn-register"
+                        placement="bottom"  [ngbPopover]="popContent" (click)="register()"
+                         #p="ngbPopover" [ngClass]="isOpen(p)" popoverClass="my-custom-class">
+                        <i class="mdi mdi-account-plus mr-1"></i>
+                        <span class="drop-down__name  mr-1">Registrar</span>
+                        <span class="tooltiptext">Crear usuario o tienda</span>
+                    </button>
+                </div>
+
+
+                    <a class="d-block w-100" #p="ngbPopover" (click)="register()"  [disabled]="isDisabled(p)"
+                    [autoClose]="false" triggers="manual" placement="bottom" ngbPopover="Crear usuario o tienda">
+                        <i class="mdi mdi-account-plus mr-1"></i>
+                        <span class="drop-down__name  mr-1">Registrar</span>
+                    </a>
+
+     <div  class="drop-down__button btn btn-outline-first  border-input"  >
+                    <a class="d-block w-100"  (click)="register()">
+                       <span class="drop-down__name ">Crear <i class="mdi mdi-account-plus" style="font-size: 20px"></i> o <i class="mdi mdi-storefront" style="font-size: 20px"></i></span>
+                    </a>
+                </div>
+-->

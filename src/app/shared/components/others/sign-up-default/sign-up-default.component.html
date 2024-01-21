@@ -1,0 +1,245 @@
+
+<main class="row login-default m-0">
+    <section class="col-md-6 pr-0 pl-0 panel-left " id="panel-left">
+        <div class=" align-self-center">
+            <!--container-->
+            <ngb-carousel>
+                <!--[showNavigationIndicators]="false"-->
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="'./assets/images/rutas/login/01.jpg'"
+                            class="carousel-item-img background-repeat position-relative" alt="Random first slide">
+
+                        <img [src]="'./assets/images/rutas/login/01.jpg'" class="carousel-item-img background-repeat-no"
+                            alt="Random first slide">
+
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="'./assets/images/rutas/login/02.jpg'"
+                            class="carousel-item-img background-repeat position-relative" alt="Random second slide">
+
+                        <img [src]="'./assets/images/rutas/login/02.jpg'" class="carousel-item-img background-repeat-no"
+                            alt="Random first slide">
+
+                    </div>
+
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+
+                        <img [src]="'./assets/images/rutas/login/03.jpg'"
+                            class="carousel-item-img  background-repeat position-relative" alt="Random third slide">
+                        <img [src]="'./assets/images/rutas/login/03.jpg'" class="carousel-item-img background-repeat-no"
+                            alt="Random first slide">
+
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </section>
+
+    <section class="col-md-6 panel-right" id="panel-right" style="    overflow-y: scroll">
+        <div class="container d-flex flex-column justify-content-between" style="height: 100vh;">
+            <div class="row">
+                <div class="col-12">
+                    <img class="logo-img" src="../../../../assets/images/rutas/login/snapstore.png">
+                </div>
+            </div>
+            <div class="row">
+                <form #signUpForm="ngForm" (ngSubmit)="onSubmit()" appIdentityRevealed class="col-12 col-md-8 offset-md-2">
+                    <div class="spinner-block-white" id="PRELOAD-SIGNUP" [hidden]="!signUpForm.submitted">
+
+                    </div>
+                    <div><!--[hidden]="signUpForm.submitted"-->
+                        <div class="cross-validation" [class.cross-validation-error]="signUpForm.errors?.identityRevealed
+                        && (signUpForm.touched || signUpForm.dirty)">
+
+                            <div class="row mb-5">
+                                <h2 class="col-12 text-center">Crear Cuenta de {{typeRegister}}</h2>
+                            </div>
+                            <div><!-- [value]="'user'"--->
+                                <div class="btn-group btn-group-toggle  mb-3">
+                                    <button class="btn-secondary border-input mr-3" [style]="buttonRadioStyle"
+                                        id="label-checked-user" (click)="switchUserActive($event)">
+                                        <label class="form-check-label  pr-2 pl-2" for="InputRadioUser">
+                                            <input class="form-check-input d-none" appForbiddenName="bob"
+                                              name="type_user"  type="radio" id="InputRadioUser" checked>
+                                            Usuario <i class="far fa-user"></i>
+                                        </label>
+                                    </button><!--,'store'-->
+                                    <button class="btn-secondary border-input opacity-8" [style]="buttonRadioStyle"
+                                        id="label-checked-store" (click)="switchStoreActive($event)">
+                                        <label class="form-check-label  pr-2 pl-2"  for="InputRadioStore">
+                                            <input class="form-check-input d-none" type="radio"
+                                            name="type_user" id="InputRadioStore">
+
+                                            Tienda <i class=" mdi mdi-storefront"></i>
+                                        </label>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="input-group border-input-group-prepend mb-3">
+                                <input type="text" minlength="4" appForbiddenName="bob"
+                                [(ngModel)]="user.name" #name="ngModel"
+                                name="name" id="name" placeholder="Nombre completo"
+                                class="form-control input-middle-prepend border-input-left"  required>
+                            </div>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger alert-invalid-dirty">
+                                Nombre ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
+                            </div>
+                            <div class="input-group border-input-group-prepend mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text p-0">
+                                        <select id="country_phone_code" (change)="countryPhone($event)" name="country_phone_code" class="form-control   border-input "
+                                            required [(ngModel)]="user.country_phone_code" #country_phone_code="ngModel" >
+                                            <option  [ngStyle]="{backgroundImage:'url(https://flagcdn.com/48x36/'+(p.iso2).toLowerCase()+'.png)'}" *ngFor="let p of allContries" [value]="p.phone_code">{{p.name_es}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="text" appForbiddenName="bob" minlength="9"
+                                [(ngModel)]="user.celphone" #celphone="ngModel" pattern="[0-9]*" class="form-control input-middle-prepend-append" name="celphone"
+                                    id="celphone" placeholder="Celular" required>
+                                <div class="input-group-append">
+                                    <div style="background: transparent;" class="input-group-text  p-0">
+                                        <img style="width: 30px;margin-left: 1em;margin-right: 1em;" class="img-celphone" src="https://flagcdn.com/48x36/pe.png">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div *ngIf="celphone.invalid && (celphone.dirty || celphone.touched)" class="alert alert-danger alert-invalid-dirty">
+                                Número de celular ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
+                            </div>
+                            <div class="form-group content-div-document d-none">
+                                <select id="document_type" name="document_type"  (change)="selectTypeDocument($event)" class="form-control border-input"
+                                    required [(ngModel)]="user.document_type" #document_type="ngModel" >
+                                    <option *ngFor="let p of documents_type" [value]="p">{{p}}</option>
+                                </select>
+
+                                <small id="emailHelp" class="form-text text-muted-2">Seleccione su tipo de documento (DNI,
+                                    RUC).</small>
+
+                            </div>
+
+                            <div class="form-group content-div-document d-none">
+
+                                <input type="text" appForbiddenName="bob"
+                                [(ngModel)]="user.document" #document="ngModel"  pattern="{{typePatternDocument}}" class="form-control border-input" name="document" id="document"
+                                    placeholder="N° de documento" required>
+                                <small id="emailHelp" class="form-text text-muted-2">Nunca compartiremos su documento con
+                                    nadie más.</small>
+                            </div>
+                            <div *ngIf="document.invalid && (document.dirty || document.touched)" class="alert alert-danger alert-invalid-dirty">
+                                Número de documento ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
+                            </div>
+                            <div class="input-group border-input-group-prepend mb-3">
+                                <input type="email" appForbiddenName="bob"
+                                [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control border-input-left input-middle-prepend" name="email" id="email"
+                                    placeholder="Correo electrónico" required>
+                            </div>
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger alert-invalid-dirty">
+                                Correo electrónico ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
+                            </div>
+                            <div class="input-group border-input-group-prepend mb-3">
+                                <input  appForbiddenName="bob"
+                                [(ngModel)]="user.password" #password="ngModel" type="{{typePassword}}"
+                                    (keyup)="passwordKeyUp($event)" (blur)="passwordBlur($event)"
+                                    (focus)="passwordFocus($event)" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    class="form-control border-input-left input-middle-prepend-append" name="password" id="password"
+                                    placeholder="Contraseña" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text bg-info p-0">
+                                        <button class="btn btn-info-2  " id="showPAssword"
+                                            (click)="showPassword($event)">{{textPassword}}</button>
+                                    </div>
+                                </div>
+                                <small id="passwordHelpBlock" class="form-text text-muted-2">
+                                    Su contraseña debe ser mayor a 6 carácteres, contener letras y números, y no
+                                    debe contener espacios, caracteres especiales ni emoji.
+                                </small>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="message">
+                                        <!--style="display: none;"-->
+                                        <h5>La contraseña debe contener lo siguiente:</h5>
+                                        <p id="letter" class="invalid mb-1">Una letra <b> minúscula </b></p>
+                                        <p id="capital" class="invalid mb-1">Una letra <b> mayúscula (mayúscula) </b>
+                                        </p>
+                                        <p id="number" class="invalid mb-1">Un <b> número </b></p>
+                                        <p id="length" class="invalid mb-4">Mínimo <b> 6 caracteres </b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 text-left">
+                                  <div class="form-check">
+                                    <input class="form-check-input" [(ngModel)]="user.check_terms_conditions" name="check_terms_conditions" #check_terms_conditions="ngModel"  type="checkbox" id="check_terms_conditions" checked required>
+                                    <label class="form-check-label" for="check_terms_conditions">
+                                        Estoy de acuerdo con los <a target="_blank" style=" text-decoration: underline;" href="#">Términos y Condiciones </a>
+                                    </label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div *ngIf="check_terms_conditions.invalid" class="alert alert-danger alert-invalid-dirty">
+                                Recuerde aceptar los términos y condiciones <span class="mdi mdi-arrow-up-bold"></span>
+                                <p><a target="_blank" style=" text-decoration: underline;" href="#">Pulse aquí para descargar los términos y condiciones</a></p>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 text-left">
+                                  <div class="form-check">
+                                    <input class="form-check-input" [(ngModel)]="user.check_politics_privacy" name="check_politics_privacy" #check_politics_privacy="ngModel" type="checkbox" id="check_politics_privacy" checked required>
+                                    <label class="form-check-label" for="check_politics_privacy">
+                                        Acepto la <a target="_blank" style=" text-decoration: underline;" href="#">Política de Privacidad </a>
+                                    </label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div *ngIf="check_politics_privacy.invalid" class="alert alert-danger alert-invalid-dirty">
+                                Recuerde aceptar las políticas de privacidad <span class="mdi mdi-arrow-up-bold"></span>
+                                <p><a target="_blank" style=" text-decoration: underline;" href="#">Pulse aquí para descargar las políticas de privacidad</a></p>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 text-left">
+                                  <div class="form-check">
+                                    <input class="form-check-input" [(ngModel)]="user.check_emails_snap_store" name="check_emails_snap_store" #check_emails_snap_store="ngModel" type="checkbox" id="check_emails_snap_store" checked>
+                                    <label class="form-check-label" for="check_emails_snap_store">
+                                        Estoy de acuerdo con recibir correos de Sumac Chasca Perú S.A.C.
+                                    </label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6 links text-center">
+                                    <div class="form-group text-center  pt-0 mb-0 ">
+                                        <button [disabled]="signUpForm.invalid"  type="submit" class="btn btn-first btn-block border-input">Crear
+                                            cuenta</button>
+                                    </div>
+                                </div>
+                                <div class="col-6 links text-center d-flex align-items-center justify-content-center">
+                                    <div>
+                                        <a href="javascript:void(0);" class="font-size-link" (click)="login($event)">¡Ya
+                                            tengo cuenta!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <p class="small">©2020 Sumac Chasca Perú S.A.C.</p>
+                <ul class="list-unstyle list-inline">
+                    <li class="list-inline-item small">
+                        <a target="_blank"
+                            href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Carousel https://ng-bootstrap.github.io/#/components/carousel/examples-->

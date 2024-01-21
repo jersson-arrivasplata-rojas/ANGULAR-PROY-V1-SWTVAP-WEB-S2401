@@ -1,0 +1,67 @@
+
+<div id="STORE-DASHBOARD-MAP">
+    <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-MAP"  [style.background]="store?.store_customizer_bootstrap[0].theme_color_first"  hidden>
+    
+    </div>
+    <div class="alerts">
+
+    </div> 
+    <div [ngClass]="{'d-block':preloadDashboard==true,'d-none':preloadDashboard==false}" >
+        <div class=" m-2 sr-only" style="display: none;" id="FORM-INPUT-SECOND-GOOGLE">
+            <div class="row">
+                <div class="col-12">
+                    <label >Dirección del Negocio</label>
+                </div>
+                <div class="col-12">
+                    <div class="form-group d-flex">
+                        <input id="pac-input" type="text"  [value]="address" class="form-control input-map-second" placeholder="Dirección de su negocio">
+                        <button  class="btn btn-first ml-2 button-map-second" id="saveGoogleSecondDefault" [ladda]="isLoading">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label >Dirección Referencial:</label>
+                        <input id="pac-input-referencial" type="text" [value]="address_referential" class="form-control input-map-second" placeholder="Dirección referencial de su negocio">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label >Se encuentra en: </label>
+                        <select id="address_type_google_second" [value]="address_type" name="address_type" class="form-control input-map-second" >
+                            <option>Casa</option>
+                            <option>Condominio</option>
+                            <option>Departamento</option>
+                            <option>Local</option>
+                            <option>Oficina</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+        <div id="INPUTLATITUDLONGITUD-SECOND">
+            <p class="mb-1 mr-2" style="color: black;" *ngIf="inputLatitud!=''">{{inputLatitud}}</p>
+            <p class="mb-1" style="color: black;" *ngIf="inputLongitud!=''">{{inputLongitud}}</p>
+        </div>
+
+        <div id="infowindow-content-second">
+            <img src="" width="16" height="16" class="sr-only" id="place-icon-second">
+            <p class="mb-0">
+                <span id="place-name-second"  class="title"></span> 
+            </p>
+            <p class="mb-0">
+
+                <span id="place-address-second"></span>
+            </p>
+        </div>
+        <div id="google-map-second" class="google-map-second"></div>
+
+    </div>
+</div>
+

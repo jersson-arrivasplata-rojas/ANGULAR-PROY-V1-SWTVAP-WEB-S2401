@@ -1,0 +1,22 @@
+<select class="{{selectClass}} " [ngClass]="getClasses()" >
+  <option *ngFor="let item of options; let i = index" selected="{{item.selected}}" value="{{item.value}}">{{item.text}}</option>
+</select>
+<!--
+  <app-select-default [options]="[
+    {
+      value: '1',
+      selected: '',
+      text:'Option 1'
+    },
+    {
+      value: '2',
+      selected: 'selected',
+      text:'Option 2'
+    },
+    {
+      value: '3',
+      selected: '',
+      text:'Option 3'
+    }
+  ]"></app-select-default>
+-->

@@ -1,0 +1,6 @@
+<div class="mt-auto btn-heart-store heart-icon cursor-pointer"  [style.fontSize]='fontSize'
+    id="{{content_id}}" #heartDefault
+    (click)="addHeart(heartDefault)">
+    <i class="mdi  cursor-pointer is-active" [ngClass]="{'mdi-heart-outline':heart==0,'mdi-heart':heart==1}"></i>
+</div>
+<!-- (mouseleave)="mouseleaveHeart(heartDefault)"   (mouseenter)="mouseenterHeart(heartDefault)" -->

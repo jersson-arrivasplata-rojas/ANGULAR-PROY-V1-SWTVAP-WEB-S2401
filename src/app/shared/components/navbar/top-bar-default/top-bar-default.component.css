@@ -1,0 +1,108 @@
+.top-bar-container{
+    width: 80%;
+}
+.header-top{
+    height: 60px;
+}
+.btn-bell-storefront{
+  position: relative;width: 125px;word-break: break-word;
+}
+.btn-bell-storefront i{
+  display: block;
+  line-height: 1;
+}
+.btn-bell-storefront span{
+  font-size: 14px;display: grid;position: absolute;top: 22px;width: 100%;
+}
+.btn-bell-store{
+    font-size: 1.6rem;
+    text-align: center;
+    border-radius: 15px;
+    width: 45px;
+    height: 45px;
+}
+
+.btn-cart-store{
+  position: relative;
+  width: auto;
+  word-break: break-word;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 16px;
+  border-radius: 15px;
+  height: 45px;
+}
+.btn-cart-store span{
+  font-size: 14px;
+  display: grid;
+  top: 22px;
+  width: 100%;
+}
+.btn-cart-container-store{
+    /*position: fixed;
+    bottom: 4rem;
+    right: 2rem;*/
+    z-index: 99;
+}
+.btn-register{
+  border-style: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+}
+
+.drop-down-auth-bar{
+  display: flex;
+}
+@media (max-width: 768px) {
+    .list-container{
+        display: none;
+    }
+    .header-top.header-top-no-authenticate{
+      height: 120px;
+  }
+
+  .btn-cart-container-store a{
+    margin-top: 0px!important;
+  }
+  .btn-register{
+    font-size: 12px;
+  }
+}
+
+.btn-bell-store{
+
+}
+
+.icon-bell{
+    border-radius: 50px;
+    font-size: 12px;
+    position: absolute;
+}
+
+/*.header-top*/
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1065px) { 
+  .header-top{
+    height: 110px;
+  }
+ 
+}
+
+
+.tooltiptext {
+  visibility: visible;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}

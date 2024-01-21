@@ -1,0 +1,12 @@
+<p class="d-flex justify-content-end mb-0 mr-2 ml-2">
+    <input class="form-control input-cantidad-store border-input text-center mr-2"
+        id='input-product-{{content}}-{{products_id}}' value="{{quantity}}" type="number" placeholder="Cantidad">
+    <button type="button" (click)="addCart($event)"
+        class="btn btn-first btn-sm border-input d-flex justify-content-center align-items-center cart-negocio">
+        <i id='spinner-product-{{content}}-{{products_id}}-i' class="fa fa-spinner fa-spin d-none"></i> <i
+            id='spinner-cart-{{content}}-{{products_id}}-i' class="mdi mdi-cart-outline "></i>
+    </button>
+</p>
+<div role="alert" #alert class="alert d-none mt-3 text-center mb-0 alert-success alert-success-check" id='alert-product-{{content}}-{{products_id}}'>
+    <i class="fas fa-check"></i> ¡Agregado al carrito!
+</div>

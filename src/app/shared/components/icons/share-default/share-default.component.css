@@ -1,0 +1,87 @@
+
+.share {
+    position: absolute;
+    right: 0;
+    right: 10px;
+    top: 5px;
+    /*position: fixed;
+    right: 20px;
+    bottom: 20px;*/
+  }
+  
+.share__toggle:checked ~ .share__button {
+    transform: rotate(-180deg);
+  }
+  .share__toggle:checked ~ .share__icon--facebook {
+    transform: translateX(-45px) rotate(0);
+  }
+  .share__toggle:checked ~ .share__icon--whatsapp {
+    transform: translateX(-90px) rotate(0);
+  }
+  .share__toggle:checked ~ .share__icon--twitter {
+    transform: translateX(-135px) rotate(0);
+  }
+  .share__toggle:checked ~ .share__icon--instagram {
+    transform: translateX(-180px) rotate(0);
+  }
+  .share__button {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #2c2b2f;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px 1px #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 99;
+    border-style: solid;
+    border-color: white;
+    font-size: 20px;
+  }
+  .share__icon {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transform: translateX(0) rotate(180deg);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 9;
+    color: white;
+    font-size: 22px;
+  }
+  .share__icon--facebook {
+    background-color: #3b5998;
+  }
+  .share__icon--twitter {
+    background-color: #1da1f2;
+  }
+  .share__icon--pinterest {
+    background-color: #bd081c;
+  }
+  .share__icon--linkedin {
+    background-color: #0077b5;
+  }
+  .share__icon--instagram {
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    
+  }
+  
+  .share__icon--whatsapp {
+    background-color: var(--icon_whatsapp);
+    
+  }
+  

@@ -1,0 +1,155 @@
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-pagination-default',
+  templateUrl: './pagination-default.component.html',
+  styleUrls: ['./pagination-default.component.scss']
+})
+export class PaginationDefaultComponent implements OnInit {
+  // https://codepen.io/karpovsystems/pen/fFHxK
+
+  @Input() code: string = '';
+  @Input() size: string; // = ''
+  @Input() page: string; // = ''
+  @Input() step: string = '1'; // = ''
+  @Input() classParent: string;
+  //@ViewChild('template') myTemplate: ElementRef;
+
+  constructor() {
+
+  }
+
+  ngOnInit(): void {
+    this.Start()
+  }
+  // https://angular.io/guide/user-input
+  Start() {
+    let step = parseInt(this.step);
+    let size = parseInt(this.size);
+    let page = parseInt(this.page);
+
+    if (size < step * 2 + 6) {
+      this.Add(1, size + 1);
+    }
+    else if (page < step * 2 + 1) {
+      this.Add(1, step * 2 + 4);
+      this.Last();
+    }
+    else if (page > size - step * 2) {
+      this.First();
+      this.Add(size - step * 2 - 2, size + 1);
+    }
+    else {
+      this.First();
+      this.Add(page - step, page + step + 1);
+      this.Last();
+    }
+  }
+  Add(s, f) {
+    let classLi ='';
+    this.code+=`
+    <li class="page-item">
+      <button class="page-link" href="#" (click)="Prev($event)" >Anterior</button>
+    </li>`;
+
+    for (var i = s; i < f; i++) {
+      if(this.page == (i).toString()){classLi = 'active'}else {classLi=''}
+      this.code += `
+      <li class="page-item cursor-pointer ${classLi}">
+        <button class="page-link" (click)="Bind($event,${i})" href="#">${i}</button>
+      </li>
+      `;
+    }
+    this.code+=`
+    <li class="page-item">
+      <button class="page-link" (click)="Next($event)">Siguiente</button>
+    </li>`;
+  }
+
+  // add last page with separator
+  Last() {
+    this.code += `
+      <li class="page-item cursor-pointer">
+        <span class="page-link" >...</span>
+      </li>
+      <li class="page-item cursor-pointer">
+        <button class="page-link" (click)="Bind($event,${this.size})" href="#">${this.size}</button>
+      </li>
+    `;
+    this.code+=`
+    <li class="page-item">
+      <button class="page-link" (click)="Next($event)">Siguiente</button>
+    </li>`;
+  }
+
+  // add first page with separator
+  First() {
+    this.code += `
+    <li class="page-item cursor-pointer">
+      <button class="page-link" (click)="Bind($event,1)" href="#">1</button>
+    </li>
+    <li class="page-item cursor-pointer">
+      <span class="page-link" >...</span>
+    </li>`;
+  }
+
+
+  // change page
+  Click() {
+    //this.page = + this.innerHTML;
+    this.Start();
+  }
+
+  // previous page
+  //@HostListener('click', ['$event'])
+  Prev($event) {
+    this.Finish();
+    let page = parseInt(this.page);
+
+    page--;
+    this.page = (page).toString();
+    if (page < 1) {
+      this.page = (1).toString();
+    }
+    this.Start();
+  }
+
+  Finish(){
+    this.code='';
+  }
+  // next page
+  //@HostListener('click', ['$event'])
+  Next($event) {
+    this.Finish();
+    let size = parseInt(this.size);
+    let page = parseInt(this.page);
+    page++;
+    this.page = (page).toString();
+    if (page > size) {
+      this.page = (size).toString();
+    }
+    this.Start();
+  }
+
+  Bind(event: MouseEvent , pos: number) {
+    const button: HTMLButtonElement = event.target as HTMLButtonElement;
+    const ls: NodeListOf<HTMLLIElement> = button.parentElement.parentElement.querySelectorAll('li');
+    if(!button.classList.contains('active')) {
+      for( let index: number = 0; index < ls.length; index++ ) {
+        const element: HTMLLIElement = ls[index];
+        element.classList.remove('active');
+      }
+      button.parentElement.classList.add('active');
+    }
+  }
+
+}
+// https://stackoverflow.com/questions/45028233/property-value-does-not-exist-on-type-htmlelement-for-textarea-angular/45029752
+/*
+  Buttons(e) {
+    var nav = e.getElementsByTagName('a');
+    nav[0].addEventListener('click', this.Prev, false);
+    nav[1].addEventListener('click', this.Next, false);
+  }*/
+// https://stackoverflow.com/questions/58641615/click-event-is-not-working-in-innerhtml-string-angular-6
+// https://stackoverflow.com/questions/48817261/click-event-not-work-in-innerhtml-string-angular-4/48817568

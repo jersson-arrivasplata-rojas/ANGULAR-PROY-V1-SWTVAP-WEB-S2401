@@ -43,4 +43,4 @@ RUN npm i nodemon -g
 
 RUN export CHROME_BIN=/usr/bin/chromium
 
-#docker build -t ANGULAR-PROY-V1-SWTVAP-WEB-S2401 . 
+#docker build -t ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401 . 
