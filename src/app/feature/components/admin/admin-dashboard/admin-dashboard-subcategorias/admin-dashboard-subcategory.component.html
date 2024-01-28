@@ -1,0 +1,467 @@
+
+<div id="STORE-DASHBOARD-SUBCATEGORIAS">
+    <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-SUBCATEGORIAS"  [style.background]="store?.store_customizer_bootstrap[0].theme_color_first"  hidden>
+    
+    </div>
+    <div class="alerts">
+
+    </div>
+    <div class="main-content"  [ngClass]="{'d-block':preloadDashboard==true,'d-none':preloadDashboard==false}">
+        <div class="breadcrumb d-flex" style="justify-content: space-between;">
+            <h1>Sub Categorías</h1>
+            <button id="startTourSubCategoryBtn" class="btn btn-large btn-danger-2"><i class="i-Support"></i> Ayuda</button>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8 m-auto col-12">
+                <div class="card o-hidden mb-4" id="cardSubcategory">
+                    <div class="card-header">
+                       
+                        <div class="col-lg-12">
+                            <div class="row d-flex" >
+                                <p class="w-50 float-left card-title m-0">Tabla de Sub Categorías <span class="sub-title">(Se puede ordenar)</span></p>
+                            </div>
+                        </div>
+                        <div class="row mt-3 justify-content-space-between" >
+                            <div class="col-6">
+                                <select id="category" name="category" class="form-control max-width-350px" (change)="getSubcateriesChange($event.target.value)" >
+                                    <option *ngFor="let $item of $categories let j= index" value="{{$item.id}}">{{$item.description}}</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <div class="dropdown dropleft text-right float-right">
+                                    <button class="btn btn-warning-2 btn-color-settings" type="button" id="dropdownMenuButton_table4"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Agregar y/o Ajustes <i class="nav-icon i-Gear-2"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table4">
+                                        <a id="btn-addModal" class="dropdown-item" data-toggle="modal" data-target="#addModal"
+                                        href="#">Agregar nueva Subcategoría</a>
+                                        <a  class="dropdown-item" data-toggle="modal" data-target="#OrderTableModal" id="OrderTable">Ordenar<i
+                                            class="i-Cursor-Select"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        
+                       
+                        <div class="table-responsive" id="tableCategory">
+                            <table id="sales_table" class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">SubCategoría</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Productos</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Ajustes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr *ngFor="let $value of $subcategories let j= index" data-id="{{$value.id}}">
+                                        <td>{{j+1}}</td>
+                                        <td>{{$value.description}}</td>
+                                        <td>
+                                            <img style="    width: 200px; height: 200px;" *ngIf="($value.image=='' || $value.image==null|| $value.image=='placeholder.png'|| $value.image=='SnapStore.png')" class="img-table"
+                                                src="{{APP_URL}}assets/images/snapstore/placeholder-200X200.png" />
+                                            <img style="    width: 200px; height: 200px;" *ngIf="!($value.image=='' || $value.image==null|| $value.image==null||$value.image=='placeholder.png'|| $value.image=='SnapStore.png')" class="img-table"
+                                                src="{{APP_URL}}assets/images/users/subcategories/{{$value.image}}" />
+                                        </td>
+                                        <td>{{$value.products_quantity}}</td>
+                                        <td>
+                                            <span ngif *ngIf="$value.status==1">Visible</span>
+                                            <span *ngIf="$value.status==0"
+                                                class="badge badge-pill badge-warning p-2 m-1">No Visible</span>
+                                        </td>
+
+                                        <td>
+                                            <!--<a class="text-info-2 mr-2 font-16px"  href="#" data-toggle="tooltip" data-placement="top" title="Sub categoría" (click)="openModalSubcategory(this)" >
+                                                    <i class="nav-icon i-Receipt-4 font-weight-bold  subcategory_edit"></i>
+                                                </a>-->
+                                            <button class=" btn btn-success-2 mr-2 font-16px" href="#" data-toggle="tooltip"
+                                                data-placement="top" title="Editar"
+                                                (click)="editModalSubCategory(this,$value.id)">
+                                                Editar
+                                            </button>
+                                            <button class=" btn btn-danger-2 mr-2 font-16px mr-2 category_delete alert-confirm font-16px"
+                                                (click)="deleteModalSubCategory(this,$value.id,$value.category_id)" name="category_delete"
+                                                href="#" data-toggle="tooltip" data-placement="top"
+                                                title="Eliminar !!!">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="$subcategories.length<=0">
+                                        <td COLSPAN=6>
+                                            Aún no hay sub categorías
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editModal" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto" style="max-width: 300px;">
+                    <div class="modal-header">
+                        <h5>Sub Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" class="needs-validation" novalidate>
+                            <input name="id" class="d-none" type="text">
+                            <div id="smartwizard">
+                                <ng-template #IconEditInit>
+                                    <div class="smile_3 " aria-labelledby="smile_3"  x-placement="left-start">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                                            <li class="nav-item" role="presentation">
+                                              <a class="nav-link " id="Smileys" data-toggle="tab" href=".Smileys" role="tab" aria-controls="Smileys" aria-selected="true" title="Sonrisas">😀</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                              <a class="nav-link" id="GesturesAndBodyParts" data-toggle="tab" href=".GesturesAndBodyParts" role="tab" aria-controls="GesturesAndBodyParts" aria-selected="false" title="Gestos y partes del cuerpo">🖐</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="PeopleAndFantasy" data-toggle="tab" href=".PeopleAndFantasy" role="tab" aria-controls="PeopleAndFantasy" aria-selected="false" title="Personas y fantasía">🧒</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="ClothingAndAccessories" data-toggle="tab" href=".ClothingAndAccessories" role="tab" aria-controls="ClothingAndAccessories" aria-selected="false" title="Ropa y accesorios">👔</a>
+                                            </li>
+                                            
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="AnimalsAndNature" data-toggle="tab" href=".AnimalsAndNature" role="tab" aria-controls="AnimalsAndNature" aria-selected="false" title="Animales y naturaleza">🐵</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="FoodAndDrink" data-toggle="tab" href=".FoodAndDrink" role="tab" aria-controls="FoodAndDrink" aria-selected="false" title="Comida y bebida">🍎</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="ActivityAndSports" data-toggle="tab" href=".ActivityAndSports" role="tab" aria-controls="ActivityAndSports" aria-selected="false" title="Actividad y deporte">⚽️</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="TravelAndPlaces" data-toggle="tab" href=".TravelAndPlaces" role="tab" aria-controls="TravelAndPlaces" aria-selected="false" title="Viajes y lugares">🚗</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Objects" data-toggle="tab" href=".Objects" role="tab" aria-controls="Objects" aria-selected="false" title="Objetos">🧰</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Symbols" data-toggle="tab" href=".Symbols" role="tab" aria-controls="Symbols" aria-selected="false" title="Símbolos">❤️</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Flags" data-toggle="tab" href=".Flags" role="tab" aria-controls="Flags" aria-selected="false" title="Banderas">🏴</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="NewEmojis" data-toggle="tab" href=".NewEmojis" role="tab" aria-controls="NewEmojis" aria-selected="false" title="Nuevas emojis">🤵‍♂️</a>
+                                            </li>
+                                          </ul>
+                                          <div class="tab-content myTabContent" id="myTabContent">
+                                            <div class="tab-pane Smileys fade show active" role="tabpanel" aria-labelledby="Smileys"></div>
+                                            <div class="tab-pane GesturesAndBodyParts fade" role="tabpanel" aria-labelledby="GesturesAndBodyParts"></div>
+                                            <div class="tab-pane PeopleAndFantasy fade" role="tabpanel" aria-labelledby="PeopleAndFantasy"></div>
+                                            <div class="tab-pane ClothingAndAccessories fade"  role="tabpanel" aria-labelledby="ClothingAndAccessories"></div>
+                                       
+                                            <div class="tab-pane AnimalsAndNature fade"  role="tabpanel" aria-labelledby="AnimalsAndNature"></div>
+                                            <div class="tab-pane FoodAndDrink fade" role="tabpanel" aria-labelledby="FoodAndDrink"></div>
+                                            <div class="tab-pane ActivityAndSports fade"  role="tabpanel" aria-labelledby="ActivityAndSports"></div>
+                                            <div class="tab-pane TravelAndPlaces fade"  role="tabpanel" aria-labelledby="TravelAndPlaces"></div>
+                                            <div class="tab-pane Objects fade"  role="tabpanel" aria-labelledby="Objects"></div>
+                                            <div class="tab-pane Symbols fade" role="tabpanel" aria-labelledby="Symbols"></div>
+                                            <div class="tab-pane Flags fade" role="tabpanel" aria-labelledby="Flags"></div>
+                                            <div class="tab-pane NewEmojis fade"  role="tabpanel" aria-labelledby="NewEmojis"></div>
+                                          </div>
+                                    </div>
+                                </ng-template>
+                                <ng-template #IconEditInitTittle>
+                                    <h6 class="mb-0">Mis emojis
+                                        <span class="close-popover float-right  font-16px cursor-pointer popover-close"
+                                            data-toggle="clickover" (click)="IconEditInicio.toggle()" aria-hidden="true">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </h6>
+                                </ng-template>
+                             
+    
+                                <div class="form-group">
+                                    <label for="recipient-name-2" class="col-form-label">Seleccione la categoría <strong
+                                            class="color-coral"> (*)</strong></label>
+                                    <select name="store_category_id"  class="form-control " >
+                                        <option *ngFor="let $item of $categories let j= index" value="{{$item.id}}">{{$item.description}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    
+                                    <label for="recipient-name-2" class="col-form-label">Nombre de la subcategoría: <strong
+                                            class="color-coral"> (*)</strong></label>
+                                    <div class="input-group flex-wrap-nowrap ">
+                                        <div class="input-group-preppend  d-flex w-100 ">
+                                            <div id="description-category-edit" style="    height: 60px;" contenteditable="true" name="categoria_name"
+                                                class="form-control description-category-edit font-14px"></div>
+                                                
+                                            <button type="button" #IconEditInicio="ngbPopover"
+                                                class="btn btn-info-2 text-first btn-icon smile_button"
+                                                placement="bottom" [ngbPopover]="IconEditInit"
+                                                [popoverTitle]="IconEditInitTittle" [autoClose]="false"
+                                                (click)="popoverIcon($event)" id="smile_3">
+                                                <i class="nav-icon mdi mdi-emoticon-happy-outline"></i>
+                                            </button>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="d-none">Imagen Opcional</h5>
+    
+                                <div class="form-group text-center d-none">
+                                    <div class="position-relative">
+                                        <img id="card-image-add" class="card-img" name="categoria_image"
+                                            src="{{APP_URL}}assets/images/snapstore/placeholder-400X400-2.png"
+                                            alt="Card image">
+                                    </div>
+                                </div>
+                                <div class="form-group d-none">
+                                    <label for="ImageHandleCategory" style="width: 100%">
+                                        <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                            <div class="dz-message needsclick"
+                                                style="font-size: 13px !important;text-align: center !important">
+                                                Click para subir imagen<strong>(Opcional)</strong><BR>
+                                                <span class="note needsclick">(Tamaño de la imagen
+                                                    <strong>400X400</strong>)</span>
+                                            </div>
+                                            <div class="fallback d-none">
+                                                <!--image/*-->
+                                                <input id="ImageHandleCategory-edit" name="file" type="file"
+                                                    accept="image/png, image/jpeg, image/jpg"
+                                                    onchange="handleFiles(this.files,this)" />
+    
+                                            </div>
+                                            <div id="fileList" class="fileList d-none">
+                                                <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+    
+                                <div class="form-group text-align-end  text-right  mb-0">
+                                    <label class="" for="check-categoria-edit">Sub Categoría Visible</label>
+                                    <label class="switch switch_ ml-2 mr-1">
+                                        <input type="checkbox" id="check-categoria-edit" name="categoria_visible"
+                                            style="    transform: scale(1.2);" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-first btn-block ladda-button basic-ladda-button mt-2" (click)="updateModalSubCategory()"
+                                        id="btn-editar-categoria" style="font-size: 14px; " type="button" data-style="expand-left">
+                                        <span class="ladda-label">Editar subcategoría</span>
+                                        <span class="ladda-spinner"></span>
+                                        <span class="ladda-spinner"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addModal" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto" style="max-width: 300px;">
+                    <div class="modal-header">
+                        <h5>Sub Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" class="needs-validation" novalidate>
+                            <div id="smartwizard">
+                                <ng-template #IconInit>
+                                    <div class="smile_3 " aria-labelledby="smile_3"  x-placement="left-start">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                                            <li class="nav-item" role="presentation">
+                                              <a class="nav-link " id="Smileys" data-toggle="tab" href=".Smileys" role="tab" aria-controls="Smileys" aria-selected="true" title="Sonrisas">😀</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                              <a class="nav-link" id="GesturesAndBodyParts" data-toggle="tab" href=".GesturesAndBodyParts" role="tab" aria-controls="GesturesAndBodyParts" aria-selected="false" title="Gestos y partes del cuerpo">🖐</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="PeopleAndFantasy" data-toggle="tab" href=".PeopleAndFantasy" role="tab" aria-controls="PeopleAndFantasy" aria-selected="false" title="Personas y fantasía">🧒</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="ClothingAndAccessories" data-toggle="tab" href=".ClothingAndAccessories" role="tab" aria-controls="ClothingAndAccessories" aria-selected="false" title="Ropa y accesorios">👔</a>
+                                            </li>
+                                            
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="AnimalsAndNature" data-toggle="tab" href=".AnimalsAndNature" role="tab" aria-controls="AnimalsAndNature" aria-selected="false" title="Animales y naturaleza">🐵</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="FoodAndDrink" data-toggle="tab" href=".FoodAndDrink" role="tab" aria-controls="FoodAndDrink" aria-selected="false" title="Comida y bebida">🍎</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="ActivityAndSports" data-toggle="tab" href=".ActivityAndSports" role="tab" aria-controls="ActivityAndSports" aria-selected="false" title="Actividad y deporte">⚽️</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="TravelAndPlaces" data-toggle="tab" href=".TravelAndPlaces" role="tab" aria-controls="TravelAndPlaces" aria-selected="false" title="Viajes y lugares">🚗</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Objects" data-toggle="tab" href=".Objects" role="tab" aria-controls="Objects" aria-selected="false" title="Objetos">🧰</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Symbols" data-toggle="tab" href=".Symbols" role="tab" aria-controls="Symbols" aria-selected="false" title="Símbolos">❤️</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="Flags" data-toggle="tab" href=".Flags" role="tab" aria-controls="Flags" aria-selected="false" title="Banderas">🏴</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="NewEmojis" data-toggle="tab" href=".NewEmojis" role="tab" aria-controls="NewEmojis" aria-selected="false" title="Nuevas emojis">🤵‍♂️</a>
+                                            </li>
+                                          </ul>
+                                          <div class="tab-content myTabContent" id="myTabContent">
+                                            <div class="tab-pane Smileys fade show active" role="tabpanel" aria-labelledby="Smileys"></div>
+                                            <div class="tab-pane GesturesAndBodyParts fade" role="tabpanel" aria-labelledby="GesturesAndBodyParts"></div>
+                                            <div class="tab-pane PeopleAndFantasy fade" role="tabpanel" aria-labelledby="PeopleAndFantasy"></div>
+                                            <div class="tab-pane ClothingAndAccessories fade"  role="tabpanel" aria-labelledby="ClothingAndAccessories"></div>
+                                       
+                                            <div class="tab-pane AnimalsAndNature fade"  role="tabpanel" aria-labelledby="AnimalsAndNature"></div>
+                                            <div class="tab-pane FoodAndDrink fade" role="tabpanel" aria-labelledby="FoodAndDrink"></div>
+                                            <div class="tab-pane ActivityAndSports fade"  role="tabpanel" aria-labelledby="ActivityAndSports"></div>
+                                            <div class="tab-pane TravelAndPlaces fade"  role="tabpanel" aria-labelledby="TravelAndPlaces"></div>
+                                            <div class="tab-pane Objects fade"  role="tabpanel" aria-labelledby="Objects"></div>
+                                            <div class="tab-pane Symbols fade" role="tabpanel" aria-labelledby="Symbols"></div>
+                                            <div class="tab-pane Flags fade" role="tabpanel" aria-labelledby="Flags"></div>
+                                            <div class="tab-pane NewEmojis fade"  role="tabpanel" aria-labelledby="NewEmojis"></div>
+                                          </div>
+                                    </div>
+                                </ng-template>
+                                <ng-template #IconInitTittle>
+                                    <h6 class="mb-0">Mis emojis
+                                        <span class="close-popover float-right  font-16px cursor-pointer popover-close"
+                                            data-toggle="clickover" (click)="IconInicio.toggle()" aria-hidden="true">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </h6>
+                                </ng-template>
+                                <div class="form-group">
+                                    <label for="recipient-name-2" class="col-form-label">Seleccione la categoría <strong
+                                            class="color-coral"> (*)</strong></label>
+                                    <select name="store_category_id"  class="form-control " >
+                                        <option *ngFor="let $item of $categories let j= index" value="{{$item.id}}">{{$item.description}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name-2" class="col-form-label">Nombre de la categoría: <strong
+                                            class="color-coral"> (*)</strong></label>
+                                    <div class="input-group flex-wrap-nowrap ">
+                                        <div class="input-group-preppend  d-flex w-100 ">
+                                            <div id="description-category"  style="    height: 60px;"  contenteditable="true" name="categoria_name"
+                                                class="form-control description-category font-14px"></div>
+                                                
+                                            <button type="button" #IconInicio="ngbPopover"
+                                                class="btn btn-info-2 text-first btn-icon smile_button"
+                                                placement="bottom" [ngbPopover]="IconInit"
+                                                [popoverTitle]="IconInitTittle" [autoClose]="false"
+                                                (click)="popoverIcon($event)" id="smile_3">
+                                                <i class="nav-icon mdi mdi-emoticon-happy-outline"></i>
+                                            </button>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="text" name="store_category_id" class="d-none">
+                                <h5 class="d-none">Imagen Opcional</h5>
+    
+                                <div class="form-group text-center d-none">
+                                    <div class="position-relative">
+                                        <img id="card-image-add" class="card-img" name="categoria_image"
+                                            src="{{APP_URL}}assets/images/snapstore/placeholder-400X400-2.png"
+                                            alt="Card image">
+                                    </div>
+                                </div>
+                                <div class="form-group d-none">
+                                    <label for="ImageHandleCategory" style="width: 100%">
+                                        <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                            <div class="dz-message needsclick"
+                                                style="font-size: 13px !important;text-align: center !important">
+                                                Click para subir imagen<strong>(Opcional)</strong><BR>
+                                                <span class="note needsclick">(Tamaño de la imagen
+                                                    <strong>400X400</strong>)</span>
+                                            </div>
+                                            <div class="fallback d-none">
+                                                <!--image/*-->
+                                                <input id="ImageHandleCategory" name="file" type="file"
+                                                    accept="image/png, image/jpeg, image/jpg"
+                                                    onchange="handleFiles(this.files,this)" />
+    
+                                            </div>
+                                            <div id="fileList" class="fileList d-none">
+                                                <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+    
+                                <div class="form-group text-align-end  text-right  mb-0">
+                                    <label class="" for="check-categoria">Sub Categoría Visible</label>
+                                    <label class="switch switch_ ml-2 mr-1">
+                                        <input type="checkbox" id="check-categoria" name="categoria_visible"
+                                            style="    transform: scale(1.2);" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-first btn-block ladda-button basic-ladda-button mt-2"
+                                        id="btn-categoria" style="font-size: 14px; " type="button" (click)="addModalSubCategory()" data-style="expand-left">
+                                        <span class="ladda-label">Agregar Subcategoría</span>
+                                        <span class="ladda-spinner"></span>
+                                        <span class="ladda-spinner"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="OrderTableModal" role="dialog" aria-labelledby="OrderTableModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto" style="max-width: 300px;">
+                    <div class="modal-header">
+                        <h5>Ordenar Sub Categorías</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngIf="$subcategories.length>0">
+                            <ngx-sortable [items]="$subcategories" [listStyle]="{ width:'260px', height: '450px' }"  [showHeader]="false" [name]="'Orden de Categorías'" (listSorted)="listOrderChanged($event)">
+                                <ng-template let-item>
+                                    <div class="sortable-list-item">
+                                        <div class="d-flex justify-content-between  mt-2 mr-2 ml-2 mb-2" data-id="{{item.id}}"><!--w-100-->
+                                            <div>
+                                                <img style="    width: 50px; height: 50px;" *ngIf="(item.image=='' || item.image==null|| item.image=='placeholder.png'|| item.image=='SnapStore.png')" class="img-table"
+                                                    src="{{APP_URL}}assets/images/snapstore/placeholder-200X200.png" />
+                                                <img style="    width: 50px; height: 50px;" *ngIf="!(item.image=='' ||item.image==null|| item.image==null||item.image=='placeholder.png'|| item.image=='SnapStore.png')" class="img-table"
+                                                    src="{{APP_URL}}assets/images/users/subcategories/{{item.image}}" />
+                                            </div>
+                                            <div class="ml-2">{{item.description}}</div>
+                                           
+                                        </div>
+                                        
+                                    </div>
+                                </ng-template>
+                            </ngx-sortable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   

@@ -1,0 +1,12 @@
+.width-td-small{
+    width:165px;
+}
+.status-order-td p{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-box{
+    width: 45px;
+    height: 45px;
+}

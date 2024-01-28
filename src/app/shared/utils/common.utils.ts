@@ -1,4 +1,5 @@
 import { sha256 } from 'js-sha256';
+import { jwtDecode } from 'jwt-decode';
 
 export class CommonUtils {
   public static price_max = 100000000000000;
@@ -6,49 +7,63 @@ export class CommonUtils {
   public static filter_badge_count = 4;
   public static textWhatsapp = 'Hola Sumac Chasca Perú S.A.C.';
   public static phoneWhatsapp = '51900288628';
-  public static randomPayment = () => CommonUtils.getRandomMinToMax(100000, 999999);
+  public static randomPayment = () =>
+    CommonUtils.getRandomMinToMax(100000, 999999);
 
   public static paymentFormCredentials = () => {
     let acq = 144;
     let idcomer = 12504;
     const purcha = CommonUtils.getRandomMinToMax(100000, 999999);
     let purchaamou = {
-      basic:{
-        amount:1990,
-        description:'Plan Emprendedor Básico - S/19.90 x Mes'
-      }
+      basic: {
+        amount: 1990,
+        description: 'Plan Emprendedor Básico - S/19.90 x Mes',
+      },
     };
     let purchaver = 'RCjKGcqWZHztDZhbuHU=362453532773';
     let purchacode = 604;
     console.log('purcha', purcha);
 
-    let message = acq.toString() + idcomer.toString() + purcha.toString() + purchaamou.basic.amount.toString() + purchacode.toString() + purchaver.toString();
+    let message =
+      acq.toString() +
+      idcomer.toString() +
+      purcha.toString() +
+      purchaamou.basic.amount.toString() +
+      purchacode.toString() +
+      purchaver.toString();
     console.log('message', message);
 
-    let sha512 = null;//createHash("sha512").update(message).digest("hex");
+    let sha512 = null; //createHash("sha512").update(message).digest("hex");
     return {
       acq: acq,
       idcomer: idcomer,
-      purcha: purcha,//CommonUtils.getRandomMinToMax(100000,999999)
+      purcha: purcha, //CommonUtils.getRandomMinToMax(100000,999999)
       purchaamou: {
         basic: purchaamou.basic,
       },
       purchaver: purchaver,
       purchacode: purchacode,
-      sha: sha512
-    }
-  }
+      sha: sha512,
+    };
+  };
 
   public static hashString(input: string): string {
     return sha256(input);
   }
-  public static sha = (acq, idcomer, purcha, purchaamou, purchacode, purchaver) => {
+  public static sha = (
+    acq,
+    idcomer,
+    purcha,
+    purchaamou,
+    purchacode,
+    purchaver
+  ) => {
     console.log('purcha', purcha);
 
     let message = acq + idcomer + purcha + purchaamou + purchacode + purchaver;
     console.log('message', message);
 
-    let sha256 = null;// createHash("sha512").update(message).digest("hex");
+    let sha256 = null; // createHash("sha512").update(message).digest("hex");
     return sha256;
   };
 
@@ -58,150 +73,150 @@ export class CommonUtils {
     name: string;
     position: number;
   }[] = [
-      { id: 1, image: 'Bodega.png', name: 'Bodega', position: 8 },
-      {
-        id: 2,
-        image: 'Carnes-Pollos&Pescados.png',
-        name: 'Carnes, Pollos y Pescados',
-        position: 9,
-      },
-      {
-        id: 4,
-        image: 'Panaderia&Pasteleria.png',
-        name: 'Panaderia y Pasteleria',
-        position: 26,
-      },
-      { id: 25, image: 'Bebes&Ninos.png', name: 'Bebés', position: 7 },
-      {
-        id: 23,
-        image: 'Libros&Revistas.png',
-        name: 'Libros, Revistas y Comics',
-        position: 24,
-      },
-      { id: 36, image: 'FastFood.png', name: 'Restaurante', position: 28 },
-      { id: 40, image: 'Licores.png', name: 'Licores y Bebidas', position: 25 },
-      { id: 10, image: 'Farmacia.png', name: 'Salud y Belleza', position: 30 },
-      { id: 18, image: 'Mascotas.png', name: 'Animales y Mascotas', position: 3 },
-      {
-        id: 3,
-        image: 'corte y confeccion.png',
-        name: 'Corte y Confección',
-        position: 14,
-      },
-      {
-        id: 6,
-        image: 'computadoras y accesorios.png',
-        name: 'Computadora y Accesorios',
-        position: 12,
-      },
-      {
-        id: 7,
-        image: 'electrodomesticos.png',
-        name: 'Electrodomésticos',
-        position: 16,
-      },
-      {
-        id: 8,
-        image: 'deportes y fitness.png',
-        name: 'Deportes y Fitness',
-        position: 15,
-      },
-      {
-        id: 9,
-        image: 'juegos y juguetes.png',
-        name: 'Juegos y Juguetes',
-        position: 23,
-      },
-      {
-        id: 11,
-        image: 'accesorios para vechiculos.png',
-        name: 'Accesorios para Vehículos',
-        position: 1,
-      },
-      {
-        id: 12,
-        image: 'telefonos y celulares.png',
-        name: 'Celulares y Teléfonos',
-        position: 10,
-      },
-      {
-        id: 13,
-        image: 'audio y video.png',
-        name: 'Electrónica, Audio y Video',
-        position: 17,
-      },
-      {
-        id: 14,
-        image: 'ropa y accesorios.png',
-        name: 'Ropa y Accesorios',
-        position: 29,
-      },
-      {
-        id: 15,
-        image: 'autos motos.png',
-        name: 'Autos, Motos y Otros',
-        position: 6,
-      },
-      {
-        id: 16,
-        image: 'joyas y relojes.png',
-        name: 'Joyas y Relojes',
-        position: 22,
-      },
-      {
-        id: 17,
-        image: 'consolas y videojuegos.png',
-        name: 'Consolas y Videojuegos',
-        position: 13,
-      },
-      {
-        id: 19,
-        image: 'antguedades y arte.png',
-        name: 'Arte y Antiguedades',
-        position: 4,
-      },
-      {
-        id: 21,
-        image: 'herramientas y construccion.png',
-        name: 'Herramientas y Construcción',
-        position: 18,
-      },
-      {
-        id: 26,
-        image: 'coleccionabes y hobbies.png',
-        name: 'Coleccionables y Hobbies',
-        position: 11,
-      },
-      {
-        id: 27,
-        image: 'industrias y oficinas.png',
-        name: 'Industrias y Oficinas',
-        position: 20,
-      },
-      {
-        id: 28,
-        image: 'instrumentos musicales.png',
-        name: 'Instrumentos Musicales',
-        position: 21,
-      },
-      { id: 29, image: 'agro.png', name: 'Agro', position: 2 },
-      { id: 35, image: 'MAS_BLUE.svg', name: 'Otros', position: 33 },
-      { id: 37, image: 'hilos y telas.png', name: 'Hilos y Telas', position: 19 },
-      {
-        id: 39,
-        image: 'plasticos y descatables.png',
-        name: 'Plasticos y Descartables',
-        position: 27,
-      },
-      {
-        id: 41,
-        image: 'vidrios y pintura.png',
-        name: 'Vidrios y Pintura',
-        position: 32,
-      },
-      { id: 42, image: 'veterinaria.png', name: 'Veterinaria', position: 31 },
-      { id: 43, image: 'artesanias.png', name: 'Artesanía', position: 5 },
-    ];
+    { id: 1, image: 'Bodega.png', name: 'Bodega', position: 8 },
+    {
+      id: 2,
+      image: 'Carnes-Pollos&Pescados.png',
+      name: 'Carnes, Pollos y Pescados',
+      position: 9,
+    },
+    {
+      id: 4,
+      image: 'Panaderia&Pasteleria.png',
+      name: 'Panaderia y Pasteleria',
+      position: 26,
+    },
+    { id: 25, image: 'Bebes&Ninos.png', name: 'Bebés', position: 7 },
+    {
+      id: 23,
+      image: 'Libros&Revistas.png',
+      name: 'Libros, Revistas y Comics',
+      position: 24,
+    },
+    { id: 36, image: 'FastFood.png', name: 'Restaurante', position: 28 },
+    { id: 40, image: 'Licores.png', name: 'Licores y Bebidas', position: 25 },
+    { id: 10, image: 'Farmacia.png', name: 'Salud y Belleza', position: 30 },
+    { id: 18, image: 'Mascotas.png', name: 'Animales y Mascotas', position: 3 },
+    {
+      id: 3,
+      image: 'corte y confeccion.png',
+      name: 'Corte y Confección',
+      position: 14,
+    },
+    {
+      id: 6,
+      image: 'computadoras y accesorios.png',
+      name: 'Computadora y Accesorios',
+      position: 12,
+    },
+    {
+      id: 7,
+      image: 'electrodomesticos.png',
+      name: 'Electrodomésticos',
+      position: 16,
+    },
+    {
+      id: 8,
+      image: 'deportes y fitness.png',
+      name: 'Deportes y Fitness',
+      position: 15,
+    },
+    {
+      id: 9,
+      image: 'juegos y juguetes.png',
+      name: 'Juegos y Juguetes',
+      position: 23,
+    },
+    {
+      id: 11,
+      image: 'accesorios para vechiculos.png',
+      name: 'Accesorios para Vehículos',
+      position: 1,
+    },
+    {
+      id: 12,
+      image: 'telefonos y celulares.png',
+      name: 'Celulares y Teléfonos',
+      position: 10,
+    },
+    {
+      id: 13,
+      image: 'audio y video.png',
+      name: 'Electrónica, Audio y Video',
+      position: 17,
+    },
+    {
+      id: 14,
+      image: 'ropa y accesorios.png',
+      name: 'Ropa y Accesorios',
+      position: 29,
+    },
+    {
+      id: 15,
+      image: 'autos motos.png',
+      name: 'Autos, Motos y Otros',
+      position: 6,
+    },
+    {
+      id: 16,
+      image: 'joyas y relojes.png',
+      name: 'Joyas y Relojes',
+      position: 22,
+    },
+    {
+      id: 17,
+      image: 'consolas y videojuegos.png',
+      name: 'Consolas y Videojuegos',
+      position: 13,
+    },
+    {
+      id: 19,
+      image: 'antguedades y arte.png',
+      name: 'Arte y Antiguedades',
+      position: 4,
+    },
+    {
+      id: 21,
+      image: 'herramientas y construccion.png',
+      name: 'Herramientas y Construcción',
+      position: 18,
+    },
+    {
+      id: 26,
+      image: 'coleccionabes y hobbies.png',
+      name: 'Coleccionables y Hobbies',
+      position: 11,
+    },
+    {
+      id: 27,
+      image: 'industrias y oficinas.png',
+      name: 'Industrias y Oficinas',
+      position: 20,
+    },
+    {
+      id: 28,
+      image: 'instrumentos musicales.png',
+      name: 'Instrumentos Musicales',
+      position: 21,
+    },
+    { id: 29, image: 'agro.png', name: 'Agro', position: 2 },
+    { id: 35, image: 'MAS_BLUE.svg', name: 'Otros', position: 33 },
+    { id: 37, image: 'hilos y telas.png', name: 'Hilos y Telas', position: 19 },
+    {
+      id: 39,
+      image: 'plasticos y descatables.png',
+      name: 'Plasticos y Descartables',
+      position: 27,
+    },
+    {
+      id: 41,
+      image: 'vidrios y pintura.png',
+      name: 'Vidrios y Pintura',
+      position: 32,
+    },
+    { id: 42, image: 'veterinaria.png', name: 'Veterinaria', position: 31 },
+    { id: 43, image: 'artesanias.png', name: 'Artesanía', position: 5 },
+  ];
 
   public static bootstrapFile: string[] = [
     'ads.scss',
@@ -1466,8 +1481,9 @@ export class CommonUtils {
                                       </div>
                                       <h2 class="col-12 text-center">${message}</h2>
                                       <p class="col-12 text-center mt-2">Gracias por confiar en Sumac Chasca Perú S.A.C.</p>
-                                      ${reload == false
-        ? `
+                                      ${
+                                        reload == false
+                                          ? `
                                         <div class="row mt-5">
                                             <div class="col-12 links text-center">
                                                 <div>
@@ -1481,8 +1497,8 @@ export class CommonUtils {
                                             </div>
                                         </div>
                                       `
-        : ''
-      }
+                                          : ''
+                                      }
                                   </div>
                               </div>
                           </div>
@@ -1596,9 +1612,8 @@ export class CommonUtils {
 
   public static scrollToTop() {
     setTimeout(() => {
-      const classes: HTMLCollectionOf<Element> = document.getElementsByClassName(
-        'CONTENT'
-      );
+      const classes: HTMLCollectionOf<Element> =
+        document.getElementsByClassName('CONTENT');
       for (let index = 0; index < classes.length; index++) {
         const element = classes[index];
         element.scrollTop = 0;
@@ -1616,10 +1631,10 @@ export class CommonUtils {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
       ? {
-        red: parseInt(result[1], 16),
-        green: parseInt(result[2], 16),
-        blue: parseInt(result[3], 16),
-      }
+          red: parseInt(result[1], 16),
+          green: parseInt(result[2], 16),
+          blue: parseInt(result[3], 16),
+        }
       : null;
   }
 
@@ -2005,11 +2020,11 @@ export class CommonUtils {
     this.toggleClass(btnOpen, 'is-active');
     this.toggleClass(modal, 'is-active');
   }
-  public static bufferToBase64(buffer,filetype) {
+  public static bufferToBase64(buffer, filetype) {
     return URL.createObjectURL(
       new Blob([buffer], { type: filetype } /* (1) */)
-    )
-}
+    );
+  }
   public static hideModalDynamics(dynamics, modal) {
     dynamics.animate(
       modal,
@@ -2238,6 +2253,20 @@ export class CommonUtils {
       }
     }
     return flag;
+  }
+
+  public static isTokenExpired(token: string): boolean {
+    try {
+      const decoded: any = jwtDecode(token);
+      if (!decoded || !decoded.exp) {
+        return true;
+      }
+      const date = new Date(0);
+      date.setUTCSeconds(decoded.exp); // Convertir el tiempo de expiración de segundos a una fecha
+      return !(date.valueOf() > new Date().valueOf());
+    } catch (err) {
+      return true;
+    }
   }
 }
 // https://www.typescriptlang.org/docs/handbook/functions.html

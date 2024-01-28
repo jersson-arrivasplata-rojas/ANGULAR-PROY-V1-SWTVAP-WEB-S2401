@@ -1,0 +1,384 @@
+<header style="z-index: 10;" id="header-dashboard-principal" class="navbar navbar-expand navbar-dark
+  flex-column w-100 flex-md-row bd-navbar header-dashboard">
+    <button class="navbar-brand mr-0 mr-md-2 btn-outline-first
+    btn-first-menu-toggle cursor-pointer" (click)="menuToggle($event)" id="#menu-toggle">
+    <span class="mdi mdi-menu"></span>
+  </button>
+
+    <a class="navbar-brand mr-0 mr-md-2 ml-2" [routerLink]="['/'+store?.stores_uri]">
+        <img src="{{getImagePrincipal()}}" alt="Image" width="40px" height="40px" />
+        <span class="text-first ml-2">Ir a mi tienda</span>
+    </a>
+    <div class="navbar-brand navbar-nav-scroll w-100">
+        <div *ngIf="getType()==0" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdown_active==true}'>
+            <div id="dropDown" #DropDown class="drop-down__button btn btn-outline-first border-input" (click)="dropdown(DropDown)">
+                <i class="mdi mdi-chevron-down mr-1"></i>
+                <span class="drop-down__name mr-1">Menú</span>
+            </div>
+            <div class="drop-down__menu-box">
+                <ul class="drop-down__menu">
+                    <li class="drop-down__item">
+                        <a class="d-block w-100" href="#FastProductModal" data-toggle="modal">
+                            <i class="fab fa-product-hunt mr-1"></i> Crear Producto Rapido
+                        </a>
+                    </li>
+                    <li data-name="home" class="drop-down__item">
+                        <a class="d-block w-100" [routerLink]="['/home']">
+                            <i class="mdi mdi-home-outline mr-1"></i> Inicio Snap Store
+                        </a>
+                    </li>
+                    <li data-name="perfil" class="drop-down__item">
+
+                        <a class="d-block w-100" [routerLink]="['/home/perfil']">
+                            <i class="dripicons-user mr-1"></i> Mi perfil
+                        </a>
+                    </li>
+                    <li data-name="shopping" class="drop-down__item">
+                        <a class="d-block w-100" [routerLink]="['/home/compras']">
+                            <i class="mdi mdi-shopping mr-1"></i> Mis compras
+                        </a>
+                    </li>
+                    <li data-name="favorites" class="drop-down__item">
+                        <a class="d-block w-100" [routerLink]="['/home/favoritos']">
+                            <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
+                        </a>
+
+                    </li>
+                    <li data-name="shopping-basket" class="drop-down__item">
+                        <a class="d-block w-100" [routerLink]="['/home/carrito']">
+                            <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                        </a>
+                    </li>
+                    <li data-name="shopping-basket" class="drop-down__item">
+                        <a class="d-block w-100" [routerLink]="['/'+store?.stores_uri]">
+                            <i class="mdi mdi-storefront mr-1"></i> Ir a mi tienda
+                        </a>
+                    </li>
+
+                    <li data-name="ayuda" class="drop-down__item">
+                        <a class="d-block w-100" target="_blank" href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                            <i class="dripicons-help mr-1"></i> Ayuda SnapStore
+                        </a>
+                    </li>
+
+                    <li data-name="salir" class="drop-down__item">
+                        <a href="#" class="d-block w-100" (click)="logout()">
+                            <i class="mdi mdi-logout-variant mr-1"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;" (click)="dropdown(DropDown)">
+          <i class="fas fa-times"></i>
+        </button>
+            </div>
+        </div>
+
+        <div *ngIf="getType()==1" class="drop-down drop-down-auth-dashboard-bar" [ngClass]='{"drop-down--active":dropdown_active==true}'>
+            <div class="drop-down__button btn btn-outline-first mr-2 text-center border-input">
+                <a class="d-block w-100" [routerLink]="['/auth/login']" style="    font-size: 18px;">
+                    <i class="mdi mdi-login-variant "></i>
+                </a>
+            </div>
+            <div class="drop-down__button btn btn-outline-first text-center border-input">
+                <a class="d-block w-100" [routerLink]="['/auth/signup']" style="    font-size: 18px;">
+                    <i class="mdi mdi-account-plus "></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header>
+<div id="wrapper" class="toggled">
+    <!-- Sidebar bd-sidenav -->
+    <div id="sidebar-wrapper" style="z-index: 9;">
+        <ul id="bd-sidenav-admin-dashboard-principal" class="nav sidebar-nav
+      ul-menu-admin-dashboard">
+            <li class="">
+                <a href="#FastProductModal" data-toggle="modal">
+                    <i class="fab fa-product-hunt mr-1"></i> <span> Crear Producto Rapido</span>
+                </a>
+            </li>
+            <li class="" data-uri='inicio'>
+                <a [routerLink]='"inicio"'>
+                    <i class="dripicons-store mr-1"></i> <span>Inicio</span>
+                </a>
+            </li>
+            <li data-uri='perfil-tienda'>
+                <a [routerLink]='"perfil-tienda"'>
+                    <i class="mdi mdi-account-circle-outline mr-1"></i> <span>Perfil
+            de Tienda</span>
+                </a>
+            </li>
+            <li data-uri='customizer'>
+                <a [routerLink]='"customizer"'>
+                    <i class="mdi mdi-grease-pencil mr-1"></i> <span>Diseño de mi
+            Tienda</span>
+                </a>
+            </li>
+            <li class="d-none" data-uri='chats'>
+                <a [routerLink]='"chats"'>
+                    <i class="mdi mdi-chat-outline mr-1"></i> <span>Chats</span>
+                </a>
+            </li>
+            <li data-uri='comentarios'>
+                <a [routerLink]='"comentarios"'>
+                    <i class="far fa-comments mr-1"></i> <span>Comentarios de<br/> Productos y Tienda</span>
+                </a>
+            </li>
+
+
+            <li data-uri='banners'>
+                <a [routerLink]='"banners"'>
+                    <i class="mdi mdi-image-filter mr-1"></i> <span>Logo y Banners</span>
+                </a>
+            </li>
+            <li data-uri='categorias'>
+                <a [routerLink]='"categorias"'>
+                    <i class="mdi mdi-shape mr-1"></i> <span>Categorías</span>
+                </a>
+            </li>
+            <li data-uri='subcategorias'>
+                <a [routerLink]='"subcategorias"'>
+                    <i class="mdi mdi-adjust mr-1"></i> <span>Sub Categorías</span>
+                </a>
+            </li>
+            <li data-uri='productos'>
+                <a [routerLink]='"productos"'>
+                    <i class="mdi mdi-alpha-p-box mr-1"></i> <span>Productos</span>
+                </a>
+            </li>
+            <li data-uri='formas-pago'>
+                <a [routerLink]='"formas-pago"'>
+                    <i class="dripicons-wallet mr-1"></i> <span>Formas de Pagos</span>
+                </a>
+            </li>
+            <li data-uri='ordenes'>
+                <a [routerLink]='"ordenes"'>
+                    <i class="dripicons-to-do mr-1"></i> <span>Ordenes</span>
+                </a>
+            </li>
+            <li data-uri='clientes'>
+                <a [routerLink]='"clientes"'>
+                    <i class="dripicons-user-group mr-1"></i> <span>Clientes</span>
+                </a>
+            </li>
+            <li class="d-none" data-uri='trabajadores'>
+                <a [routerLink]='"trabajadores"'>
+                    <i class="mdi mdi-worker mr-1"></i> <span>Trabajadores</span>
+                </a>
+            </li>
+            <li data-uri='ubicacion'>
+                <a [routerLink]='"ubicacion"'>
+                    <i class="dripicons-map mr-1"></i> <span>Ubicación</span>
+                </a>
+            </li>
+            <li data-uri='facturacion'>
+                <a [routerLink]='"facturacion"'>
+                    <i class="mdi mdi-id-card mr-1"></i> <span>Facturación</span>
+                </a>
+            </li>
+            <li class="" data-uri='planes'>
+                <a [routerLink]='"planes"'>
+                    <i class="mdi mdi-table mr-1"></i> <span>Planes de SnapStore</span>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">
+                    <i class="dripicons-help mr-1"></i> <span>Soporte y Consultas</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+            <app-footer-store-default [container]='""' [textWhatsapp]="store?.stores_name" [phoneWhatsapp]="store?.stores_whatsapp" [image]="getImagePrincipal()" [store]="store?.stores_name">
+            </app-footer-store-default>
+        </div>
+    </div>
+    <div class="modal fade" id="FastProductModal" tabindex="-1" aria-labelledby="FastProductModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Producto Rapido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-12 d-none">
+                                <button class="btn btn-step btn-outline-secondary  collapsed" type="button" data-toggle="collapse" data-target="#edit-step1" aria-expanded="true"><span>Paso 1</span> </button>
+                                <button class="btn btn-step btn-outline-secondary ml-2 " type="button" data-toggle="collapse" data-target="#edit-step2" aria-expanded="false"><span>Paso 2</span></button>
+                            </div>
+                            <div class="col-lg-12" id="steps">
+
+
+                                <div id="edit-step1" class="collapse show" aria-labelledby="headingOne" data-parent="#steps" style="">
+                                    <div class="pt-3 px-3 pb-2 px-md-5 pt-md-5 bg-white">
+                                        <div class="form-group col-12">
+                                            <h4><strong>Paso 1 - Crear Categoría y Subcategoría</strong></h4>
+                                        </div>
+                                        <div class="form-group  col-12">
+                                            <p>¡Presione una categoria para ingresar directamente el texto!</p>
+                                            <p>
+                                                <button *ngFor="let item of store.categories" style="cursor: pointer;border-style: none" (click)="selectCategory(''+item.description+'')" class="badge text-white  badge-pill badge-primary mr-2">{{ item.description }}</button>
+                                            </p>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label>Ingresa Categoría <span class="color-coral"><strong>(*)</strong></span></label>
+                                            <input class="form-control" placeholder="Ingresa la categoría" name="category" type="text" required>
+                                        </div>
+                                        <div class="form-group col-12 ">
+                                            <!--d-none-->
+                                            <label>Ingresa Sub categoría (opcional)</label>
+                                            <input class="form-control" placeholder="Ingresa la subcategoría" name="subcategory" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="p-3 mb-2 px-md-4 bg-light">
+                                        <div class="row" style="display: flex;justify-content: space-between;">
+                                            <div class="col-sm-auto  ">
+                                                <button class="btn  btn-link scroll-to" style="font-weight: bold;" data-dismiss="modal" type="button">Omitir</button>
+                                            </div>
+                                            <div class="col-sm-auto ">
+                                                <button class="btn btn-step btn-primary btn-block   text-white" type="button" data-toggle="collapse" data-target="#edit-step2" aria-expanded="false" [disabled]="validateNext()"><span class="text-white">Siguiente</span></button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div id="edit-step2" class="collapse" aria-labelledby="headingTwo" data-parent="#steps" style="">
+                                    <div class="pt-3 px-3 pb-2 px-md-5 pt-md-5 bg-white">
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <h4><strong>Paso 2 - Crear Producto</strong></h4>
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label for="recipient-name-2" class="col-form-label">Nombre del producto: <span class="color-coral"><strong>(*)</strong></span><span
+                                                    class="color-coral"><strong></strong></span></label>
+                                                <input type="text" class="form-control" name="name" placeholder="Ingresa el nombre del producto" id="products-name" required>
+                                            </div>
+                                            <div class="form-group width-100-percent col-12">
+                                                <label for="recipient-name-2" class="col-form-label lab">Seleccione Tipo de
+                                                venta del producto: <span class="color-coral"><strong>(*)</strong></span><span
+                                                    class="color-coral"><strong></strong></span></label>
+                                                <select name="product_sale_status" (change)="selectChange()" class="form-control" required>
+                                                <option value="unit" selected="">Producto venta en Unidades</option>
+                                                <option value="weight">Producto venta en Peso</option>
+                                            </select>
+                                            </div>
+                                            <div class="form-group add-form-sales col-12">
+                                                <label for="recipient-name-2" class="col-form-label lab">Precio de la unidad (soles): <span class="color-coral"><strong>(*)</strong></span><span class="color-coral"><strong></strong></span></label>
+                                                <input type="number" placeholder="Ingresa el precio de la unidad (soles)" class="form-control" name="price" required>
+                                            </div>
+
+
+                                            <div class="form-group add-form-sales col-12 d-none">
+                                                <label for="recipient-name-2" class="col-form-label lab">Peso minimo <span class="color-coral"><strong>(*)</strong></span><span
+                                                    class="color-coral"><strong></strong></span></label>
+                                                <div class="input-group mb-2">
+                                                    <input type="number" class="form-control" name="product_sale_weigth_min">
+                                                    <div class="input-group-append " style="width: 100px;">
+                                                        <input value="kg" name="product_sale_weigth_min_unit" style="margin-left: 5px; background:white;" id="product_sale_weigth_min_unit" class="form-control" disabled="">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="fileChangeEvent($event)">
+                                                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Suba su imagen</label>
+                                                    </div>
+                                                    <div class="input-group-append d-none">
+                                                        <span class="input-group-text" id="inputGroupFileAddon02">Subir</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row pl-3">
+                                                    <div class="form-group mr-1">
+                                                        <button class="btn btn-first " (click)="resetImage()">Restaurar cambios</button>
+                                                    </div>
+                                                    <div class="form-group mr-1">
+                                                        <button class="btn btn-info " (click)="zoomOut()">Zoom -</button>
+                                                        <button class="btn btn-info " (click)="zoomIn()">Zoom +</button>
+                                                    </div>
+                                                    <div class="form-group d-none">
+                                                        <button class="btn btn-first " (click)="saveImageProduct()" [ladda]="isLoading">Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <app-admin-dashboard-image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="1/1" [resizeToWidth]="1080" [cropperMinWidth]="1080" [cropperMinHeight]="1080"
+                                                    [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation" [transform]="transform" [alignImage]="'left'" [style.width.px]='200' [style.height.px]='200' [style.display]="showCropper ? null : 'none'"
+                                                    format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)" (loadImageFailed)="loadImageFailed()">
+                                                </app-admin-dashboard-image-cropper>
+                                            </div>
+                                            <!-- 
+
+                                            <div class="form-group  text-center col-12">
+                                                <div>
+                                                    <h3><strong>Opcional</strong></h3>
+                                                </div>
+                                                <img style="width: 200px;    border-style: solid;" class="card-img border-product-img-product" name="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZ4AAAGzCAIAAACQLOawAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAACOoSURBVHja7N3pbxvn9fbxIWc4JEVJdmwgRtCmrRsnDmwgQFMgXYH+40WLoE29y1ooySK1S5ZkLdZmcZmFfF5cj87v9tB2EkeWSen7eREoimzHXC6eezt3rtvtegBwseR5CAAQbQBAtAEA0QYARBsAEG0AiDYAINoAgGgDAKINAIg2AEQbABBtAEC0AQDRBgBEGwAQbQCINgAg2gCAaAMAog0AiDYARBsAEG0AQLQBANEGAEQbABBtAIg2ACDaAIBoAwCiDQCINgBEGwAQbQBAtAEA0QYARBsAEG0AiDYAINoAgGgDAKINAIg2AEQbABBtAEC0AQDRBgBEGwAQbQCINgAg2gCAaAMAog0AiDYARBsAEG0AQLQBANEGAEQbABBtAIg2ACDaAIBoAwCiDQCINgBEGwAQbQBAtAEA0QYARBsAEG0AiDYAINoAgGgDAKINAIg2AEQbABBtAEC0AQDRBgBEGwAQbQCINgAg2gCAaAMAog0AiDYARBsAEG0AQLQBANEGAEQbABBtAIg2ACDaAIBoAwCiDQCINgBEGwAQbQBAtAEA0QYARBsAEG0AiDYAINoAgGgDAKINAIg2AEQbABBtAEC0AQDRBgBEGwAQbQCINgAg2gCAaAMAog0AiDYARBsAEG0AQLQBANEGAEQbABBtAIg2ACDaAIBoAwCiDQCINgBEGwAQbQBAtAEA0QYARBsAEG0AiDYAINoAgGgDAKINAIg2AEQbABBtAEC0AQDRBgBEGwAQbQAusoCHADgf3W73jd/P5XI8OFRtAEDVdo46nU4+n7fP506nk8vl8vl8HMfdbtf3fX1fH9H2Qf22T3IMdHXmPr/6utvt5vP5fD6vF0Yul9NTT8n2geR4a30IcRzn83nf9928y7zQGYxcNmmadrvdIAj0MnATEETbYHxo6yO60Whsbm42Go1Go5HJOPc1zVNwIV8DepaVX/Z5ppfB6Ojob37zm6GhoU6no3IeDEj7fShqQ4/Dw8MnT56srKxEUVQoFHzf18g0DMM0TS3d3FzjM/wi5Zpbpyvjut3u0NBQFEVBEGxvb3/11VefffYZDxfR1sel7+uR1O12kySZn59fWlryfb9SqXQ6Hc/zSqVSLpdL0zQMQ4q1ix1tNqOqjz3lWqfTSdM0l8s1m81arZYkyWeffcawlGjr92jLvKB3dnZ83w+CwPM81XRpmubz+UKhEEURuXaxXw96fvP5vNVruVwuDMN2u+37frlc1iuElwHRNjAf1G7SiUasvu/7vp8kSZIkvu/nTmV+LS7GBIW7Kqqa3fO8OI61hqDaLY5j5tqItgGLuSiK9KGtSs0WFnzft9e6BR+D04v6UWeTsPqnKrg0TVW564XBY0W0DQxtX9Insz7DgyBIkqTT6cRx7HmeRqm48NGmVXLlmmYnNNmqzzkr20G0DR69dtM0jeO4UqncuXNneHg4SRIemcvw1Pu+r7K92WzW6/VWq6W5CNsa4i6sg2gbvGjTizgIgi+//PLKlSt8Vl+Gks2dQm00GisrK6rg3GlWfMDBEw/BB32JdzodG5tEUeT7PtMrl+fzzF4Gvu+3Wi37vui1wcNFtA3wC11zK57n8Wq+PB9pnrM6ZB9vnrOAbiunINoG7yXufqEVMaZXLsOHmbsBSAWa17MOzrCUaBvsl7i9gjuneGQuyZjU/VSz1QO3juOBItoGe2xiL2Jt3OVhuSzvrtNEoxsC0Tbwn9Lud2z7klVq9oW7X7d3DKtAdOs7bfXM7PW1k4n6GZ26f1vC8o76WDMS9gKwZQRbQuVJ+XDY/NFH0jRVTeeOYW0GWpukrARw24fo8Jbb5tB9X3n0FAHRho9V5Wm46n7OW0hp/UFbQC2z3La9bmPLzFFWgAEpPrLe1tKq11SsaUyaJIm+1pktjVIz3ckZ5gBEWz89Gad735RoSZLomL1O51j86dB1oVDwPE/HEj2n24T3eusRHlUwIMV5670fJEkSHZ7XoXp9/+DgYHNzc2trq9Vq6ceCIAjD8He/+93nn3+uXkmKP3cYy4AURBs+jt5azI4raH5tZWVlenp6bW0tCAK3dlPk1ev1Tqfz9ddff/vtt+puqCLO1uNINxBt+Mjlm6bMwjDU181mc25ubnp6Oo7j0dFRdy+I1Xoq65aXlzc3N+/cuXPnzh1bJLWfzGQoQLTh/NjpwjiOC4XC/v7+w4cPd3Z24jjWNTGZjVHW1LBYLCoHJycn9/f3//KXv9gyq3tVIHvfQbThPGo0t7Cy+X7l2vHx8ffff398fGxN9N3DOu5pxCAITk5OwjBUq8vV1dV8Pv+nP/0pDMPMOXxyDZeuXOAhOH9u0Nh2XC16tlqtarW6v79vu9WtJW9vPwn12i+VSqrgoihaWlqam5tT+0OlmzVWYrUURBs+Qh2nAKrX6/V6vVgsakFA+z/Ukbw3GbX/o9Fo5HK5YrFYLpeTJJmYmNja2rJxbuaIPkC04TwSzS2mTk5O5ufn7bioRZJ7viozhtUPFAqFTqeju5yTJFlYWIjj2E1D2o2AaMO5jkxtZcD3/ZWVlaOjI9145Hne2+4HscizvGs2m91ut1AoaMvI5ubmwcGB+6sYjYJow0czOzurBQGdhLczCd7rvUDc3XDKPtGt9Vpb2NjYsLk5rhcB0YbzHpC6Xx8fH3e7Xe32sPyy2yp7E8rtSW0xpw0fL1++zKyQUriBaMP5DUgt4F6+fGktjPTPzMR/78lQdxpOXyvjfN/f3d3VOqnntLHmAQfRhg9brGUSqtvtNptNrR64+2y9d06T9fbat39GUWS3nbI8CqIN51Ss9a4M2CYPdzXTTSu3tWTmt3L77ur7uqw+M+DlkQfRhvOr4PSF7/tBEGiDrtsK/N0Fl3v0SrWeliB0nN7ruVXrIlW7ANHWj2/RTHKVy2WFmnpPqhZ79340961uX3c6nTRNK5WKOoVcpBPy7D0G0dbvb9HemBsZGQnDUDfM/8Q+4L2beG0x4dq1a+4lIx7HSEG04ZzTzaq2Tz/9VOub7gUumbbgmRm6N45Ji8XijRs37EaFC1btMiAF0dbX71LvtAWIFVY3btywCTK7sOod72Rt9bAz81o3SNO0XC5/8skntiHOuyjNxG0FObNCAvSiqdHHybXMaNHzvE6nc+vWreXl5a2trVKpZKcRrJO4u7agX9Vut33f16ksbRlJkiSfz9+8efP69eu2iaRvC7fM9he7hFB/8Var9eLFi4ODgziOr1+//qtf/SoMQ+1oUSs6/SRXVoNo69+RqSqRYrH4zTff7O/vp2kahmGhUGi3257nKbB6Z83UIKTZbCZJorYfcRxfu3bt5s2bevP3+YBUVacdsVDhqVBbX1+fnZ19+fKl/v+Vbjdv3rx7967uglBnlN672QEGpB+5YMkchNL789e//vWtW7dUj0RRFIZhGIa2WpoZi+nQqGVcmqZDQ0O3b9++evVq5ub5vh2+2SVe+v/UEsry8vKDBw82Nze1haXT6RQKhaOjo6mpqf/973/tdjsIgna7ncvlWq0WuQaqtv6q1NxBmXsC9K9//avOt0dRZKNRrSrYfg5ln26bHxoaarfbR0dHV65cuX379u3bt/W7DcRIzRoIe6fnxqrV6qNHj4rF4tWrVxuNhnd6VFYB/ezZsyiK/vjHP169etXzvFKp5NZ9AFVbH8Vc5kRBp9P57rvvbt26NTQ0lLl2z93kYf0p0zRtt9uVSuXu3bt37tyxriG6jNlzTiz0Z7TZkLzb7W5sbIyNjZXL5W63++rVq2KxmM/ngyCw8BoeHl5dXZ2ZmdG9hRaLANHWL6NRd5yoHuLWLvzKlSvffffdH/7wB1sZsOyztFKV1+12W63Wp59++re//e3OnTu6EMt6HPXuFOnDXLOKdXt7e2ZmRgf+tQNGoRzHsZZQrKP6/Pz84uKi+58ABqR9NCB1o8pmnfRFoVC4c+fO559/Xq/XFxcXPc/T+NRzNo6MjIyUy+Uvv/zyq6++8jxP11/ZoqF7qUI/R5v+t09OTmq12vr6ehAEGob7vq9pNT1K7uMTx3G9Xq9UKjdv3nzHTCLTcEQbPnLG/V8VfdpwTbXMyMjIt99+e+vWrYODg/39/VarpcFmqVQKw3B0dPTGjRuKMF2PYL0n3ZKtb9/hKi211rm4uDg3N6eNLFoDVZwlSVIoFNyGw51OJwzDly9f1mq169evj46OsscNRFu/D1StfFO66S09Ojo6MjLy+eefdzodLYkWCgU7oqCuvLaq0J9x5p6psC8U30EQLC4uTk1N6e9eKBSiKLKf0Yla73SRIQzDOI7L5XKapltbW2NjY//4xz+8030kNjXpPhS4nJhr698izv41SRK7CCYIAuWaQk2z7LZm6vVlhw+bU3O7B+uLIAh2d3fn5+d1oarnee12W1mWOd6v36TVaukB0WrJ8vJyvV7PtABQrlHKEW3ox/Itc2eVe0GM51yxrDe87/sKgj4ffipx3NmxbrdbrVY3Nja0AOJec/PG/ij5fL5UKiVJkiSJvpicnNzZ2fGcHSSq15hoI9rQj+WbXb1s7HoX+6/uEK+fd3hoJ4qGn0mSaOlAjQCmp6cXFha0+qEi1O6Hdu+4cVdC4ji2/SLFYvHo6OjRo0cnJyf2+3v03QTRNqDBl9ngltkU0of/z7bxWAsF2qq2tbU1PT1txVqxWFS6uYWe+5vYOVnP83Tjai6XC8NwY2NjYmLCVmB4hYBoG7xRqr3n37ZnrQ8HYrYOoH9ttVr5fP7w8HBsbOzw8LBSqbTbbVtS6B2Eut+xcFQIai1iaGhoZmZmZWXF0pCqDUTbIIVa730xXh9vWzPWqUlFpY79T05Orq+vVyoVxZMWRlWIuXd3uZd76Zys9/qWPf31wzD84Ycf9vf3tVhB7QZeAQMzCLX5tczJBK/v27HZiSjNoPm+v76+Pjc3NzIy0mq12u328PCwqjALQXcJxb4Tx3GxWEzTNI5jCy8tm5ZKpWazOT4+rkZPHFEA0TYYufbGpHP76/ZV1ebmrNuqRMsgGxsbT548KZVKiqogCOI4TpJEi6S9Ban7V9b2kcyUYrlc1oHTtbW12dlZ1Yl2INf9fd591wSINuBHsth25FoSqdRqNpuzs7N7e3vu9c9W0733yNru8apWq/V63fM8nWfQwqtFIQNVog04m2LTKkp1Xpuenl5ZWRkZGYnj2Hu9kXqmwvpZRaJO1GuibW5ubm9vT5N33ulMH9vciDbgLKNN016qoVZWVubn59UjNzNX6JZ7P/cP0uEEa2m3s7Pz9OlT/Sluyeaxckq0Ab+Eu6RrOzZ2d3fHxsa0aHB4eKg9HL07PN7nRXw6trWtbaurq9VqVfucB6JTAIg2DEy95m4qjuN4cnJyd3fXvuluZ/mFAaflBSvftB94enp6aWnJ1hN6e+SBaAPev3yz+a/l5eXh4WHf91utVrlc9t6y0/g9Civrlm4nutQHaXJyUhfH2Cotm0KINuCXDkhtV8r6+nq1WlU/Ih2NsotWz2SQqKpNO0vsPEOapnt7e/V6XTvmbCaOqo1ow2CHS+Y7mS1d7g/YkO39fn93Zs07vaHGDro3Go0HDx7o6il3U8gZ7sOwXupq/eQ5CwsLCwtzc3Oe5+XzeS2YZk5ikXREGwYp19y7VP7/M+1ESWZ66z26IWVmx+x30Cy+fs80TdM0vXfvXrPZdM9L2f/b2b+aTzuj6AvViXNzcwsLCzrqkGmHCaINg8T2iLn3xXivH2A6q4LFPQjh3levA09zc3Nra2tWo33Q4xNWMyrQVTzmcrn9/f1ardZsNlXHvS2jQbRhEJ7X1/f6W3/t3o1jmZj7iXn3xh9z1z2DIFhbW1OvoUKh4LZgO/ODAb1/I7sjRlN7m5ub4+PjURSponz33wJEG/qUblSwMaAanNlJJhsMuh0ivddn3H50k0TmlujerRXNZrNarZ6cnNjuXLej3NluwnDHuZmVVrv3T9dlec6p0kzUEnMXDNe+XEA28lLXWW2OPTo62tzc3N7e1i0E169f/+KLL4aHh72eU+jez593s3sPrHXHxMTE7u5uqVTK5/PtdtsuhHbT7cwHpO6FMva3SJJEd309ffq0UqncuHEjc/hBzUgYmRJtGACq13ShZy6XW1lZmZ6e3tzcjKJIl9LPz88/f/7897///RdffKGf+eV937S1otPp1Ov1hYUF5Zdty/B6Nuieba5l0tlWM5IkiaKoXC7v7OxMT09/8skndm+OW8mCaEO/s+NNCrjV1dUffvghiiLdXqp8CcNwe3t7d3e32Wx+8803bvft94geXbWlX7i3t1etVrvdbrlcbjQaWqnUNYMKFNtcdoYZl7kmQn9Hm2trtVqNRuPq1asLCws3bty4e/eu/VfPmZekcLtImGsbYL0Vh/sdLY8uLi7+61//0ve1sUuz7Lr0r9vt3rt3b2JiQh2HbGKutxRyv5P5voaidqXLvXv3dAag3W4XCoUwDLULxC6ycTeCnHmt6r3eTUTNlDQu1ma3J0+eLCwsWI1p5S25RrShj0admQyybffKssPDw3q9HkWRVTHupny1FapUKpOTkzMzM+7NA2+bCLOZOHdFVb3SlIz37t3b29srFouavXL3YdhVBuc5YW8NLN1l2YmJCYWvAjdz1wyINnz8aMssO2pQqX+qofb29rYm0b3Te6Q6nU4cxzrnpFmwbrc7MzOzubnpzojpB942328T8CoVdflerVar1+uqB5WbdgHVR7zGwe0Ep7/gycnJ/fv39YDEcaybFlghJdrQX9xrBPS1YqVWqy0uLtqF7XZVio1JLeaKxWK73b5///7x8bHndHZ825g00+Zb94G+ePFidnY2jmPFou35sG3D7i7i83xwMtcYaqQcRdF//vMf7/TSPwakRBv6K9Qyu3DTNNVeh83NTTUsc0s573QyzuJGs+wnJydDQ0NbW1tTU1M/pYu3e0eBOj622+2pqamjoyObWbOzAe6ej0yzo/N8lNzvFAqFV69era2tra6ues4WXxBt6JcBqff6nSbqVnZ8fPz48eNms6lizQ04DT/V81bv5yRJyuVyu90eGhqq1WrVatW+773lxhl3QKox3bNn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"
+                                                    alt="Card image">
+                                            </div>
+                                            <div class=" form-group col-12">
+                                                <div style="position: relative;" class="dropzone" id="file" action="#">
+                                                    <div class="dz-message needsclick" style="font-size: 14px !important;text-align: center !important">
+                                                        Click aqui para subir imagen de mi producto.<br>
+                                                        <span class="note needsclick">(Tamaño de la imagen
+                                                        <strong>400X400</strong>)
+                                                    </span>
+                                                    </div>
+                                                    <div class="fallback">
+                                                        <input class="f" name="file" type="file" accept="image/*" onchange="handleFiles(this.files)">
+                                                    </div>
+                                                    <div id="fileList" class="d-none">
+                                                        <p>¡No se han seleccionado archivos!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            -->
+
+                                        </div>
+                                    </div>
+                                    <div class="p-3 mb-2 px-md-4 bg-light">
+                                        <div class="row" style="display: flex;justify-content: space-between;">
+                                            <div class="col-sm-auto  ">
+                                                <button class="btn btn-link scroll-to" type="button" data-toggle="collapse" data-target="#edit-step1" aria-expanded="true"><strong>Retroceder</strong></button>
+
+                                            </div>
+                                            <div class="col-sm-auto ">
+                                                <button class="btn btn-first btn-block ladda-button basic-ladda-button mt-2" (click)="createProduct()" id="btn-editar-categoria" [ladda]="isLoadingUpdate" style="font-size: 14px; " type="button" data-style="expand-left">
+                                                  <span class="ladda-label">Guardar</span>
+                                                  <span class="ladda-spinner"></span>
+                                                  <span class="ladda-spinner"></span>
+                                              </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>

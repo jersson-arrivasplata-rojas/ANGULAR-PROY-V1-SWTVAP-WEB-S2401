@@ -1,0 +1,116 @@
+
+<div *ngFor="let $val of $horarios let j= index" class="d-flex align-items-center mb-3">
+    <div class="box">{{ $val.acronym }}</div>
+    <div class="flex-grow-1">
+        <h5 class="">{{ $val.day }}</h5>
+        <p class="m-0 text-small text-muted-2">{{ $val.time_start }} - {{ $val.time_end }}</p>
+    </div>
+    <div class="text-align-end">
+        <button class="btn btn-outline-first border-radius-15 btn-rounded mr-2 btn-sm"
+         (click)="updateHour(this,$val.id)"  [ladda]="isLoadingUpdateHour" >
+            <i class="nav-icon i-Pen-2  font-weight-bold"></i> Editar
+        </button>
+        <button class="btn btn-outline-danger-2 border-radius-15 btn-rounded  btn-sm" 
+        (click)="deleteHour(this,$val.id)"  [ladda]="isLoadingDeleteHour">
+            <i class="nav-icon i-Close-Window font-weight-bold"></i> Eliminar
+        </button>
+    </div>
+</div>
+<div *ngIf="$horarios.length<=0" class="d-flex align-items-center justify-content-center  mb-3">
+    No se encontro ningún horario de atención
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" id="hourModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form method="POST"  class="needs-validation" onsubmit="return false;" novalidate>
+
+                <div class="modal-header">
+                    <h5>Horario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--https://eonasdan.github.io/bootstrap-datetimepicker/-->
+                <div class="modal-body">
+                    <div class="row">
+                        <input type='hidden' name="id" class="form-control" />
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="recipient-name-2" class="col-form-label" >Día de atención:</label>
+                                <select name="day" class="form-control  border-radius-15 " required disabled>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miercoles">Miercoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sábado">Sábado</option>
+                                    <option value="Domingo">Domingo</option>
+                                </select> 
+                                <div class="invalid-feedback text-right mt-0">
+                                    ¡Por favor seleccione un día de atención!
+                                </div>
+                                <div class="valid-feedback text-right mt-0">
+                                    ¡Día seleccionado correctamente!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="recipient-name-2" class="col-form-label lb">Seleccione hora de atención Inicio:</label>
+                            <code class="d-block w-100 text-center  font-weight-bold  mb-2  font-size-18px">{{timeInit}} </code>
+
+                            <ng-template #HourInit>
+                                <ngb-timepicker [(ngModel)]="timeInit" [ngModelOptions]="{standalone: true}" ></ngb-timepicker>
+                            </ng-template>
+                           <!--<ng-template #popTitle>Fancy <b>content!!</b></ng-template>  [popoverTitle]="popTitle" (ngModelChange)="onTimeInitChange($event)"--> 
+                           <ng-template #HourInitTittle>
+                            <div class="popover_title " >
+                                <h6 class="mb-0">Hora de inicio 
+                                    <span class="close-popover float-right  font-16px cursor-pointer popover-close"  
+                                    data-toggle="clickover"  (click)="HourInicio.toggle()" aria-hidden="true">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                </h6>
+                            </div>
+                        </ng-template>
+                            <button type="button" #HourInicio="ngbPopover"  class="btn btn-outline-first  border-radius-15 btn-block" placement="bottom"
+                            [ngbPopover]="HourInit" [popoverTitle]="HourInitTittle" [autoClose]="false" (click)="$event.stopPropagation()">
+                                Ingresar hora de atención Inicio
+                            </button>
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="recipient-name-2" class="col-form-label lb">Seleccione hora de atención Fin:</label>
+                            <code class="d-block w-100 text-center  font-weight-bold  mb-2  font-size-18px">{{timeEnd}} </code>
+                            <ng-template #HourEnd><!--formControlName="timeEnd"-->
+                                <ngb-timepicker [(ngModel)]="timeEnd"  [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                            </ng-template>
+                           <!--<ng-template #popTitle>Fancy <b>content!!</b></ng-template>  [popoverTitle]="popTitle" (ngModelChange)="onTimeEndChange($event)" --> 
+                           <ng-template #HourEndTittle>
+                            <div class="popover_title " >
+                                <h6 class="mb-0">Hora de fin 
+                                    <span class="close-popover float-right  font-16px cursor-pointer popover-close"  
+                                    data-toggle="clickover" (click)="HourFin.toggle()"  aria-hidden="true">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                </h6>
+                            </div>
+                        </ng-template>
+                            <button type="button"  #HourFin="ngbPopover" class="btn btn-outline-first  border-radius-15 btn-block" placement="bottom"
+                            [ngbPopover]="HourEnd" [autoClose]="false" [popoverTitle]="HourEndTittle" (click)="$event.stopPropagation()">
+                                Ingresar hora de atención Fin
+                            </button>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <button class="btn btn-first btn-block  mt-2" id="btn-hour-update"
+                             (click)="btnHourUpdate()" [ladda]="isLoadingUpdateHour"  style="font-size: 14px; " type="submit">Actualizar </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

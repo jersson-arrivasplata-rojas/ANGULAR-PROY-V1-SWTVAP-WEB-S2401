@@ -1,0 +1,532 @@
+<div id="STORE-DASHBOARD-FORMASPAGO">
+    <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-FORMASPAGO" [style.background]="store?.store_customizer_bootstrap[0].theme_color_first" hidden>
+
+    </div>
+    <div class="alerts">
+
+    </div>
+    <div class="main-content" [ngClass]="{'d-block':preloadDashboard==true,'d-none':preloadDashboard==false}">
+        <div class="breadcrumb d-flex" id="cardPagos" style="justify-content: space-between;">
+            <h1>Mis Formas de Pago</h1>
+            <button id="startTourFormaPagoBtn" class="btn btn-large btn-danger-2"><i class="i-Support"></i> Ayuda</button>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <div class="row">
+            <div class="col-lg-10 col-md-12 col-sm-12 m-auto col-12">
+                <div class="card o-hidden mb-4" id="cardSubcategory">
+                    <div class="card-header">
+                        <div class="row  text-center">
+                            <!--col-lg-3 col-md-3 col-sm-3-->
+                            <!--*ngIf="$item.id==1" pagoOtroMetodoPago-->
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-6" *ngIf="$pagoEfectivo==0">
+                                <p class="mb-1">Pago en Efectivo</p>
+                                <div class="flex-wrap mt-2">
+                                    <div class="cards-store-product-2 text-center cursor-pointer">
+                                        <div style="    height: 85px;">
+                                            <img src="{{APP_URL}}assets/images/pagos/pagoefectivo-logo.png" style="width:85px!important">
+
+                                        </div>
+                                        <button class="btn btn-outline-first mt-2  mb-3 btn-sm border-radius-15" (click)="addPagoEfectivo()">Agregar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-lg-4 col-md-4 col-sm-4  col-6" *ngIf="$pagoTransferencia==0">
+                                <p class="mb-1">Pagos con Transferencia</p>
+                                <div class=" flex-wrap  mt-2">
+                                    <div class="cards-store-product-2 text-center cursor-pointer">
+                                        <div style="    height: 85px;">
+                                            <img src="{{APP_URL}}assets/images/pagos/pago-con-transferencia.png" style="width:110px!important">
+
+                                        </div>
+                                        <button class="btn btn-outline-first mt-2  mb-3 btn-sm border-radius-15" data-toggle="modal" data-target="#pagoTransferenciaModal" href="#">Agregar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4  col-6" *ngIf="$pagoAppBanco==0">
+                                <p class="mb-1">Pago con Aplicaciones de Bancos</p>
+                                <div class="flex-wrap  mt-2">
+                                    <div class="cards-store-product-2 text-center cursor-pointer">
+                                        <div style="    height: 85px;">
+                                            <img src="{{APP_URL}}assets/images/pagos/app-bank.png" style="width:85px!important">
+
+                                        </div>
+                                        <button class="btn btn-outline-first mt-2  mb-3 btn-sm border-radius-15" data-toggle="modal" data-target="#pagoAppBancoModal" href="#">Agregar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4  col-6 " *ngIf="$pagoOtroMetodoPago==0">
+                                <p class="mb-1">Otros Métodos de Pago</p>
+                                <div class="flex-wrap mt-2">
+                                    <div class="cards-store-product-2  text-center cursor-pointer">
+                                        <div style="    height: 85px;">
+                                            <img src="{{APP_URL}}assets/images/pagos/pagoOtros.png" style="width:85px!important">
+                                        </div>
+                                        <button class="btn btn-outline-first mt-2  mb-3 btn-sm border-radius-15" data-toggle="modal" data-target="#pagoOtroMetodoPagoModal" href="#">Agregar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 mt-2">
+                            <div class="row d-flex">
+                                <p class="w-50 float-left card-title m-0">Tabla de Formas de Pago </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive" id="tableCategory">
+                            <table id="sales_table" class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <!--<th scope="col">#</th>-->
+                                        <th scope="col">Métodos de Pago</th>
+                                        <th scope="col">Nombre de Titular</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">N° Cuenta /<br> N° Interbancario</th>
+                                        <th scope="col">Comisión</th>
+                                        <th scope="col">Celular</th>
+                                        <!--<th scope="col">Pocket/POS</th>-->
+                                        <th scope="col">Ajustes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let $value of $payments_card let j= index" data-id="{{$value.id}}">
+                                        <!--<td>{{j+1}}</td>-->
+                                        <td>
+                                            <div *ngFor="let $item of $value.payment let y= index">
+                                                <p class="d-none" *ngIf="$item.id==1">Pagos en Efectivo</p>
+                                                <img *ngIf="$item.id==1" src="{{APP_URL}}assets/images/pagos/pagoefectivo-logo.png" style="width:60px!important">
+
+                                                <p class="d-none" *ngIf="$item.id==2">Pago con Transferencia</p>
+                                                <img *ngIf="$item.id==2" src="{{APP_URL}}assets/images/pagos/pago-con-transferencia.png" style="width:45px!important">
+
+                                                <p class="d-none" *ngIf="$item.id==3 ||$item.id==4||$item.id==8||$item.id==7">Aplicacion de Banco</p>
+                                                <img *ngIf="$item.id==3 ||$item.id==4||$item.id==8||$item.id==7" src="{{APP_URL}}assets/images/pagos/app-bank.png" style="width:45px!important">
+
+                                                <p class="d-none" *ngIf="$item.id==5 ||$item.id==6">Otro Método de Pago</p>
+                                                <img *ngIf="$item.id==5 ||$item.id==6" src="{{APP_URL}}assets/images/pagos/pagoOtros.png" style="width:45px!important">
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{$value.name}}
+                                        </td>
+                                        <td>
+                                            <div *ngFor="let $item of $value.payment let y= index">
+                                                <div *ngIf="$item.id==2&&$item.id!=1">
+                                                    <!--&&$item.id!=1-->
+                                                    <div *ngFor="let $val of $value.card let k= index" style="display: inline-table;">
+                                                        <div style="display: table-cell;">
+                                                            <p class="d-none">{{$val.description}}</p>
+                                                            <img src="{{APP_URL}}assets/images/pagos/{{$val.image}}" style="width:125px!important">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="$item.id!=2">
+                                                    <!--95px [ngStyle]="{'width': $item.id==6?'95px!important':'65px!important'} &&$item.id!=1"-->
+                                                    <img src="{{APP_URL}}assets/images/pagos/{{$item.image}}" [style.width.px]="($item.id==6)?95:(($item.id==1)?90:65)">
+                                                </div>
+
+                                                <a target="_blank" *ngIf="($item.id==3 ||$item.id==4||$item.id==8||$item.id==7)&&($value.image!=''&&$value.image!=null)" class="mt-2 d-block" href="{{$value.image_url_qr}}" download>
+                                                    <i class="mdi mdi-download "></i> Descargar QR
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngFor="let $item of $value.payment let y= index">
+                                                <div *ngIf="$item.id==2">
+                                                    <div *ngFor="let $val of $value.card let k= index" style="display: inline-table;">
+
+                                                        <div style="display: table-cell;" class="pl-2">
+                                                            <p *ngIf="$value.num_count!=''&&$value.num_count!=null" class="mb-0 mt-2">N° Cuenta</p>
+                                                            <p *ngIf="$value.num_count!=''&&$value.num_count!=null" class="mb-0  font-weight-bold">{{$value.num_count}}</p>
+                                                            <p *ngIf="$value.num_count_cci!=''&&$value.num_count_cci!=null" class="mb-1">N° Cuenta Interbancaría</p>
+                                                            <p *ngIf="$value.num_count_cci!=''&&$value.num_count_cci!=null" class="mb-0  font-weight-bold">{{$value.num_count_cci}}</p>
+                                                            <!--<p class="font-weight-bold pr-1 pl-1 mb-0 text-center vm">
+                                                                <span *ngIf="$value.visa==1&& $value.mastercard==0">Visa</span>
+                                                                <span *ngIf="$value.visa==1 && $value.mastercard==1" >Visa y Mastercard</span>
+                                                                <span *ngIf="$value.visa==0&& $value.mastercard==1">Mastercard</span>
+                                                            </p>-->
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngFor="let $item of $value.payment let y= index">
+                                                <p class="" *ngIf="$item.id==5 ||$item.id==6">{{($value.comision==''||$value.comision==null)?'':($value.comision+'%')}}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngFor="let $item of $value.payment let y= index">
+                                                <p class="" *ngIf="$item.id==3 ||$item.id==4||$item.id==8||$item.id==7">{{$value.celphone}}</p>
+                                            </div>
+                                        </td>
+                                        <!--<td>
+                                            <div *ngFor="let $item of $value.payment let y= index" >
+                                                <p class=""  *ngIf="$item.id==2||$item.id==5 ||$item.id==6||$item.id==7">
+                                                    <span class="font-weight-bold">{{($value.pocket=='true'?'SI':'')}}</span>
+                                                </p>
+                                            </div>
+                                        </td>-->
+                                        <td>
+                                            <button *ngIf="$value.payment_id!=1 && ($value.payment_id==3 ||$value.payment_id==4||$value.payment_id==8||$value.payment_id==7)" class=" btn btn-success-2 mr-2 font-16px" href="#" data-toggle="tooltip" data-placement="top" title="Editar" (click)="editAppBankModal($value.id)">
+                                                Editar
+                                            </button>
+                                            <button *ngIf="$value.payment_id!=1 && ($value.payment_id==5 ||$value.payment_id==6)" class=" btn btn-success-2 mr-2 font-16px" href="#" data-toggle="tooltip" data-placement="top" title="Editar" (click)="editOtherModal($value.id)">
+                                                Editar
+                                            </button>
+                                            <button *ngIf="$value.payment_id!=1 && ($value.payment_id==2)" class=" btn btn-success-2 mr-2 font-16px" href="#" data-toggle="tooltip" data-placement="top" title="Editar" (click)="editTransferModal($value.id)">
+                                                Editar
+                                            </button>
+                                            <button class=" btn btn-danger-2 mr-2 font-16px mr-2 alert-confirm font-16px" (click)="deleteModal($value.id)" href="#" data-toggle="tooltip" data-placement="top" title="Eliminar !!!">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="$payments_card.length<=0">
+                                        <td COLSPAN=7>
+                                            Aún no hay metodos de pago
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="pagoOtroMetodoPagoModal" role="dialog" aria-labelledby="pagoOtroMetodoPagoModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Otros Métodos de Pago</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngFor="let $item of pagoOtroMetodoPago let j= index">
+                            <div *ngIf="getBooleanOtroMetodoPago($item.payment_id)">
+
+                                <img src="{{APP_URL}}assets/images/pagos/{{$item.image}}" [style.width.px]="115">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="otro_metodo_pago_add" type="radio" id="otro_metodo_pago_add{{j}}" [attr.data-id]="$item.payment_id" [value]="$item.payment_id">
+                                    <label class="form-check-label" for="otro_metodo_pago_add{{j}}">
+                                        Escoger {{$item.description}} como método de pago
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comision_add" class="form-label">Comisión ( % )</label>
+                            <input type="number" class="form-control border-radius-15 comision" id="comision_add" placeholder="" [value]="0" required="">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="addOtroMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Agregar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="pagoAppBancoModal" role="dialog" aria-labelledby="pagoAppBancoModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Pago con Aplicaciones de Bancos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngFor="let $item of pagoAppBanco let j= index">
+                            <div *ngIf="getBooleanBankMetodoPago($item.payment_id)">
+
+                                <img src="{{APP_URL}}assets/images/pagos/{{$item.image}}" [style.width.px]="70">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="bank_metodo_pago_add" type="radio" id="bank_metodo_pago_add{{j}}" [attr.data-id]="$item.payment_id" [value]="$item.payment_id">
+                                    <label class="form-check-label" for="bank_metodo_pago_add{{j}}">
+                                        Escoger {{$item.description}} como método de pago
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">Nombre de Titular </label>
+                            <input type="text" class="form-control border-radius-15 name" id="name_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="celphone_add" class="form-label">Celular </label>
+                            <input type="text" class="form-control border-radius-15 celphone" id="celphone_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="celphone_add" class="form-label">Código QR </label>
+
+                            <label for="ImageHandleCategory" style="width: 100%">
+                                <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                    <div class="dz-message needsclick"
+                                        style="font-size: 13px !important;text-align: center !important">
+                                        Click para subir imagen<strong>(Opcional)</strong><BR>
+                                        <span class="note needsclick">(Tamaño de la imagen
+                                            <strong>400X400</strong>)</span>
+                                    </div>
+                                    <div class="fallback d-none">
+                                        <!--image/*-->
+                                        <input id="ImageHandleCategory" name="file" type="file"
+                                            accept="image/png, image/jpeg, image/jpg"
+                                            onchange="handleFiles(this.files,this)" />
+    
+                                    </div>
+                                    <div id="fileList" class="fileList d-none">
+                                        <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="addBankMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Agregar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="pagoTransferenciaModal" role="dialog" aria-labelledby="pagoTransferenciaModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Pago con Transferencias </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngFor="let $item of pagoTransferencia let j= index">
+                            <div *ngIf="getBooleanTransferenciaMetodoPago($item.payment_id,$item.card_id)">
+
+                                <img src="{{APP_URL}}assets/images/pagos/{{$item.image}}" [style.width.px]="70">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="transfer_metodo_pago_add" type="radio" id="transfer_metodo_pago_add{{j}}" [attr.data-id]="$item.card_id" [value]="$item.card_id">
+                                    <label class="form-check-label" for="transfer_metodo_pago_add{{j}}">
+                                        Escoger {{$item.description}} como método de pago
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">Nombre de Titular </label>
+                            <input type="text" class="form-control border-radius-15 name" id="name_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">N° de Cuenta </label>
+                            <input type="text" class="form-control border-radius-15 num_count" id="num_count_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">N° de Cuenta Interbancaría (CCI)</label>
+                            <input type="text" class="form-control border-radius-15 num_count_cci" id="num_count_cci_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group  d-none">
+                            <label for="celphone_add" class="form-label">Código QR </label>
+
+                            <label for="ImageHandleCategory" style="width: 100%">
+                                <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                    <div class="dz-message needsclick"
+                                        style="font-size: 13px !important;text-align: center !important">
+                                        Click para subir imagen<strong>(Opcional)</strong><BR>
+                                        <span class="note needsclick">(Tamaño de la imagen
+                                            <strong>400X400</strong>)</span>
+                                    </div>
+                                    <div class="fallback d-none">
+                                        <!--image/*-->
+                                        <input id="ImageHandleCategory" name="file" type="file"
+                                            accept="image/png, image/jpeg, image/jpg"
+                                            onchange="handleFiles(this.files,this)" />
+    
+                                    </div>
+                                    <div id="fileList" class="fileList d-none">
+                                        <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="addTransferenciaMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Agregar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="pagoAppBancoModalEdit" role="dialog" aria-labelledby="pagoAppBancoModalEdit" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Pago con Aplicacion de Banco</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control border-radius-15 d-none payment_card_id" id="payment_id" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">Nombre de Titular </label>
+                            <input type="text" class="form-control border-radius-15 name" id="name_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="celphone_add" class="form-label">Celular </label>
+                            <input type="text" class="form-control border-radius-15 celphone" id="celphone_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group  d-none">
+                            <label for="celphone_add" class="form-label">Código QR </label>
+
+                            <label for="ImageHandleCategory" style="width: 100%">
+                                <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                    <div class="dz-message needsclick"
+                                        style="font-size: 13px !important;text-align: center !important">
+                                        Click para subir imagen<strong>(Opcional)</strong><BR>
+                                        <span class="note needsclick">(Tamaño de la imagen
+                                            <strong>400X400</strong>)</span>
+                                    </div>
+                                    <div class="fallback d-none">
+                                        <!--image/*-->
+                                        <input id="ImageHandleCategory" name="file" type="file"
+                                            accept="image/png, image/jpeg, image/jpg"
+                                            onchange="handleFiles(this.files,this)" />
+    
+                                    </div>
+                                    <div id="fileList" class="fileList d-none">
+                                        <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="editBankMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Editar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="pagoTransferenciaModalEdit" role="dialog" aria-labelledby="pagoTransferenciaModalEdit" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Pago con Transferencia </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control border-radius-15 d-none payment_card_id" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">Nombre de Titular </label>
+                            <input type="text" class="form-control border-radius-15 name" id="name_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">N° de Cuenta </label>
+                            <input type="text" class="form-control border-radius-15 num_count" id="num_count_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_add" class="form-label">N° de Cuenta Interbancaría (CCI)</label>
+                            <input type="text" class="form-control border-radius-15 num_count_cci" id="num_count_cci_add" placeholder="" required="">
+                        </div>
+                        <div class="form-group  d-none">
+                            <label for="celphone_add" class="form-label">Código QR </label>
+
+                            <label for="ImageHandleCategory" style="width: 100%">
+                                <div class="dropzone position-relative dropzone-style-border cursor-pointer" id="file" action="#" >
+                                    <div class="dz-message needsclick"
+                                        style="font-size: 13px !important;text-align: center !important">
+                                        Click para subir imagen<strong>(Opcional)</strong><BR>
+                                        <span class="note needsclick">(Tamaño de la imagen
+                                            <strong>400X400</strong>)</span>
+                                    </div>
+                                    <div class="fallback d-none">
+                                        <!--image/*-->
+                                        <input id="ImageHandleCategory" name="file" type="file"
+                                            accept="image/png, image/jpeg, image/jpg"
+                                            onchange="handleFiles(this.files,this)" />
+    
+                                    </div>
+                                    <div id="fileList" class="fileList d-none">
+                                        <p class="mb-0 mt-0">¡No se han seleccionado archivos!</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="editTransferenciaMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Editar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="pagoOtroMetodoPagoModalEdit" role="dialog" aria-labelledby="pagoOtroMetodoPagoModalEdit" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--style="transform: translate(0, 160px);"-->
+                <div class="modal-content  modal-sm m-auto">
+                    <div class="modal-header">
+                        <h5>Otro Método de Pago</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control border-radius-15 d-none payment_card_id" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="comision_add" class="form-label">Comisión ( % )</label>
+                            <input type="number" class="form-control border-radius-15 comision" id="comision_add" placeholder="" [value]="0" required="">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-first btn-block ladda-button border-radius-15 basic-ladda-button mt-2" id="btn-categoria" style="font-size: 14px; " type="button" (click)="editOtroMetododePago()" data-style="expand-left">
+                                <span class="ladda-label">Editar</span>
+                                <span class="ladda-spinner"></span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

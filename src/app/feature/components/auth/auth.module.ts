@@ -1,21 +1,27 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthLoginDefaultComponent } from './auth-login-default/auth-login-default.component';
+import { AuthLogoutDefaultComponent } from './auth-logout-default/auth-logout-default.component';
 import { AuthRoutingModule } from './auth-routing.module';
 
 
 @NgModule({
   declarations: [
-    AuthLoginDefaultComponent
+    AuthLoginDefaultComponent,
+    AuthLogoutDefaultComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

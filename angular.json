@@ -144,7 +144,8 @@
               "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:prod"
             },
             "local": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:local"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:local",
+              "host": "0.0.0.0"
             },
             "dev": {
               "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:dev"

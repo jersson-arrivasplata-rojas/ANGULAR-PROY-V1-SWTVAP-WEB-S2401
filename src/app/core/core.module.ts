@@ -1,7 +1,6 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 
 
@@ -11,8 +10,7 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    SharedModule
+    ReactiveFormsModule
   ],
   exports: [
     [NavbarComponent]

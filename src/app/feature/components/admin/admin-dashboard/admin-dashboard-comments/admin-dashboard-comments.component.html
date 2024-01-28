@@ -1,0 +1,121 @@
+
+<div id="STORE-DASHBOARD-COMMENTS">
+  <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-COMMENTS"  [style.background]="store?.store_customizer_bootstrap[0].theme_color_first"  hidden>
+  
+  </div>
+  <div class="alerts" style=" z-index: 999;">
+
+  </div>
+  <div class="main" [ngClass]="{'':preloadDashboard==true,'d-none':preloadDashboard==false}">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb d-flex" style="justify-content: space-between;">
+          <h1>Comentarios de mi tienda </h1>
+        </div>
+      </div>
+      <div class="col-12" >
+        <!--<ul >
+          <li *ngFor="let item of storeComments; let i= index">{{item.comment}}</li>
+        </ul>-->
+        <div class="table-responsive" >
+            <table  class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Comentarios</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of storeComments; let i= index">
+                        <td>{{i+1}}</td>
+                        <td scope="col">
+                          <p>{{item.comment}}</p>
+                        </td>
+                        <td>
+                            <button (click)="deleteComment(item.id)" class="btn btn-danger-2 btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="storeComments.length<=0">
+                        <td COLSPAN=3>
+                            Aún no hay comentarios
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" >
+      <div class="col-12">
+        <div class="breadcrumb d-flex" style="justify-content: space-between;">
+          <h1>Comentarios de mis productos </h1>
+        </div>
+      </div>
+      <div class=" col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let item of productArray let i= index">
+        <div class="card card-ecommerce-3 text-center o-hidden mb-4" style="border-style: none;">
+          <img *ngFor="let $value of item.product_images; let j= index" alt="" src="{{getImageProduct($value.image)}}"  class="card-img-left"
+            style="max-width: 235px;border-radius: 15px;    margin: auto;">
+          <h5 class="m-0 font-weight-bold text-muted-2  mt-2 mb-2">{{item.name}}</h5>
+          <div class="color-ecommerce-text">
+            <a href="#" class="" data-toggle="modal" data-target="#commentsProductModal" (click)="showComments(item.id)">
+              <i class="mdi mdi-comment-text-outline"></i> <small> Ver comentarios </small>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="commentsProductModal" role="dialog" aria-labelledby="commentsProductModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!--style="transform: translate(0, 160px);" modal-sm style="max-width: 300px;"-->
+          <div class="modal-content   m-auto">
+            <div class="modal-header">
+              <h5>Comentarios</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div *ngIf="commentArray.length==0" class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <div class="media text-muted   d-flex flex-column " [ngClass]="{'pt-3': i === 0}"
+                  *ngFor="let item of commentArray let i= index">
+                  <!--<img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 32px; height: 32px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1774ad0e5d6%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1774ad0e5d6%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.5390625%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+                        --->
+                  <p class="media-body pb-3 w-100 mb-0 small lh-125  border-gray">
+                    <strong class="d-block text-gray-dark">{{item.name}} - {{item.email}}</strong>
+                    {{item.comment}}
+                  </p>
+                  <p *ngIf="item.response!=null&&item.response!=''"
+                    class="media-body pb-3 w-100 mb-0 small lh-125  border-gray">
+                    <strong class="d-block text-gray-dark">Respuesta:</strong>
+                    {{item.response}}
+                  </p>
+                  <div  class="col-10 row"><!--*ngIf="item.response==null||item.response==''"-->
+                    <div class="col-10 p-0  mb-2">
+                      <textarea style="    height: 40px;" id="response{{i}}" name="comment" class="form-control"
+                        placeholder="Responder"></textarea>
+                    </div>
+                    <div class="col-2   p-0">
+                      <button class="btn btn-first btn-sm  ml-2 " [ladda]="isLoading" (click)="addResponse(item.id,i,item.product_id)">Responder</button>
+                    </div>
+                  </div>
+                  <hr class="mb-0" />
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+</div> 
+
+
+

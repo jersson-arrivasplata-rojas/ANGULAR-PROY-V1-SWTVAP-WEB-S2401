@@ -1,68 +1,33 @@
-
-import { Component, } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
+import { AuthHttp } from 'src/app/shared/http/auth.http';
+import { LocalService } from 'src/app/shared/services/local.service';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
-
 
 @Component({
   selector: 'app-auth-login-default',
   templateUrl: './auth-login-default.component.html',
-  styleUrls: ['./auth-login-default.component.scss']
+  styleUrls: ['./auth-login-default.component.scss'],
 })
 export class AuthLoginDefaultComponent {
   public assetUrl = environment.assetUrl;
-
+  public title = 'Sumac Chasca Perú S.A.C.';
   public textPassword: string = 'Ver';
-  public textWhatsapp: string = 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
-  public phoneWhatsapp: string = '51900288628';
 
-  public content = {
-
-  };
-  public documents_type = ['DNI', 'RUC', 'C-EXTRANJERIA'];
-
-  public user: AuthUser = {
-    type_user: '',
-    name: '',
-    email: '',
+  public user = {
+    username: '',
     password: '',
-    celphone: '',
-    document: '',
-    document_type: '',
-    country_phone_code: '',
-    country_phone_id: 0,
-    country_id: 0,
-    message: '',
-    error: '',
-    check_terms_conditions: true,
-    check_politics_privacy: true,
-    check_emails_snap_store: true,
-    token: '',
-    password_confirmation: '',
-    provider: '',
-    image: '',
-    first_name: '',
-    last_name: ''
   };
-  //
-  public store_id = 0;
-  public store_image = '';
-  public store_name = '';
-  public store_uri = '';
-  social: any;
 
-  constructor(private router: Router) {
-  }
+  constructor(
+    private router: Router,
+    private authHttp: AuthHttp,
+    private localService: LocalService
+  ) {}
 
   public typePassword: string = 'password';
-  public preloadId = 'PRELOAD-LOGIN';
 
-  //543618382244-2j1c2u9gl256rkr0iba5erb3v53dpqtd.apps.googleusercontent.com
-
-  public getImageStore() {
-    return this.assetUrl + 'stores/' + this.store_id + '/profile/' + this.store_image;
-  }
   passwordFocus(event: any) {
     event.preventDefault();
   }
@@ -70,13 +35,12 @@ export class AuthLoginDefaultComponent {
     event.preventDefault();
   }
 
-  passwordKeyUp(event: KeyboardEvent) { // with type info
+  passwordKeyUp(event: KeyboardEvent) {
     event.preventDefault();
-   // Metodos.validatePassword(event);
+    CommonUtils.validatePassword(event);
   }
 
   showPassword(event: any) {
-
     event.preventDefault();
     event.stopPropagation();
     if (this.typePassword == 'password') {
@@ -90,6 +54,20 @@ export class AuthLoginDefaultComponent {
   home() {
     this.router.navigate(['/']);
   }
-  type: number = 1;
 
+  submit() {
+    this.authHttp.login(this.user).subscribe({
+      next: (response) => {
+        // manejar la respuesta aquí
+        this.localService.saveData('auth', JSON.stringify(response));
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {
+        // cualquier lógica que necesites ejecutar cuando el Observable se complete
+      },
+    });
+  }
 }

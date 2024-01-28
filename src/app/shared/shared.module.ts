@@ -129,6 +129,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
+import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { ServicesModule } from './services/services.module';
 
@@ -406,6 +407,7 @@ import { ServicesModule } from './services/services.module';
     RouterModule,
     LaddaModule,
     ServicesModule,
+    HttpModule
   ],
   providers:[]
 })

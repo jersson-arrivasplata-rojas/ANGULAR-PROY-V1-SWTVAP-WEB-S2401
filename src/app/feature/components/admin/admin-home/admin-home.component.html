@@ -1,0 +1,193 @@
+<div class="row">
+    <app-top-bar-default style="width: 100%;" [stores_celphone]='store?.stores_celphone' [stores_id]='store?.stores_id' [stores_image]='store?.stores_image' [stores_name]='store?.stores_name' [stores_email]='store?.stores_email' [stores_whatsapp]='store?.stores_whatsapp'
+        [stores_facebook]='store?.stores_facebook' [stores_instagram]='store?.stores_instagram' [stores_uri]='store?.stores_uri' [type]="0" [price]="precioTotal" [dropDownType]="getType()"></app-top-bar-default>
+</div>
+<div class="container">
+    <div class="col-lg-12 pr-0 pl-0 col-md-12 col-sm-12 col-12 ">
+        <app-header-default [theme_color_primary]='store?.store_customizer_bootstrap[0].theme_color_primary' [stores_user_like]='store?.stores_user_like' [stores_user_follow]='store?.stores_user_follow' [stores_uri]='store?.stores_uri' [stores_image_url]='getImagePrincipal()'
+            [stores_name]='store?.stores_name' [store_address_google_maps]='store_address_google_maps' [stores_address]='store?.stores_address' [hours]='store?.hours' [stores_description]='store?.stores_description' [stores_nickname]='store?.stores_nickname'
+            [stores_celphone]='store?.stores_celphone' [stores_email]='store?.stores_email' [stores_whatsapp]='store?.stores_whatsapp' [stores_facebook]='store?.stores_facebook' [stores_instagram]='store?.stores_instagram' [stores_collect]='store?.stores_collect'
+            [stores_delivery]='store?.stores_delivery' [stores_coverage]='store?.stores_coverage' [stores_despatch_time]='store?.stores_despatch_time'>
+
+        </app-header-default>
+    </div>
+    <div class="row ">
+
+        <div class="col-lg-8 col-md-8 col-sm-8 col-12 pt-5 m-auto">
+            <form #searchFilterForm="ngForm" class="form-search" id="FORM-SEARCH-STORE">
+
+                <div class="d-flex">
+                    <div class="input-group input-search-double-mini mr-2" style="    margin-bottom: -3px">
+                        <input type="text" [(ngModel)]="search.product" #product="ngModel" name="product" id="product" class="form-control input text-center" placeholder="¿Qué producto busca?">
+                    </div>
+
+
+                    <button class="btn btn-second    mr-1 border-input admin-inicio-search" (click)="busquedaExplorar()">
+                        <span class="text-first mr-1">Buscar</span> <i class="dripicons-search"></i>
+                    </button>
+                    <button type="button" class="btn btn-info-2  mr-1  border-input" data-toggle="modal" data-target="#modalFiltersStore">
+                        <i class="mdi mdi-filter-outline "></i> <span class="badge badge-light">{{filter_badge_count}}</span>
+                    </button>
+                    <button class="btn  btn-info-2 admin-inicio-clean border-input" (click)="cleanSearch()">
+                        <span class="text-first mr-1">Limpiar</span> <i class="mdi mdi-autorenew "></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-4" id="PRELOAD-STORE-PRODUCTS-CARGANDO" hidden>
+        <div class="col-lg-12 text-center">
+            <div class="card" style="    border-radius: 15px">
+                <div class="card-body">
+                    Cargando ...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  mt-4 " id="ProductCardsVertical" [ngClass]='{"d-none": orderHorizontal==true}'>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+            <app-card-ecommerce-image (emitEvent)="eventEmitCart($event)" *ngFor="let item of array_product_first let i= index" [products_images_tag_visible]="item.products_images_tag_visible" [imageArray]="item.product_images" [image_url]="item.products_image_url"
+                [heart]="item.products_heart" [tags]="item.products_tags" [image]="item.products_image" [position]="i" [products_url]="item.products_url" [tag_name]="item.products_tag_name" [facebook]="item.products_facebook" [id]="item.products_id" [user]="user"
+                [direction]="'vertical'" [uri]="store?.stores_uri" [subcategories_description]="item.subcategories_description" [product_type_sale_discount]="item.product_type_sale_discount" [product_type_sale_price]="item.product_type_sale_price" [product_type_sale_type]="item.product_type_sale_type"
+                [product_type_sale_stock]="item.product_type_sale_stock" [product_name]="item.products_name" [whatsapp]="item.stores_whatsapp" [products_unavailable]="item.products_unavailable" [products_comments]="item.products_comments">
+            </app-card-ecommerce-image>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+            <app-card-ecommerce-image (emitEvent)="eventEmitCart($event)" *ngFor="let item of array_product_second let i= index" [products_images_tag_visible]="item.products_images_tag_visible" [imageArray]="item.product_images" [image_url]="item.products_image_url"
+                [heart]="item.products_heart" [tags]="item.products_tags" [image]="item.products_image" [position]="i" [products_url]="item.products_url" [tag_name]="item.products_tag_name" [facebook]="item.products_facebook" [id]="item.products_id" [user]="user"
+                [direction]="'vertical'" [uri]="store?.stores_uri" [subcategories_description]="item.subcategories_description" [product_type_sale_discount]="item.product_type_sale_discount" [product_type_sale_price]="item.product_type_sale_price" [product_type_sale_type]="item.product_type_sale_type"
+                [product_type_sale_stock]="item.product_type_sale_stock" [product_name]="item.products_name" [whatsapp]="item.stores_whatsapp" [products_unavailable]="item.products_unavailable" [products_comments]="item.products_comments">
+            </app-card-ecommerce-image>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+            <app-card-ecommerce-image (emitEvent)="eventEmitCart($event)" *ngFor="let item of array_product_three let i= index" [products_images_tag_visible]="item.products_images_tag_visible" [imageArray]="item.product_images" [image_url]="item.products_image_url"
+                [heart]="item.products_heart" [tags]="item.products_tags" [image]="item.products_image" [position]="i" [products_url]="item.products_url" [tag_name]="item.products_tag_name" [facebook]="item.products_facebook" [id]="item.products_id" [user]="user"
+                [direction]="'vertical'" [uri]="store?.stores_uri" [subcategories_description]="item.subcategories_description" [product_type_sale_discount]="item.product_type_sale_discount" [product_type_sale_price]="item.product_type_sale_price" [product_type_sale_type]="item.product_type_sale_type"
+                [product_type_sale_stock]="item.product_type_sale_stock" [product_name]="item.products_name" [whatsapp]="item.stores_whatsapp" [products_unavailable]="item.products_unavailable" [products_comments]="item.products_comments">
+            </app-card-ecommerce-image>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+            <app-card-ecommerce-image (emitEvent)="eventEmitCart($event)" *ngFor="let item of array_product_four let i= index" [products_images_tag_visible]="item.products_images_tag_visible" [imageArray]="item.product_images" [image_url]="item.products_image_url"
+                [heart]="item.products_heart" [tags]="item.products_tags" [image]="item.products_image" [position]="i" [products_url]="item.products_url" [tag_name]="item.products_tag_name" [facebook]="item.products_facebook" [id]="item.products_id" [user]="user"
+                [direction]="'vertical'" [uri]="store?.stores_uri" [subcategories_description]="item.subcategories_description" [product_type_sale_discount]="item.product_type_sale_discount" [product_type_sale_price]="item.product_type_sale_price" [product_type_sale_type]="item.product_type_sale_type"
+                [product_type_sale_stock]="item.product_type_sale_stock" [product_name]="item.products_name" [whatsapp]="item.stores_whatsapp" [products_unavailable]="item.products_unavailable" [products_comments]="item.products_comments">
+            </app-card-ecommerce-image>
+        </div>
+    </div>
+
+    <div class="row justify-content-center" id="BUSQUEDA-GRATUITA-PAGINATION">
+        <ngb-pagination (pageChange)="paginationChange($event)" [collectionSize]="paginate.total" [(page)]="paginate.current_page" [maxSize]="paginate.per_page" [rotate]="true" [boundaryLinks]="true">
+        </ngb-pagination>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalFiltersStore" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="border-radius: 16px">
+            <div class="modal-header">
+                <h5>Filtro de Búsqueda</h5>
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
+                        <h5>Rango de Precio</h5>
+                        <!--slider inicio-->
+                        <div class="input-group mb-3" style="width: 100%">
+                            <div class="input-group-append flex-column mr-2" style="width: 48%">
+                                <label for="min">Precio minimo</label>
+                                <input type="number" class="form-control
+                                        border-input mr-2" id="min" name="min" id="PRICE_MIN" (input)="setPrice($event,'price_min')" min="{{price_min}}" max="{{price_max}}" placeholder="{{price_min}}">
+                            </div>
+                            <div class="input-group-prepend flex-column" style="width: 48%">
+                                <label for="min">Precio maximo</label>
+                                <input type="number" class="form-control
+                                        border-input" id="max" name="max" id="PRICE_MAX" min="{{price_min}}" max="{{price_min}}" placeholder="{{price_max}}" (input)="setPrice($event,'price_max')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 mb-2">
+                        <h5>Entrega de Productos</h5>
+                        <p>Promociones</p>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-light-2 mb-2 p-0 border-input ">
+                                <label class="mb-0 p-2 pr-3" for="CHECKBOX_PROMOCION_AMBOS">
+                                    <input type="radio" id="CHECKBOX_PROMOCION_AMBOS"
+                                        [checked]="(this.search.check_promotions==null)?true:false"
+                                        (change)="changePromocion($event,null)" name="CHECKBOX_PROMOCION">
+                                    Ambos
+                                </label>
+                            </button>
+                            <button type="button" class="btn btn-light-2  mb-2 p-0  border-input ">
+                                <label class="mb-0 p-2 pr-3" for="CHECKBOX_PROMOCION_SI">
+                                    <input type="radio" id="CHECKBOX_PROMOCION_SI"
+                                        [checked]="(this.search.check_promotions==null)?false:((this.search.check_promotions==true)?true:false)"
+                                        (change)="changePromocion($event,1)" name="CHECKBOX_PROMOCION">
+                                    SI
+                                </label>
+                            </button>
+                            <button type="button" class="btn btn-light-2  mb-2 p-0   border-input">
+                                <label class="mb-0 p-2 pr-3" for="CHECKBOX_PROMOCION_NO">
+                                    <input type="radio" id="CHECKBOX_PROMOCION_NO"
+                                        [checked]="(this.search.check_promotions==null)?false:((this.search.check_promotions==false)?true:false)"
+                                        (change)="changePromocion($event,0)" name="CHECKBOX_PROMOCION">
+                                    NO
+                                </label>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2 mt-2 slider">
+                        <h5>Categorías</h5>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-light-2 btn-sm mb-2 mb-2 p-0 border-input ">
+                            <label class="mb-0 p-2 pr-3" for="CHECKBOX_SUBCATEGORY_A">
+                                <input type="checkbox" id="CHECKBOX_SUBCATEGORY_A" (change)="addAllCategory($event)"
+                                    name="CHECKBOX_SUBCATEGORY_A" checked>
+                                Todas las categorías
+                            </label>
+                        </button>
+                    </div>
+                    <!--card-active-->
+                    <div *ngFor="let item of store?.categories let i=index" class="col-12 ">
+                        <span class="">Categoría: {{item.description}}</span>
+                        <div class="col-12 pl-0  row-bordered">
+                        </div>
+                        <div class="col-12 mt-2 text-right">Sub categorías</div>
+                        <div *ngFor="let it of item.subcategories let j=index" class="col-12 ">
+                            <button type="button" class="btn btn-light-2 btn-sm mb-2 mb-2 p-0 border-input ">
+                                <label class="mb-0 p-2 pr-3" for="CHECKBOX_SUBCATEGORY_{{it.id}}">
+                                    <input type="checkbox" class="CHECKBOX_SUBCATEGORY_"
+                                        id="CHECKBOX_SUBCATEGORY_{{it.id}}" (change)="addSubCategory($event,it.id)"
+                                        name="CHECKBOX_SUBCATEGORY_{{it.id}}">
+                                    {{it.description}}
+                                </label>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal" (click)="cleanSearch()">Restaurar
+                    Todos</button>
+                <button type="button" data-dismiss="modal" class="btn btn-dark border-input" (click)="applyFilters($event)">Aplicar
+                    los filtros</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-bottom-navbar-default [payment_card]='store?.payment_card' [theme_color_info]='store?.store_customizer_bootstrap[0].theme_color_info' [stores_collect]='store?.stores_collect' [stores_delivery]='store?.stores_delivery' [stores_coverage]='store?.stores_coverage'
+    [payments]='payments'></app-bottom-navbar-default>
+<app-footer-store-default [textWhatsapp]="store?.stores_name" [phoneWhatsapp]="store?.stores_whatsapp" [image]="getImagePrincipal()" [store]="store?.stores_name"></app-footer-store-default>
+
+
+<!--
+<app-chat-window></app-chat-window>
+
+-->

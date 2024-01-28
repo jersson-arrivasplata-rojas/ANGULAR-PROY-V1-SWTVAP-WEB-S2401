@@ -12,8 +12,7 @@
         </div>
       </div>
       <div class="row">
-        <form #loginForm="ngForm" appIdentityRevealed class="col-12 col-md-8 offset-md-2">
-          <div class="spinner-block-white" id="PRELOAD-LOGIN" [hidden]="!loginForm.submitted"></div>
+        <form #loginForm="ngForm" (ngSubmit)="submit()" appIdentityRevealed class="col-12 col-md-8 offset-md-2">
           <div>
             <div class="cross-validation" [class.cross-validation-error]="
                 loginForm.errors?.identityRevealed &&
@@ -21,25 +20,27 @@
               ">
               <div class="row mb-4">
                 <h2 class="col-12 mt-0 mb-2 text-center">Iniciar Sesión</h2>
-                <h2 class="col-12 mt-0 mb-0 text-center" *ngIf="store_name != ''">
-                  {{ store_name }}
+                <h2 class="col-12 mt-0 mb-0 text-center">
+                  {{ title }}
                 </h2>
               </div>
+              <!--
+                [a-z0-9._%+\\-]+@[a-z0-9.\\-]+\.[a-z]{2,4}$
+              -->
               <div class="input-group border-input-group-prepend mb-3">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <span class="mdi mdi-email-outline"></span>
+                    <span class="mdi mdi-account-outline"></span>
                   </div>
                 </div>
-                <input type="email" appForbiddenName="bob" [(ngModel)]="user.email" #email="ngModel"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  class="form-control border-input-left input-middle-prepend" name="email" id="email"
-                  placeholder="Correo electrónico" required />
+                <input type="text" appForbiddenName="bob" [(ngModel)]="user.username" #username="ngModel"
+                  pattern="[a-zA-Z0-9_-]{4,20}"
+                  class="form-control border-input-left input-middle-prepend" name="username" id="username"
+                  placeholder="Nombre de usuario" required />
               </div>
-
-              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+              <div *ngIf="username.invalid && (username.dirty || username.touched)"
                 class="alert alert-danger alert-invalid-dirty">
-                Correo electrónico ingresado incorrectamente
+                Usuario ingresado incorrectamente
                 <span class="mdi mdi-arrow-up-bold"></span>
               </div>
 

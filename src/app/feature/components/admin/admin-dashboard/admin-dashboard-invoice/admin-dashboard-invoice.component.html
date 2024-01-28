@@ -1,0 +1,194 @@
+<div>
+    <h3>Formas de Pago</h3>
+
+
+    <div class="col-12 ">
+        <hr />
+        <label for="exampleInputEmail1">Seleccione el plan:</label>
+        <div class="form-check mb-2">
+            <input class="form-check-input" (change)="changeTypePlan($event)" type="radio" name="type_plan" id="PlanGratuito" value="gratuito" checked>
+            <label class="form-check-label" for="PlanGratuito">
+                Plan Emprendedor Gratuito - S/0.00 x Mes <a href="#" data-toggle="modal"
+                    class="text-primary" data-target="#ModalPlanGratuito">(Ver Beneficios)</a>
+            </label>
+        </div>
+        <div class="form-check mb-2 disabled">
+            <input class="form-check-input" (change)="changeTypePlan($event)" type="radio" name="type_plan" id="PlanBasico" value="basico" disabled>
+            <label class="form-check-label font-weight-bold" for="PlanBasico">
+                Plan Emprendedor Básico - S/19.90 x Mes <a href="#" data-toggle="modal"
+                class="text-primary" data-target="#ModalPlanBasico">(Ver Beneficios)</a>
+            </label>
+        </div>
+        <div class="form-check mb-2 disabled">
+            <input class="form-check-input" type="radio" name="type_plan" id="PlanPremium" value="premium" disabled>
+            <label class="form-check-label" for="PlanPremium">
+                Plan Emprendedor Premium - S/100.00
+             </label>
+        </div>
+        <hr />
+        <label for="exampleInputEmail1">Seleccione:</label>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="credit" (change)="changeMethod($event,'payme-signup')" name="payment-method" checked required>
+            <label for="credit" class="form-check-label">Pago con Tarjeta</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="paypal" (change)="changeMethod($event,'paypal-signup')" name="payment-method" required>
+            <label for="paypal" class="form-check-label">PayPal</label>
+        </div>
+        <hr/>
+        <div class="row mt-4 payme-signup">
+            <div class="col-md-12 form-group">
+                <label for="card-name">Nombres de representante de la tarjeta</label>
+                <input type="text" class="form-control" [(ngModel)]="shippingFirstName" placeholder="Nombre de representante" id="card-name" required>
+                <div class="invalid-feedback">
+                    Se requiere el nombre de representante en la tarjeta
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="card-name">Apellidos de representante de la tarjeta</label>
+                <input type="text" class="form-control" [(ngModel)]="shippingLastName" placeholder="Apellido de representante" id="card-lastname" required>
+                <div class="invalid-feedback">
+                    Se requiere el apellidos de representante en la tarjeta
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="card-name">Correo electrónico</label>
+                <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]" [(ngModel)]="shippingEmail" id="card-email" placeholder="Correo electrónico" required>
+                <div class="invalid-feedback">
+                    Se requiere el correo electrónico
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="card-name">Dirección</label>
+                <input type="text" class="form-control" [(ngModel)]="shippingAddress" id="card-address" placeholder="Dirección del representante" required>
+                <div class="invalid-feedback">
+                    Se requiere la dirección
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="card-name">País</label>
+                <select class="form-control form-select " name="card-country" required="">
+                    <option value="PE">Perú</option>
+                </select>
+                <div class="invalid-feedback">
+                    Se requiere ingresar el pais
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="card-name">Departamento</label>
+                <select class="form-control form-select " name="departments" (change)="OnChangeDepartments($event.target.value)">
+                  <option [value]="item.id" [selected]="i == 14" *ngFor="let item of $stores_deparments; let i=index" >{{item.name}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    Se requiere ingresar el departamento
+                </div>
+            </div>
+            <div class="col-12" *ngIf="provinces.length>0">
+                <label class=" col-form-label" for="inputEmail3">Provincia</label>
+                <select class="form-control form-select" name="provinces" required="" (change)="OnChangeProvinces($event.target.value)">
+                    <option [value]="item.id" *ngFor="let item of provinces; let i=index">{{item.name}}</option>
+                </select>
+            </div>
+            <p class="col-md-12 h3 text-center mt-3 text-weigth">TARJETA DE PAGO</p>
+            <hr>
+            <div class="col-12">
+                <img width="120px" height="40px" src="{{ APP_URL }}assets/images/pagos/visa-mastercard.png" />
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label for="card-type">Seleccione tipo de tarjeta</label>
+                <select class="form-control form-select " [(ngModel)]="typecard" (change)="changeCardType($event)" name="card-type" required="">
+                    <option value=""   hidden="">Seleccione tipo de tarjeta</option>
+                    <optgroup label="Tipo de Tarjeta">
+                        <option value="1" >Visa</option>
+                        <option value="2" >MasterCard</option>
+                        <option value="3" >Discover</option>
+                        <option value="4" >American Express</option>
+                        <option value="5" >Diners</option>
+                    </optgroup>
+                </select>
+                <div class="invalid-feedback">
+                    Se requiere ingresar el tipo de tarjeta
+                </div>
+            </div>
+            <!--
+            <div class="col-md-12 form-group">
+                <select class="  form-control" required="">
+                    <option value="0">Seleccione</option>
+                    <option value="1">VISA</option>
+                    <option value="2">MASTERCARD</option>
+                </select>
+            </div>
+            -->
+            <div class="col-md-12 form-group">
+                <label for="card-no">Número de tarjeta</label>
+                <input type="text" [(ngModel)]="cardNumber" pattern="{{ cardNumberPattern }}" class="form-control" id="card-no" placeholder required>
+                <div class="invalid-feedback">
+                    Se requiere el número de tarjeta de crédito
+                </div>
+            </div>
+            <div class="ml-1 col-md-8 col-12 form-group">
+                <label for="expiration">Fecha de caducidad</label>
+                <div class="form-row">
+                    <select class="col-5 mr-2 form-control" [(ngModel)]="mm" required="">
+                        <option value=""   hidden="">Mes</option>
+                        <optgroup label="Mes">
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </optgroup>
+                    </select>
+                    <select class="col-5  form-control" [(ngModel)]="yy" required="">
+                        <option value="" hidden="">Año</option>
+                        <optgroup label="Año">
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <!--<input type="text" class="form-control" id="card-name" placeholder="MM/YYYY" required>
+                <div class="invalid-feedback">
+                    Fecha de vencimiento requerida
+                </div>-->
+            </div>
+
+
+            <div class=" col-12  form-group">
+                <label for="ccv-no">Numero de seguridad</label>
+                <input type="text" class="form-control" [(ngModel)]="cvv" pattern="{{ cvvPattern }}" id="sec-no" placeholder="CVV" required>
+                <div class="invalid-feedback">
+                    Código de seguridad requerido
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary bt-lg btn-block" [disabled]="validatorPayme()" (click)="openPayment()">Pagar</button>
+
+    </div>
+</div>

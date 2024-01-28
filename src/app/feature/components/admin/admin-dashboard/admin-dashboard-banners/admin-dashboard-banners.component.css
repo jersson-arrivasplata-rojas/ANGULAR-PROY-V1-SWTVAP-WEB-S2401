@@ -1,0 +1,31 @@
+.img-banner{
+    max-height: 420px;
+    max-width: 1200px;
+    margin: auto;
+}
+.img-icon{
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+}
+
+.img-owl-carousel-banner .owl-carousel .owl-wrapper {
+    display: flex !important;
+}
+.img-owl-carousel-banner .owl-carousel .owl-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: initial;
+}
+.button-banner-delete{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+/*
+.img-owl-banners{
+    height: 420px;
+    width: 1200px!important;
+}
+*/

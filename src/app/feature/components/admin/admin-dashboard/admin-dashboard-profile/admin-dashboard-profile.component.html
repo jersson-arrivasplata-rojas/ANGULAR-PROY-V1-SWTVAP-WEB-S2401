@@ -1,0 +1,485 @@
+<div id="STORE-DASHBOARD-PERFIL">
+    <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-PERFIL" [style.background]="store?.store_customizer_bootstrap[0].theme_color_first" hidden>
+
+    </div>
+    <div class="alerts">
+
+    </div>
+    <!-- ============ Body content start ============= -->
+    <div [ngClass]="{'d-block':preloadDashboard==true,'d-none':preloadDashboard==false}" class="main-content">
+        <div class="breadcrumb d-flex" style="justify-content: space-between;">
+            <h1>Perfil de mi Negocio </h1>
+            <button id="startTourPerfilBtn" class="btn btn-large btn-danger-2 border-input"><i
+                    class="mdi mdi-information-outline"></i> Ayuda</button>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <section class="ul-contact-detail">
+            <div class="row">
+                <div class="col-lg-7 col-xl-7">
+                    <div class="alert alert-warning-2" role="alert">
+                        <strong class="text-capitalize">¡Solo puede cambiar la categoría del negocio 2 veces de forma
+                            grauita! </strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="alert alert-warning-2" role="alert">
+                        <strong class="text-capitalize">¡Solo puede cambiar la URL 2 veces de forma grauita! </strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="card mb-4" id="cardNegocio2">
+                        <div class="card-header bg-transparent">
+
+                            <h3 class="ul-widget__head-title">
+                                Detalles de la cuenta del Negocio
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="form-group row">
+                                    <input name="id" id="store_id" [value]="$stores_id" style="display: none !important;">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">
+                                        {{$stores_document_type}}
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="document" [value]="$stores_document" type="number" placeholder="N° de documento" disabled />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">URL de mi negocio</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+                                            <input class="form-control  " (load)="convertToSlug(stores_uri)" (keyup)="convertToSlug(stores_uri)" (input)="uriProfile(stores_uri)" name="uri" id="uri-profile" [value]="$stores_uri" #stores_uri type="text" placeholder="Ingrese su enlace de tu negocio"
+                                                [disabled]="$uri_count>1" />
+                                            <div class="input-group-append">
+                                                <button class="btn btn-info-2  d-flex align-items-center" (click)="goURLDATA(this,'uri')">Ir a mi negocio</button>
+                                            </div>
+                                        </div>
+                                        <small><strong>No utilizar carácteres especiales {{$caracteres_especiales}}</strong></small>
+                                        <div class="URLSET">
+
+                                        </div>
+                                        <div class="disp-url">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Categorías de su
+                                        negocio</label>
+                                    <div class="col-sm-10">
+                                        <select2 [data]="$filters" (update)="updateStoreFilters($event)" [value]="$stores_filters" [templates]="template" [multiple]="true">
+                                            <ng-template #template let-data="data">{{data?.name}}</ng-template>
+                                        </select2>
+                                        <small><strong>Debe tener una categoría como mínimo</strong></small>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Slogan de mi
+                                        negocio</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="nickname" id="nickname-profile" type="text" [value]="$stores_nickname" placeholder="Escribe algo breve y original con el cual te identificas" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Correo de mi
+                                        negocio</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="email" id="email-profile" type="email" [value]="$stores_email" placeholder="Correo de contacto para tus clientes" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Celular de mi
+                                        negocio</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="celphone" id="celphone-profile" [value]="$stores_celphone" type="number" placeholder="Celular de contacto para tus clientes" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Facebook</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+
+                                            <input class="form-control  " name="facebook" id="facebook-profile" [value]="$stores_facebook" type="text" placeholder="Ingrese su enlace de facebook" />
+                                            <div class="input-group-append">
+                                                <button class="btn btn-info-2 d-flex align-items-center" (click)="goURL(this,'facebook')">Ir Facebook <i
+                                                        style="font-size: 13.5px;margin-left: 5px;"
+                                                        class="i-Facebook-2"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Instagram</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+
+                                            <input class="form-control " name="instagram" id="instagram-profile" [value]="$stores_instagram" type="text" placeholder="Ingrese su enlace de instagram" />
+                                            <div class="input-group-append">
+                                                <button class="btn btn-info-2  d-flex align-items-center" (click)="goURL(this,'instagram')">Ir Instragram <i
+                                                        style="font-size: 14.5px;margin-left: 5px;"
+                                                        class="i-Instagram"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Tiempo de despacho</label>
+                                    <div class="col-sm-10">
+                                        <textarea style="height: 35px;resize: none;" class="form-control" name="coverage" id="coverage-profile" placeholder="Ejemplo: Despachamos 5 minutos de haber recibido el pedido. " [innerHtml]="$stores_coverage_description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group text-align-end text-right">
+                                    <label class="" for="check-delivery"><strong>¿Realiza Delivery?</strong></label>
+                                    <label class="switch ml-4">
+                                        <input type="checkbox" id="check-delivery" *ngIf="$stores_delivery=='NO'"
+                                            name="collect" style="transform: scale(1.5);">
+                                        <input type="checkbox" id="check-delivery" *ngIf="$stores_delivery=='SI'"
+                                            name="collect" style="transform: scale(1.5);" checked="checked">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group text-align-end text-right">
+                                    <label class="" for="check-collect"><strong>¿Recojo en Tienda?</strong></label>
+                                    <label class="switch ml-4">
+                                        <input type="checkbox" id="check-collect" *ngIf="$stores_collect=='NO'"
+                                            name="collect" style="transform: scale(1.5);">
+                                        <input type="checkbox" id="check-collect" *ngIf="$stores_collect=='SI'"
+                                            name="collect" style="transform: scale(1.5);" checked="checked">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Número de whatsapp</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+
+                                            <input class="form-control " name="whatsapp" id="whatsapp-profile" [value]="($stores_whatsapp=='SI'||$stores_whatsapp=='NO'?$stores_celphone:$stores_whatsapp)" type="text" placeholder="Ingrese su número de whatsapp" />
+                                            <div class="input-group-append">
+                                                <button class="btn btn-info-2  d-flex align-items-center" (click)="goWhatssapp(this,'whatsapp')">Ir Whatsapp <i
+                                                        style="font-size: 14.5px;margin-left: 5px;"
+                                                        class="i-Instagram"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="inputEmail3">Descripción de mi
+                                        negocio</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" [innerHtml]="$stores_description" name="description" id="description-profile" placeholder="Escribe una breve descripción a que se dedica tu negocio">
+                                    </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+
+                                        <button class="btn btn-first btn-block border-radius-15" [ladda]="isLoadingProfile" (click)="saveSetting()">
+                                            <span class="ladda-label">Guardar cambios</span>
+                                            <span class="ladda-spinner"></span>
+                                        </button>
+                                        <!--
+
+                                            <button
+                                            class="btn btn-first btn-block ladda-button basic-ladda-button  border-radius-15"
+                                            id="save-setting" [ladda]="isLoading" (click)="saveSetting()" type="submit"
+                                            data-style="expand-left">
+                                            <span class="ladda-label">Guardar cambios</span>
+                                            <span class="ladda-spinner"></span>
+                                            <span class="ladda-spinner"></span>
+                                        </button>
+                                            <button class="btn btn-first btn-block" type="submit" id="save-setting" >Guardar cambios</button> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5 col-xl-5 mb-3">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="mb-4 mt-2">
+                            <div class="card mb-4" id="HorarioAtencin">
+                                <div class="card-body">
+                                    <div class="ul-widget__head __g-support v-margin  mb-4">
+                                        <div class="ul-widget__head-label d-flex justify-content-between">
+                                            <h3 class="ul-widget__head-title">
+                                                Mi horario de atención
+                                            </h3>
+                                            <button class="btn btn-outline-first border-radius-15 btn-rounded btn-sm float-right" (click)="addH(this,$event)">
+                                                Agregar
+                                            </button>
+                                        </div>
+                                        <hr />
+                                    </div>
+                                    <div id="HoursCardBody" #hourContainer>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card mb-4" id="cardCoverageAdd">
+                            <div class="card-header bg-transparent">
+                                <h3 class="ul-widget__head-title">
+                                    Zonas de Despacho y Asignación de Precios
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <div class="form-group row">
+
+                                        <div class="col-6">
+                                            <label class=" col-form-label" for="inputEmail3">País</label>
+                                            <select class="form-control form-select  border-radius-15" appForbiddenName="bob" name="countries" required="">
+                                                <option [value]="179">Perú</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class=" col-form-label" for="inputEmail3">Departamento</label>
+                                            <select class="form-control form-select  border-radius-15" name="deparments" (change)="OnChangeDepartments($event.target.value)">
+                                                <option [value]="0">Seleccionar todos</option>
+                                                <option [value]="item.id"
+                                                    *ngFor="let item of $stores_deparments; let i=index">{{item.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12" *ngIf="provinces.length>0">
+                                            <label class=" col-form-label" for="inputEmail3">Provincia</label>
+                                            <select class="form-control form-select  border-radius-15" name="provinces" (change)="OnChangeProvinces($event.target.value)" required="">
+                                                <option [value]="0">Seleccionar todos</option>
+                                                <option [value]="item.id" *ngFor="let item of provinces; let i=index">
+                                                    {{item.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12" *ngIf="districts.length>0 ">
+                                            <label class=" col-form-label" for="inputEmail3">Distrito</label>
+                                            <select class="form-control form-select  border-radius-15" name="districts" (change)="OnChangeDistricts($event.target.value)" required="">
+                                                <option [value]="0">Seleccionar todos</option>
+
+                                                <option [value]="item.id" *ngFor="let item of districts; let i=index">
+                                                    {{item.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class=" col-form-label" for="inputEmail3">Precio S/.</label>
+                                            <input class="form-control  border-radius-15 " name="price" type="number" placeholder="Precio ">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class=" col-form-label  " for="inputEmail3">Comentario</label>
+                                            <textarea class="form-control  border-radius-15" name="description" type="text"></textarea>
+                                        </div>
+                                        <div class="col-12 mt-3">
+
+                                            <button class="btn btn-first btn-block  border-radius-15" (click)="saveDespacho()" [ladda]="isLoadingCoverage" id="save-zona-despacho">
+                                                <span class="ladda-label">Agregar nueva zona de despacho</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <hr/>
+                                    <h4>Lista de Coberturas ingresadas</h4>
+                                    <div *ngIf="$stores_coverages.length<=0" class="d-flex align-items-center  justify-content-center text-center mb-3">
+                                        No se encontro ninguna zona de cobertura
+                                    </div>
+                                    <div class="form-group mt-3 row d-grid" id="ZonasCoverturas" style="display: grid;">
+
+                                        <div *ngFor="let $item of $stores_coverages; let j= index" class="zonacobertura col-sm-12 mb-3" [ngClass]="{'grid-row-1':(j==0||j==1)}">
+
+                                            <ul class="mb-0 pl-0" style="list-style: none;">
+                                                <li>Pais: {{$item.country}}</li>
+                                                <li>Departamento: {{(($item.department==null||$item.department=='')?'Todos los departamentos':$item.department)}}</li>
+                                                <li>Provincia: {{(($item.province==null||$item.province=='')?'Todas las provincias':$item.province)}}</li>
+                                                <li>Distrito: {{(($item.district==null||$item.district=='')?'Todos los distritos':$item.district)}}</li>
+                                                <li>Precio: {{$item.price| number : '.1-3'}}</li>
+                                                <li *ngIf="$item.description!=''">Descripción: {{$item.description}}</li>
+                                                <li>
+                                                    <button class="btn btn-first btn-sm  btn-rounded mr-2" id="edit-setting" [ladda]="isLoadingUpdateCoverage" (click)="editCoverage($item.id)">editar</button>
+
+                                                    <button class="btn btn-danger-2 btn-sm   btn-rounded mr-2" [ladda]="isLoadingDeleteCoverage" id="save-setting" (click)="deleteCoverage($item.id)">eliminar</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="CoverturaModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <form method="POST" class="needs-validation" onsubmit="return false;" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Zonas de Despacho y Asignación de Precios</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--https://eonasdan.github.io/bootstrap-datetimepicker/-->
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-12 d-none">
+                                <input class="form-control  border-radius-15 " name="coverage-edit" type="number">
+                            </div>
+                            <div class="col-12">
+                                <label class=" col-form-label" for="inputEmail3">País</label>
+                                <select class="form-control form-select  border-radius-15" appForbiddenName="bob" name="countries-edit" required="">
+                                    <option [value]="179">Perú</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class=" col-form-label" for="inputEmail3">Departamento</label>
+                                <select class="form-control form-select  border-radius-15" name="deparments-edit" (change)="OnChangeEditDepartments($event.target.value)">
+                                    <option [value]="0">Seleccionar todos</option>
+                                    <option [value]="item.id" *ngFor="let item of $stores_deparments; let i=index">
+                                        {{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-12" *ngIf="provinces.length>0">
+                                <label class=" col-form-label" for="inputEmail3">Provincia</label>
+                                <select class="form-control form-select  border-radius-15" name="provinces-edit" (change)="OnChangeEditProvinces($event.target.value)" required="">
+                                    <option [value]="0">Seleccionar todos</option>
+                                    <option [value]="item.id" *ngFor="let item of provinces; let i=index">{{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-12" *ngIf="districts.length>0 ">
+                                <label class=" col-form-label" for="inputEmail3">Distrito</label>
+                                <select class="form-control form-select  border-radius-15" name="districts-edit" (change)="OnChangeEditDistricts($event.target.value)" required="">
+                                    <option [value]="0">Seleccionar todos</option>
+
+                                    <option [value]="item.id" *ngFor="let item of districts; let i=index">{{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class=" col-form-label" for="inputEmail3">Precio S/.</label>
+                                <input class="form-control  border-radius-15 " name="price-edit" type="number" placeholder="Precio ">
+                            </div>
+                            <div class="col-12">
+                                <label class=" col-form-label  " for="inputEmail3">Comentario</label>
+                                <textarea class="form-control  border-radius-15" name="description-edit" type="text"></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button [ladda]="isLoadingUpdateCoverage" class="btn btn-first btn-block  border-radius-15" (click)="editDespacho()" id="save-zona-despacho-edit">
+                                    <span class="ladda-label">Editar zona de despacho</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="houraddModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <form method="POST" class="needs-validation" onsubmit="return false;" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Horario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--https://eonasdan.github.io/bootstrap-datetimepicker/-->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="recipient-name-2" class="col-form-label">Seleccione día de
+                                        atención:</label>
+                                    <select name="day" class="form-control border-radius-15" required>
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+                                        <option value="Sábado">Sábado</option>
+                                        <option value="Domingo">Domingo</option>
+                                    </select>
+                                    <div class="invalid-feedback text-right mt-0">
+                                        ¡Por favor seleccione un día de atención!
+                                    </div>
+                                    <div class="valid-feedback text-right mt-0">
+                                        ¡Día seleccionado correctamente!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="recipient-name-2" class="col-form-label lb">Seleccione hora de atención
+                                    Inicio:</label>
+                                <code class="d-block w-100 text-center  font-weight-bold  mb-2  font-size-18px">{{timeInit}} </code>
+                                <ng-template #HourInit>
+                                    <ngb-timepicker [(ngModel)]="timeInit" [ngModelOptions]="{standalone: true}">
+                                    </ngb-timepicker>
+                                </ng-template>
+                                <!--<ng-template #popTitle>Fancy <b>content!!</b></ng-template>  [popoverTitle]="popTitle" (ngModelChange)="onTimeInitChange($event)"-->
+                                <ng-template #HourInitTittle>
+                                    <div class="popover_title ">
+                                        <h6 class="mb-0">Hora de inicio
+                                            <span class="close-popover float-right  font-16px cursor-pointer popover-close" data-toggle="clickover" (click)="HourInicio.toggle()" aria-hidden="true">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </h6>
+                                    </div>
+                                </ng-template>
+
+
+                                <button type="button" #HourInicio="ngbPopover" class="btn btn-outline-first border-radius-15 btn-block" placement="bottom" [ngbPopover]="HourInit" [popoverTitle]="HourInitTittle" [autoClose]="false" (click)="$event.stopPropagation()">
+                                    Ingresar hora de atención Inicio
+                                </button>
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="recipient-name-2" class="col-form-label lb">Seleccione hora de atención
+                                    Fin:</label>
+                                <code class="d-block w-100 text-center  font-weight-bold  mb-2 font-size-18px">{{timeEnd}} </code>
+
+
+                                <ng-template #HourEnd>
+                                    <!--formControlName="timeEnd"-->
+                                    <ngb-timepicker [(ngModel)]="timeEnd" [ngModelOptions]="{standalone: true}">
+                                    </ngb-timepicker>
+                                </ng-template>
+                                <ng-template #HourEndTittle>
+                                    <div class="popover_title ">
+                                        <h6 class="mb-0">Hora de fin
+                                            <span class="close-popover float-right  font-16px cursor-pointer popover-close" data-toggle="clickover" (click)="HourFin.toggle()" aria-hidden="true">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </h6>
+                                    </div>
+                                </ng-template>
+                                <!--<ng-template #popTitle>Fancy <b>content!!</b></ng-template>  [popoverTitle]="popTitle" (ngModelChange)="onTimeEndChange($event)" -->
+
+                                <button type="button" #HourFin="ngbPopover" class="btn btn-outline-first border-radius-15  btn-block" placement="bottom" [ngbPopover]="HourEnd" [popoverTitle]="HourEndTittle" [autoClose]="false" (click)="$event.stopPropagation()">
+                                    Ingresar hora de atención Fin
+                                </button>
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="btn btn-first btn-block  mt-2" id="btn-hour" (click)="btnHour()" style="font-size: 14px; " [ladda]="isLoadingHour" type="submit">Agregar </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.invalid-feedback{
+    display: block;
+    font-size: 12px;
+    color: var(--secondary);
+}
+.ng-invalid:not(form),
+.ng-valid[required], .ng-valid.required {
+    border: 1px solid #ced4da;
+}
+
+    /*border-left: none;*/
+/*.ng-invalid:not(form) {
+    border-left: 1px var(--light);
+    border-left-style: outset;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border-left: 1px var(--light);
+    border-left-style: outset;
+}*/
+
+.border-select-input{
+    background: transparent;
+    border-radius: 0px;
+    border-style: none;
+}
+
+.border-select-input-gorup{
+    border-top-left-radius: 23px!important;
+    border-bottom-left-radius: 23px!important;
+}
