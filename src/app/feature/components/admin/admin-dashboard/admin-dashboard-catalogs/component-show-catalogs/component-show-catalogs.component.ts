@@ -12,6 +12,7 @@ export class ComponentShowCatalogsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
+      this.item.status = Boolean(this.item.status);
       this.item = changes['item'].currentValue;
     }
   }

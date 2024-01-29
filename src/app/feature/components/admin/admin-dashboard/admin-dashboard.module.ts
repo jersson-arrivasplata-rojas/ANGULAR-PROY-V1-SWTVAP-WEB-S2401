@@ -37,7 +37,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     ReactiveFormsModule,
     LaddaModule,
-    CarouselModule
+    CarouselModule,
   ],
   exports:[],
   providers: [

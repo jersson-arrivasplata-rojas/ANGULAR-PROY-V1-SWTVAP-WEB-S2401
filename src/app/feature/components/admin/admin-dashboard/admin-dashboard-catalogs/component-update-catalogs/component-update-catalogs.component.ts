@@ -32,15 +32,17 @@ export class ComponentUpdateCatalogsComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
+      this.item.status = Boolean(this.item.status);
       this.itemForm.patchValue(this.item);
     }
   }
 
   update() {
     if (this.itemForm.valid) {
-      const data = { ...this.item, ...this.itemForm.value };
-      this.catalogHttp.update(data.id, data).subscribe((data) => {
-        this.updated.emit(data);
+      const item = { ...this.item, ...this.itemForm.value };
+      item.status = Number(item.status);
+      this.catalogHttp.update(item.catalogId, item).subscribe((item) => {
+        this.updated.emit(item);
       });
     }
   }

@@ -25,32 +25,32 @@ export class AdminDashboardCatalogsComponent implements OnInit {
   handleAdded(data: any) {
     this.catalogHttp.add(data).subscribe((data) => {
       this.data.push(data);
-      this.updateItem = true;
+      this.updateItem = false;
       this.showItem = false;
       this.addItem = false;
     });
   }
 
-  handleUpdated(data: any) {
+  handleUpdated(item: any) {
     this.data = this.data.map((response) => {
-      if (response.id === data.id) {
-        return data;
+      if (response.catalogId === item.catalogId) {
+        return item;
       }
       return response;
     });
-    this.addItem = true;
+    this.addItem = false;
     this.updateItem = false;
     this.showItem = false;
   }
 
-  handleTableUpdated(data: any) {
-    this.data = data;
-    this.addItem = false;
+  handleTableUpdated(item: any) {
+    this.item = item;
     this.updateItem = true;
+    this.addItem = false;
     this.showItem = false;
   }
 
-  handleTableDeleted(data: any) {
+  handleTableDeleted(data: any[]) {
     this.data = data;
   }
 
@@ -61,4 +61,5 @@ export class AdminDashboardCatalogsComponent implements OnInit {
     this.addItem = false;
     this.updateItem = false;
   }
+
 }

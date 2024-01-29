@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { StatusEnum } from '../config/status.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,14 @@ export class CatalogHttp {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map((response: any) => {
+        return response.map((item: any) => {
+          item.status = Boolean(item.status === StatusEnum.ACTIVE);
+          return item;
+        });
+      }),
+    );
   }
 
   getById(id: number): Observable<any> {

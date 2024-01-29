@@ -19,7 +19,7 @@ export class ComponentListCatalogsComponent {
   constructor(private catalogHttp: CatalogHttp) {}
 
   show(item: any) {
-    if (item.id === this.item?.id && this.showItem) {
+    if (item.catalogId === this.item?.catalogId && this.showItem) {
       this.showItem = !this.showItem;
       return;
     }
@@ -35,13 +35,13 @@ export class ComponentListCatalogsComponent {
     if (confirm(text) === true) {
       this.catalogHttp.delete(item.catalogId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.id !== item.id);
+        this.data = this.data.filter((f) => f.catalogId !== item.catalogId);
         this.deleted.emit(this.data);
       });
     }
   }
 
-  update(user: any) {
-    this.updated.emit(user);
+  update(item: any) {
+    this.updated.emit(item);
   }
 }

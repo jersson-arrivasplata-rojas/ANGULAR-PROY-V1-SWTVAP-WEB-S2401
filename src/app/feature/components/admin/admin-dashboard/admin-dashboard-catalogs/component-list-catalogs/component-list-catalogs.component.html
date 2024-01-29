@@ -15,7 +15,7 @@
                 <td>{{ item.catalogId }}</td>
                 <td>{{ item.code }}</td>
                 <td>{{ item.name }}</td>
-                <td>{{ item.status }}</td>
+                <td>{{ item.status | status }}</td>
                 <td>
                     <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
                     <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
@@ -23,10 +23,10 @@
                 </td>
             </tr>
         </ng-container>
-        <tr *ngIf="data.length<=0">
-          <td COLSPAN=5>
-              Aun no se a agregado ningun registro
-          </td>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=5>
+            Aun no se a agregado ningun registro
+        </td>
       </tr>
     </tbody>
 </table>
