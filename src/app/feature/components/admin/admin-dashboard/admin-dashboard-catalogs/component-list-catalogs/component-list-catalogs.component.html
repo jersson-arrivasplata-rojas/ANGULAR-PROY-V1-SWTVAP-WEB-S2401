@@ -1,0 +1,32 @@
+<!-- src/app/component-user-table/component-user-table.component.html -->
+<table class="table table-bordered text-center" aria-label="Table of catalogs">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of data" >
+            <tr *ngIf="item.deleted!=false">
+                <td>{{ item.catalogId }}</td>
+                <td>{{ item.code }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.status }}</td>
+                <td>
+                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                </td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="data.length<=0">
+          <td COLSPAN=5>
+              Aun no se a agregado ningun registro
+          </td>
+      </tr>
+    </tbody>
+</table>

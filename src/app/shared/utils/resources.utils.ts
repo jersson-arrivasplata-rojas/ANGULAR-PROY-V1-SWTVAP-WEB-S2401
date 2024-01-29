@@ -27,7 +27,7 @@ export class ResourcesUtils{
   public static EsCopyright = '© 2019 Sumac Chasca Perú S.A.C.';
   public static EsDerechosReservados = 'Todos los derechos reservados';
   public static EsFooterTitulo = 'Sumac Chasca Perú S.A.C. - Administrador para los emprendedores';
-  public static EsFooterDescripcion = 'Plataforma web de emprendedores donde pueden mostrar sus productos en el mundo digital creado por DevInnova Peru S.A.C.';
+  public static EsFooterDescripcion = 'Plataforma web de emprendedores donde pueden mostrar sus productos en el mundo digital creado por Sumac Chasca Perú S.A.C..';
   public static EsUrlWebDevInnovaPeru = 'https://devinnovaperu.com/';
   public static EsWebDevInnovaPeru = 'Web de DevInnova Peru';
   public static EsFacebook = 'Facebook';
@@ -77,7 +77,7 @@ export class ResourcesUtils{
   public static EnCopyright = '© 2019 Sumac Chasca Perú S.A.C.';
   public static EnDerechosReservados = 'All rights reserved';
   public static EnFooterTitulo = 'Sumac Chasca Perú S.A.C. - Manager for entrepreneurs';
-  public static EnFooterDescripcion = 'Entrepreneurs web platform where they can show their products in the digital world created by DevInnova Peru S.A.C.';
+  public static EnFooterDescripcion = 'Entrepreneurs web platform where they can show their products in the digital world created by Sumac Chasca Perú S.A.C..';
   public static EnUrlWebDevInnovaPeru = 'https://devinnovaperu.com/';
   public static EnWebDevInnovaPeru = 'Web de DevInnova Peru';
   public static EnFacebook = 'Facebook';

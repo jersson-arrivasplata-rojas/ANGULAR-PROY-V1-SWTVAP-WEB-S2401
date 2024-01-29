@@ -1,0 +1,11 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.catalogId }}</h2>
+        <p>Nombre: {{ item.name }}</p>
+        <p>Código: {{ item.code }}</p>
+        <p>Estado: {{ item.status }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

@@ -30,15 +30,20 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/animate.css/animate.min.css",
+              "./src/assets/css/hopscotch.css",
+              "./src/assets/css/getemoji.css",
               "./src/assets/css/app.css",
               "./src/assets/css/icons.min.css",
+              "./src/assets/css/iconsmind.css",
               "./src/assets/css/vendor/quill.bubble.css",
               "./src/assets/css/vendor/quill.snow.css",
               "./src/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./src/assets/js/vendor/hopscotch.min.js",
+              "./node_modules/webfontloader/webfontloader.js"
             ]
           },
           "configurations": {

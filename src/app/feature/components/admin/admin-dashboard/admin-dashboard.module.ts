@@ -3,36 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import * as echarts from 'echarts';
-import { Select2Module } from 'ng-select2-component';
-import { NgxEchartsModule } from 'ngx-echarts';
-import { NgxSortableModule } from 'ngx-sortable';
-import { AdminDashboardPrincipalComponent } from './admin-dashboard-base/admin-dashboard-principal.component';
-import { AdminDashboardCategoriasComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
-import { AdminDashboardClientesComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
-import { AdminDashboardCustomizerComponent } from './admin-dashboard-customizer/admin-dashboard-customizer.component';
-import { AdminDashboardInicioComponent } from './admin-dashboard-home/admin-dashboard-home.component';
-import { AdminDashboardOrdenEditComponent } from './admin-dashboard-orden-edit/admin-dashboard-orden-edit.component';
-import { AdminDashboardOrdenesComponent } from './admin-dashboard-ordenes/admin-dashboard-ordenes.component';
-import { AdminDashboardFormasPagoComponent } from './admin-dashboard-payment-methods/admin-dashboard-payment-methodscomponent';
-import { AdminDashboardProductosComponent } from './admin-dashboard-products/admin-dashboard-productos.component';
-import { AdminDashboardPerfilTiendaComponent, DashboardHourContent } from './admin-dashboard-profile/admin-dashboard-perfil-tienda.component';
-import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
-import { AdminDashboardSubcategoriasComponent } from './admin-dashboard-subcategorias/admin-dashboard-subcategorias.component';
-import { AdminDashboardTrabajadoresComponent } from './admin-dashboard-trabajadores/admin-dashboard-trabajadores.component';
-
-import { AngularEditorModule } from '@kolkov/angular-editor';
 import { LaddaModule } from 'angular2-ladda';
-import { ImageCropperModule } from 'ngx-image-cropper';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { AdminDashboardBannersComponent } from './admin-dashboard-banners/admin-dashboard-banners.component';
-import { AdminDashboardChatComponent } from './admin-dashboard-chat/admin-dashboard-chat.component';
-import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
-import { AdminDashboardImageCropperComponent } from './admin-dashboard-image-cropper/admin-dashboard-image-cropper.component';
-import { AdminDashboardFacturaComponent } from './admin-dashboard-invoice/admin-dashboard-invoice.component';
-import { AdminDashboardMapComponent } from './admin-dashboard-map/admin-dashboard-map.component';
-import { AdminDashboardPlanesComponent } from './admin-dashboard-planes/admin-dashboard-planes.component';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashboard-base.component';
+import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
+import { ComponentAddCatalogsComponent } from './admin-dashboard-catalogs/component-add-catalogs/component-add-catalogs.component';
+import { ComponentListCatalogsComponent } from './admin-dashboard-catalogs/component-list-catalogs/component-list-catalogs.component';
+import { ComponentShowCatalogsComponent } from './admin-dashboard-catalogs/component-show-catalogs/component-show-catalogs.component';
+import { ComponentUpdateCatalogsComponent } from './admin-dashboard-catalogs/component-update-catalogs/component-update-catalogs.component';
+import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -40,26 +22,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [
-    AdminDashboardPrincipalComponent,
-    AdminDashboardInicioComponent,
-    DashboardHourContent,
-    AdminDashboardPerfilTiendaComponent,
-    AdminDashboardCategoriasComponent,
-    AdminDashboardSubcategoriasComponent,
-    AdminDashboardProductosComponent,
-    AdminDashboardFormasPagoComponent,
-    AdminDashboardOrdenesComponent,
-    AdminDashboardClientesComponent,
-    AdminDashboardTrabajadoresComponent,
-    AdminDashboardCustomizerComponent,
-    AdminDashboardOrdenEditComponent,
-    AdminDashboardBannersComponent,
-    AdminDashboardPlanesComponent,
-    AdminDashboardMapComponent,
-    AdminDashboardChatComponent,
-    AdminDashboardCommentsComponent,
-    AdminDashboardImageCropperComponent,
-    AdminDashboardFacturaComponent
+    AdminDashboardBaseComponent,
+    AdminDashboardCatalogsComponent,
+    ComponentListCatalogsComponent,
+    ComponentAddCatalogsComponent,
+    ComponentUpdateCatalogsComponent,
+    ComponentShowCatalogsComponent
   ],
   imports: [
     AdminDashboardRoutingModule,
@@ -68,39 +36,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    Select2Module,
-    NgxSortableModule,
-    ColorSketchModule,
-    NgxEchartsModule.forRoot({
-      echarts,//: () => import('echarts')
-    }),
-    PerfectScrollbarModule,
-    ImageCropperModule,
     LaddaModule,
-    CarouselModule,
-    AngularEditorModule
+    CarouselModule
   ],
-  exports:[
-
-    AdminDashboardPrincipalComponent,
-    AdminDashboardInicioComponent,
-    DashboardHourContent,
-    AdminDashboardPerfilTiendaComponent,
-    AdminDashboardCategoriasComponent,
-    AdminDashboardSubcategoriasComponent,
-    AdminDashboardProductosComponent,
-    AdminDashboardFormasPagoComponent,
-    AdminDashboardOrdenesComponent,
-    AdminDashboardClientesComponent,
-    AdminDashboardTrabajadoresComponent,
-    AdminDashboardCustomizerComponent,
-    AdminDashboardOrdenEditComponent,
-    AdminDashboardBannersComponent,
-    AdminDashboardPlanesComponent,
-    AdminDashboardMapComponent,
-    AdminDashboardChatComponent,
-    AdminDashboardCommentsComponent
-  ],
+  exports:[],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

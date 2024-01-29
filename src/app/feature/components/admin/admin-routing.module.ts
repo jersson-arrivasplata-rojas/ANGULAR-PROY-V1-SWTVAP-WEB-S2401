@@ -5,11 +5,11 @@ import { AdminBaseComponent } from './admin-base/admin-base.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
-    path: 'admin',
+    path: '',
     component: AdminBaseComponent,
     children: [
       {

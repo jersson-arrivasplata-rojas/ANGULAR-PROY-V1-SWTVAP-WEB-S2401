@@ -129,8 +129,10 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
+import { HighlightDirective } from './directives/highlight.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
+import { InitialsPipe } from './pipes/initials.pipe';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
@@ -259,7 +261,9 @@ import { ServicesModule } from './services/services.module';
     HeaderTopDefaultComponent,
     GoogleSecondDefaultComponent,
     ChatWindowComponent,
-    ChatWindowAuthComponent
+    ChatWindowAuthComponent,
+    InitialsPipe,
+    HighlightDirective
   ],
   exports: [
     GeneratorCssComponent,
@@ -391,7 +395,9 @@ import { ServicesModule } from './services/services.module';
     HeaderTopDefaultComponent,
     GoogleSecondDefaultComponent,
     ChatWindowComponent,
-    ChatWindowAuthComponent
+    ChatWindowAuthComponent,
+    InitialsPipe,
+    HighlightDirective
   ],
   imports: [
     CommonModule,

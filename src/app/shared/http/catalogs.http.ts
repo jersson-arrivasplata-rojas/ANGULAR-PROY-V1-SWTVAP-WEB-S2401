@@ -6,36 +6,31 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogsService {
-  private apiUrl = environment.apiUrl + '/api/catalogs';
+export class CatalogHttp {
+  private apiUrl = environment.apiUrl + 'api/catalogs';
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener todos los usuarios
-  getUsers(): Observable<any[]> {
+  getAll(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  // Método para obtener un usuario por su id
-  getUserById(userId: number): Observable<any> {
-    const url = `${this.apiUrl}/${userId}`;
+  getById(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
     return this.http.get<any>(url);
   }
 
-  // Método para crear un nuevo usuario
-  addUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user);
+  add(data: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, data);
   }
 
-  // Método para actualizar un usuario existente
-  updateUser(userId: number, updatedUser: any): Observable<any> {
-    const url = `${this.apiUrl}/${userId}`;
-    return this.http.put<any>(url, updatedUser);
+  update(id: number, data: any): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<any>(url, data);
   }
 
-  // Método para eliminar un usuario
-  deleteUser(userId: number): Observable<any> {
-    const url = `${this.apiUrl}/${userId}`;
+  delete(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
     return this.http.delete<any>(url);
   }
 }

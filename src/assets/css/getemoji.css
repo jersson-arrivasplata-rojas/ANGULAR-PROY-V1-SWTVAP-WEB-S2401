@@ -1,0 +1,71 @@
+.smile_3 {
+    /* position: absolute; */
+    /* transform: translate3d(-228px, 5px, 0px); */
+    width: 265px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    z-index: 9;
+    border-style: solid;
+    border-width: 2px;
+    /* padding: 0.4em;*/
+}
+
+.smile_3 .tab-content {
+    overflow-y: scroll;
+    height: 248px;
+    padding: 0.2em;
+}
+
+.smile_3 ul.nav {
+    /*flex-direction: column;
+    text-align: justify;   
+     width: 120px;
+     float: left;*/
+    font-size: 14px;
+}
+
+.smile_3 ul.nav li.nav-item {
+    /*width: 112px;*/
+}
+
+.smile_3 .tab-content {
+    /* width: 230px;
+    height: 300px;
+    float: right;*/
+    overflow-y: auto;
+}
+
+.smile_3 .tab-content .tab-pane {
+    /*display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;overflow: auto;*/
+    overflow: hidden;
+}
+
+.smile_3 .tab-content .tab-pane.show {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.smile_3 .tab-content span {
+    font-size: 20px;
+    cursor: pointer;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.smile_3 .nav-tabs .nav-item .nav-link.active {
+    border-color: transparent;
+}
+
+.smile_3 .nav-tabs .nav-item .nav-link {
+    padding-right: 7.5px!important;
+    padding-bottom: 0!important;
+    padding-top: 0!important;
+    padding-left: 7.5px!important;
+}

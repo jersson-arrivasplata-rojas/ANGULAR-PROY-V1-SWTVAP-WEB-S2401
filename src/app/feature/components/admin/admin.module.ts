@@ -23,4 +23,4 @@ import { AdminRoutingModule } from './admin-routing.module';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AuthModule { }
+export class AdminModule { }
