@@ -3,6 +3,7 @@
         <tr>
             <th>ID</th>
             <th>Nombre</th>
+            <th>Catalogos Asignados</th>
             <th>Estado</th>
             <th>Acciones</th>
         </tr>
@@ -12,6 +13,12 @@
             <tr *ngIf="item.deleted!=false">
                 <td>{{ item.categoryId }}</td>
                 <td>{{ item.name }}</td>
+                <td>
+                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
+                    <span>{{ item.catalogs?item.catalogs.length:0 }}</span>
+                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addCategoryCatalogs(item)">Agregar</button>
+                  </div>
+                </td>
                 <td>{{ item.status | status }}</td>
                 <td>
                     <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>

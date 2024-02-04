@@ -11,6 +11,7 @@ export class ComponentListParametersComponent {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
+  @Output() added: EventEmitter<any> = new EventEmitter();
 
   item: any;
 
@@ -43,5 +44,9 @@ export class ComponentListParametersComponent {
 
   update(item: any) {
     this.updated.emit(item);
+  }
+
+  add(item: any){
+    this.added.emit(item);
   }
 }

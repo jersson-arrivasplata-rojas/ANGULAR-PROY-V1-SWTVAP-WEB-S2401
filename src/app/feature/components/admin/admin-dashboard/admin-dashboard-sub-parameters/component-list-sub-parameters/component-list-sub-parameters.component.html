@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <ng-container *ngFor="let item of data" >
-            <tr *ngIf="item.deleted!=false && !item.parentId">
+            <tr *ngIf="item.deleted!=false && item.parentId">
                 <td>{{ item.id }}</td>
                 <td>{{ item.groupId }}</td>
                 <td>{{ item.description | truncateText }}</td>
@@ -22,7 +22,6 @@
                 <td>{{ item.position }}</td>
                 <td>{{ item.status | status }}</td>
                 <td>
-                    <button class=" btn btn-warning mr-2 font-16px" (click)="add(item)">Agregar</button>
                     <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
                     <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
                     <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>

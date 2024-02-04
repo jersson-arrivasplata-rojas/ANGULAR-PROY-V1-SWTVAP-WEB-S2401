@@ -13,6 +13,9 @@ import { ComponentListAnalyticsComponent } from './admin-dashboard-analytics/com
 import { ComponentShowAnalyticsComponent } from './admin-dashboard-analytics/component-show-analytics/component-show-analytics.component';
 import { ComponentUpdateAnalyticsComponent } from './admin-dashboard-analytics/component-update-analytics/component-update-analytics.component';
 import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashboard-base.component';
+import { AdminDashboardCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/admin-dashboard-catalogs-categories.component';
+import { ComponentListCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/component-list-catalogs-categories/component-list-catalogs-categories.component';
+import { ComponentShowCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/component-show-catalogs-categories/component-show-catalogs-categories.component';
 import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
 import { ComponentAddCatalogsComponent } from './admin-dashboard-catalogs/component-add-catalogs/component-add-catalogs.component';
 import { ComponentListCatalogsComponent } from './admin-dashboard-catalogs/component-list-catalogs/component-list-catalogs.component';
@@ -44,6 +47,11 @@ import { ComponentListProvidersComponent } from './admin-dashboard-providers/com
 import { ComponentShowProvidersComponent } from './admin-dashboard-providers/component-show-providers/component-show-providers.component';
 import { ComponentUpdateProvidersComponent } from './admin-dashboard-providers/component-update-providers/component-update-providers.component';
 import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
+import { AdminDashboardSubParametersComponent } from './admin-dashboard-sub-parameters/admin-dashboard-sub-parameters.component';
+import { ComponentAddSubParametersComponent } from './admin-dashboard-sub-parameters/component-add-sub-parameters/component-add-sub-parameters.component';
+import { ComponentListSubParametersComponent } from './admin-dashboard-sub-parameters/component-list-sub-parameters/component-list-sub-parameters.component';
+import { ComponentShowSubParametersComponent } from './admin-dashboard-sub-parameters/component-show-sub-parameters/component-show-sub-parameters.component';
+import { ComponentUpdateSubParametersComponent } from './admin-dashboard-sub-parameters/component-update-sub-parameters/component-update-sub-parameters.component';
 import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
 import { ComponentAddSubscriptionsComponent } from './admin-dashboard-subscriptions/component-add-subscriptions/component-add-subscriptions.component';
 import { ComponentListSubscriptionsComponent } from './admin-dashboard-subscriptions/component-list-subscriptions/component-list-subscriptions.component';
@@ -107,7 +115,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentListParametersComponent,
     ComponentAddParametersComponent,
     ComponentUpdateParametersComponent,
-    ComponentShowParametersComponent
+    ComponentShowParametersComponent,
+    AdminDashboardSubParametersComponent,
+    ComponentListSubParametersComponent,
+    ComponentAddSubParametersComponent,
+    ComponentUpdateSubParametersComponent,
+    ComponentShowSubParametersComponent,
+    AdminDashboardCatalogsCategoriesComponent,
+    ComponentListCatalogsCategoriesComponent,
+    ComponentShowCatalogsCategoriesComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

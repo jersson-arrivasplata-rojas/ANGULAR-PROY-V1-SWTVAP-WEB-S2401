@@ -1,26 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { mergeMap } from 'rxjs';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-parameters',
-  templateUrl: './admin-dashboard-parameters.component.html',
-  styleUrls: ['./admin-dashboard-parameters.component.css']
+  selector: 'app-admin-dashboard-sub-parameters',
+  templateUrl: './admin-dashboard-sub-parameters.component.html',
+  styleUrls: ['./admin-dashboard-sub-parameters.component.css']
 })
-export class AdminDashboardParametersComponent implements OnInit {
+export class AdminDashboardSubParametersComponent implements OnInit {
 
   data: any[] = [];
-  item = {};
+  item;
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private parameterHttp: ParameterHttp, private router:Router) { }
+  constructor(private parameterHttp: ParameterHttp, private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.parameterHttp.getAll().subscribe((data) => {
-      this.data = data;
-    });
+
+    this.activatedRoute.params
+      .pipe(
+        mergeMap(params => {
+          const id = +params['id'];
+          return this.parameterHttp.getById(id);
+        }),
+        mergeMap(item => {
+          this.item = item;
+          return this.parameterHttp.getAll();
+        })
+      )
+      .subscribe(data => {
+        this.data = data.filter((response) => response.parentId === (this.item as any)?.id);
+      });
   }
 
   handleAdded(data: any) {
@@ -63,7 +76,7 @@ export class AdminDashboardParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
-  handleTableAdded(data: any){
-    this.router.navigate(['/admin/dashboard/parameters/add', data.id]);
+  back(){
+    this.router.navigate(['/admin/dashboard/parameters']);
   }
 }

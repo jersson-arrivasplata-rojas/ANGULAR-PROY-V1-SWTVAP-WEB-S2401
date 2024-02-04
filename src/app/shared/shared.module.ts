@@ -133,6 +133,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { InitialsPipe } from './pipes/initials.pipe';
+import { StatusAddPipe } from './pipes/status-add.pipe';
+import { StatusRelationshipPipe } from './pipes/status-relationship.pipe';
 import { StatusPipe } from './pipes/status.pipe';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { ServicesModule } from './services/services.module';
@@ -267,7 +269,9 @@ import { ServicesModule } from './services/services.module';
     InitialsPipe,
     HighlightDirective,
     StatusPipe,
-    TruncateTextPipe
+    TruncateTextPipe,
+    StatusAddPipe,
+    StatusRelationshipPipe
   ],
   exports: [
     GeneratorCssComponent,
@@ -403,7 +407,9 @@ import { ServicesModule } from './services/services.module';
     InitialsPipe,
     HighlightDirective,
     StatusPipe,
-    TruncateTextPipe
+    TruncateTextPipe,
+    StatusAddPipe,
+    StatusRelationshipPipe
   ],
   imports: [
     CommonModule,

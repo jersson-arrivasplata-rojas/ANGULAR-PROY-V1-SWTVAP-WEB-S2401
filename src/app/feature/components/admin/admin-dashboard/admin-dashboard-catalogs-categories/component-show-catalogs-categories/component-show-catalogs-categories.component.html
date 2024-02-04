@@ -1,7 +1,9 @@
 <div class="card mb-4">
     <div class="card-body">
-        <h2>Id: {{ item.categoryId }}</h2>
+        <h2>Id: {{ item.catalogId?item.catalogId:item.categoryId }}</h2>
+        <p>Asociado: {{ item.relationship | statusRelationship }}</p>
         <p>Nombre: {{ item.name }}</p>
+        <p *ngIf="item.code">Código: {{ item.code }}</p>
         <p>Descripción: {{ item.description }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>

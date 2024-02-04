@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError, mergeMap, of } from 'rxjs';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
+import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
 
 
 @Component({
@@ -14,11 +16,23 @@ export class AdminDashboardCatalogsComponent implements OnInit {
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private catalogHttp: CatalogHttp) { }
+  constructor(private catalogHttp: CatalogHttp, private categoryCatalagHttp: CategoryCatalogsHttp) { }
 
   ngOnInit() {
-    this.catalogHttp.getAll().subscribe((data) => {
-      this.data = data;
+    this.catalogHttp.getAll().pipe(
+      mergeMap(catalogData => {
+        this.data = catalogData;
+        return this.categoryCatalagHttp.getAll();
+      })
+    ).pipe(
+      catchError(error => {
+        console.error('Error al consultar datos:', error);
+        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+      })
+    ).subscribe((categoryCatalogs) => {
+      this.data.map((catalog: any) => {
+        catalog.categories = categoryCatalogs.filter(categoryCatalog => categoryCatalog.catalog.catalogId === catalog.catalogId);
+      });
     });
   }
 

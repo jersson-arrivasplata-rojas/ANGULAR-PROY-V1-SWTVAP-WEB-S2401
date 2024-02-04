@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryHttp } from 'src/app/shared/http/categories.http';
 
 @Component({
@@ -16,7 +17,7 @@ export class ComponentListCategoriesComponent {
 
   showItem = false;
 
-  constructor(private categoryHttp: CategoryHttp) {}
+  constructor(private categoryHttp: CategoryHttp, private router:Router) {}
 
   show(item: any) {
     if (item.categoryId === this.item?.categoryId && this.showItem) {
@@ -43,5 +44,9 @@ export class ComponentListCategoriesComponent {
 
   update(item: any) {
     this.updated.emit(item);
+  }
+
+  addCategoryCatalogs(item: any){
+    this.router.navigate(['/admin/dashboard/categories/add', item.categoryId]);
   }
 }

@@ -1,30 +1,30 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
+import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 @Component({
-  selector: 'app-component-list-catalogs',
-  templateUrl: './component-list-catalogs.component.html',
-  styleUrls: ['./component-list-catalogs.component.scss'],
+  selector: 'app-component-list-sub-parameters',
+  templateUrl: './component-list-sub-parameters.component.html',
+  styleUrls: ['./component-list-sub-parameters.component.scss'],
 })
-export class ComponentListCatalogsComponent {
+export class ComponentListSubParametersComponent {
   @Input() data: any[] = [];
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
+  @Output() added: EventEmitter<any> = new EventEmitter();
 
   item: any;
 
   showItem = false;
 
-  constructor(private catalogHttp: CatalogHttp, private router:Router) {}
+  constructor(private parameterHttp: ParameterHttp) {}
 
   show(item: any) {
-    if (item.catalogId === this.item?.catalogId && this.showItem) {
+    if (item.id === this.item?.id && this.showItem) {
       this.showItem = !this.showItem;
       return;
     }
-    this.catalogHttp.getById(item.catalogId).subscribe((response) => {
+    this.parameterHttp.getById(item.id).subscribe((response) => {
       this.item = response;
       if (!this.showItem) this.showItem = !this.showItem;
       this.showed.emit({item: this.item, showItem: this.showItem});
@@ -34,9 +34,9 @@ export class ComponentListCatalogsComponent {
   delete(item: any) {
     let text = 'Presiona el bot\xf3n para eliminar! ';
     if (confirm(text) === true) {
-      this.catalogHttp.delete(item.catalogId).subscribe(() => {
+      this.parameterHttp.delete(item.id).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.catalogId !== item.catalogId);
+        this.data = this.data.filter((f) => f.id !== item.id);
         this.deleted.emit(this.data);
       });
     }
@@ -44,9 +44,5 @@ export class ComponentListCatalogsComponent {
 
   update(item: any) {
     this.updated.emit(item);
-  }
-
-  addCategoryCatalogs(item: any){
-    this.router.navigate(['/admin/dashboard/catalogs/add', item.catalogId]);
   }
 }
