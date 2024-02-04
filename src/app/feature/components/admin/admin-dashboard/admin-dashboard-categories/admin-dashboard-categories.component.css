@@ -1,17 +1,17 @@
+#STORE-DASHBOARD-CATEGORIES #addModal .popover-body {
 
-#STORE-DASHBOARD-CATEGORIAS #addModal .popover-body{
-
-padding:0px;
+  padding: 0px;
 }
 
-#STORE-DASHBOARD-CATEGORIAS #cardCategory .sortable-buttons{
-display: none;
+#STORE-DASHBOARD-CATEGORIES #cardCategory .sortable-buttons {
+  display: none;
 }
 
-#STORE-DASHBOARD-CATEGORIAS #cardCategory  .sortable-list{
-    display: table
+#STORE-DASHBOARD-CATEGORIES #cardCategory .sortable-list {
+  display: table
 }
-#STORE-DASHBOARD-CATEGORIAS #cardCategory  .sortable-list-item{
-    display: flex;
-    justify-content: space-between;
+
+#STORE-DASHBOARD-CATEGORIES #cardCategory .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
 }

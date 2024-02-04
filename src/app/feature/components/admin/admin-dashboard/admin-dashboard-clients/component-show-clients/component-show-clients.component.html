@@ -1,0 +1,17 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.clientId }}</h2>
+        <p>Nombre: {{ item.name }}</p>
+        <p>Dirección: {{ item.address }}</p>
+        <p>Teléfono: {{ item.phone }}</p>
+        <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
+        <p>Correo: {{ item.email }}</p>
+        <p>Whatsapp: {{ item.whatsapp | status }}</p>
+        <p>Fuente Agregada: {{ item.sourceAggregate }}</p>
+        <p>Detalle: {{ item.details }}</p>
+        <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

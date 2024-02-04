@@ -1,0 +1,12 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.marketingCampaignId }}</h2>
+        <p>Nombre: {{ item.name }}</p>
+        <p>Fecha Inicio: {{ item.startDate }}</p>
+        <p>Fecha Fin: {{ item.endDate }}</p>
+        <p>Descripción: {{ item.description }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

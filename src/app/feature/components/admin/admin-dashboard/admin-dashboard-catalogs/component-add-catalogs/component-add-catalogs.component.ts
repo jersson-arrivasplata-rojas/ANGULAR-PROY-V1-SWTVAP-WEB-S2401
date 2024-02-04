@@ -25,12 +25,12 @@ export class ComponentAddCatalogsComponent {
 
   add() {
     if (this.itemForm.valid) {
-      const data = { ...this.init(), ...this.itemForm.value };
-      data.status = Number(data.status);
-      this.added.emit(data);
+      const item = { ...this.init(), ...this.itemForm.value };
+      item.status = Number(item.status);
+      this.added.emit(item);
     }
   }
-  
+
   init() {
     return {
       name: '',

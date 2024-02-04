@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-SUBSCRIPTIONS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-SUBSCRIPTIONS #cardSubscription .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-SUBSCRIPTIONS #cardSubscription .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-SUBSCRIPTIONS #cardSubscription .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

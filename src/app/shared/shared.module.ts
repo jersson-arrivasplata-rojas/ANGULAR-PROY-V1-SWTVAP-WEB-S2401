@@ -134,6 +134,7 @@ import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { StatusPipe } from './pipes/status.pipe';
+import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
@@ -265,7 +266,8 @@ import { ServicesModule } from './services/services.module';
     ChatWindowAuthComponent,
     InitialsPipe,
     HighlightDirective,
-    StatusPipe
+    StatusPipe,
+    TruncateTextPipe
   ],
   exports: [
     GeneratorCssComponent,
@@ -400,7 +402,8 @@ import { ServicesModule } from './services/services.module';
     ChatWindowAuthComponent,
     InitialsPipe,
     HighlightDirective,
-    StatusPipe
+    StatusPipe,
+    TruncateTextPipe
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,39 @@
+<table class="table table-bordered text-center" aria-label="Table of clients">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Whatsapp</th>
+            <th>Fuente Agregada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of data" >
+            <tr *ngIf="item.deleted!=false">
+                <td>{{ item.clientId }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.cellphone }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.whatsapp | status }}</td>
+                <td>{{ item.sourceAggregate }}</td>
+                <td>
+                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                </td>
+            </tr>
+        </ng-container>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=9>
+            Aun no se a agregado ningun registro
+        </td>
+      </tr>
+    </tbody>
+</table>

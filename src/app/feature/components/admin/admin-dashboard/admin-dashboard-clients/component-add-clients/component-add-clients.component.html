@@ -1,0 +1,74 @@
+
+<div>
+    <form [formGroup]="itemForm" (ngSubmit)="add()">
+      <h2>Agregar</h2>
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <textarea rows="3" class="form-control" id="address" formControlName="address">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="phone">Telefono:</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="cellphone">Celular:</label>
+                <input type="text" class="form-control" id="cellphone" formControlName="cellphone">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="countryCode">País:</label>
+                <input type="text" class="form-control" id="countryCode" formControlName="countryCode">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="email">Correo:</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="whatsapp">whatsapp:</label>
+                <input type="checkbox" class="form-control" id="whatsapp" formControlName="whatsapp" >
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="details">Detalle:</label>
+                <textarea rows="3" class="form-control" id="details" formControlName="details">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="otherDetails">Otros Detalles:</label>
+                <textarea rows="3" class="form-control" id="otherDetails" formControlName="otherDetails">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+              <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
+              <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+            </div>
+        </div>
+      </div>
+      <ng-container *ngIf="!itemForm.valid">
+        <p>¡Registro No Valido!</p>
+      </ng-container>
+    </form>
+</div>

@@ -1,0 +1,12 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.unitId }}</h2>
+        <p>Nombre de la Unidad: {{ item.unitName }}</p>
+        <p>Abreviación: {{ item.abbreviation }}</p>
+        <p>Factor de Conversión: {{ item.conversionFactor }}</p>
+        <p>Estado: {{ item.status | status }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

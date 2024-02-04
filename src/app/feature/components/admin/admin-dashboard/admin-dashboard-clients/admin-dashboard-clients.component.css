@@ -1,5 +1,17 @@
-.user-icon-profile{
-      font-size: 5rem;
-                            position: absolute;
-                            right: 1rem;
+#STORE-DASHBOARD-CLIENTS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-CLIENTS #cardClient .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-CLIENTS #cardClient .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-CLIENTS #cardClient .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
 }

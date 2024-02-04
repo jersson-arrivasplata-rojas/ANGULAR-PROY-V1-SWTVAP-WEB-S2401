@@ -1,0 +1,29 @@
+<table class="table table-bordered text-center" aria-label="Table of analytics">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Página Visitada</th>
+            <th>Fecha Visitada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of data" >
+            <tr *ngIf="item.deleted!=false">
+                <td>{{ item.analyticId }}</td>
+                <td>{{ item.visitedPage }}</td>
+                <td>{{ item.visitedDate }}</td>
+                <td>
+                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                </td>
+            </tr>
+        </ng-container>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=9>
+            Aun no se a agregado ningun registro
+        </td>
+      </tr>
+    </tbody>
+</table>

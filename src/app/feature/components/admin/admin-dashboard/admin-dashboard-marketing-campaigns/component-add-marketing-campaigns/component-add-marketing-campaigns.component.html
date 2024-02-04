@@ -1,0 +1,42 @@
+
+<div>
+    <form [formGroup]="itemForm" (ngSubmit)="add()">
+      <h2>Agregar</h2>
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="startDate">Fecha Inicio:</label>
+                <input type="text" class="form-control" id="startDate" formControlName="startDate">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="endDate">Fecha Fin:</label>
+                <input type="text" class="form-control" id="endDate" formControlName="endDate">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea rows="3" class="form-control" id="description" formControlName="description">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+              <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
+              <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+            </div>
+        </div>
+      </div>
+      <ng-container *ngIf="!itemForm.valid">
+        <p>¡Registro No Valido!</p>
+      </ng-container>
+    </form>
+</div>

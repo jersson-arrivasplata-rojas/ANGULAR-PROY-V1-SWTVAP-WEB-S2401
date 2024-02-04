@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-MARKETING-CAMPAIGNS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-MARKETING-CAMPAIGNS #cardMarketing-Campaign .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-MARKETING-CAMPAIGNS #cardMarketing-Campaign .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-MARKETING-CAMPAIGNS #cardMarketing-Campaign .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

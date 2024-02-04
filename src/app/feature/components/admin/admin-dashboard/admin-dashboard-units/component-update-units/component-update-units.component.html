@@ -1,0 +1,41 @@
+
+<div>
+  <form [formGroup]="itemForm" (ngSubmit)="update()">
+    <h2>Actualizar</h2>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+            <label for="unitName">Nombre de la Unidad:</label>
+            <input type="text" class="form-control" id="unitName" formControlName="unitName">
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+            <label for="abbreviation">Abreviación:</label>
+            <input type="text" class="form-control" id="abbreviation" formControlName="abbreviation" placeholder="Ejmplo: pz, kg, g, L u otros">
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+            <label for="conversionFactor">Factor de Conversión:</label>
+            <input type="text" class="form-control" id="conversionFactor" formControlName="conversionFactor">
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group d-flex">
+            <label for="code">Estado:</label>
+            <input type="checkbox" class="form-control" id="status" formControlName="status" >
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Actualizar</button>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="!itemForm.valid">
+      <p>¡Registro No Valido!</p>
+    </ng-container>
+  </form>
+</div>

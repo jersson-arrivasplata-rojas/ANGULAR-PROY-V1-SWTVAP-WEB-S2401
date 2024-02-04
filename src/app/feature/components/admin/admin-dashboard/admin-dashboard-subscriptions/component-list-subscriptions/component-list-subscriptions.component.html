@@ -1,0 +1,31 @@
+<table class="table table-bordered text-center" aria-label="Table of subscriptions">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Correo</th>
+            <th>Fecha de Suscripción</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of data" >
+            <tr *ngIf="item.deleted!=false">
+                <td>{{ item.newsletterSubscriptionId }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.subscribedAt }}</td>
+                <td>{{ item.status | status }}</td>
+                <td>
+                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                </td>
+            </tr>
+        </ng-container>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=5>
+            Aun no se a agregado ningun registro
+        </td>
+      </tr>
+    </tbody>
+</table>

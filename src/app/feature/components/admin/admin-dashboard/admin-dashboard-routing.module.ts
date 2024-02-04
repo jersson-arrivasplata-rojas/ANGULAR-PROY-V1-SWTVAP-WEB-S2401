@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardAnalyticsComponent } from './admin-dashboard-analytics/admin-dashboard-analytics.component';
 import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashboard-base.component';
 import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
+import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
+import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
+import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
+import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
+import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
+import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
+import { AdminDashboardUnitsComponent } from './admin-dashboard-units/admin-dashboard-units.component';
 
 const routes: Routes =  [
   {
@@ -17,6 +25,38 @@ const routes: Routes =  [
       {
         path: 'catalogs',
         component: AdminDashboardCatalogsComponent
+      },
+      {
+        path: 'categories',
+        component: AdminDashboardCategoriesComponent
+      },
+      {
+        path: 'units',
+        component: AdminDashboardUnitsComponent
+      },
+      {
+        path: 'clients',
+        component: AdminDashboardClientsComponent
+      },
+      {
+        path: 'providers',
+        component: AdminDashboardProvidersComponent
+      },
+      {
+        path: 'analytics',
+        component: AdminDashboardAnalyticsComponent
+      },
+      {
+        path: 'marketing-campaigns',
+        component: AdminDashboardMarketingCampaignsComponent
+      },
+      {
+        path: 'subscriptions',
+        component: AdminDashboardSubscriptionsComponent
+      },
+      {
+        path: 'parameters',
+        component: AdminDashboardParametersComponent
       }
     ]
   }
