@@ -33,9 +33,11 @@
             </ng-container>
             <td>{{ item.status | status }}</td>
             <td>
+              <div class="d-flex">
                 <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
                 <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
                 <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+              </div>
             </td>
         </tr>
     <tr *ngIf="!data.length">
