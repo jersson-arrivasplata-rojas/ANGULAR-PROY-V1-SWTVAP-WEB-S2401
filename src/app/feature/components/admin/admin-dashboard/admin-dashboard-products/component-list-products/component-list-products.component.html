@@ -11,6 +11,7 @@
             <th style="min-width: 180px;">Unidades <br/> Asignadas</th>
             <th style="min-width: 180px;">Proveedores <br/> Asignados</th>
             <th>Estado</th>
+            <th>Otros</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -43,6 +44,13 @@
                 </td>
                 <td>{{ item.status | status }}</td>
                 <td>
+                  <div class="d-flex flex-column">
+                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductDiscounts(item)">Descuentos</button>
+                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductImages(item)">Imagenes</button>
+                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductParameters(item)">Parametros</button>
+                  </div>
+                </td>
+                <td>
                   <div class="d-flex">
                     <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
                     <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
@@ -52,7 +60,7 @@
             </tr>
         </ng-container>
       <tr *ngIf="!data.length">
-        <td COLSPAN=11>
+        <td COLSPAN=12>
             Aun no se a agregado ningun registro
         </td>
       </tr>

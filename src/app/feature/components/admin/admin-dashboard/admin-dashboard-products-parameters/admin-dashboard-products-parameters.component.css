@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-PRODUCTS-PARAMETERS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-PRODUCTS-PARAMETERS #cardProduct .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-PRODUCTS-PARAMETERS #cardProduct .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-PRODUCTS-PARAMETERS #cardProduct .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

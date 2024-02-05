@@ -57,4 +57,13 @@ export class ComponentListProductsComponent {
   addProductProviders(item: any){
     this.router.navigate(['/admin/dashboard/products/add-providers', item.productId]);
   }
+  addProductDiscounts(item: any){
+    this.router.navigate(['/admin/dashboard/products/add-discounts', item.productId]);
+  }
+  addProductImages(item: any){
+    this.router.navigate(['/admin/dashboard/products/add-images', item.productId]);
+  }
+  addProductParameters(item: any){
+    this.router.navigate(['/admin/dashboard/products/add-parameters', item.productId]);
+  }
 }

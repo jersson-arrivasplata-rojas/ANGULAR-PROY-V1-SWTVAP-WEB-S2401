@@ -44,6 +44,21 @@ import { ComponentAddParametersComponent } from './admin-dashboard-parameters/co
 import { ComponentListParametersComponent } from './admin-dashboard-parameters/component-list-parameters/component-list-parameters.component';
 import { ComponentShowParametersComponent } from './admin-dashboard-parameters/component-show-parameters/component-show-parameters.component';
 import { ComponentUpdateParametersComponent } from './admin-dashboard-parameters/component-update-parameters/component-update-parameters.component';
+import { AdminDashboardProductsDiscountsComponent } from './admin-dashboard-products-discounts/admin-dashboard-products-discounts.component';
+import { ComponentAddProductsDiscountsComponent } from './admin-dashboard-products-discounts/component-add-products-discounts/component-add-products-discounts.component';
+import { ComponentListProductsDiscountsComponent } from './admin-dashboard-products-discounts/component-list-products-discounts/component-list-products-discounts.component';
+import { ComponentShowProductsDiscountsComponent } from './admin-dashboard-products-discounts/component-show-products-discounts/component-show-products-discounts.component';
+import { ComponentUpdateProductsDiscountsComponent } from './admin-dashboard-products-discounts/component-update-products-discounts/component-update-products-discounts.component';
+import { AdminDashboardProductsImagesComponent } from './admin-dashboard-products-images/admin-dashboard-products-images.component';
+import { ComponentAddProductsImagesComponent } from './admin-dashboard-products-images/component-add-products-images/component-add-products-images.component';
+import { ComponentListProductsImagesComponent } from './admin-dashboard-products-images/component-list-products-images/component-list-products-images.component';
+import { ComponentShowProductsImagesComponent } from './admin-dashboard-products-images/component-show-products-images/component-show-products-images.component';
+import { ComponentUpdateProductsImagesComponent } from './admin-dashboard-products-images/component-update-products-images/component-update-products-images.component';
+import { AdminDashboardProductsParametersComponent } from './admin-dashboard-products-parameters/admin-dashboard-products-parameters.component';
+import { ComponentAddProductsParametersComponent } from './admin-dashboard-products-parameters/component-add-products-parameters/component-add-products-parameters.component';
+import { ComponentListProductsParametersComponent } from './admin-dashboard-products-parameters/component-list-products-parameters/component-list-products-parameters.component';
+import { ComponentShowProductsParametersComponent } from './admin-dashboard-products-parameters/component-show-products-parameters/component-show-products-parameters.component';
+import { ComponentUpdateProductsParametersComponent } from './admin-dashboard-products-parameters/component-update-products-parameters/component-update-products-parameters.component';
 import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
 import { ComponentAddProductsComponent } from './admin-dashboard-products/component-add-products/component-add-products.component';
 import { ComponentListProductsComponent } from './admin-dashboard-products/component-list-products/component-list-products.component';
@@ -152,6 +167,21 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminDashboardCategoriesProductsComponent,
     ComponentListCategoriesProductsComponent,
     ComponentShowCategoriesProductsComponent,
+    AdminDashboardProductsDiscountsComponent,
+    ComponentListProductsDiscountsComponent,
+    ComponentAddProductsDiscountsComponent,
+    ComponentUpdateProductsDiscountsComponent,
+    ComponentShowProductsDiscountsComponent,
+    AdminDashboardProductsImagesComponent,
+    ComponentListProductsImagesComponent,
+    ComponentAddProductsImagesComponent,
+    ComponentUpdateProductsImagesComponent,
+    ComponentShowProductsImagesComponent,
+    AdminDashboardProductsParametersComponent,
+    ComponentListProductsParametersComponent,
+    ComponentAddProductsParametersComponent,
+    ComponentUpdateProductsParametersComponent,
+    ComponentShowProductsParametersComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

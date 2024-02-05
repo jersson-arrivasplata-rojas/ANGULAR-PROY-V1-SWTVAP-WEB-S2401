@@ -11,6 +11,9 @@ import { CommentHttp } from './comments.http';
 import { MarketingCampaignHttp } from './marketing-campaigns.http';
 import { ParameterHttp } from './parameters.http';
 import { ProductCategoriesHttp } from './product-categories.http';
+import { ProductDiscountsHttp } from './product-discounts.http';
+import { ProductImagesHttp } from './product-images.http';
+import { ProductParametersHttp } from './product-parameters.http';
 import { ProductProvidersHttp } from './product-providers.http';
 import { ProductUnitsHttp } from './product-units.http';
 import { ProductHttp } from './products.http';
@@ -39,7 +42,10 @@ import { UnitHttp } from './units.http';
     ProductHttp,
     ProductCategoriesHttp,
     ProductUnitsHttp,
-    ProductProvidersHttp
+    ProductProvidersHttp,
+    ProductDiscountsHttp,
+    ProductImagesHttp,
+    ProductParametersHttp
   ],
 })
 export class HttpModule {}

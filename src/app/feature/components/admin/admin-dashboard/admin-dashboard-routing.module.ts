@@ -9,6 +9,9 @@ import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/
 import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
+import { AdminDashboardProductsDiscountsComponent } from './admin-dashboard-products-discounts/admin-dashboard-products-discounts.component';
+import { AdminDashboardProductsImagesComponent } from './admin-dashboard-products-images/admin-dashboard-products-images.component';
+import { AdminDashboardProductsParametersComponent } from './admin-dashboard-products-parameters/admin-dashboard-products-parameters.component';
 import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
 import { AdminDashboardProvidersProductsComponent } from './admin-dashboard-providers-products/admin-dashboard-providers-products.component';
 import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
@@ -95,6 +98,18 @@ const routes: Routes =  [
       {
         path: 'products/add-providers/:id',
         component: AdminDashboardProvidersProductsComponent
+      },
+      {
+        path: 'products/add-discounts/:id',
+        component: AdminDashboardProductsDiscountsComponent
+      },
+      {
+        path: 'products/add-images/:id',
+        component: AdminDashboardProductsImagesComponent
+      },
+      {
+        path: 'products/add-parameters/:id',
+        component: AdminDashboardProductsParametersComponent
       },
     ]
   }

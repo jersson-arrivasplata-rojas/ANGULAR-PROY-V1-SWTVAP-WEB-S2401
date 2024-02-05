@@ -1,0 +1,9 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.productParameterId }}</h2>
+        <p>Código: {{ item.code }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>
