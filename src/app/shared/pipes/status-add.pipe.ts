@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StatusAddPipe implements PipeTransform {
 
   transform(value: string | boolean): string {
-    if (!value) return '';
 
     return value ? 'Agregado' : 'No Agregado';
   }

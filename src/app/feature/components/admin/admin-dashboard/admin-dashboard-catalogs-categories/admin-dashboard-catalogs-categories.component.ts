@@ -46,21 +46,24 @@ export class AdminDashboardCatalogsCategoriesComponent implements OnInit {
         })
       )
       .subscribe(categoryCatalogs => {
-        for (let item of this.data) {
-          if (item.categoryId === this.properties.id || item.catalogId === this.properties.id) {
-            for (let categoryCatalog of categoryCatalogs) {
-              const idToCompare = this.properties.type === TypesEnum.CATALOGS
-                ? categoryCatalog.category.categoryId
-                : categoryCatalog.catalog.catalogId;
-
-              if (this.properties.id === idToCompare) {
-                item.relationship = true;
-                break;
-              }
-              item.categoryCatalogId = categoryCatalog.id;
-            }
+        const allCatalogCategorys = categoryCatalogs.filter(item => {
+          if (this.properties.type === TypesEnum.CATALOGS) {
+            return item.catalog.catalogId === this.properties.id;
+          } else {
+            return item.category.categoryId === this.properties.id;
           }
-        }
+        });
+        let ids = [...new Set(allCatalogCategorys.map(item => {
+          return this.properties.type === TypesEnum.CATALOGS ? item.category.categoryId : item.catalog.catalogId;
+        }))];
+
+        this.data.forEach(item => {
+          if (ids.includes((item.categoryId || item.catalogId))) {
+            const id = allCatalogCategorys.find(f=> f.category.categoryId === item.categoryId || f.catalog.catalogId === item.catalogId).id;
+            item.relationship = true;
+            item.catalogCategoryId = id;
+          }
+        });
       });
   }
 
@@ -79,5 +82,9 @@ export class AdminDashboardCatalogsCategoriesComponent implements OnInit {
 
   getType() {
     return this.properties.type === TypesEnum.CATALOGS ? 'Lista de Categorías' : 'Lista de Catálogos';
+  }
+
+  back(){
+    this.router.navigate([`/admin/dashboard/${(this.properties.type === TypesEnum.CATALOGS)?'catalogs':'categories'}`]);
   }
 }

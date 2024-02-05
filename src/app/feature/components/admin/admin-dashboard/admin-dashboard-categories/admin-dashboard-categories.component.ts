@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { catchError, mergeMap, of } from 'rxjs';
 import { CategoryHttp } from 'src/app/shared/http/categories.http';
 import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
+import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.http';
 
 
 @Component({
@@ -16,22 +17,31 @@ export class AdminDashboardCategoriesComponent implements OnInit {
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private categoryHttp: CategoryHttp, private categoryCatalagHttp: CategoryCatalogsHttp) { }
+  constructor(private categoryHttp: CategoryHttp, private categoryCatalagHttp: CategoryCatalogsHttp,
+    private productCategoriesHttp: ProductCategoriesHttp) { }
 
   ngOnInit() {
     this.categoryHttp.getAll().pipe(
       mergeMap(categoryData => {
         this.data = categoryData;
         return this.categoryCatalagHttp.getAll();
-      })
+      }),
+      mergeMap(categoryCatalogs => {
+
+        this.data.map((category: any) => {
+          category.catalogs = categoryCatalogs.filter(categoryCatalog => categoryCatalog.category.categoryId === category.categoryId);
+        });
+
+        return this.productCategoriesHttp.getAll();
+      }),
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
         return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
       })
-    ).subscribe((categoryCatalogs) => {
+    ).subscribe((productCategories) => {
       this.data.map((category: any) => {
-        category.catalogs = categoryCatalogs.filter(categoryCatalog => categoryCatalog.category.categoryId === category.categoryId);
+        category.products = productCategories.filter(productCategory => productCategory.category.categoryId === category.categoryId);
       });
     });
   }

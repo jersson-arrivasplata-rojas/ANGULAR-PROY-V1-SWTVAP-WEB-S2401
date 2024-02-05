@@ -1,9 +1,17 @@
-.border-product-card{
-    border-color: transparent;
-    border-style: solid;
-    border-radius: 15px;
-}/*
-.border-product-img{
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}*/
+#STORE-DASHBOARD-PRODUCTS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-PRODUCTS #cardProduct .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-PRODUCTS #cardProduct .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-PRODUCTS #cardProduct .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

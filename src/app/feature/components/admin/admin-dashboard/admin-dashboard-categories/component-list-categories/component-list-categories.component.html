@@ -4,6 +4,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Catalogos Asignados</th>
+            <th>Productos Asignados</th>
             <th>Estado</th>
             <th>Acciones</th>
         </tr>
@@ -17,6 +18,12 @@
                   <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
                     <span>{{ item.catalogs?item.catalogs.length:0 }}</span>
                     <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addCategoryCatalogs(item)">Agregar</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
+                    <span>{{ item.products?item.products.length:0 }}</span>
+                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductCategories(item)">Agregar</button>
                   </div>
                 </td>
                 <td>{{ item.status | status }}</td>

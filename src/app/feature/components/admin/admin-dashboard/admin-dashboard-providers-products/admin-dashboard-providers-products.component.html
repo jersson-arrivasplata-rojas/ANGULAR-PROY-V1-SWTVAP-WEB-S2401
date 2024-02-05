@@ -1,0 +1,26 @@
+<div id="STORE-DASHBOARD-UNIT-PRODUCTS">
+    <div class="main-content">
+        <div class="breadcrumb d-flex">
+            <button class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
+                Regresar
+            </button>
+            <h1>{{getType()}}</h1>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+              <app-component-show-providers-products *ngIf="showItem" [properties]="properties" [item]="item" (revoke)="showItem=false"></app-component-show-providers-products>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+                <div class="card o-hidden mb-4">
+                    <div class="card-header">
+                        <p class="w-50 float-left card-title m-0">Tabla de {{getType()}}</p>
+                    </div>
+                    <div class="card-body">
+                        <app-component-list-providers-products [data]="data" [properties]="properties" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)"></app-component-list-providers-products>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

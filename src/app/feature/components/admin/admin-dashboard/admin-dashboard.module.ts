@@ -21,6 +21,9 @@ import { ComponentAddCatalogsComponent } from './admin-dashboard-catalogs/compon
 import { ComponentListCatalogsComponent } from './admin-dashboard-catalogs/component-list-catalogs/component-list-catalogs.component';
 import { ComponentShowCatalogsComponent } from './admin-dashboard-catalogs/component-show-catalogs/component-show-catalogs.component';
 import { ComponentUpdateCatalogsComponent } from './admin-dashboard-catalogs/component-update-catalogs/component-update-catalogs.component';
+import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-categories-products/admin-dashboard-categories-products.component';
+import { ComponentListCategoriesProductsComponent } from './admin-dashboard-categories-products/component-list-categories-products/component-list-categories-products.component';
+import { ComponentShowCategoriesProductsComponent } from './admin-dashboard-categories-products/component-show-categories-products/component-show-categories-products.component';
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
 import { ComponentAddCategoriesComponent } from './admin-dashboard-categories/component-add-categories/component-add-categories.component';
 import { ComponentListCategoriesComponent } from './admin-dashboard-categories/component-list-categories/component-list-categories.component';
@@ -41,6 +44,14 @@ import { ComponentAddParametersComponent } from './admin-dashboard-parameters/co
 import { ComponentListParametersComponent } from './admin-dashboard-parameters/component-list-parameters/component-list-parameters.component';
 import { ComponentShowParametersComponent } from './admin-dashboard-parameters/component-show-parameters/component-show-parameters.component';
 import { ComponentUpdateParametersComponent } from './admin-dashboard-parameters/component-update-parameters/component-update-parameters.component';
+import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
+import { ComponentAddProductsComponent } from './admin-dashboard-products/component-add-products/component-add-products.component';
+import { ComponentListProductsComponent } from './admin-dashboard-products/component-list-products/component-list-products.component';
+import { ComponentShowProductsComponent } from './admin-dashboard-products/component-show-products/component-show-products.component';
+import { ComponentUpdateProductsComponent } from './admin-dashboard-products/component-update-products/component-update-products.component';
+import { AdminDashboardProvidersProductsComponent } from './admin-dashboard-providers-products/admin-dashboard-providers-products.component';
+import { ComponentListProvidersProductsComponent } from './admin-dashboard-providers-products/component-list-providers-products/component-list-providers-products.component';
+import { ComponentShowProvidersProductsComponent } from './admin-dashboard-providers-products/component-show-providers-products/component-show-providers-products.component';
 import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
 import { ComponentAddProvidersComponent } from './admin-dashboard-providers/component-add-providers/component-add-providers.component';
 import { ComponentListProvidersComponent } from './admin-dashboard-providers/component-list-providers/component-list-providers.component';
@@ -57,6 +68,9 @@ import { ComponentAddSubscriptionsComponent } from './admin-dashboard-subscripti
 import { ComponentListSubscriptionsComponent } from './admin-dashboard-subscriptions/component-list-subscriptions/component-list-subscriptions.component';
 import { ComponentShowSubscriptionsComponent } from './admin-dashboard-subscriptions/component-show-subscriptions/component-show-subscriptions.component';
 import { ComponentUpdateSubscriptionsComponent } from './admin-dashboard-subscriptions/component-update-subscriptions/component-update-subscriptions.component';
+import { AdminDashboardUnitsProductsComponent } from './admin-dashboard-units-products/admin-dashboard-units-products.component';
+import { ComponentListUnitsProductsComponent } from './admin-dashboard-units-products/component-list-units-products/component-list-units-products.component';
+import { ComponentShowUnitsProductsComponent } from './admin-dashboard-units-products/component-show-units-products/component-show-units-products.component';
 import { AdminDashboardUnitsComponent } from './admin-dashboard-units/admin-dashboard-units.component';
 import { ComponentAddUnitsComponent } from './admin-dashboard-units/component-add-units/component-add-units.component';
 import { ComponentListUnitsComponent } from './admin-dashboard-units/component-list-units/component-list-units.component';
@@ -124,6 +138,20 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminDashboardCatalogsCategoriesComponent,
     ComponentListCatalogsCategoriesComponent,
     ComponentShowCatalogsCategoriesComponent,
+    AdminDashboardProductsComponent,
+    ComponentListProductsComponent,
+    ComponentAddProductsComponent,
+    ComponentUpdateProductsComponent,
+    ComponentShowProductsComponent,
+    AdminDashboardUnitsProductsComponent,
+    ComponentListUnitsProductsComponent,
+    ComponentShowUnitsProductsComponent,
+    AdminDashboardProvidersProductsComponent,
+    ComponentListProvidersProductsComponent,
+    ComponentShowProvidersProductsComponent,
+    AdminDashboardCategoriesProductsComponent,
+    ComponentListCategoriesProductsComponent,
+    ComponentShowCategoriesProductsComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

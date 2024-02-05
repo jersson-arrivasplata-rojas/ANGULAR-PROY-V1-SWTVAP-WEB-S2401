@@ -7,7 +7,6 @@ import { StatusEnum } from '../config/status.enum';
 export class StatusPipe implements PipeTransform {
 
   transform(value: string | boolean): string {
-    if (!value) return '';
 
     if (typeof value === 'boolean') {
       return value ? 'Activo' : 'Inactivo';

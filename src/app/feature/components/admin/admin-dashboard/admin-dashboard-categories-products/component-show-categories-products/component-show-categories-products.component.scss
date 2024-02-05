@@ -1,0 +1,35 @@
+/* src/app/component-card-profile/component-card-profile.component.scss */
+.profile-card {
+    max-width: 300px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  
+    .avatar {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .profile-info {
+      h2 {
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 8px;
+      }
+  
+      p {
+        margin-bottom: 4px;
+        color: #666;
+      }
+    }
+  }
+
+
+  div.card{
+    max-width: 450px;
+    width: 100%;
+  }

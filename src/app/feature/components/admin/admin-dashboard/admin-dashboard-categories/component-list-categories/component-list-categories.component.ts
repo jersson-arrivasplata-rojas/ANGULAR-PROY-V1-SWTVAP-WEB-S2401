@@ -49,4 +49,8 @@ export class ComponentListCategoriesComponent {
   addCategoryCatalogs(item: any){
     this.router.navigate(['/admin/dashboard/categories/add', item.categoryId]);
   }
+
+  addProductCategories(item: any){
+    this.router.navigate(['/admin/dashboard/categories/add-products', item.categoryId]);
+  }
 }

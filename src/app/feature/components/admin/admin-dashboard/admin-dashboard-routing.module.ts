@@ -4,13 +4,17 @@ import { AdminDashboardAnalyticsComponent } from './admin-dashboard-analytics/ad
 import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashboard-base.component';
 import { AdminDashboardCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/admin-dashboard-catalogs-categories.component';
 import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
+import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-categories-products/admin-dashboard-categories-products.component';
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
 import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
+import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
+import { AdminDashboardProvidersProductsComponent } from './admin-dashboard-providers-products/admin-dashboard-providers-products.component';
 import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
 import { AdminDashboardSubParametersComponent } from './admin-dashboard-sub-parameters/admin-dashboard-sub-parameters.component';
 import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
+import { AdminDashboardUnitsProductsComponent } from './admin-dashboard-units-products/admin-dashboard-units-products.component';
 import { AdminDashboardUnitsComponent } from './admin-dashboard-units/admin-dashboard-units.component';
 
 const routes: Routes =  [
@@ -29,8 +33,20 @@ const routes: Routes =  [
         component: AdminDashboardCatalogsComponent
       },
       {
+        path: 'catalogs/add/:id',
+        component: AdminDashboardCatalogsCategoriesComponent
+      },
+      {
         path: 'categories',
         component: AdminDashboardCategoriesComponent
+      },
+      {
+        path: 'categories/add/:id',
+        component: AdminDashboardCatalogsCategoriesComponent
+      },
+      {
+        path: 'categories/add-products/:id',
+        component: AdminDashboardCategoriesProductsComponent
       },
       {
         path: 'units',
@@ -65,13 +81,21 @@ const routes: Routes =  [
         component: AdminDashboardSubParametersComponent
       },
       {
-        path: 'categories/add/:id',
-        component: AdminDashboardCatalogsCategoriesComponent
+        path: 'products',
+        component: AdminDashboardProductsComponent
       },
       {
-        path: 'catalogs/add/:id',
-        component: AdminDashboardCatalogsCategoriesComponent
-      }
+        path: 'products/add-categories/:id',
+        component: AdminDashboardCategoriesProductsComponent
+      },
+      {
+        path: 'products/add-units/:id',
+        component: AdminDashboardUnitsProductsComponent
+      },
+      {
+        path: 'products/add-providers/:id',
+        component: AdminDashboardProvidersProductsComponent
+      },
     ]
   }
 ];
