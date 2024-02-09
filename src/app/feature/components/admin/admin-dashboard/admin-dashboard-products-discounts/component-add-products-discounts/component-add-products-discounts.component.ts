@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './component-add-products-discounts.component.html',
   styleUrls: ['./component-add-products-discounts.component.scss'],
 })
-export class ComponentAddProductsDiscountsComponent {
+export class ComponentAddProductsDiscountsComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() productId;
@@ -17,12 +17,16 @@ export class ComponentAddProductsDiscountsComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      productId: [this.productId, Validators.required],
+      productId: ['', Validators.required],
       discountPercentage: ['', Validators.required],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      otherDetails: ['', Validators.required]
+      otherDetails: ['']
     });
+  }
+
+  ngOnInit(): void {
+    this.itemForm.patchValue({productId: this.productId});
   }
 
   add() {

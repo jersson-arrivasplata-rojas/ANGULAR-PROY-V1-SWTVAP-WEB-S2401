@@ -1,68 +1,64 @@
-<table class="table table-bordered text-center" aria-label="Table of products">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Stock Mínimo</th>
-            <th style="min-width: 180px;">Categorias <br/> Asignadas</th>
-            <th style="min-width: 180px;">Unidades <br/> Asignadas</th>
-            <th style="min-width: 180px;">Proveedores <br/> Asignados</th>
-            <th>Estado</th>
-            <th>Otros</th>
-            <th>Acciones</th>
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of products">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Stock Mínimo</th>
+              <th>Asignados</th>
+              <th>Estado</th>
+              <th>Otros</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let item of data" >
+              <tr *ngIf="item.deleted!=false">
+                  <td>{{ item.productId }}</td>
+                  <td>{{ item.code }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.stock }}</td>
+                  <td>{{ item.stockMin }}</td>
+                  <td>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-outline-first btn-sm font-14px" (click)="addProductCategories(item)">
+                        <span class="mr-2">({{ item.categories?item.categories.length:0 }} Categorias)</span>Agregar
+                      </button>
+                      <button class=" btn btn-outline-first btn-sm font-14px" (click)="addProductUnits(item)">
+                        <span class="mr-2">({{ item.units?item.units.length:0 }} Unidades)</span>Agregar
+                      </button>
+                      <button class=" btn btn-outline-first btn-sm font-14px" (click)="addProductProviders(item)">
+                        <span class="mr-2">({{ item.providers?item.providers.length:0 }} Proveedores)</span>Agregar
+                      </button>
+                    </div>
+                  </td>
+                  <td>{{ item.status | status }}</td>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductDiscounts(item)">Descuentos</button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductImages(item)">Imagenes</button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductComments(item)">Comentarios</button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductParameters(item)">Parametros</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=12>
+              Aun no se a agregado ningun registro
+          </td>
         </tr>
-    </thead>
-    <tbody>
-        <ng-container *ngFor="let item of data" >
-            <tr *ngIf="item.deleted!=false">
-                <td>{{ item.productId }}</td>
-                <td>{{ item.code }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.stock }}</td>
-                <td>{{ item.stockMin }}</td>
-                <td>
-                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                    <span>{{ item.categories?item.categories.length:0 }}</span>
-                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductCategories(item)">Agregar</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                    <span>{{ item.units?item.units.length:0 }}</span>
-                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductUnits(item)">Agregar</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                    <span>{{ item.providers?item.providers.length:0 }}</span>
-                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductProviders(item)">Agregar</button>
-                  </div>
-                </td>
-                <td>{{ item.status | status }}</td>
-                <td>
-                  <div class="d-flex flex-column">
-                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductDiscounts(item)">Descuentos</button>
-                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductImages(item)">Imagenes</button>
-                    <button class=" btn btn-success-2 btn-sm mr-2 font-16px" (click)="addProductParameters(item)">Parametros</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex">
-                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  </div>
-                </td>
-            </tr>
-        </ng-container>
-      <tr *ngIf="!data.length">
-        <td COLSPAN=12>
-            Aun no se a agregado ningun registro
-        </td>
-      </tr>
-    </tbody>
-</table>
+      </tbody>
+  </table>
+</div>

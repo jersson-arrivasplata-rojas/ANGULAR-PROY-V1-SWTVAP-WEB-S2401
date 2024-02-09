@@ -66,4 +66,7 @@ export class ComponentListProductsComponent {
   addProductParameters(item: any){
     this.router.navigate(['/admin/dashboard/products/add-parameters', item.productId]);
   }
+  addProductComments(item: any){
+    this.router.navigate(['/admin/dashboard/products/add-comments', item.productId]);
+  }
 }

@@ -34,6 +34,8 @@ import { ComponentAddClientsComponent } from './admin-dashboard-clients/componen
 import { ComponentListClientsComponent } from './admin-dashboard-clients/component-list-clients/component-list-clients.component';
 import { ComponentShowClientsComponent } from './admin-dashboard-clients/component-show-clients/component-show-clients.component';
 import { ComponentUpdateClientsComponent } from './admin-dashboard-clients/component-update-clients/component-update-clients.component';
+import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
+import { ComponentListCommentsComponent } from './admin-dashboard-comments/component-list-comments/component-list-comments.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { ComponentAddMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-add-marketing-campaigns/component-add-marketing-campaigns.component';
 import { ComponentListMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-list-marketing-campaigns/component-list-marketing-campaigns.component';
@@ -182,6 +184,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentAddProductsParametersComponent,
     ComponentUpdateProductsParametersComponent,
     ComponentShowProductsParametersComponent,
+    AdminDashboardCommentsComponent,
+    ComponentListCommentsComponent
   ],
   imports: [
     AdminDashboardRoutingModule,

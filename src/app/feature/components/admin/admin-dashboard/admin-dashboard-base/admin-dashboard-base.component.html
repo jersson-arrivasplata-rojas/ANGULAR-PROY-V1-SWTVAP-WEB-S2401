@@ -5,9 +5,9 @@
     <span class="mdi mdi-menu"></span>
   </button>
 
-    <a class="navbar-brand mr-0 mr-md-2 ml-2" [routerLink]="['/admin/']">
+    <a class="navbar-brand mr-0 mr-md-2 ml-2" [routerLink]="['/']">
         <img src="{{getImagePrincipal()}}" alt="Image" width="40px" height="40px" />
-        <span class="text-first ml-2">Ir a mi tienda</span>
+        <span class="text-first ml-2">Inicio</span>
     </a>
     <div class="navbar-brand navbar-nav-scroll w-100">
         <div *ngIf="getType()" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdownActive==true}'>
@@ -17,36 +17,9 @@
             </div>
             <div class="drop-down__menu-box">
                 <ul class="drop-down__menu">
-                    <li class="drop-down__item">
-                        <a class="d-block w-100" href="#FastProductModal" data-toggle="modal">
-                            <i class="fab fa-product-hunt mr-1"></i> Crear Producto Rapido
-                        </a>
-                    </li>
                     <li data-name="home" class="drop-down__item">
-                        <a class="d-block w-100" [routerLink]="['/home']">
-                            <i class="mdi mdi-home-outline mr-1"></i> Inicio Snap Store
-                        </a>
-                    </li>
-                    <li data-name="perfil" class="drop-down__item">
-
-                        <a class="d-block w-100" [routerLink]="['/home/perfil']">
-                            <i class="dripicons-user mr-1"></i> Mi perfil
-                        </a>
-                    </li>
-                    <li data-name="shopping" class="drop-down__item">
-                        <a class="d-block w-100" [routerLink]="['/home/compras']">
-                            <i class="mdi mdi-shopping mr-1"></i> Mis compras
-                        </a>
-                    </li>
-                    <li data-name="favorites" class="drop-down__item">
-                        <a class="d-block w-100" [routerLink]="['/home/favoritos']">
-                            <i class="mdi mdi-cards-heart mr-1"></i> Mis favoritos
-                        </a>
-
-                    </li>
-                    <li data-name="shopping-basket" class="drop-down__item">
-                        <a class="d-block w-100" [routerLink]="['/home/carrito']">
-                            <i class="fas fa-shopping-basket mr-1"></i> Mis carritos de compra
+                        <a class="d-block w-100" [routerLink]="['/admin/dashboard/home']">
+                            <i class="mdi mdi-home-outline mr-1"></i> Inicio
                         </a>
                     </li>
                     <li data-name="salir" class="drop-down__item">
@@ -83,82 +56,58 @@
         <ul id="bd-sidenav-admin-dashboard-principal" class="nav sidebar-nav
       ul-menu-admin-dashboard">
             <li class="" data-uri='inicio'>
-                <a [routerLink]='"inicio"'>
+                <a [routerLink]="['/admin/dashboard/home']">
                     <i class="dripicons-store mr-1"></i> <span>Inicio</span>
                 </a>
             </li>
-            <li data-uri='perfil-tienda'>
-                <a [routerLink]='"perfil-tienda"'>
-                    <i class="mdi mdi-account-circle-outline mr-1"></i> <span>Perfil
-            de Tienda</span>
+            <li data-uri='catalogs'>
+                <a [routerLink]="['/admin/dashboard/catalogs']">
+                    <i class="mdi mdi-shape mr-1"></i> <span>Catalogos</span>
                 </a>
             </li>
-            <li data-uri='customizer'>
-                <a [routerLink]='"customizer"'>
-                    <i class="mdi mdi-grease-pencil mr-1"></i> <span>Diseño de mi
-            Tienda</span>
+            <li data-uri='categories'>
+                <a [routerLink]="['/admin/dashboard/categories']">
+                    <i class="mdi mdi-adjust mr-1"></i> <span>Categorías</span>
                 </a>
             </li>
-            <li class="d-none" data-uri='chats'>
-                <a [routerLink]='"chats"'>
-                    <i class="mdi mdi-chat-outline mr-1"></i> <span>Chats</span>
-                </a>
-            </li>
-            <li data-uri='comentarios'>
-                <a [routerLink]='"comentarios"'>
-                    <i class="far fa-comments mr-1"></i> <span>Comentarios de<br/> Productos y Tienda</span>
-                </a>
-            </li>
-
-
-            <li data-uri='banners'>
-                <a [routerLink]='"banners"'>
-                    <i class="mdi mdi-image-filter mr-1"></i> <span>Logo y Banners</span>
-                </a>
-            </li>
-            <li data-uri='categorias'>
-                <a [routerLink]='"categorias"'>
-                    <i class="mdi mdi-shape mr-1"></i> <span>Categorías</span>
-                </a>
-            </li>
-            <li data-uri='subcategorias'>
-                <a [routerLink]='"subcategorias"'>
-                    <i class="mdi mdi-adjust mr-1"></i> <span>Sub Categorías</span>
-                </a>
-            </li>
-            <li data-uri='productos'>
-                <a [routerLink]='"productos"'>
+            <li data-uri='products'>
+                <a [routerLink]="['/admin/dashboard/products']">
                     <i class="mdi mdi-alpha-p-box mr-1"></i> <span>Productos</span>
                 </a>
             </li>
-            <li data-uri='formas-pago'>
-                <a [routerLink]='"formas-pago"'>
-                    <i class="dripicons-wallet mr-1"></i> <span>Formas de Pagos</span>
-                </a>
-            </li>
-            <li data-uri='ordenes'>
-                <a [routerLink]='"ordenes"'>
-                    <i class="dripicons-to-do mr-1"></i> <span>Ordenes</span>
-                </a>
-            </li>
-            <li data-uri='clientes'>
-                <a [routerLink]='"clientes"'>
+            <li data-uri='clients'>
+                <a [routerLink]="['/admin/dashboard/clients']">
                     <i class="dripicons-user-group mr-1"></i> <span>Clientes</span>
                 </a>
             </li>
-            <li class="d-none" data-uri='trabajadores'>
-                <a [routerLink]='"trabajadores"'>
-                    <i class="mdi mdi-worker mr-1"></i> <span>Trabajadores</span>
+            <li  data-uri='parameters'>
+                <a [routerLink]="['/admin/dashboard/parameters']">
+                    <i class="dripicons-view-thumb mr-1"></i> <span>Parametros</span>
                 </a>
             </li>
-            <li data-uri='ubicacion'>
-                <a [routerLink]='"ubicacion"'>
-                    <i class="dripicons-map mr-1"></i> <span>Ubicación</span>
+            <li  data-uri='units'>
+                <a [routerLink]="['/admin/dashboard/units']">
+                    <i class="dripicons-weight mr-1"></i> <span>Unidades</span>
                 </a>
             </li>
-            <li data-uri='facturacion'>
-                <a [routerLink]='"facturacion"'>
-                    <i class="mdi mdi-id-card mr-1"></i> <span>Facturación</span>
+            <li  data-uri='providers'>
+                <a [routerLink]="['/admin/dashboard/providers']">
+                    <i class="mdi mdi-worker mr-1"></i> <span>Proveedores</span>
+                </a>
+            </li>
+            <li  data-uri='marketing-campaigns'>
+                <a [routerLink]="['/admin/dashboard/marketing-campaigns']">
+                    <i class="dripicons-document mr-1"></i> <span>Campañas</span>
+                </a>
+            </li>
+            <li  data-uri='newsletter-subscriptions'>
+                <a [routerLink]="['/admin/dashboard/newsletter-subscriptions']">
+                    <i class="mdi mdi-email-outline mr-1"></i> <span>Suscripciones</span>
+                </a>
+            </li>
+            <li  data-uri='analytics'>
+                <a [routerLink]="['/admin/dashboard/analytics']">
+                    <i class="mdi mdi-pulse mr-1"></i> <span>Estadísticas</span>
                 </a>
             </li>
         </ul>

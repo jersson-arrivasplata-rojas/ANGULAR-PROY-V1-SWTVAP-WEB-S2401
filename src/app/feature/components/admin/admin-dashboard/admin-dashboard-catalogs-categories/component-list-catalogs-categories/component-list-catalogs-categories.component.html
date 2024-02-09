@@ -1,33 +1,35 @@
-<table class="table table-bordered text-center" aria-label="Table of catalogs">
-  <thead>
-      <tr>
-          <th>ID</th>
-          <th>Asociado</th>
-          <th *ngIf="!(properties.type === typesEnum.CATALOGS)">Código</th>
-          <th>Nombre</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-      </tr>
-  </thead>
-  <tbody>
-        <tr *ngFor="let item of data" >
-            <td>{{item.categoryId? item.categoryId  : item.catalogId  }}</td>
-            <td>{{ item.relationship | statusRelationship }}</td>
-            <td *ngIf="item.code">{{ item.code }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.status | status }}</td>
-            <td>
-              <div class="d-flex">
-                <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
-                <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-              </div>
-            </td>
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of catalogs">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Asociado</th>
+            <th *ngIf="!(properties.type === typesEnum.CATALOGS)">Código</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
         </tr>
-    <tr *ngIf="!data.length">
-      <td COLSPAN=5>
-          Aun no se a agregado ningun registro
-      </td>
-    </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+          <tr *ngFor="let item of data" >
+              <td>{{item.categoryId? item.categoryId  : item.catalogId  }}</td>
+              <td>{{ item.relationship | statusRelationship }}</td>
+              <td *ngIf="item.code">{{ item.code }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.status | status }}</td>
+              <td>
+                <div class="d-flex flex-column">
+                  <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
+                  <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                  <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                </div>
+              </td>
+          </tr>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=5>
+            Aun no se a agregado ningun registro
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

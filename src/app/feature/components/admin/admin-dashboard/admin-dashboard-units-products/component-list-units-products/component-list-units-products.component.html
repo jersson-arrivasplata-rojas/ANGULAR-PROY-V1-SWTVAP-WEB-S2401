@@ -1,53 +1,55 @@
-<table class="table table-bordered text-center" aria-label="Table of categories">
-  <thead>
-      <tr>
-          <th>ID</th>
-          <th>Asociado</th>
-          <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Stock Mínimo</th>
-          </ng-container>
-          <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
-            <th>Nombre de la Unidad</th>
-            <th>Abreviación</th>
-            <th>Factor de Conversión</th>
-          </ng-container>
-          <th>Estado</th>
-          <th>Acciones</th>
-      </tr>
-  </thead>
-  <tbody>
-        <tr *ngFor="let item of data" >
-            <td>{{item.unitId? item.unitId  : item.productId  }}</td>
-            <td>{{ item.relationship | statusRelationship }}</td>
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of categories">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Asociado</th>
             <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-              <td>{{ item.code }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.price }}</td>
-              <td>{{ item.stock }}</td>
-              <td>{{ item.stockMin }}</td>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Stock Mínimo</th>
             </ng-container>
             <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
-              <td>{{ item.unitName }}</td>
-              <td>{{ item.abbreviation }}</td>
-              <td>{{ item.conversionFactor | emptyText }}</td>
+              <th>Nombre de la Unidad</th>
+              <th>Abreviación</th>
+              <th>Factor de Conversión</th>
             </ng-container>
-            <td>{{ item.status | status }}</td>
-            <td>
-              <div class="d-flex">
-                <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
-                <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-              </div>
-            </td>
+            <th>Estado</th>
+            <th>Acciones</th>
         </tr>
-    <tr *ngIf="!data.length">
-      <td COLSPAN=5>
-          Aun no se a agregado ningun registro
-      </td>
-    </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+          <tr *ngFor="let item of data" >
+              <td>{{item.unitId? item.unitId  : item.productId  }}</td>
+              <td>{{ item.relationship | statusRelationship }}</td>
+              <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
+                <td>{{ item.code }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.stock }}</td>
+                <td>{{ item.stockMin }}</td>
+              </ng-container>
+              <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
+                <td>{{ item.unitName }}</td>
+                <td>{{ item.abbreviation }}</td>
+                <td>{{ item.conversionFactor | emptyText }}</td>
+              </ng-container>
+              <td>{{ item.status | status }}</td>
+              <td>
+                <div class="d-flex flex-column">
+                  <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
+                  <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                  <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                </div>
+              </td>
+          </tr>
+      <tr *ngIf="!data.length">
+        <td COLSPAN=5>
+            Aun no se a agregado ningun registro
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

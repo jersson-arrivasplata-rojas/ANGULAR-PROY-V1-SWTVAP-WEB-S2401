@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
 
@@ -7,7 +7,7 @@ import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
   templateUrl: './component-update-subscriptions.component.html',
   styleUrls: ['./component-update-subscriptions.component.scss'],
 })
-export class ComponentUpdateSubscriptionsComponent implements OnInit {
+export class ComponentUpdateSubscriptionsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

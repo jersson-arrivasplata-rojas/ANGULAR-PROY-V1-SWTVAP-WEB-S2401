@@ -1,0 +1,51 @@
+<!-- app-comment.component.html -->
+<div class="comment {{!comment.replyCommentId?'on-init':'on-continue'}}"  *ngIf="comment.status==1">
+  <div class="position-absolute" style="right: 20px;">
+    <button class=" btn btn-danger-2 btn-sm btn-block font-16px" (click)="delete(comment)">Eliminar</button>
+    <p><strong>Fecha:</strong> {{ comment.commentDate | date }}</p>
+  </div>
+  <p><strong>Nombre:</strong> {{ comment.name }}</p>
+  <p><strong>{{comment.type!='REPLY'?'Comentario:':'Respuesta:'}}</strong> {{ comment.comment }}</p>
+  <p *ngIf="comment.deletedDate"><strong>Eliminación Fecha:</strong> {{ comment.deletedDate | date }}</p>
+
+  <!--
+    <ng-container *ngIf="comment.replyCommentId && comment.type!='REPLY'">
+      <ng-container *ngTemplateOutlet="responseForm; context: { comment: comment }"></ng-container>
+    </ng-container>
+  -->
+  <!-- Renderizar comentarios hijos de manera recursiva -->
+  <ul class="{{comment.children && !comment.replyCommentId ? 'on-children':''}}" *ngIf="comment.children && comment.children.length > 0">
+    <li *ngFor="let childComment of comment.children">
+      <app-comment [comment]="childComment"></app-comment>
+
+    </li>
+  </ul>
+  <ng-container *ngIf="!comment.replyCommentId ">
+    <ng-container *ngTemplateOutlet="responseForm; context: { comment: comment }"></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #responseForm let-comment="comment">
+  <form [formGroup]="itemForm" (ngSubmit)="add(comment)">
+    <div [ngClass]="{'row': true}">
+      <div class="col-lg-12 ">
+          <div class="form-group">
+              <label for="name">Nombre:</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+      </div>
+      <div class="col-lg-12 ">
+          <div class="form-group">
+              <label for="comment">Respuesta:</label>
+              <textarea rows="{{comment.replyCommentId?1:2}}" class="form-control" id="comment" formControlName="comment">
+              </textarea>
+          </div>
+      </div>
+      <div class="col-lg-12">
+          <div class="form-group">
+            <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Responder</button>
+          </div>
+      </div>
+    </div>
+  </form>
+</ng-template>

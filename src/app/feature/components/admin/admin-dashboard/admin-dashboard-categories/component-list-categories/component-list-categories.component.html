@@ -1,45 +1,47 @@
-<table class="table table-bordered text-center" aria-label="Table of categorys">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Catalogos Asignados</th>
-            <th>Productos Asignados</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of categorys">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Catalogos Asignados</th>
+              <th>Productos Asignados</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let item of data" >
+              <tr *ngIf="item.deleted!=false">
+                  <td>{{ item.categoryId }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>
+                    <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
+                      <span>{{ item.catalogs?item.catalogs.length:0 }}</span>
+                      <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addCategoryCatalogs(item)">Agregar</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
+                      <span>{{ item.products?item.products.length:0 }}</span>
+                      <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductCategories(item)">Agregar</button>
+                    </div>
+                  </td>
+                  <td>{{ item.status | status }}</td>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=5>
+              Aun no se a agregado ningun registro
+          </td>
         </tr>
-    </thead>
-    <tbody>
-        <ng-container *ngFor="let item of data" >
-            <tr *ngIf="item.deleted!=false">
-                <td>{{ item.categoryId }}</td>
-                <td>{{ item.name }}</td>
-                <td>
-                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                    <span>{{ item.catalogs?item.catalogs.length:0 }}</span>
-                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addCategoryCatalogs(item)">Agregar</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                    <span>{{ item.products?item.products.length:0 }}</span>
-                    <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductCategories(item)">Agregar</button>
-                  </div>
-                </td>
-                <td>{{ item.status | status }}</td>
-                <td>
-                  <div class="d-flex">
-                    <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                    <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                    <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  </div>
-                </td>
-            </tr>
-        </ng-container>
-      <tr *ngIf="!data.length">
-        <td COLSPAN=5>
-            Aun no se a agregado ningun registro
-        </td>
-      </tr>
-    </tbody>
-</table>
+      </tbody>
+  </table>
+</div>

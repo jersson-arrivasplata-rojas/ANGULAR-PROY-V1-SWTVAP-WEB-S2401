@@ -1,0 +1,86 @@
+/* app-comment.component.css */
+
+.comment {
+  padding: 1rem;
+  position: relative;
+
+}
+.comment.on-init{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-color: #c1c1c1;
+
+
+
+}
+
+.comment .on-children{
+  margin-left: 2rem;
+
+}
+.comment.on-continue{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.comment.on-continue > div{
+  right: 4px!important;
+  top: 25px;
+}
+
+.comment p {
+  margin: 5px 0;
+}
+
+.comment .reply {
+  margin-left: 20px;
+  border-left: 2px solid #ccc;
+  padding-left: 10px;
+}
+
+.comment .details {
+  font-style: italic;
+  color: #666;
+}
+
+.comment .product-details {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e9e9e9;
+}
+
+.comment .children {
+  margin-left: 20px;
+  border-left: 2px solid #ccc;
+  padding-left: 10px;
+}
+
+.comment .children .comment {
+  margin-left: 0;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.comment .children .comment .details {
+  font-style: normal;
+  color: #888;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+.comment:before {
+  content: "";
+  position: absolute;
+  border-left: 1px solid var(--theme_color_background_text);
+  height: 100%;
+  margin-left: -24px;
+  top: 0;
+  margin-top: 10px;
+}Línea vertical */

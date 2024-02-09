@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
 
@@ -7,7 +7,7 @@ import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.ht
   templateUrl: './component-update-products-parameters.component.html',
   styleUrls: ['./component-update-products-parameters.component.scss'],
 })
-export class ComponentUpdateProductsParametersComponent implements OnInit {
+export class ComponentUpdateProductsParametersComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
@@ -20,12 +20,13 @@ export class ComponentUpdateProductsParametersComponent implements OnInit {
     private productParametersHttp: ProductParametersHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      productId: [this.productId, Validators.required],
+      productId: ['', Validators.required],
       code: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
+    this.itemForm.patchValue({productId: this.productId});
     this.itemForm.patchValue(this.item);
   }
 

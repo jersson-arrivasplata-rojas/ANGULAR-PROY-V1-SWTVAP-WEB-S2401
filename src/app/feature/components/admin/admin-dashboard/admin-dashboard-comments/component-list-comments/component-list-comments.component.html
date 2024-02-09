@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let comment of commentTree">
+    <app-comment [comment]="comment" (deleted)="delete(item)"></app-comment>
+  </li>
+</ul>

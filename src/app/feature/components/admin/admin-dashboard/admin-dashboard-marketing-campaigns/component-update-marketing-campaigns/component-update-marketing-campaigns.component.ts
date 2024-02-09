@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.http';
 
@@ -7,7 +7,7 @@ import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.h
   templateUrl: './component-update-marketing-campaigns.component.html',
   styleUrls: ['./component-update-marketing-campaigns.component.scss'],
 })
-export class ComponentUpdateMarketingCampaignsComponent implements OnInit {
+export class ComponentUpdateMarketingCampaignsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

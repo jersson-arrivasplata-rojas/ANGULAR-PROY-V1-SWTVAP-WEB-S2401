@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryHttp } from 'src/app/shared/http/categories.http';
 
@@ -7,7 +7,7 @@ import { CategoryHttp } from 'src/app/shared/http/categories.http';
   templateUrl: './component-update-categories.component.html',
   styleUrls: ['./component-update-categories.component.scss'],
 })
-export class ComponentUpdateCategoriesComponent implements OnInit {
+export class ComponentUpdateCategoriesComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

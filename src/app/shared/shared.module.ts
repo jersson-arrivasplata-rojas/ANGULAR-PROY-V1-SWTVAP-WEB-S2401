@@ -129,6 +129,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
+import { CommentComponent } from './components/comments/comment/comment.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
@@ -267,6 +268,7 @@ import { ServicesModule } from './services/services.module';
     GoogleSecondDefaultComponent,
     ChatWindowComponent,
     ChatWindowAuthComponent,
+    CommentComponent,
     InitialsPipe,
     HighlightDirective,
     StatusPipe,
@@ -406,6 +408,7 @@ import { ServicesModule } from './services/services.module';
     GoogleSecondDefaultComponent,
     ChatWindowComponent,
     ChatWindowAuthComponent,
+    CommentComponent,
     InitialsPipe,
     HighlightDirective,
     StatusPipe,

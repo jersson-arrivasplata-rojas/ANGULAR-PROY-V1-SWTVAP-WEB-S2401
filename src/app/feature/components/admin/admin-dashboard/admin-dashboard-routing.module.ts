@@ -7,6 +7,7 @@ import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admi
 import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-categories-products/admin-dashboard-categories-products.component';
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
 import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
+import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
 import { AdminDashboardProductsDiscountsComponent } from './admin-dashboard-products-discounts/admin-dashboard-products-discounts.component';
@@ -72,7 +73,7 @@ const routes: Routes =  [
         component: AdminDashboardMarketingCampaignsComponent
       },
       {
-        path: 'subscriptions',
+        path: 'newsletter-subscriptions',
         component: AdminDashboardSubscriptionsComponent
       },
       {
@@ -110,6 +111,10 @@ const routes: Routes =  [
       {
         path: 'products/add-parameters/:id',
         component: AdminDashboardProductsParametersComponent
+      },
+      {
+        path: 'products/add-comments/:id',
+        component: AdminDashboardCommentsComponent
       },
     ]
   }

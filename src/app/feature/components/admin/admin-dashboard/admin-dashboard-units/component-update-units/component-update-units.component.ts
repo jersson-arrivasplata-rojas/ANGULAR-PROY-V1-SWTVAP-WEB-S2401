@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UnitHttp } from 'src/app/shared/http/units.http';
 
@@ -7,7 +7,7 @@ import { UnitHttp } from 'src/app/shared/http/units.http';
   templateUrl: './component-update-units.component.html',
   styleUrls: ['./component-update-units.component.scss'],
 })
-export class ComponentUpdateUnitsComponent implements OnInit {
+export class ComponentUpdateUnitsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

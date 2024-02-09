@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-PRODUCTS-DISCOUNTS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-PRODUCTS-DISCOUNTS #cardProduct .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-PRODUCTS-DISCOUNTS #cardProduct .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-PRODUCTS-DISCOUNTS #cardProduct .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

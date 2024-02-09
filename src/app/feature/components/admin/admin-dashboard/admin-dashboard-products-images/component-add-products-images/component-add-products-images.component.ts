@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './component-add-products-images.component.html',
   styleUrls: ['./component-add-products-images.component.scss'],
 })
-export class ComponentAddProductsImagesComponent {
+export class ComponentAddProductsImagesComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() productId;
@@ -17,9 +17,13 @@ export class ComponentAddProductsImagesComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      productId: [this.productId, Validators.required],
+      productId: ['', Validators.required],
       path: ['', Validators.required]
     });
+  }
+
+  ngOnInit(): void {
+    this.itemForm.patchValue({productId: this.productId});
   }
 
   add() {

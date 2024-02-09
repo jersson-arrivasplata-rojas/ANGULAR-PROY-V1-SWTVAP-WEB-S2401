@@ -2,7 +2,7 @@
 .btn-first-menu-toggle{
   color: var(--theme_color_first_text)!important;
     border-color: var(--theme_color_first_text)!important;
-    border-radius: 15px;
+    border-radius: 8px;
     width: 45px;
     height: 45px;
     border-style: solid;
@@ -166,8 +166,12 @@
     height: 200vh;
     overflow-y: hidden;
   }
-  
+
 }
 
+.btn-outline-first:hover {
+  color: var(--theme_color_first_text) !important;
+  background-color: var(--theme_color_first) !important;
+  border-color: #c5c4cf !important;
+}
 
- 

@@ -1945,6 +1945,22 @@ export class CommonUtils {
     return isBrowser;
   }
 
+  public static getDayNow(){
+    let date = new Date(); // Fecha actual
+
+    let year = date.getFullYear();
+    let month: number | string = date.getMonth() + 1; // Añadimos 1 porque los meses empiezan desde 0
+    let day: number | string = date.getDate();
+
+    // Aseguramos que el mes y el día siempre tengan dos dígitos
+    month = month < 10 ? '0' + month : month;
+    day = day < 10 ? '0' + day : day;
+
+    let fechaFormateada = `${year}-${month}-${day}`;
+
+    return fechaFormateada;
+  }
+
   public static validatePassword(event: any) {
     var value = (event.target as HTMLInputElement).value; //+ ' | '
 

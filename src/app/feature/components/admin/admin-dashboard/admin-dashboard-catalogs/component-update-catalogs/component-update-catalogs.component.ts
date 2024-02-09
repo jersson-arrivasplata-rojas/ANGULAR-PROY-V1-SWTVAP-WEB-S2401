@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 
@@ -7,7 +7,7 @@ import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
   templateUrl: './component-update-catalogs.component.html',
   styleUrls: ['./component-update-catalogs.component.scss'],
 })
-export class ComponentUpdateCatalogsComponent implements OnInit {
+export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

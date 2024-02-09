@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
 
@@ -7,7 +7,7 @@ import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
   templateUrl: './component-update-analytics.component.html',
   styleUrls: ['./component-update-analytics.component.scss'],
 })
-export class ComponentUpdateAnalyticsComponent implements OnInit {
+export class ComponentUpdateAnalyticsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};

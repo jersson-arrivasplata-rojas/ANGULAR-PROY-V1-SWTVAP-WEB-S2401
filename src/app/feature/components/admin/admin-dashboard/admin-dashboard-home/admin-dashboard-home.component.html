@@ -1,11 +1,11 @@
 <div id="STORE-DASHBOARD-INICIO">
-      
+
     <div class="spinner-store-block-white-dashboard " id="PRELOAD-DASHBOARD-INICIO"  [style.background]="store?.store_customizer_bootstrap[0].theme_color_first"  hidden>
-    
+
     </div>
     <div class="alerts">
 
-    </div> 
+    </div>
     <!-- ============ Body content start ============= -->
     <div [ngClass]="{'d-block':preloadDashboard==true,'d-none':preloadDashboard==false}" class="main-content">
         <div class="breadcrumb d-flex" style="justify-content: space-between;">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
 
                 <div class="row">
@@ -142,7 +142,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          
+
                                             <tr *ngFor="let $value of $users_news let j= index" >
                                                 <th scope="row">{{ (j+1) }}</th>
                                                 <td>{{ $value.name }}</td>
@@ -152,7 +152,7 @@
                                             <tr *ngIf="$users_news.length<=0">
                                                 <td colspan="4">No se encontrarón nuevos clientes</td>
                                             </tr>
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -167,7 +167,7 @@
                                         <h3 class="ul-widget__head-title">
                                             Ordenes Finalizadas
                                         </h3>
-                                        
+
                                         <a [routerLink]='["/", store?.stores_uri,"dashboard" ,"ordenes"]' type="button" class="btn btn-outline-first border-radius-15 " >
                                             Todas las ordenes
                                         </a>
@@ -192,9 +192,9 @@
                                                         <span>{{ $value.count }}</span>
                                                         <span class="t-font-boldest text-success-2">S/{{ $value.amount_total }}</span>
                                                     </div>
-                                              
+
                                             </div>
-                                            
+
                                             <div *ngIf="$amount_order_totals.length<=0" class="ul-widget6__item justify-content-center">
                                                 No se han encontrado ordenes realizadas
                                             </div>
@@ -205,10 +205,10 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
-          
+
         </div>
         <!-- end of row-->
 
@@ -249,12 +249,6 @@
     </div>
 
 
-  
+
     <!-- Footer Start -->
 </div>
-  <!--<div class="h-100 preloader">
-            <div class="loading d-flex flex-column">
-              <div class="img-store preload-message-active" style="background-image:url({{store?.stores_image_url}})"></div>
-              <p class="mb-0 mt-2" style="font-weight: bold;color: white;">Cargando ...</p>
-            </div>
-        </div>-->

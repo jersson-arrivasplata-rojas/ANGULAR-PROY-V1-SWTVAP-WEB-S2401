@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
@@ -7,7 +7,7 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
   templateUrl: './component-update-sub-parameters.component.html',
   styleUrls: ['./component-update-sub-parameters.component.scss'],
 })
-export class ComponentUpdateSubParametersComponent implements OnInit {
+export class ComponentUpdateSubParametersComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
