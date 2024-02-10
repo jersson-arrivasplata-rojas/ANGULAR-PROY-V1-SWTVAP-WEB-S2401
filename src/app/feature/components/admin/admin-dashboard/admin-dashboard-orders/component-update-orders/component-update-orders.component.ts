@@ -21,8 +21,16 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
     this.itemForm = this.formBuilder.group({
       code: ['', Validators.required],
       address: ['', Validators.required],
-      taxes: ['', Validators.required],
+      subtotal: [''],
+      subtotalUSD: [''],
+      subtotalEUR: [''],
+      taxes: [''],
+      taxesUSD: [''],
+      taxesEUR: [''],
       discountAmount: ['', Validators.required],
+      total: [''],
+      totalUSD: [''],
+      totalEUR: [''],
       pickUp: [false, Validators.required],
       otherDetails: [''],
       status: [true, [Validators.required]]

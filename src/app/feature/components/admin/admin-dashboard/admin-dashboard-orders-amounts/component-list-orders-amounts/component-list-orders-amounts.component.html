@@ -13,7 +13,11 @@
               <tr>
                   <td>{{ item.orderAmountId }}</td>
                   <td>{{ item.name }}</td>
-                  <td>{{ item.amount }}</td>
+                  <td>
+                    <span *ngIf="item.amount">Soles: ({{ item.amount }})</span><br/>
+                    <span *ngIf="item.amountUSD">Dolares: ({{ item.amountUSD }})</span><br/>
+                    <span *ngIf="item.amountEUR">Euros: ({{ item.amountEUR }})</span>
+                  </td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
                       <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>

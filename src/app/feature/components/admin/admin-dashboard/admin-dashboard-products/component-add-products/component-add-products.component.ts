@@ -20,6 +20,8 @@ export class ComponentAddProductsComponent {
       name: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
+      priceUSD: ['', Validators.required],
+      priceEUR: ['', Validators.required],
       stock: ['', Validators.required],
       stockMin: ['', Validators.required],
       otherDetails: [''],
@@ -37,8 +39,15 @@ export class ComponentAddProductsComponent {
 
   init() {
     return {
+      code: '',
       name: '',
       description: '',
+      price: '',
+      priceUSD: '',
+      priceEUR: '',
+      stock: '',
+      stockMin: '',
+      otherDetails: '',
       status: false
     };
   }

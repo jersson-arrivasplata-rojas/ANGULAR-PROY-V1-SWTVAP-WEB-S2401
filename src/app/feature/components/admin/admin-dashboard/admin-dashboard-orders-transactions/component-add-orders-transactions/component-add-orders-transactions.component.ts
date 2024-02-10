@@ -20,6 +20,7 @@ export class ComponentAddOrdersTransactionsComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       ordersId: ['', Validators.required],
       paymentMethod: ['', Validators.required],
+      typeCurrency: ['', Validators.required],
       amount: ['', Validators.required],
       transactionDate: ['', Validators.required]
     });
@@ -40,6 +41,7 @@ export class ComponentAddOrdersTransactionsComponent implements OnInit {
     return {
       ordersId: this.ordersId,
       paymentMethod: '',
+      typeCurrency: '',
       amount: '',
       transactionDate: CommonUtils.getDayNow()
     };

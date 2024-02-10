@@ -18,8 +18,16 @@
                   <td>{{ item.orderDetailId }}</td>
                   <td>{{ getProductName(item.productId) }}</td>
                   <td>{{ item.quantity }}</td>
-                  <td>{{ item.unitPrice }}</td>
-                  <td>{{ item.subtotal }}</td>
+                  <td>
+                    <span *ngIf="item.unitPrice">Soles: ({{ item.unitPrice }})</span><br/>
+                    <span *ngIf="item.unitPriceUSD">Dolares: ({{ item.unitPriceUSD }})</span><br/>
+                    <span *ngIf="item.unitPriceEUR">Euros: ({{ item.unitPriceEUR }})</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.subtotal">Soles: ({{ item.subtotal }})</span><br/>
+                    <span *ngIf="item.subtotalUSD">Dolares: ({{ item.subtotalUSD }})</span><br/>
+                    <span *ngIf="item.subtotalEUR">Euros: ({{ item.subtotalEUR }})</span>
+                  </td>
                   <td>{{ item.discountPercentage }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>

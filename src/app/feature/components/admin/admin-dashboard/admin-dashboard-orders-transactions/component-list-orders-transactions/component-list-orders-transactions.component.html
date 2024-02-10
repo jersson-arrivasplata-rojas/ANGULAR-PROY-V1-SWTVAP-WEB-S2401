@@ -4,6 +4,7 @@
           <tr>
               <th>ID</th>
               <th>Método de Pago</th>
+              <th>Tipo de Pago</th>
               <th>Monto</th>
               <th>Fecha de Transacción</th>
               <th>Acciones</th>
@@ -14,6 +15,7 @@
               <tr>
                   <td>{{ item.orderTransactionId }}</td>
                   <td>{{ item.paymentMethod }}</td>
+                  <td>{{ item.typeCurrency }}</td>
                   <td>{{ item.amount }}</td>
                   <td>{{ item.transactionDate }}</td>
                   <td>

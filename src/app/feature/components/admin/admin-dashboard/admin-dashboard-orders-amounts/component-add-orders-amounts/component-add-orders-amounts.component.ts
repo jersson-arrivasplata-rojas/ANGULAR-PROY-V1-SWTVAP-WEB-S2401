@@ -20,6 +20,8 @@ export class ComponentAddOrdersAmountsComponent implements OnInit {
       ordersId: ['', Validators.required],
       name: ['', Validators.required],
       amount: ['', Validators.required],
+      amountUSD: ['', Validators.required],
+      amountEUR: ['', Validators.required],
       otherDetails: ['']
     });
   }
@@ -40,6 +42,8 @@ export class ComponentAddOrdersAmountsComponent implements OnInit {
       ordersId: this.ordersId,
       name: '',
       amount: '',
+      amountUSD: '',
+      amountEUR: '',
       otherDetails: ''
     };
   }

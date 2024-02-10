@@ -22,6 +22,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
     this.itemForm = this.formBuilder.group({
       ordersId: ['', Validators.required],
       paymentMethod: ['', Validators.required],
+      typeCurrency: ['', Validators.required],
       amount: ['', Validators.required],
       transactionDate: ['', Validators.required]
     });

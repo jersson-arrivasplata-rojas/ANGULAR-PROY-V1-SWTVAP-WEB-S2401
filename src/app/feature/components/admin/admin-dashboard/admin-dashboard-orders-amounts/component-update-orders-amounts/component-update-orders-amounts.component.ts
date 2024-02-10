@@ -23,6 +23,8 @@ export class ComponentUpdateOrdersAmountsComponent implements OnInit, OnChanges 
       ordersId: ['', Validators.required],
       name: ['', Validators.required],
       amount: ['', Validators.required],
+      amountUSD: ['', Validators.required],
+      amountEUR: ['', Validators.required],
       otherDetails: ['']
     });
   }

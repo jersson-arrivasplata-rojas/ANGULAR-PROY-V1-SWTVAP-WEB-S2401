@@ -19,7 +19,11 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       quantity: ['', Validators.required],
       unitPrice: ['', Validators.required],
+      unitPriceUSD: ['', Validators.required],
+      unitPriceEUR: ['', Validators.required],
       subtotal: ['', Validators.required],
+      subtotalUSD: ['', Validators.required],
+      subtotalEUR: ['', Validators.required],
       discountPercentage: ['', Validators.required],
       otherDetails: [''],
       status: [false, [Validators.required]]
@@ -46,7 +50,11 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
     return {
       ordersId: this.ordersId,
       unitPrice: '',
+      unitPriceUSD: '',
+      unitPriceEUR: '',
       subtotal: '',
+      subtotalUSD: '',
+      subtotalEUR: '',
       discountPercentage: '',
       otherDetails: '',
       status: false

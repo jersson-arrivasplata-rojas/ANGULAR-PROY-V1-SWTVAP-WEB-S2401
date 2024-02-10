@@ -33,7 +33,7 @@ export class AdminDashboardOrdersTransactionsComponent implements OnInit {
         return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
       })
     ).subscribe((orderTransactionsData) => {
-      this.data = orderTransactionsData;
+      this.data = orderTransactionsData.filter((orderTransaction: any) => orderTransaction.orderId === this.ordersId);
     });
   }
 

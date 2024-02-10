@@ -20,7 +20,11 @@
                   <td>{{ item.productId }}</td>
                   <td>{{ item.code }}</td>
                   <td>{{ item.name }}</td>
-                  <td>{{ item.price }}</td>
+                  <td>
+                    <span *ngIf="item.price">Soles: ({{ item.price }})</span><br/>
+                    <span *ngIf="item.priceUSD">Dolares: ({{ item.priceUSD }})</span><br/>
+                    <span *ngIf="item.priceEUR">Euros: ({{ item.priceEUR }})</span>
+                  </td>
                   <td>{{ item.stock }}</td>
                   <td>{{ item.stockMin }}</td>
                   <td>

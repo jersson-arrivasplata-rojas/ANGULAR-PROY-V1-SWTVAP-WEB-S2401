@@ -23,6 +23,8 @@ export class ComponentUpdateProductsComponent implements OnInit, OnChanges {
       name: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
+      priceUSD: ['', Validators.required],
+      priceEUR: ['', Validators.required],
       stock: ['', Validators.required],
       stockMin: ['', Validators.required],
       otherDetails: [''],

@@ -25,10 +25,22 @@
                   <td>{{ item.code }}</td>
                   <td>{{ item.otherDate }}</td>
                   <td>{{ item.address }}</td>
-                  <td>{{ item.subtotal }}</td>
-                  <td>{{ item.taxes }}</td>
+                  <td>
+                    <span *ngIf="item.subtotal">Soles: ({{ item.subtotal }})</span><br/>
+                    <span *ngIf="item.subtotalUSD">Dolares: ({{ item.subtotalUSD }})</span><br/>
+                    <span *ngIf="item.subtotalEUR">Euros: ({{ item.subtotalEUR }})</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.taxes">Soles: ({{ item.taxes }})</span><br/>
+                    <span *ngIf="item.taxesUSD">Dolares: ({{ item.taxesUSD }})</span><br/>
+                    <span *ngIf="item.taxesEUR">Euros: ({{ item.taxesEUR }})</span>
+                  </td>
                   <td>{{ item.discountAmount }}</td>
-                  <td>{{ item.total }}</td>
+                  <td>
+                    <span *ngIf="item.total">Soles: ({{ item.total }})</span><br/>
+                    <span *ngIf="item.totalUSD">Dolares: ({{ item.totalUSD }})</span><br/>
+                    <span *ngIf="item.totalEUR">Euros: ({{ item.totalEUR }})</span>
+                  </td>
                   <td>{{ item.pickUp ? 'Si': 'No' }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
