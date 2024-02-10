@@ -17,7 +17,7 @@
           <ng-container *ngFor="let item of data" >
               <tr *ngIf="item.deleted!=false">
                   <td>{{ item.orderDetailId }}</td>
-                  <td>{{ item.name }}</td>
+                  <td>{{ getProductName(item.productId) }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>{{ item.unitPrice }}</td>
                   <td>{{ item.subtotal }}</td>

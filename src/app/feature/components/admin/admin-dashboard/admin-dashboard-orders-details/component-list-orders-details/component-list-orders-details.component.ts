@@ -8,6 +8,7 @@ import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
 })
 export class ComponentListOrdersDetailsComponent {
   @Input() data: any[] = [];
+  @Input() products: any[] = [];
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
@@ -43,5 +44,9 @@ export class ComponentListOrdersDetailsComponent {
 
   update(item: any) {
     this.updated.emit(item);
+  }
+
+  getProductName(id: number) {
+    return this.products.find((f) => f.productId === id)?.name;
   }
 }

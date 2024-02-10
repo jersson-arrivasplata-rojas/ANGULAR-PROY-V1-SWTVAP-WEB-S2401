@@ -25,7 +25,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-orders-details [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders-details>
+                      <app-component-list-orders-details [data]="data" [products]="products" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders-details>
                     </div>
                 </div>
             </div>
