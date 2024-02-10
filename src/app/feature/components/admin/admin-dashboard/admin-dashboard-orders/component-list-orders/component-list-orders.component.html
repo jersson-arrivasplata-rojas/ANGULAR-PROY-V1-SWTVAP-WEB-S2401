@@ -19,7 +19,7 @@
       </thead>
       <tbody>
           <ng-container *ngFor="let item of data" >
-              <tr *ngIf="item.deleted!=false">
+              <tr>
                   <td>{{ item.orderId }}</td>
                   <td>{{ getClientName(item.clientId) }}</td>
                   <td>{{ item.code }}</td>
@@ -48,7 +48,7 @@
               </tr>
           </ng-container>
         <tr *ngIf="!data.length">
-          <td COLSPAN=12>
+          <td COLSPAN=13>
               Aun no se a agregado ningun registro
           </td>
         </tr>

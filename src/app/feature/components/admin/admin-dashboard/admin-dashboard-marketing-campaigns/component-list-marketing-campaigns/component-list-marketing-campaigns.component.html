@@ -11,7 +11,7 @@
       </thead>
       <tbody>
           <ng-container *ngFor="let item of data" >
-              <tr *ngIf="item.deleted!=false">
+              <tr>
                   <td>{{ item.marketingCampaignId }}</td>
                   <td>{{ item.name }}</td>
                   <td>{{ item.startDate }}</td>

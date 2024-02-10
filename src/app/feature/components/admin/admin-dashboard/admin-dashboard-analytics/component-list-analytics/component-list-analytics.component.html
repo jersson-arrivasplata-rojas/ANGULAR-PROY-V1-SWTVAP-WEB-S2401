@@ -10,7 +10,7 @@
       </thead>
       <tbody>
           <ng-container *ngFor="let item of data" >
-              <tr *ngIf="item.deleted!=false">
+              <tr>
                   <td>{{ item.analyticId }}</td>
                   <td>{{ item.visitedPage }}</td>
                   <td>{{ item.visitedDate }}</td>

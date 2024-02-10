@@ -13,9 +13,8 @@
           </tr>
       </thead>
       <tbody>
-        <h2>Id: {{ item.orderDetailId }}</h2>
           <ng-container *ngFor="let item of data" >
-              <tr *ngIf="item.deleted!=false">
+              <tr>
                   <td>{{ item.orderDetailId }}</td>
                   <td>{{ getProductName(item.productId) }}</td>
                   <td>{{ item.quantity }}</td>
