@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductHttp } from 'src/app/shared/http/products.http';
+import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 @Component({
   selector: 'app-component-list-products',
@@ -17,7 +18,7 @@ export class ComponentListProductsComponent {
 
   showItem = false;
 
-  constructor(private productHttp: ProductHttp, private router:Router) {}
+  constructor(private productHttp: ProductHttp, private router:Router, private shareDataService: ShareDataService) {}
 
   show(item: any) {
     if (item.productId === this.item?.productId && this.showItem) {
@@ -67,6 +68,7 @@ export class ComponentListProductsComponent {
     this.router.navigate(['/admin/dashboard/products/add-parameters', item.productId]);
   }
   addProductComments(item: any){
+    this.shareDataService.add(null);
     this.router.navigate(['/admin/dashboard/products/add-comments', item.productId]);
   }
 }

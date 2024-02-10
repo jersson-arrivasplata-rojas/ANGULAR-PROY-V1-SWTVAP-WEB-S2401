@@ -8,7 +8,12 @@ import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-cat
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
 import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
 import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
+import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashboard-home.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
+import { AdminDashboardOrdersAmountsComponent } from './admin-dashboard-orders-amounts/admin-dashboard-orders-amounts.component';
+import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
+import { AdminDashboardOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/admin-dashboard-orders-transactions.component';
+import { AdminDashboardOrdersComponent } from './admin-dashboard-orders/admin-dashboard-orders.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
 import { AdminDashboardProductsDiscountsComponent } from './admin-dashboard-products-discounts/admin-dashboard-products-discounts.component';
 import { AdminDashboardProductsImagesComponent } from './admin-dashboard-products-images/admin-dashboard-products-images.component';
@@ -32,6 +37,10 @@ const routes: Routes =  [
     component: AdminDashboardBaseComponent,
     // canActivateChild: [AdminGuard],
     children: [
+      {
+        path: 'home',
+        component: AdminDashboardHomeComponent
+      },
       {
         path: 'catalogs',
         component: AdminDashboardCatalogsComponent
@@ -116,6 +125,22 @@ const routes: Routes =  [
         path: 'products/add-comments/:id',
         component: AdminDashboardCommentsComponent
       },
+      {
+        path: 'orders',
+        component: AdminDashboardOrdersComponent
+      },
+      {
+        path: 'orders/add-amounts/:id',
+        component: AdminDashboardOrdersAmountsComponent
+      },
+      {
+        path: 'orders/add-details/:id',
+        component: AdminDashboardOrdersDetailsComponent
+      },
+      {
+        path: 'orders/add-transactions/:id',
+        component: AdminDashboardOrdersTransactionsComponent
+      }
     ]
   }
 ];

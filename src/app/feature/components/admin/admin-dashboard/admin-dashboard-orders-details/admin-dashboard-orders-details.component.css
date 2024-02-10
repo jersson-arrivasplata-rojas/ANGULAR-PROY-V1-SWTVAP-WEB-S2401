@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-PRODUCTS-IMAGES #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-PRODUCTS-IMAGES #cardProduct .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-PRODUCTS-IMAGES #cardProduct .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-PRODUCTS-IMAGES #cardProduct .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

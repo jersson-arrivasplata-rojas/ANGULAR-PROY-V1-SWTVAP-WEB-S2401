@@ -1,0 +1,11 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.orderTransactionId }}</h2>
+        <p>Método de Pago: {{ item.paymentMethod }}</p>
+        <p>Monto: {{ item.amount }}</p>
+        <p>Fecha de Transacción: {{ item.transactionDate }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

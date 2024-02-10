@@ -1,0 +1,15 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.orderDetailId }}</h2>
+        <p>Producto: {{ productName }}</p>
+        <p>Cantidad: {{ item.quantity }}</p>
+        <p>Precio x Unidad: {{ item.unitPrice }}</p>
+        <p>SubTotal: {{ item.subtotal }}</p>
+        <p>Descuento x Porcentaje: {{ item.discountPercentage }}</p>
+        <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Estado: {{ item.status | status }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

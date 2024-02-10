@@ -36,11 +36,32 @@ import { ComponentShowClientsComponent } from './admin-dashboard-clients/compone
 import { ComponentUpdateClientsComponent } from './admin-dashboard-clients/component-update-clients/component-update-clients.component';
 import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
 import { ComponentListCommentsComponent } from './admin-dashboard-comments/component-list-comments/component-list-comments.component';
+import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashboard-home.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { ComponentAddMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-add-marketing-campaigns/component-add-marketing-campaigns.component';
 import { ComponentListMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-list-marketing-campaigns/component-list-marketing-campaigns.component';
 import { ComponentShowMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-show-marketing-campaigns/component-show-marketing-campaigns.component';
 import { ComponentUpdateMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-update-marketing-campaigns/component-update-marketing-campaigns.component';
+import { AdminDashboardOrdersAmountsComponent } from './admin-dashboard-orders-amounts/admin-dashboard-orders-amounts.component';
+import { ComponentAddOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-add-orders-amounts/component-add-orders-amounts.component';
+import { ComponentListOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-list-orders-amounts/component-list-orders-amounts.component';
+import { ComponentShowOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-show-orders-amounts/component-show-orders-amounts.component';
+import { ComponentUpdateOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-update-orders-amounts/component-update-orders-amounts.component';
+import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
+import { ComponentAddOrdersDetailsComponent } from './admin-dashboard-orders-details/component-add-orders-details/component-add-orders-details.component';
+import { ComponentListOrdersDetailsComponent } from './admin-dashboard-orders-details/component-list-orders-details/component-list-orders-details.component';
+import { ComponentShowOrdersDetailsComponent } from './admin-dashboard-orders-details/component-show-orders-details/component-show-orders-details.component';
+import { ComponentUpdateOrdersDetailsComponent } from './admin-dashboard-orders-details/component-update-orders-details/component-update-orders-details.component';
+import { AdminDashboardOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/admin-dashboard-orders-transactions.component';
+import { ComponentAddOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-add-orders-transactions/component-add-orders-transactions.component';
+import { ComponentListOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-list-orders-transactions/component-list-orders-transactions.component';
+import { ComponentShowOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-show-orders-transactions/component-show-orders-transactions.component';
+import { ComponentUpdateOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-update-orders-transactions/component-update-orders-transactions.component';
+import { AdminDashboardOrdersComponent } from './admin-dashboard-orders/admin-dashboard-orders.component';
+import { ComponentAddOrdersComponent } from './admin-dashboard-orders/component-add-orders/component-add-orders.component';
+import { ComponentListOrdersComponent } from './admin-dashboard-orders/component-list-orders/component-list-orders.component';
+import { ComponentShowOrdersComponent } from './admin-dashboard-orders/component-show-orders/component-show-orders.component';
+import { ComponentUpdateOrdersComponent } from './admin-dashboard-orders/component-update-orders/component-update-orders.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
 import { ComponentAddParametersComponent } from './admin-dashboard-parameters/component-add-parameters/component-add-parameters.component';
 import { ComponentListParametersComponent } from './admin-dashboard-parameters/component-list-parameters/component-list-parameters.component';
@@ -185,7 +206,28 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentUpdateProductsParametersComponent,
     ComponentShowProductsParametersComponent,
     AdminDashboardCommentsComponent,
-    ComponentListCommentsComponent
+    ComponentListCommentsComponent,
+    AdminDashboardHomeComponent,
+    AdminDashboardOrdersComponent,
+    ComponentListOrdersComponent,
+    ComponentAddOrdersComponent,
+    ComponentUpdateOrdersComponent,
+    ComponentShowOrdersComponent,
+    AdminDashboardOrdersAmountsComponent,
+    ComponentListOrdersAmountsComponent,
+    ComponentAddOrdersAmountsComponent,
+    ComponentUpdateOrdersAmountsComponent,
+    ComponentShowOrdersAmountsComponent,
+    AdminDashboardOrdersTransactionsComponent,
+    ComponentListOrdersTransactionsComponent,
+    ComponentAddOrdersTransactionsComponent,
+    ComponentUpdateOrdersTransactionsComponent,
+    ComponentShowOrdersTransactionsComponent,
+    AdminDashboardOrdersDetailsComponent,
+    ComponentListOrdersDetailsComponent,
+    ComponentAddOrdersDetailsComponent,
+    ComponentUpdateOrdersDetailsComponent,
+    ComponentShowOrdersDetailsComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

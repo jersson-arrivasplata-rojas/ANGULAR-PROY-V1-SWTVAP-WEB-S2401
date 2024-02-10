@@ -1,0 +1,42 @@
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of products">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio x Unidad</th>
+              <th>SubTotal</th>
+              <th>Descuento x Porcentaje</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+        <h2>Id: {{ item.orderDetailId }}</h2>
+          <ng-container *ngFor="let item of data" >
+              <tr *ngIf="item.deleted!=false">
+                  <td>{{ item.orderDetailId }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.unitPrice }}</td>
+                  <td>{{ item.subtotal }}</td>
+                  <td>{{ item.discountPercentage }}</td>
+                  <td>{{ item.status | status }}</td>
+                  <td>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=8>
+              Aun no se a agregado ningun registro
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

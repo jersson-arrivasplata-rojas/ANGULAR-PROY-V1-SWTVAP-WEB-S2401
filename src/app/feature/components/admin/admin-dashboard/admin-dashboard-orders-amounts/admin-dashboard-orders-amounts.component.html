@@ -1,0 +1,34 @@
+<div id="STORE-DASHBOARD-PRODUCTS-IMAGES">
+    <div class="main-content">
+        <div class="breadcrumb d-flex">
+            <button class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
+                Regresar
+            </button>
+            <h1>Otros Montos de la Orden</h1>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+              <app-component-add-orders-amounts *ngIf="addItem" [ordersId]="ordersId" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders-amounts>
+              <app-component-update-orders-amounts *ngIf="updateItem" [ordersId]="ordersId" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders-amounts>
+              <app-component-show-orders-amounts *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-orders-amounts>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+                <div class="card o-hidden mb-4">
+                    <div class="card-header">
+                        <p class="w-50 float-left card-title m-0">Tabla de Otros Montos de la Orden</p>
+                        <div class="text-right w-50 float-right">
+                            <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                                Agregar <i class="nav-icon i-Gear-2"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                      <app-component-list-orders-amounts [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders-amounts>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

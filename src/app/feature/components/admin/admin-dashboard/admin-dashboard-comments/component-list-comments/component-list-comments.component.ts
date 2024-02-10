@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CommentHttp } from 'src/app/shared/http/comments.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
@@ -7,7 +8,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
   templateUrl: './component-list-comments.component.html',
   styleUrls: ['./component-list-comments.component.scss'],
 })
-export class ComponentListCommentsComponent implements OnInit, OnChanges {
+export class ComponentListCommentsComponent implements OnInit, OnChanges, OnDestroy {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Input() data: any[] = [];
@@ -15,11 +16,12 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges {
   @Input() productId;
 
   item: any;
+  private subscription: Subscription = new Subscription();
 
   constructor(private commentHttp: CommentHttp, private shareDataService: ShareDataService) {}
 
   ngOnInit(): void {
-    this.shareDataService.getData().subscribe((response) => {
+    this.subscription.add(this.shareDataService.getData().subscribe((response) => {
       if (response) {
         if (response.delete) {
           this.delete(response.comment);
@@ -28,7 +30,7 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges {
           this.added.emit(response.item);
         }
       }
-    });
+    }));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -36,6 +38,10 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges {
       this.commentTree = changes['commentTree'].currentValue;
       this.data = changes['data'].currentValue;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   delete(item: any) {

@@ -1,0 +1,31 @@
+<div id="STORE-DASHBOARD-ORDERS">
+    <div class="main-content">
+        <div class="breadcrumb d-flex">
+            <h1>Ordenes</h1>
+        </div>
+        <div class="separator-breadcrumb "></div>
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+              <app-component-add-orders *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders>
+              <app-component-update-orders *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders>
+              <app-component-show-orders *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-orders>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
+                <div class="card o-hidden mb-4">
+                    <div class="card-header">
+                        <p class="w-50 float-left card-title m-0">Tabla de Ordenes</p>
+                        <div class="text-right w-50 float-right">
+                            <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                                Agregar <i class="nav-icon i-Gear-2"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                      <app-component-list-orders [data]="data" [clients]="clients" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

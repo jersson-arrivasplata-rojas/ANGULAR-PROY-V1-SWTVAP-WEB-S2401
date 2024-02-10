@@ -1,0 +1,19 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.orderId }}</h2>
+        <p *ngIf="item.clientId">Cliente: {{ item.clientId }}</p>
+        <p>Código: {{ item.code }}</p>
+        <p>Fecha de la Orden: {{ item.otherDate }}</p>
+        <p>Dirección: {{ item.address }}</p>
+        <p>SubTotal: {{ item.subtotal }}</p>
+        <p>Impuesto: {{ item.taxes }}</p>
+        <p>Monto de descuento: {{ item.discountAmount }}</p>
+        <p>Total: {{ item.total }}</p>
+        <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Recojo en Tienda: {{ item.pickUp ? 'Si': 'No' }}</p>
+        <p>Estado: {{ item.status | status }}</p>
+        <p>
+          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>
