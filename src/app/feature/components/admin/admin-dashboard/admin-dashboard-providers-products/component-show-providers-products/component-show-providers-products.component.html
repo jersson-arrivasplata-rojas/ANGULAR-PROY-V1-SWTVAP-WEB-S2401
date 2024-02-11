@@ -6,9 +6,9 @@
           <p>Código: {{ item.code }}</p>
           <p>Nombre: {{ item.name }}</p>
           <p>Descripción: {{ item.description }}</p>
-          <p *ngIf="item.price">Precio en Soles: {{ item.price }}</p>
-          <p *ngIf="item.priceUSD">Precio en Dólares: {{ item.priceUSD }}</p>
-          <p *ngIf="item.priceEUR">Precio en Euros: {{ item.priceEUR }}</p>
+          <p *ngIf="item.price">Precio en Soles: S/{{ item.price }}</p>
+          <p *ngIf="item.priceUSD">Precio en Dólares: $/{{ item.priceUSD }}</p>
+          <p *ngIf="item.priceEUR">Precio en Euros: €/{{ item.priceEUR }}</p>
           <p>Stock: {{ item.stock }}</p>
           <p>Stock Mínimo: {{ item.stockMin }}</p>
           <p>Otros Detalles: {{ item.otherDetails }}</p>

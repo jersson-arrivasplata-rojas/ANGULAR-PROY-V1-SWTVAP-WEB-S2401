@@ -23,23 +23,23 @@
                   <td>{{ item.orderId }}</td>
                   <td>{{ getClientName(item.clientId) }}</td>
                   <td>{{ item.code }}</td>
-                  <td>{{ item.otherDate }}</td>
+                  <td>{{ item.otherDate | date }}</td>
                   <td>{{ item.address }}</td>
-                  <td>
-                    <span *ngIf="item.subtotal">Soles: ({{ item.subtotal }})</span><br/>
-                    <span *ngIf="item.subtotalUSD">Dolares: ({{ item.subtotalUSD }})</span><br/>
-                    <span *ngIf="item.subtotalEUR">Euros: ({{ item.subtotalEUR }})</span>
+                  <td class="text-left">
+                    <span *ngIf="item.subtotal">S/{{ item.subtotal }}</span><br/>
+                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD }}</span><br/>
+                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR }}</span>
                   </td>
-                  <td>
-                    <span *ngIf="item.taxes">Soles: ({{ item.taxes }})</span><br/>
-                    <span *ngIf="item.taxesUSD">Dolares: ({{ item.taxesUSD }})</span><br/>
-                    <span *ngIf="item.taxesEUR">Euros: ({{ item.taxesEUR }})</span>
+                  <td class="text-left">
+                    <span *ngIf="item.taxes">S/{{ item.taxes }}</span><br/>
+                    <span *ngIf="item.taxesUSD">$/{{ item.taxesUSD }}</span><br/>
+                    <span *ngIf="item.taxesEUR">€/{{ item.taxesEUR }}</span>
                   </td>
                   <td>{{ item.discountAmount }}</td>
-                  <td>
-                    <span *ngIf="item.total">Soles: ({{ item.total }})</span><br/>
-                    <span *ngIf="item.totalUSD">Dolares: ({{ item.totalUSD }})</span><br/>
-                    <span *ngIf="item.totalEUR">Euros: ({{ item.totalEUR }})</span>
+                  <td class="text-left">
+                    <span *ngIf="item.total">S/{{ item.total }}</span><br/>
+                    <span *ngIf="item.totalUSD">$/{{ item.totalUSD }}</span><br/>
+                    <span *ngIf="item.totalEUR">€/{{ item.totalEUR }}</span>
                   </td>
                   <td>{{ item.pickUp ? 'Si': 'No' }}</td>
                   <td>{{ item.status | status }}</td>

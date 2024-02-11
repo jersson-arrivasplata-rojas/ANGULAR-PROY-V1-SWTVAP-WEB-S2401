@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of products">
+      <thead>
+          <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Stock Mínimo</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let item of data" >
+              <tr>
+                  <td>{{ item.code }}</td>
+                  <td>{{ item.name }}</td>
+                  <td class="text-left">
+                    <span *ngIf="item.price">S/{{ item.price }}</span><br/>
+                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD }}</span><br/>
+                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR }}</span>
+                  </td>
+                  <td>{{ item.stock }}</td>
+                  <td>{{ item.stockMin }}</td>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="add(item)">Asignar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=8>
+              Aun no se a agregado ningun registro
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

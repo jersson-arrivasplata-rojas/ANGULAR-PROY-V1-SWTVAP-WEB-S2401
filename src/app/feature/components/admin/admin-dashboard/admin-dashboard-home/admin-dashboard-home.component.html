@@ -14,17 +14,30 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <span class="text-28">S/{{ $amount_year_total }}</span>
                                 <p class="text-small text-muted-2 m-0">Venta en el ultimo año</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">S/{{ $amount_year_total }}</span>
+                                  <span class="text-28 mr-3">$/{{ $amount_year_totalUSD }}</span>
+                                  <span class="text-28 ">€/{{ $amount_year_totalEUR }}</span>
+                                </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <div class="d-flex justify-content-between mt-4">
                                     <div class="flex-grow-1">
                                         <span class="text-small">Año pasado</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_year_total }}
-                                        </h5>
                                     </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    S/{{ $amount_last_year_total }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    $/{{ $amount_last_year_totalUSD }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2">
+                                    €/{{ $amount_last_year_totalEUR }}
+                                  </h5>
                                 </div>
                             </div>
                         </div>
@@ -32,18 +45,31 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <span class="text-28">S/{{ $amount_month_six_total }}</span>
                                 <p class="text-small text-muted-2 m-0">Venta de los ultimos Seis meses</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">S/{{ $amount_month_six_total }}</span>
+                                  <span class="text-28 mr-3">$/{{ $amount_month_six_totalUSD }}</span>
+                                  <span class="text-28">€/{{ $amount_month_six_totalEUR }}</span>
+                                </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
-                                <div class="d-flex justify-content-between mt-4">
 
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Seis meses anteriores</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_month_six_total }}
-                                        </h5>
-                                    </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Seis meses anteriores</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    S/{{ $amount_last_month_six_total }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    $/{{ $amount_last_month_six_totalUSD }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2">
+                                    €/{{ $amount_last_month_six_totalEUR }}
+                                  </h5>
                                 </div>
                             </div>
                         </div>
@@ -51,18 +77,30 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <span class="text-28">S/{{ $amount_month_total }}</span>
                                 <p class="text-small text-muted-2 m-0">Venta en el ultimo mes</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">S/{{ $amount_month_total }}</span>
+                                  <span class="text-28 mr-3">$/{{ $amount_month_totalUSD }}</span>
+                                  <span class="text-28">€/{{ $amount_month_totalEUR }}</span>
+                                </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <div class="d-flex justify-content-between mt-4">
-
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Mes pasado</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_month_total }}
-                                        </h5>
-                                    </div>
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Mes pasado</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    S/{{ $amount_last_month_total }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3 ">
+                                    $/{{ $amount_last_month_totalUSD }}
+                                  </h5>
+                                  <h5 class="m-0 font-weight-bold text-muted-2">
+                                    €/{{ $amount_last_month_totalEUR }}
+                                  </h5>
                                 </div>
                             </div>
                         </div>

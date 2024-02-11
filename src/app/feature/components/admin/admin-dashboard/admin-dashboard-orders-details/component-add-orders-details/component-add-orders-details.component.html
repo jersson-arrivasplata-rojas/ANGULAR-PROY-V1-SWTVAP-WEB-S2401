@@ -5,9 +5,17 @@
       <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="productCode">Producto:</label>
-                <input type="text" #productCode class="form-control" id="productCode" >
-                <button class="btn btn-first mr-2" (click)="addProduct(productCode)">Asignar Producto</button>
+                <label>Asignar Producto:</label><br/>
+                <button class="btn btn-first btn-sm mb-3" (click)="show()">{{!showProduct?'Ver': 'Ocultar'}} Producto(s)</button><br/>
+                <app-component-list-orders-details-products (selected)="addProduct($event)" *ngIf="showProduct && products.length" [data]="products">
+                </app-component-list-orders-details-products>
+                <hr class="dropdown-divider">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="productName">Producto:</label>
+                <input type="text" class="form-control bg-white {{!productName? 'ng-dirty ng-touched ng-invalid':''}}" id="productName" placeholder="{{productName}}" value="{{productName}}" readonly>
             </div>
         </div>
         <div class="col-lg-12">

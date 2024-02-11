@@ -5,16 +5,16 @@
         <p>Código: {{ item.code }}</p>
         <p>Fecha de la Orden: {{ item.otherDate }}</p>
         <p>Dirección: {{ item.address }}</p>
-        <p *ngIf="item.subtotal">SubTotal en Soles: {{ item.subtotal }}</p>
-        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: {{ item.subtotalUSD }}</p>
-        <p *ngIf="item.subtotalEUR">SubTotal en Euros: {{ item.subtotalEUR }}</p>
-        <p *ngIf="item.taxes">Impuesto en Soles: {{ item.taxes }}</p>
-        <p *ngIf="item.taxesUSD">Impuesto en Dólares: {{ item.taxesUSD }}</p>
-        <p *ngIf="item.taxesEUR">Impuesto en Euros: {{ item.taxesEUR }}</p>
+        <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal }}</p>
+        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: $/{{ item.subtotalUSD }}</p>
+        <p *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR }}</p>
+        <p *ngIf="item.taxes">Impuesto en Soles: S/{{ item.taxes }}</p>
+        <p *ngIf="item.taxesUSD">Impuesto en Dólares: $/{{ item.taxesUSD }}</p>
+        <p *ngIf="item.taxesEUR">Impuesto en Euros: €/{{ item.taxesEUR }}</p>
         <p>Monto de descuento: {{ item.discountAmount }}</p>
-        <p *ngIf="item.total">Total en Soles: {{ item.total }}</p>
-        <p *ngIf="item.totalUSD">Total en Dólares: {{ item.totalUSD }}</p>
-        <p *ngIf="item.totalEUR">Total en Euros: {{ item.totalEUR }}</p>
+        <p *ngIf="item.total">Total en Soles: S/{{ item.total }}</p>
+        <p *ngIf="item.totalUSD">Total en Dólares: $/{{ item.totalUSD }}</p>
+        <p *ngIf="item.totalEUR">Total en Euros: €/{{ item.totalEUR }}</p>
         <p>Otros Detalles: {{ item.otherDetails }}</p>
         <p>Recojo en Tienda: {{ item.pickUp ? 'Si': 'No' }}</p>
         <p>Estado: {{ item.status | status }}</p>

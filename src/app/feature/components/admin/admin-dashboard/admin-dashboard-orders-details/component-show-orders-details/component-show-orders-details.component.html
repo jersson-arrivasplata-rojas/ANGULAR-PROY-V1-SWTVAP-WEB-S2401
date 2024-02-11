@@ -3,12 +3,12 @@
         <h2>Id: {{ item.orderDetailId }}</h2>
         <p>Producto: {{ productName }}</p>
         <p>Cantidad: {{ item.quantity }}</p>
-        <p>Precio x Unidad en Soles: {{ item.unitPrice }}</p>
-        <p *ngIf="item.unitPriceUSD">Precio x Unidad en Dólares: {{ item.unitPriceUSD }}</p>
-        <p *ngIf="item.unitPriceEUR">Precio x Unidad en Euros: {{ item.unitPriceEUR }}</p>
-        <p *ngIf="item.subtotal">SubTotal en Soles: {{ item.subtotal }}</p>
-        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: {{ item.subtotalUSD }}</p>
-        <p *ngIf="item.subtotalEUR">SubTotal en Euros: {{ item.subtotalEUR }}</p>
+        <p>Precio x Unidad en Soles: S/{{ item.unitPrice }}</p>
+        <p *ngIf="item.unitPriceUSD">Precio x Unidad en Dólares: $/{{ item.unitPriceUSD }}</p>
+        <p *ngIf="item.unitPriceEUR">Precio x Unidad en Euros: €/{{ item.unitPriceEUR }}</p>
+        <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal }}</p>
+        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: $/{{ item.subtotalUSD }}</p>
+        <p *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR }}</p>
         <p>Descuento x Porcentaje: {{ item.discountPercentage }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ item.status | status }}</p>

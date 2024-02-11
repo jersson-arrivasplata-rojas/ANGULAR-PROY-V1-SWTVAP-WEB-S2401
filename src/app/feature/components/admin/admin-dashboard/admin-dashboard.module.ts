@@ -49,6 +49,7 @@ import { ComponentShowOrdersAmountsComponent } from './admin-dashboard-orders-am
 import { ComponentUpdateOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-update-orders-amounts/component-update-orders-amounts.component';
 import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
 import { ComponentAddOrdersDetailsComponent } from './admin-dashboard-orders-details/component-add-orders-details/component-add-orders-details.component';
+import { ComponentListOrdersDetailsProductsComponent } from './admin-dashboard-orders-details/component-list-orders-details-products/component-list-orders-details-products.component';
 import { ComponentListOrdersDetailsComponent } from './admin-dashboard-orders-details/component-list-orders-details/component-list-orders-details.component';
 import { ComponentShowOrdersDetailsComponent } from './admin-dashboard-orders-details/component-show-orders-details/component-show-orders-details.component';
 import { ComponentUpdateOrdersDetailsComponent } from './admin-dashboard-orders-details/component-update-orders-details/component-update-orders-details.component';
@@ -244,6 +245,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminDashboardOrdersDispatchesProvidersComponent,
     ComponentListOrdersDispatchesProvidersComponent,
     ComponentShowOrdersDispatchesProvidersComponent,
+    ComponentListOrdersDetailsProductsComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

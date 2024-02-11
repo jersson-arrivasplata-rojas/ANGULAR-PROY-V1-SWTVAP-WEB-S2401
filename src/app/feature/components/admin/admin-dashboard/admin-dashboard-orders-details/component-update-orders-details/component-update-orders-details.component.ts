@@ -12,6 +12,7 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
   @Input() ordersId;
+  products: any[] = [];
 
   itemForm: FormGroup;
 

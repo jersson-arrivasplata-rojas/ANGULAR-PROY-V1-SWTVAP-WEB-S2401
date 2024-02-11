@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 
 @Component({
   selector: 'app-component-add-orders-details',
@@ -12,11 +13,16 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
   @Input() ordersId;
 
   itemForm: FormGroup;
+  products: any[] = [];
+  productName: string;
+  showProduct: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private productHttp: ProductHttp
   ) {
     this.itemForm = this.formBuilder.group({
+      productId: ['', Validators.required],
       quantity: ['', Validators.required],
       unitPrice: ['', Validators.required],
       unitPriceUSD: ['', Validators.required],
@@ -31,7 +37,10 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ordersId: this.ordersId});
+    this.itemForm.patchValue({ ordersId: this.ordersId });
+    this.productHttp.getAll().subscribe((products) => {
+      this.products = products.filter((product) => product.status === true);
+    });
   }
 
   add() {
@@ -41,11 +50,14 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
     }
   }
 
-  addProduct(element: any){
-    console.log(element);
-
+  addProduct(item) {
+    this.productName = item.name;
+    this.itemForm.patchValue({ productId: item.productId });
   }
 
+  show() {
+    this.showProduct = !this.showProduct;
+  }
   init() {
     return {
       ordersId: this.ordersId,

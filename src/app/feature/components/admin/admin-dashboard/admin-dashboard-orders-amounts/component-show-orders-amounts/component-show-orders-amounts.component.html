@@ -2,9 +2,9 @@
     <div class="card-body">
         <h2>Id: {{ item.orderAmountId }}</h2>
         <p>Nombre: {{ item.name }}</p>
-        <p *ngIf="item.amount">Monto en Soles: {{ item.amount }}</p>
-        <p *ngIf="item.amountUSD">Monto en Dólares: {{ item.amountUSD }}</p>
-        <p *ngIf="item.amountEUR">Monto en Euros: {{ item.amountEUR }}</p>
+        <p *ngIf="item.amount">Monto en Soles: S/{{ item.amount }}</p>
+        <p *ngIf="item.amountUSD">Monto en Dólares: $/{{ item.amountUSD }}</p>
+        <p *ngIf="item.amountEUR">Monto en Euros: €/{{ item.amountEUR }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
