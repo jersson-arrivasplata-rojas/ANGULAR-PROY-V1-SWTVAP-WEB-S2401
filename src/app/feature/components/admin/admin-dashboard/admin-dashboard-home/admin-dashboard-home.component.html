@@ -14,6 +14,43 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
+                                <span class="text-28">S/{{ $amount_year_total }}</span>
+                                <p class="text-small text-muted-2 m-0">Venta en el ultimo año</p>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <div class="flex-grow-1">
+                                        <span class="text-small">Año pasado</span>
+                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_year_total }}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <span class="text-28">S/{{ $amount_month_six_total }}</span>
+                                <p class="text-small text-muted-2 m-0">Venta de los ultimos Seis meses</p>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+
+                                    <div class="flex-grow-1">
+                                        <span class="text-small">Seis meses anteriores</span>
+                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_month_six_total }}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
                                 <span class="text-28">S/{{ $amount_month_total }}</span>
                                 <p class="text-small text-muted-2 m-0">Venta en el ultimo mes</p>
                                 <div  class="echart-dashboard-inicio">
@@ -22,55 +59,9 @@
                                 <div class="d-flex justify-content-between mt-4">
 
                                     <div class="flex-grow-1">
-                                        <span class="text-small">Nuevos clientes</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">{{ $user_news_month }}</h5>
-                                    </div>
-                                    <div class="flex-grow-1">
                                         <span class="text-small">Mes pasado</span>
                                         <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_month_total }}
                                         </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
-                        <div class="card o-hidden" id="VentaUltimaSemana">
-                            <div class="card-body">
-                                <span class="text-28">S/{{ $amount_week_total }}</span>
-                                <p class="text-small text-muted-2 m-0">Venta de la semana</p>
-                                <div  class="echart-dashboard-inicio">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="d-flex justify-content-between mt-4">
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Nuevos clientes</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">{{ $user_news_week }}</h5>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Semana pasada</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_week_total }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
-                        <div class="card o-hidden" id="VentaUltimaDia">
-                            <div class="card-body">
-                                <span class="text-28">S/{{ $amount_day_total }}</span>
-                                <p class="text-small text-muted-2 m-0">Venta del día</p>
-                                <div  class="echart-dashboard-inicio">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="d-flex justify-content-between mt-4">
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Nuevos clientes</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">{{ $user_news_day }}</h5>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <span class="text-small">Día anterior</span>
-                                        <h5 class="m-0 font-weight-bold text-muted-2">S/{{ $amount_last_day_total }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -82,17 +73,17 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                         <div class="ul-widget__content-v4 text-center  card-icon-bg">
-                                            <i class="mdi mdi-eye text-success-2 font-size-3em"></i>
-                                            <h3 class="t-font-boldest">{{ $views_totals }}</h3>
-                                            <span>Visitas</span>
+                                            <i class="mdi mdi-alpha-p-box text-success-2 font-size-3em"></i>
+                                            <h3 class="t-font-boldest">{{ $product_news_totals }}</h3>
+                                            <span>Productos</span>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                         <div class="ul-widget__content-v4 text-center card-icon-bg">
                                             <i class="dripicons-to-do text-info-2 font-size-3em"></i>
-                                            <h3 class="t-font-boldest">{{ $orders_totals }}</h3>
-                                            <span>Ordenes Finalizadas</span>
+                                            <h3 class="t-font-boldest">{{ $order_news_totals }}</h3>
+                                            <span>Ordenes</span>
                                         </div>
                                     </div>
 
@@ -124,7 +115,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="table-responsive" style="height: 400px;">
+                                <div class="table-responsive" style="max-height: 400px;">
                                     <table class="table table-bordered text-center" >
                                       <caption>Tabla de Clientes</caption>
                                         <thead>
@@ -160,41 +151,42 @@
                                 <div class="ul-widget__head __g-support v-margin">
                                     <div class="ul-widget__head-label d-flex justify-content-between">
                                         <h3 class="ul-widget__head-title">
-                                            Ordenes Finalizadas
+                                            Ordenes (Ultimos 10)
                                         </h3>
 
-                                        <a [routerLink]="['/admin/dashboard/products']"  type="button" class="btn btn-outline-first border-radius-15 " >
+                                        <a [routerLink]="['/admin/dashboard/orders']"  type="button" class="btn btn-outline-first border-radius-15 " >
                                             Todas las ordenes
                                         </a>
                                     </div>
                                     <hr/>
 
                                 </div>
-                                <div class="ul-widget__body">
-                                    <div class="ul-widget6">
-                                        <div class="ul-widget6__head">
-                                            <div class="ul-widget6__item mt-4">
-                                                <span>Fecha</span>
-                                                <span>Cantidad</span>
-                                                <span>Monto</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-widget6__body">
-                                            <div *ngFor="let $value of $amount_order_totals let j= index">
-                                                <hr/>
-                                                    <div  class="ul-widget6__item">
-                                                        <span>{{ $value.day }}</span>
-                                                        <span>{{ $value.count }}</span>
-                                                        <span class="t-font-boldest text-success-2">S/{{ $value.amount_total }}</span>
-                                                    </div>
+                                <div class="table-responsive" style="max-height: 400px;">
+                                    <table class="table table-bordered text-center" >
+                                      <caption>Tabla de Ordenes</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Celular</th>
+                                                <th scope="col">Correo</th>
 
-                                            </div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                            <div *ngIf="$amount_order_totals.length<=0" class="ul-widget6__item justify-content-center">
-                                                No se han encontrado ordenes realizadas
-                                            </div>
-                                        </div>
-                                    </div>
+                                            <tr *ngFor="let $value of $orders_news let j= index" >
+                                                <th scope="row">{{ (j+1) }}</th>
+                                                <td *ngIf="$value.clientId">{{ $value.client?.name }}</td>
+                                                <td>{{ $value.code }}</td>
+                                                <td>{{ $value.otherDate | date }}</td>
+                                            </tr>
+                                            <tr *ngIf="$orders_news.length<=0">
+                                                <td colspan="4">No se encontrarón nuevas ordenes</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

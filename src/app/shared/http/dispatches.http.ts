@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { StatusEnum } from '../config/status.enum';
+import { StatusProviderEnum } from '../config/status-provider.enum';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnalyticHttp {
+export class DispatcheHttp {
   private apiUrl = environment.apiUrl + 'api/dispatches';
 
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class AnalyticHttp {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((response: any) => {
         return response.map((item: any) => {
-          item.status = Boolean(item.status === StatusEnum.ACTIVE);
+          item.status = StatusProviderEnum[item.status];
           return item;
         });
       }),

@@ -12,6 +12,8 @@ import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashbo
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardOrdersAmountsComponent } from './admin-dashboard-orders-amounts/admin-dashboard-orders-amounts.component';
 import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
+import { AdminDashboardOrdersDispatchesProvidersComponent } from './admin-dashboard-orders-dispatches-providers/admin-dashboard-orders-dispatches-providers.component';
+import { AdminDashboardOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/admin-dashboard-orders-dispatches.component';
 import { AdminDashboardOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/admin-dashboard-orders-transactions.component';
 import { AdminDashboardOrdersComponent } from './admin-dashboard-orders/admin-dashboard-orders.component';
 import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/admin-dashboard-parameters.component';
@@ -140,6 +142,14 @@ const routes: Routes =  [
       {
         path: 'orders/add-transactions/:id',
         component: AdminDashboardOrdersTransactionsComponent
+      },
+      {
+        path: 'orders/add-dispatches/:id',
+        component: AdminDashboardOrdersDispatchesComponent
+      },
+      {
+        path: 'orders/add-dispatches/:id/add-providers/:idDispatch',
+        component: AdminDashboardOrdersDispatchesProvidersComponent
       }
     ]
   }

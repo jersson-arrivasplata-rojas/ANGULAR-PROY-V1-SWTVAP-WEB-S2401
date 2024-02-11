@@ -52,6 +52,14 @@ import { ComponentAddOrdersDetailsComponent } from './admin-dashboard-orders-det
 import { ComponentListOrdersDetailsComponent } from './admin-dashboard-orders-details/component-list-orders-details/component-list-orders-details.component';
 import { ComponentShowOrdersDetailsComponent } from './admin-dashboard-orders-details/component-show-orders-details/component-show-orders-details.component';
 import { ComponentUpdateOrdersDetailsComponent } from './admin-dashboard-orders-details/component-update-orders-details/component-update-orders-details.component';
+import { AdminDashboardOrdersDispatchesProvidersComponent } from './admin-dashboard-orders-dispatches-providers/admin-dashboard-orders-dispatches-providers.component';
+import { ComponentListOrdersDispatchesProvidersComponent } from './admin-dashboard-orders-dispatches-providers/component-list-orders-dispatches-providers/component-list-orders-dispatches-providers.component';
+import { ComponentShowOrdersDispatchesProvidersComponent } from './admin-dashboard-orders-dispatches-providers/component-show-orders-dispatches-providers/component-show-orders-dispatches-providers.component';
+import { AdminDashboardOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/admin-dashboard-orders-dispatches.component';
+import { ComponentAddOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/component-add-orders-dispatches/component-add-orders-dispatches.component';
+import { ComponentListOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/component-list-orders-dispatches/component-list-orders-dispatches.component';
+import { ComponentShowOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/component-show-orders-dispatches/component-show-orders-dispatches.component';
+import { ComponentUpdateOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/component-update-orders-dispatches/component-update-orders-dispatches.component';
 import { AdminDashboardOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/admin-dashboard-orders-transactions.component';
 import { ComponentAddOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-add-orders-transactions/component-add-orders-transactions.component';
 import { ComponentListOrdersTransactionsComponent } from './admin-dashboard-orders-transactions/component-list-orders-transactions/component-list-orders-transactions.component';
@@ -228,6 +236,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentAddOrdersDetailsComponent,
     ComponentUpdateOrdersDetailsComponent,
     ComponentShowOrdersDetailsComponent,
+    AdminDashboardOrdersDispatchesComponent,
+    ComponentListOrdersDispatchesComponent,
+    ComponentAddOrdersDispatchesComponent,
+    ComponentUpdateOrdersDispatchesComponent,
+    ComponentShowOrdersDispatchesComponent,
+    AdminDashboardOrdersDispatchesProvidersComponent,
+    ComponentListOrdersDispatchesProvidersComponent,
+    ComponentShowOrdersDispatchesProvidersComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

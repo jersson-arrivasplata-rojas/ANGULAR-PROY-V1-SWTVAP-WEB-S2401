@@ -1,0 +1,29 @@
+/* Agrega estilos al formulario */
+form {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Estilos para los campos de entrada */
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  height: calc(1.19rem + 2px);
+  width: 60px;
+}
+/* Estilos para la dirección existente */
+p {
+  margin-top: 0px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}

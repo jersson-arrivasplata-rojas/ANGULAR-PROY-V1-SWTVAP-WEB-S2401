@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { mergeMap } from 'rxjs';
 import { ClientHttp } from 'src/app/shared/http/clients.http';
+import { OrderHttp } from 'src/app/shared/http/orders.http';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,63 +14,64 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminDashboardHomeComponent implements OnInit {
   public APP_URL = environment.apiUrl;
-  public $amount_month_total: any = 0;
-  public $user_news_month: any = 0;
+  public $amount_year_total: any = 0;
+  public $amount_last_year_total: any = 0;
+  public $amount_month_six_total: any = 0;
+  public $amount_last_month_six_total: any = 0;
   public $amount_last_month_total: any = 0;
-  public $amount_week_total: any = 0;
-  public $user_news_week: any = 0;
-  public $amount_last_week_total: any = 0;
-  public $amount_day_total: any = 0;
-  public $user_news_day: any = 0;
-  public $amount_last_day_total: any = 0;
-  public $views_totals: any = 0;
-  public $orders_totals: any = 0;
+  public $amount_month_total: any = 0;
   public $user_news_totals: any = 0;
-  public $likes_totals: any = 0;
-  public $horarios: any[] = [];
   public $users_news: any[] = [];
-  public $amount_order_totals: any[] = [];
   public $products: any[] = [];
-
+  public $orders_news: any[] = [];
+  public $order_news_totals: any = 0;
+  public $product_news_totals: any = 0;
   //https://stackoverflow.com/questions/14919894/getscript-but-for-stylesheets-in-jquery
 
-  constructor(private clientHttp: ClientHttp) {
-
-  }
+  constructor(private clientHttp: ClientHttp, private orderHttp: OrderHttp,
+    private productHttp: ProductHttp){}
 
   ngOnInit(): void {
-    this.clientHttp.getAll().subscribe((data) => {
-      this.$user_news_totals = data.length;
-      this.$users_news = data;
-      this.$users_news = this.$users_news.sort((a, b) => {
-        if (a.clientId < b.clientId) {
-          return -1;
-        }
-        if (a.clientId > b.clientId) {
-          return 1;
-        }
-        return 0;
-      }).reverse().slice(0, 10);
-    });
-    /*
-        own.$horarios = data.horarios;
-        own.$amount_day_total = data.amount_day_total;
-        own.$amount_week_total = data.amount_week_total;
-        own.$amount_month_total = data.amount_month_total;
-        own.$user_news_totals = data.user_news_totals;
-        own.$views_totals = data.views_totals;
-        own.$likes_totals = data.likes_totals;
-        own.$users_news = data.users_news;
-        own.$amount_last_day_total = data.amount_last_day_total;
-        own.$amount_last_week_total = data.amount_last_week_total;
-        own.$amount_last_month_total = data.amount_last_month_total;
-        own.$user_news_month = data.user_news_month;
-        own.$user_news_day = data.user_news_day;
-        own.$user_news_week = data.user_news_week;
-        own.$orders_totals = data.orders_totals;
-        own.$amount_order_totals = data.amount_order_totals;
-        own.$products = data.products;
-    */
+    this.clientHttp.getAll()
+      .pipe(
+        mergeMap((data) => {
+          this.$user_news_totals = data.length;
+          this.$users_news = data;
+          this.$users_news = this.$users_news.sort((a, b) => {
+            if (a.clientId < b.clientId) {
+              return -1;
+            }
+            if (a.clientId > b.clientId) {
+              return 1;
+            }
+            return 0;
+          }).reverse().slice(0, 10);
+
+          return this.productHttp.getAll();
+        }),
+        mergeMap((data) => {
+          this.$product_news_totals = data.length;
+          this.$products = data;
+          return this.orderHttp.getAll();
+        })
+      ).subscribe((data) => {
+        data.map((order: any) => {
+          order.client = this.$users_news.find((user: any) => user.clientId === order.clientId);
+        });
+
+        this.$order_news_totals = data.length;
+        this.$orders_news = data;
+        this.$orders_news = this.$orders_news.sort((a, b) => {
+          if (a.clientId < b.clientId) {
+            return -1;
+          }
+          if (a.clientId > b.clientId) {
+            return 1;
+          }
+          return 0;
+        }).reverse().slice(0, 10);
+      });
   }
+
 
 }

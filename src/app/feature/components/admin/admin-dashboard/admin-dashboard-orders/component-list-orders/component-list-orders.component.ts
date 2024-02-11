@@ -62,4 +62,9 @@ export class ComponentListOrdersComponent {
   addOrderTransactions(item: any){
     this.router.navigate(['/admin/dashboard/orders/add-transactions', item.orderId]);
   }
+
+  addDispatches(item: any){
+    this.router.navigate(['/admin/dashboard/orders/add-dispatches', item.orderId]);
+  }
+
 }

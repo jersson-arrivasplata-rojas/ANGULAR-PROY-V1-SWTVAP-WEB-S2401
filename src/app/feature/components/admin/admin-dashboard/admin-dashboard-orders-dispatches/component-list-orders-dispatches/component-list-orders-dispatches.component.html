@@ -1,0 +1,47 @@
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of orders">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Costo</th>
+              <th>Tipo de Pago</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Proveedor</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let item of data" >
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.cost }}</td>
+                  <td>{{ item.typeCurrency }}</td>
+                  <td>{{ item.date | date }}</td>
+                  <td>{{ item.status | statusProvider }}</td>
+                  <td>
+                    <div *ngIf="item.providerId">
+                      <span>{{ item.provider?.name }}</span><br/>
+                      <span>{{ item.provider?.email }}</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-info-2 btn-sm mt-2 font-16px" (click)="addProvider(item)" style="max-width: 130px;">Asociar Provider</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=8>
+              Aun no se a agregado ningun registro
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
