@@ -2,7 +2,7 @@
     <div class="card-body">
         <h2>Id: {{ item.analyticId }}</h2>
         <p>Página Visitada: {{ item.visitedPage }}</p>
-        <p>Fecha Visitada: {{ item.visitedDate }}</p>
+        <p>Fecha Visitada: {{ item.visitedDate | date }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

@@ -14,7 +14,7 @@
               <tr>
                   <td>{{ item.newsletterSubscriptionId }}</td>
                   <td>{{ item.email }}</td>
-                  <td>{{ item.subscribedAt }}</td>
+                  <td>{{ item.subscribedAt | date }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column">

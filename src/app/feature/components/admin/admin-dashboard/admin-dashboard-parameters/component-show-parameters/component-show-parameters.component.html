@@ -2,10 +2,9 @@
     <div class="card-body">
         <h2>Id: {{ item.id }}</h2>
         <p>Identificador de Grupo: {{ item.groupId }}</p>
-        <p>Descripción: {{ item.description }}</p>
-        <p>Valor: {{ item.value }}</p>
-        <p>Código: {{ item.code }}</p>
-        <p>Posición: {{ item.position }}</p>
+        <p>Descripción: {{ item.description | transformText }}</p>
+        <p>Valor: {{ item.value | transformText }}</p>
+        <p>Código: {{ item.code | transformText }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
