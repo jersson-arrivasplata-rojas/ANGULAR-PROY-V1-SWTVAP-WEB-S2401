@@ -130,15 +130,19 @@ import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
 import { CommentComponent } from './components/comments/comment/comment.component';
+import { AmountValidatorDirective } from './directives/amount-validator.directive';
+import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
+import { AddZerosPipe } from './pipes/add-zeros.pipe';
 import { EmptyTextPipe } from './pipes/empty-text.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { StatusAddPipe } from './pipes/status-add.pipe';
 import { StatusProviderPipe } from './pipes/status-provider.pipe';
 import { StatusRelationshipPipe } from './pipes/status-relationship.pipe';
 import { StatusPipe } from './pipes/status.pipe';
+import { TransformTextPipe } from './pipes/transform-text.pipe';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { ServicesModule } from './services/services.module';
 
@@ -277,7 +281,11 @@ import { ServicesModule } from './services/services.module';
     StatusAddPipe,
     StatusRelationshipPipe,
     EmptyTextPipe,
-    StatusProviderPipe
+    StatusProviderPipe,
+    AmountValidatorDirective,
+    AddZerosPipe,
+    DateFormatDirective,
+    TransformTextPipe
   ],
   exports: [
     GeneratorCssComponent,
@@ -418,7 +426,11 @@ import { ServicesModule } from './services/services.module';
     StatusAddPipe,
     StatusRelationshipPipe,
     EmptyTextPipe,
-    StatusProviderPipe
+    StatusProviderPipe,
+    AmountValidatorDirective,
+    AddZerosPipe,
+    DateFormatDirective,
+    TransformTextPipe
   ],
   imports: [
     CommonModule,

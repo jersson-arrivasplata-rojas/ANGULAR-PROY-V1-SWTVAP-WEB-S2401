@@ -1,38 +1,47 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
+import { AdminDashboardOrdersPresenter } from '../admin-dashboard-orders.presenter';
 
 @Component({
   selector: 'app-component-add-orders',
   templateUrl: './component-add-orders.component.html',
   styleUrls: ['./component-add-orders.component.scss'],
+  providers: [AdminDashboardOrdersPresenter]
 })
-export class ComponentAddOrdersComponent {
+export class ComponentAddOrdersComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
 
   itemForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private presenter: AdminDashboardOrdersPresenter
   ) {
     this.itemForm = this.formBuilder.group({
       code: ['', Validators.required],
       address: ['', Validators.required],
-      subtotal: [''],
-      subtotalUSD: [''],
-      subtotalEUR: [''],
-      taxes: [''],
-      taxesUSD: [''],
-      taxesEUR: [''],
-      discountAmount: ['', Validators.required],
-      total: [''],
-      totalUSD: [''],
-      totalEUR: [''],
+      subtotal: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      subtotalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      subtotalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      taxes: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      taxesUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      taxesEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      discountAmount: [0, Validators.required],
+      total: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      totalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      totalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       pickUp: [false, Validators.required],
       otherDetails: [''],
       status: [true, [Validators.required]]
     });
+    this.presenter.itemForm = this.itemForm;
+  }
+
+  ngOnInit(): void {
+    this.presenter.handleForm();
   }
 
   add() {

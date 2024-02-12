@@ -10,7 +10,7 @@ import { OrderHttp } from 'src/app/shared/http/orders.http';
 @Component({
   selector: 'app-admin-dashboard-orders',
   templateUrl: './admin-dashboard-orders.component.html',
-  styleUrls: ['./admin-dashboard-orders.component.css']
+  styleUrls: ['./admin-dashboard-orders.component.css'],
 })
 export class AdminDashboardOrdersComponent implements OnInit {
 

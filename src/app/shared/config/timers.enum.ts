@@ -1,0 +1,4 @@
+export enum TimersEnum {
+  TIMER_VALUES_CHANGES = 500,
+  TIMER_VALUES_DIRECTIVE_CHANGES = 500
+}

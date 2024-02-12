@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { OrderAmountsHttp } from 'src/app/shared/http/order-amounts.http';
+import { AdminDashboardOrdersAmountsPresenter } from '../admin-dashboard-orders-amounts.presenter';
 
 @Component({
   selector: 'app-component-update-orders-amounts',
   templateUrl: './component-update-orders-amounts.component.html',
   styleUrls: ['./component-update-orders-amounts.component.scss'],
+  providers: [AdminDashboardOrdersAmountsPresenter],
 })
 export class ComponentUpdateOrdersAmountsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
@@ -17,21 +20,24 @@ export class ComponentUpdateOrdersAmountsComponent implements OnInit, OnChanges 
 
   constructor(
     private formBuilder: FormBuilder,
-    private orderAmountsHttp: OrderAmountsHttp
+    private orderAmountsHttp: OrderAmountsHttp,
+    private presenter: AdminDashboardOrdersAmountsPresenter
   ) {
     this.itemForm = this.formBuilder.group({
       ordersId: ['', Validators.required],
       name: ['', Validators.required],
-      amount: ['', Validators.required],
-      amountUSD: ['', Validators.required],
-      amountEUR: ['', Validators.required],
+      amount: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      amountUSD: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      amountEUR: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       otherDetails: ['']
     });
+    this.presenter.itemForm = this.itemForm;
   }
 
   ngOnInit(): void {
     this.itemForm.patchValue({ordersId: this.ordersId});
     this.itemForm.patchValue(this.item);
+    this.presenter.handleForm();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

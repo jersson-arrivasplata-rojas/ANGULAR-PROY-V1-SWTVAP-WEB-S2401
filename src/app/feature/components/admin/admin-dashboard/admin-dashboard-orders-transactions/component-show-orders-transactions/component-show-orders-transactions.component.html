@@ -3,8 +3,8 @@
         <h2>Id: {{ item.orderTransactionId }}</h2>
         <p>Método de Pago: {{ item.paymentMethod }}</p>
         <p>Tipo de Pago: {{ item.typeCurrency }}</p>
-        <p>Monto: {{ item.amount }}</p>
-        <p>Fecha de Transacción: {{ item.transactionDate }}</p>
+        <p>Monto: {{ item.amount | addZeros }}</p>
+        <p>Fecha de Transacción: {{ item.transactionDate | date }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

@@ -14,9 +14,9 @@
                   <td>{{ item.orderAmountId }}</td>
                   <td>{{ item.name }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.amount">S/{{ item.amount }}</span><br/>
-                    <span *ngIf="item.amountUSD">$/{{ item.amountUSD }}</span><br/>
-                    <span *ngIf="item.amountEUR">€/{{ item.amountEUR }}</span>
+                    <span *ngIf="item.amount">S/{{ item.amount | addZeros }}</span><br/>
+                    <span *ngIf="item.amountUSD">$/{{ item.amountUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.amountEUR">€/{{ item.amountEUR | addZeros }}</span>
                   </td>
                   <td>
                     <div class="d-flex flex-column align-items-center">

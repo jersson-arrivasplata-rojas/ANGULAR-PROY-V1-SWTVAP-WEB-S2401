@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
+import { AdminDashboardOrdersDispatchesPresenter } from '../admin-dashboard-orders-dispatches.presenter';
 
 @Component({
   selector: 'app-component-add-orders-dispatches',
   templateUrl: './component-add-orders-dispatches.component.html',
   styleUrls: ['./component-add-orders-dispatches.component.scss'],
+  providers: [AdminDashboardOrdersDispatchesPresenter]
 })
 export class ComponentAddOrdersDispatchesComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
@@ -15,21 +18,24 @@ export class ComponentAddOrdersDispatchesComponent implements OnInit {
   itemForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private presenter: AdminDashboardOrdersDispatchesPresenter
   ) {
     this.itemForm = this.formBuilder.group({
       ordersId: [''],
       providerId: [''],
-      cost: ['', Validators.required],
-      typeCurrency: ['', Validators.required],
-      date: [''],
-      status: ['', Validators.required],
+      cost: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      typeCurrency: ['USD', Validators.required],
+      date: ['', Validators.required],
+      status: ['0', Validators.required],
       otherDetails: ['']
     });
+    this.presenter.itemForm = this.itemForm;
   }
 
   ngOnInit(): void {
     this.itemForm.patchValue({ordersId: this.ordersId});
+    this.presenter.handleForm();
   }
 
   add() {
@@ -43,10 +49,10 @@ export class ComponentAddOrdersDispatchesComponent implements OnInit {
     return {
       ordersId: this.ordersId,
       providerId: '',
-      cost: '',
-      typeCurrency: '',
+      cost: 0,
+      typeCurrency: 'USD',
       date: CommonUtils.getDayNow(),
-      status: '',
+      status: '0',
       otherDetails: ''
     };
   }

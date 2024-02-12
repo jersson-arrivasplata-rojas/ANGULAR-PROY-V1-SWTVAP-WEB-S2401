@@ -15,7 +15,7 @@
           <ng-container *ngFor="let item of data" >
               <tr>
                   <td>{{ item.id }}</td>
-                  <td>{{ item.cost }}</td>
+                  <td>{{ item.cost | addZeros }}</td>
                   <td>{{ item.typeCurrency }}</td>
                   <td>{{ item.date | date }}</td>
                   <td>{{ item.status | statusProvider }}</td>

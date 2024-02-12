@@ -35,14 +35,13 @@
       <div class="col-lg-12">
           <div class="form-group">
               <label for="amount">Monto:</label>
-              <input type="text" class="form-control" id="amount" formControlName="amount">
+              <input type="text" class="form-control" id="amount" formControlName="amount" appAmountValidator>
           </div>
       </div>
       <div class="col-lg-12">
           <div class="form-group">
               <label for="transactionDate">Fecha de Transacción:</label>
-              <textarea rows="3" class="form-control" id="transactionDate" formControlName="transactionDate">
-              </textarea>
+              <input type="text" class="form-control" id="transactionDate" formControlName="transactionDate" appDateFormat>
           </div>
       </div>
       <div class="col-lg-12">
