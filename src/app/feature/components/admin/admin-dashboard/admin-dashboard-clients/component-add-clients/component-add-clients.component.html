@@ -19,30 +19,30 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="phone">Telefono:</label>
-                <input type="text" class="form-control" id="phone" formControlName="phone">
+                <input type="text" class="form-control" id="phone" formControlName="phone" appOnlyNumbersInput [OnlyNumber]="true">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="countryCode">Codigo de País:</label>
+                <input type="text" class="form-control" id="countryCode" formControlName="countryCode" appPrefixValue="+" appOnlyNumbersInput [OnlyNumber]="true" [AllowPlus]="true">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="cellphone">Celular:</label>
-                <input type="text" class="form-control" id="cellphone" formControlName="cellphone">
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="form-group">
-                <label for="countryCode">País:</label>
-                <input type="text" class="form-control" id="countryCode" formControlName="countryCode">
+                <input type="text" class="form-control" id="cellphone" formControlName="cellphone" appOnlyNumbersInput [OnlyNumber]="true">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="email">Correo:</label>
-                <input type="text" class="form-control" id="email" formControlName="email">
+                <input type="text" class="form-control" id="email" formControlName="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="whatsapp">whatsapp:</label>
+                <label for="whatsapp">Whatsapp:</label>
                 <input type="checkbox" class="form-control" id="whatsapp" formControlName="whatsapp" >
             </div>
         </div>

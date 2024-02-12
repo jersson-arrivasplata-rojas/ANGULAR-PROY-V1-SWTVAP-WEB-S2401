@@ -16,23 +16,21 @@
                   <td>{{ item.categoryId }}</td>
                   <td>{{ item.name }}</td>
                   <td>
-                    <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                      <span>{{ item.catalogs?item.catalogs.length:0 }}</span>
-                      <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addCategoryCatalogs(item)">Agregar</button>
-                    </div>
+                    <button class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
+                      <span class="mr-2">({{ item.catalogs?item.catalogs.length:0 }} Catálogos)</span>Agregar
+                    </button>
                   </td>
                   <td>
-                    <div class="d-flex justify-content-around" style="margin-top: 0.5rem;">
-                      <span>{{ item.products?item.products.length:0 }}</span>
-                      <button class=" btn btn-success-2 btn-sm ml-1 mb-0 f font-14px" (click)="addProductCategories(item)">Agregar</button>
-                    </div>
+                    <button class=" btn btn-outline-first btn-sm font-14px" (click)="addProductCategories(item)">
+                      <span class="mr-2">({{ item.products?item.products.length:0 }} Productos)</span>Agregar
+                    </button>
                   </td>
                   <td>{{ item.status | status }}</td>
                   <td>
-                    <div class="d-flex flex-column">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

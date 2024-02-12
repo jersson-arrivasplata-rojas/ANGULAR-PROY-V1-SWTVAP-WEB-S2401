@@ -59,9 +59,9 @@ export class ComponentListCatalogsCategoriesComponent {
   delete(item: any) {
     let text = 'Presiona el bot\xf3n para eliminar! ';
     if (confirm(text) === true) {
-      this.categoryCatalogsHttp.delete(item.categoryCatalogId).subscribe(() => {
+      this.categoryCatalogsHttp.delete(item.catalogCategoryId).subscribe(() => {
         this.data.map((f) => {
-          if (f.categoryCatalogId === item.categoryCatalogId) {
+          if (f.catalogCategoryId === item.catalogCategoryId) {
             f.relationship = false;
           }
         });
@@ -87,7 +87,7 @@ export class ComponentListCatalogsCategoriesComponent {
         this.data.map((f) => {
           if (f.catalogId === response.catalog.catalogId || f.categoryId === response.category.categoryId) {
             f.relationship = true;
-            f.categoryCatalogId = response.id;
+            f.catalogCategoryId = response.id;
           }
         });
       });

@@ -25,14 +25,14 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
     private presenter: AdminDashboardOrdersDetailsPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      quantity: [0, Validators.required],
+      quantity: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       unitPrice: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       unitPriceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       unitPriceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       subtotal: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       subtotalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       subtotalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
-      discountPercentage: [0, Validators.required],
+      discountPercentage: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
       status: [false, [Validators.required]]
     });

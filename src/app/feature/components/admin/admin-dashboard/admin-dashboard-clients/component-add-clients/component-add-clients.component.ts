@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 
 @Component({
   selector: 'app-component-add-clients',
@@ -18,10 +19,10 @@ export class ComponentAddClientsComponent {
     this.itemForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
-      phone: ['', Validators.required],
-      cellphone: ['', Validators.required],
-      countryCode: ['', Validators.required],
-      email: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
+      cellphone: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
+      countryCode: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER_PLUS)]],
+      email: ['', [Validators.required, Validators.email]],
       whatsapp: [false, Validators.required],
       details: ['', Validators.required],
       otherDetails: [''],

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 
 @Component({
   selector: 'app-component-add-units',
@@ -18,7 +19,7 @@ export class ComponentAddUnitsComponent {
     this.itemForm = this.formBuilder.group({
       unitName: ['', Validators.required],
       abbreviation: ['', Validators.required],
-      conversionFactor: [''],
+      conversionFactor: ['', [Validators.pattern(PatternEnum.NUMBER_POINT)]],
       status: [false, [Validators.required]]
     });
   }

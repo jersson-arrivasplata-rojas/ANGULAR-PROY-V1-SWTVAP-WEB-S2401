@@ -3,13 +3,9 @@
       <h2>Id: {{ item.productId?item.productId:item.unitId }}</h2>
       <p>Asociado: {{ item.relationship | statusRelationship }}</p>
       <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-        <p>Código: {{ item.code }}</p>
-        <p>Nombre: {{ item.name }}</p>
-        <p>Descripción: {{ item.description }}</p>
-        <p>Precio: {{ item.price }}</p>
-        <p>Stock: {{ item.stock }}</p>
-        <p>Stock Mínimo: {{ item.stockMin }}</p>
-        <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Nombre de la Unidad: {{ item.unitName }}</p>
+        <p>Abreviación: {{ item.abbreviation }}</p>
+        <p>Factor de Conversión: {{ item.conversionFactor }}</p>
       </ng-container>
       <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
         <p>Nombre: {{ item.name }}</p>
