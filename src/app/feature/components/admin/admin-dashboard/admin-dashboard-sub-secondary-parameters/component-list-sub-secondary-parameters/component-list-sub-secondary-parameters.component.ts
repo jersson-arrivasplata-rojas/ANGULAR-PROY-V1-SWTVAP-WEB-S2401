@@ -2,16 +2,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 @Component({
-  selector: 'app-component-list-sub-parameters',
-  templateUrl: './component-list-sub-parameters.component.html',
-  styleUrls: ['./component-list-sub-parameters.component.scss'],
+  selector: 'app-component-list-sub-secondary-parameters',
+  templateUrl: './component-list-sub-secondary-parameters.component.html',
+  styleUrls: ['./component-list-sub-secondary-parameters.component.scss'],
 })
-export class ComponentListSubParametersComponent {
-  @Input() data: any[] = [];
+export class ComponentListSubSecondaryParametersComponent {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
   @Output() added: EventEmitter<any> = new EventEmitter();
+
+  @Input() data: any[] = [];
+  @Input() properties:any;
 
   item: any;
 
@@ -44,9 +46,5 @@ export class ComponentListSubParametersComponent {
 
   update(item: any) {
     this.updated.emit(item);
-  }
-
-  add(item: any){
-    this.added.emit(item);
   }
 }

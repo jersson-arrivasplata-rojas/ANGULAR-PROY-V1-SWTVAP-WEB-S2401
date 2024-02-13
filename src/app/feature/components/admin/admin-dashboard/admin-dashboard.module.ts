@@ -110,6 +110,11 @@ import { ComponentAddSubParametersComponent } from './admin-dashboard-sub-parame
 import { ComponentListSubParametersComponent } from './admin-dashboard-sub-parameters/component-list-sub-parameters/component-list-sub-parameters.component';
 import { ComponentShowSubParametersComponent } from './admin-dashboard-sub-parameters/component-show-sub-parameters/component-show-sub-parameters.component';
 import { ComponentUpdateSubParametersComponent } from './admin-dashboard-sub-parameters/component-update-sub-parameters/component-update-sub-parameters.component';
+import { AdminDashboardSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/admin-dashboard-sub-secondary-parameters.component';
+import { ComponentAddSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-add-sub-secondary-parameters/component-add-sub-secondary-parameters.component';
+import { ComponentListSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-list-sub-secondary-parameters/component-list-sub-secondary-parameters.component';
+import { ComponentShowSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-show-sub-secondary-parameters/component-show-sub-secondary-parameters.component';
+import { ComponentUpdateSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-update-sub-secondary-parameters/component-update-sub-secondary-parameters.component';
 import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
 import { ComponentAddSubscriptionsComponent } from './admin-dashboard-subscriptions/component-add-subscriptions/component-add-subscriptions.component';
 import { ComponentListSubscriptionsComponent } from './admin-dashboard-subscriptions/component-list-subscriptions/component-list-subscriptions.component';
@@ -182,6 +187,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentAddSubParametersComponent,
     ComponentUpdateSubParametersComponent,
     ComponentShowSubParametersComponent,
+    AdminDashboardSubSecondaryParametersComponent,
+    ComponentListSubSecondaryParametersComponent,
+    ComponentAddSubSecondaryParametersComponent,
+    ComponentUpdateSubSecondaryParametersComponent,
+    ComponentShowSubSecondaryParametersComponent,
     AdminDashboardCatalogsCategoriesComponent,
     ComponentListCatalogsCategoriesComponent,
     ComponentShowCatalogsCategoriesComponent,

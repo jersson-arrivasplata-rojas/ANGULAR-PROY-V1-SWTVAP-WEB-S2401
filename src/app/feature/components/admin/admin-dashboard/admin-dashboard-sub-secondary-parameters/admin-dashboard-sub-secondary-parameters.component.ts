@@ -5,18 +5,21 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-sub-parameters',
-  templateUrl: './admin-dashboard-sub-parameters.component.html',
-  styleUrls: ['./admin-dashboard-sub-parameters.component.css']
+  selector: 'app-admin-dashboard-sub-secondary-parameters',
+  templateUrl: './admin-dashboard-sub-secondary-parameters.component.html',
+  styleUrls: ['./admin-dashboard-sub-secondary-parameters.component.css']
 })
-export class AdminDashboardSubParametersComponent implements OnInit {
+export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
 
   data: any[] = [];
   item;
   addItem = false;
   updateItem = false;
   showItem = false;
-  id;
+  properties = {
+    id: 0,
+    idParentParameter: 0
+  }
   constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -24,8 +27,9 @@ export class AdminDashboardSubParametersComponent implements OnInit {
     this.activatedRoute.params
       .pipe(
         mergeMap(params => {
-          this.id = +params['id'];
-          return this.parameterHttp.getById(this.id);
+          this.properties.id = +params['id'];
+          this.properties.idParentParameter = +params['idSubParameter'];
+          return this.parameterHttp.getById(this.properties.idParentParameter);
         }),
         mergeMap(item => {
           this.item = item;
@@ -77,11 +81,7 @@ export class AdminDashboardSubParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
-  handleTableAdded(data: any) {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.id, 'add-secondary', data.id]);
-  }
-
   back() {
-    this.router.navigate(['/admin/dashboard/parameters']);
+    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id]);
   }
 }

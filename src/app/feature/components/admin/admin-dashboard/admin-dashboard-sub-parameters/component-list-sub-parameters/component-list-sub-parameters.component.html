@@ -23,10 +23,11 @@
                   <td>{{ item.position }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
-                    <div class="d-flex flex-column">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-warning font-16px" (click)="add(item)">Agregar</button>
+                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

@@ -5,17 +5,17 @@
               Regresar
           </button>
 
-          <h1>Sub Parametros</h1>
+          <h1>Sub Parametros Secundarios</h1>
         </div>
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-sub-parameters *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-sub-parameters>
-              <app-component-update-sub-parameters *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-sub-parameters>
-              <app-component-show-sub-parameters *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-sub-parameters>
+              <app-component-add-sub-secondary-parameters *ngIf="addItem" [properties]="properties" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-sub-secondary-parameters>
+              <app-component-update-sub-secondary-parameters *ngIf="updateItem" [item]="item" [properties]="properties" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-sub-secondary-parameters>
+              <app-component-show-sub-secondary-parameters *ngIf="showItem" [item]="item" [properties]="properties" (revoke)="showItem=false"></app-component-show-sub-secondary-parameters>
             </div>
             <div  *ngIf="!showItem && !updateItem && !addItem" class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <div class="card m-auto " style="max-width: 350px;margin-bottom: 1.5em!important;">
+              <div *ngIf="item" class="card m-auto " style="max-width: 350px;margin-bottom: 1.5em!important;">
                 <div class="card-header">
                   Parametro Padre (Seleccionado)
                 </div>
@@ -34,7 +34,7 @@
                 <div class="card o-hidden mb-4">
                     <div class="card-header">
                         <div>
-                          <p class="w-50 float-left card-title m-0">Tabla de Sub Parametros</p>
+                          <p class="w-50 float-left card-title m-0">Tabla de Sub Parametros Secundarios</p>
                         </div>
                         <div class="text-right w-50 float-right">
                             <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
@@ -44,7 +44,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-sub-parameters [data]="data" (added)="handleTableAdded($event)" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-parameters>
+                      <app-component-list-sub-secondary-parameters [data]="data" [properties]="properties" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-secondary-parameters>
                     </div>
                 </div>
             </div>
