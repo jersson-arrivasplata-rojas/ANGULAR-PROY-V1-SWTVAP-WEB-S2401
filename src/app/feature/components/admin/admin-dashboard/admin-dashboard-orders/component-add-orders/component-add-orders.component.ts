@@ -29,12 +29,12 @@ export class ComponentAddOrdersComponent implements OnInit {
       taxes: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       taxesUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       taxesEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
-      discountAmount: [0, Validators.required],
+      discountAmount: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       total: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       totalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       totalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       pickUp: [false, Validators.required],
-      otherDetails: [''],
+      otherDetails: ['', [Validators.pattern(PatternEnum.DATE)]],
       status: [true, [Validators.required]]
     });
     this.presenter.itemForm = this.itemForm;

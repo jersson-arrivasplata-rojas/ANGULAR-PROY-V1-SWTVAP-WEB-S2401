@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 
 @Component({
   selector: 'app-component-add-products',
@@ -19,11 +20,11 @@ export class ComponentAddProductsComponent {
       code: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.required],
-      priceUSD: ['', Validators.required],
-      priceEUR: ['', Validators.required],
-      stock: ['', Validators.required],
-      stockMin: ['', Validators.required],
+      price: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      priceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      priceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      stock: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
+      stockMin: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
       status: [false, [Validators.required]]
     });
@@ -42,11 +43,11 @@ export class ComponentAddProductsComponent {
       code: '',
       name: '',
       description: '',
-      price: '',
-      priceUSD: '',
-      priceEUR: '',
-      stock: '',
-      stockMin: '',
+      price: 0,
+      priceUSD: 0,
+      priceEUR: 0,
+      stock: 0,
+      stockMin: 0,
       otherDetails: '',
       status: false
     };

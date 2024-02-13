@@ -28,7 +28,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
       paymentMethod: ['Transfer', Validators.required],
       typeCurrency: ['USD', Validators.required],
       amount: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
-      transactionDate: ['', Validators.required]
+      transactionDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]]
     });
     this.presenter.itemForm = this.itemForm;
   }

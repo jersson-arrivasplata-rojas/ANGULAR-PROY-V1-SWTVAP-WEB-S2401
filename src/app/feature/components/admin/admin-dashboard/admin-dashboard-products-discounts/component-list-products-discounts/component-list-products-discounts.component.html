@@ -14,8 +14,8 @@
               <tr>
                   <td>{{ item.productDiscountId }}</td>
                   <td>{{ item.discountPercentage }}</td>
-                  <td>{{ item.startDate }}</td>
-                  <td>{{ item.endDate }}</td>
+                  <td>{{ item.startDate | date }}</td>
+                  <td>{{ item.endDate | date }}</td>
                   <td>
                     <div class="d-flex justify-content-center">
                       <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>

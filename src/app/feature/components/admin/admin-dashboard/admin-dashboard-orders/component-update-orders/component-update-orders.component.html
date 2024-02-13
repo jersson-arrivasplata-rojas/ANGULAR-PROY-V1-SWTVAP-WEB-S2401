@@ -55,7 +55,7 @@
       <div class="col-lg-12">
           <div class="form-group">
               <label for="discountAmount">Monto de Descuento (Descuento sobre los impuestos):</label>
-              <input type="text" class="form-control" id="discountAmount" formControlName="discountAmount">
+              <input type="text" class="form-control" id="discountAmount" formControlName="discountAmount" appOnlyNumbersInput [OnlyNumber]="true">
           </div>
       </div>
       <div class="col-lg-12">

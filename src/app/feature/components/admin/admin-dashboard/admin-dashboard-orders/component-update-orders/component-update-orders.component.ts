@@ -31,7 +31,7 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
       taxes: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       taxesUSD: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       taxesEUR: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
-      discountAmount: ['', Validators.required],
+      discountAmount: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       total: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       totalUSD: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       totalEUR: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],

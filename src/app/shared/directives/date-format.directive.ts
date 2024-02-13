@@ -25,11 +25,19 @@ export class DateFormatDirective {
       this.ngControl.control?.setValue(value.slice(0, 10), { emitEvent: false });
     } else if ((value.length === 4 || value.length === 7) && /\d$/.test(value) && value.length > this.previousValue.length) {
       this.ngControl.control?.setValue(value + '-', { emitEvent: false });
+    } else if (value === '-') {
+      this.ngControl.control?.setValue('', { emitEvent: false });
     }
+
     this.previousValue = value;
   }
 
   applyPattern(value: string) {
+    if (value === '-') {
+      this.ngControl.control?.setValue('', { emitEvent: false });
+      return null;
+    }
+
     const parsedDate = new Date(value);
     if (!isNaN(parsedDate.getTime())) {
 

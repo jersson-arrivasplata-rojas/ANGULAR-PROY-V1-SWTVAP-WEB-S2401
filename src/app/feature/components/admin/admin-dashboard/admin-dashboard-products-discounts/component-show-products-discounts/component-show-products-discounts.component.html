@@ -2,9 +2,9 @@
     <div class="card-body">
         <h2>Id: {{ item.productDiscountId }}</h2>
         <p>Descuento: {{ item.discountPercentage }}</p>
-        <p>Fecha de Inicio: {{ item.startDate }}</p>
-        <p>Fecha de Fin: {{ item.endDate }}</p>
-        <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Fecha de Inicio: {{ item.startDate | date }}</p>
+        <p>Fecha de Fin: {{ item.endDate | date }}</p>
+        <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

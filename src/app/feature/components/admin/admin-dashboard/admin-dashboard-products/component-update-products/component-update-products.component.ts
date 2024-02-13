@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { ProductHttp } from 'src/app/shared/http/products.http';
 
 @Component({
@@ -22,11 +23,11 @@ export class ComponentUpdateProductsComponent implements OnInit, OnChanges {
       code: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.required],
-      priceUSD: ['', Validators.required],
-      priceEUR: ['', Validators.required],
-      stock: ['', Validators.required],
-      stockMin: ['', Validators.required],
+      price: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      priceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      priceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      stock: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
+      stockMin: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
       status: [false, [Validators.required]]
     });

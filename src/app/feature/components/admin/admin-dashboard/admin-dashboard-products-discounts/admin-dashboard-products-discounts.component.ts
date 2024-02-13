@@ -33,7 +33,7 @@ export class AdminDashboardProductsDiscountsComponent implements OnInit {
         return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
       })
     ).subscribe((productDiscountsData) => {
-      this.data = productDiscountsData;
+      this.data = productDiscountsData.filter((productDiscount) => productDiscount.productId === this.productId);
     });
   }
 
