@@ -26,20 +26,20 @@
                   <td>{{ item.otherDate | date }}</td>
                   <td>{{ item.address }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.subtotal">S/{{ item.subtotal }}</span><br/>
-                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD }}</span><br/>
-                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR }}</span>
+                    <span *ngIf="item.subtotal">S/{{ item.subtotal | addZeros }}</span><br/>
+                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR | addZeros }}</span>
                   </td>
                   <td class="text-left">
-                    <span *ngIf="item.taxes">S/{{ item.taxes }}</span><br/>
-                    <span *ngIf="item.taxesUSD">$/{{ item.taxesUSD }}</span><br/>
-                    <span *ngIf="item.taxesEUR">€/{{ item.taxesEUR }}</span>
+                    <span *ngIf="item.taxes">S/{{ item.taxes | addZeros }}</span><br/>
+                    <span *ngIf="item.taxesUSD">$/{{ item.taxesUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.taxesEUR">€/{{ item.taxesEUR | addZeros }}</span>
                   </td>
-                  <td>{{ item.discountAmount }}</td>
+                  <td>{{ item.discountAmount | transformText }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.total">S/{{ item.total }}</span><br/>
-                    <span *ngIf="item.totalUSD">$/{{ item.totalUSD }}</span><br/>
-                    <span *ngIf="item.totalEUR">€/{{ item.totalEUR }}</span>
+                    <span *ngIf="item.total">S/{{ item.total | addZeros }}</span><br/>
+                    <span *ngIf="item.totalUSD">$/{{ item.totalUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.totalEUR">€/{{ item.totalEUR | addZeros }}</span>
                   </td>
                   <td>{{ item.pickUp ? 'Si': 'No' }}</td>
                   <td>{{ item.status | status }}</td>

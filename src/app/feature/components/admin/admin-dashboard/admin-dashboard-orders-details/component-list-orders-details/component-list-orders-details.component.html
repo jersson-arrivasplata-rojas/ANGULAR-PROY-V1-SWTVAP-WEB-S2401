@@ -19,16 +19,16 @@
                   <td>{{ getProductName(item.productId) }}</td>
                   <td>{{ item.quantity }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.unitPrice">S/{{ item.unitPrice }}</span><br/>
-                    <span *ngIf="item.unitPriceUSD">$/{{ item.unitPriceUSD }}</span><br/>
-                    <span *ngIf="item.unitPriceEUR">€/{{ item.unitPriceEUR }}</span>
+                    <span *ngIf="item.unitPrice">S/{{ item.unitPrice | addZeros }}</span><br/>
+                    <span *ngIf="item.unitPriceUSD">$/{{ item.unitPriceUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.unitPriceEUR">€/{{ item.unitPriceEUR | addZeros }}</span>
                   </td>
                   <td class="text-left">
-                    <span *ngIf="item.subtotal">S/{{ item.subtotal }}</span><br/>
-                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD }}</span><br/>
-                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR }}</span>
+                    <span *ngIf="item.subtotal">S/{{ item.subtotal | addZeros }}</span><br/>
+                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR | addZeros }}</span>
                   </td>
-                  <td>{{ item.discountPercentage }}</td>
+                  <td>{{ item.discountPercentage | transformText}}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">

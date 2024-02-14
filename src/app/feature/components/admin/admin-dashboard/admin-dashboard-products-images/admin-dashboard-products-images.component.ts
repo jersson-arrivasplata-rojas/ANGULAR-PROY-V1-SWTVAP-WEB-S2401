@@ -33,7 +33,7 @@ export class AdminDashboardProductsImagesComponent implements OnInit {
         return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
       })
     ).subscribe((productImagesData) => {
-      this.data = productImagesData;
+      this.data = productImagesData.filter((productImage) => productImage.productId === this.productId);
     });
   }
 

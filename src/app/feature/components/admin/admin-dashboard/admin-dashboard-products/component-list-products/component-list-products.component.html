@@ -21,9 +21,9 @@
                   <td>{{ item.code }}</td>
                   <td>{{ item.name }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.price">S/{{ item.price }}</span><br/>
-                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD }}</span><br/>
-                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR }}</span>
+                    <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
+                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR | addZeros }}</span>
                   </td>
                   <td>{{ item.stock }}</td>
                   <td>{{ item.stockMin }}</td>
@@ -43,10 +43,19 @@
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column">
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductDiscounts(item)">Descuentos</button>
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductImages(item)">Imagenes</button>
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductComments(item)">Comentarios</button>
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductParameters(item)">Parametros</button>
+
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductDiscounts(item)">
+                        <span class="mr-2">{{ item.discounts?item.discounts.length:0 }}</span> Descuentos
+                      </button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductImages(item)">
+                        <span class="mr-2">{{ item.images?item.images.length:0 }}</span> Imagenes
+                      </button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductComments(item)">
+                        <span class="mr-2">{{ item.comments?item.comments.length:0 }}</span> Comentarios
+                      </button>
+                      <button class=" btn btn-first btn-sm font-16px" (click)="addProductParameters(item)">
+                        <span class="mr-2">{{ item.parameters?item.parameters.length:0 }}</span> Parametros
+                      </button>
                     </div>
                   </td>
                   <td>

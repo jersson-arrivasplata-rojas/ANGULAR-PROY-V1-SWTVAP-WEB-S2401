@@ -1,0 +1,41 @@
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of parameters">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Identificador de Grupo</th>
+              <th>Descripción</th>
+              <th>Valor</th>
+              <th>Código</th>
+              <th>Posición</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let item of data" >
+              <tr *ngIf="item.deleted!=false && item.parentId">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.code }}</td>
+                  <td>{{ item.groupId | emptyText }}</td>
+                  <td>{{ item.description | truncateText }}</td>
+                  <td>{{ item.value | truncateText }}</td>
+                  <td>{{ item.position | emptyText }}</td>
+                  <td>{{ item.status | status }}</td>
+                  <td>
+                    <div class="d-flex flex-column align-items-center">
+                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                    </div>
+                  </td>
+              </tr>
+          </ng-container>
+        <tr *ngIf="!data.length">
+          <td COLSPAN=8>
+              Aun no se a agregado ningun registro
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

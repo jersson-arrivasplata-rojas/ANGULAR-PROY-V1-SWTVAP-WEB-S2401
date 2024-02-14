@@ -16,8 +16,8 @@
                   <td>{{ item.orderTransactionId }}</td>
                   <td>{{ item.paymentMethod }}</td>
                   <td>{{ item.typeCurrency }}</td>
-                  <td>{{ item.amount }}</td>
-                  <td>{{ item.transactionDate }}</td>
+                  <td>{{ item.amount | addZeros }}</td>
+                  <td>{{ item.transactionDate | date }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
                       <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>

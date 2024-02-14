@@ -11,9 +11,8 @@
       </div>
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="subscribedAt">Fecha de Suscripción:</label>
-              <textarea rows="3" class="form-control" id="subscribedAt" formControlName="subscribedAt">
-              </textarea>
+              <label for="subscribedAt">Fecha de Suscripción (YYYY-MM-DD):</label>
+              <input type="text" class="form-control" id="subscribedAt" formControlName="subscribedAt" appDateFormat>
           </div>
       </div>
       <div class="col-lg-12">

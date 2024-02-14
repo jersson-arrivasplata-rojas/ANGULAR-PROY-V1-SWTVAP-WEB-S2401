@@ -16,9 +16,9 @@
                   <td>{{ item.code }}</td>
                   <td>{{ item.name }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.price">S/{{ item.price }}</span><br/>
-                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD }}</span><br/>
-                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR }}</span>
+                    <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
+                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR | addZeros }}</span>
                   </td>
                   <td>{{ item.stock }}</td>
                   <td>{{ item.stockMin }}</td>

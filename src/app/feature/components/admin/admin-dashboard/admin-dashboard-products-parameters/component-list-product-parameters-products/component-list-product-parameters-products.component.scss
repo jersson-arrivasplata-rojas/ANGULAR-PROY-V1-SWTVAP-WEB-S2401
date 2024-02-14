@@ -1,0 +1,17 @@
+button {
+  width: 100%;
+  margin-bottom: 0.5rem !important;
+  max-width: 180px;
+  span {
+    color: var(--theme_color_first) !important;
+  }
+  &:hover {
+    color: var(--theme_color_second_text) !important;
+    span {
+      color: var(--theme_color_second_text) !important;
+    }
+  }
+}
+div.table-responsive {
+  max-height: 400px;
+}

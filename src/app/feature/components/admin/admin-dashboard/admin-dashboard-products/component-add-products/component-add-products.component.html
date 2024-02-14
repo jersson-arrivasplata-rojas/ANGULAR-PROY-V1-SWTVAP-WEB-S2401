@@ -25,31 +25,31 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="price">Precio en Soles:</label>
-                <input type="text" class="form-control" id="price" formControlName="price">
+                <input type="text" class="form-control" id="price" formControlName="price" appAmountValidator>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="priceUSD">Precio en Dólares:</label>
-                <input type="text" class="form-control" id="priceUSD" formControlName="priceUSD">
+                <input type="text" class="form-control" id="priceUSD" formControlName="priceUSD" appAmountValidator>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="priceEUR">Precio en Euros:</label>
-                <input type="text" class="form-control" id="priceEUR" formControlName="priceEUR">
+                <input type="text" class="form-control" id="priceEUR" formControlName="priceEUR" appAmountValidator>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="stock">Stock:</label>
-                <input type="text" class="form-control" id="stock" formControlName="stock">
+                <input type="text" class="form-control" id="stock" formControlName="stock" appOnlyNumbersInput [OnlyNumber]="true">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="stockMin">Stock Mínimo:</label>
-                <input type="text" class="form-control" id="stockMin" formControlName="stockMin">
+                <input type="text" class="form-control" id="stockMin" formControlName="stockMin" appOnlyNumbersInput [OnlyNumber]="true">
             </div>
         </div>
         <div class="col-lg-12">

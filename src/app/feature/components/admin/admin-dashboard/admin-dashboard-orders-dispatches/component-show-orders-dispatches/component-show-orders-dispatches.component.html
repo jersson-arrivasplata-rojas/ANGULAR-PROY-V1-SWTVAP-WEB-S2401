@@ -2,9 +2,9 @@
     <div class="card-body">
         <h2>Id: {{ item.id }}</h2>
         <p>Proveedor: {{ item.provider_id }}</p>
-        <p>Costo: {{ item.cost }}</p>
+        <p>Costo: {{ item.cost | addZeros }}</p>
         <p *ngIf="item.typeCurrency">Tipo de Pago: {{ item.typeCurrency }}</p>
-        <p>Fecha: {{ item.date }}</p>
+        <p>Fecha: {{ item.date | date }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ getStatusProvider(item.status) | statusProvider}}</p>
         <p>

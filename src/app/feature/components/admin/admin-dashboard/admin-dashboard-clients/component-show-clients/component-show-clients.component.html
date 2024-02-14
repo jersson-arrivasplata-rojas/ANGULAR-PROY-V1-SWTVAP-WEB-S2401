@@ -7,9 +7,9 @@
         <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
         <p>Correo: {{ item.email }}</p>
         <p>Whatsapp: {{ item.whatsapp | status }}</p>
-        <p>Fuente Agregada: {{ item.sourceAggregate }}</p>
-        <p>Detalle: {{ item.details }}</p>
-        <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Fuente Agregada: {{ item.sourceAggregate ==="WEB" ? item.sourceAggregate : 'SISTEMA ADMINSTRATIVO' }}</p>
+        <p *ngIf="item.details">Detalle: {{ item.details }}</p>
+        <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
+import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
+import { AdminDashboardProductsParametersPresenter } from './admin-dashboard-products-parameters.presenter';
 
 
 @Component({
   selector: 'app-admin-dashboard-products-parameters',
   templateUrl: './admin-dashboard-products-parameters.component.html',
-  styleUrls: ['./admin-dashboard-products-parameters.component.css']
+  styleUrls: ['./admin-dashboard-products-parameters.component.css'],
+  providers: [ AdminDashboardProductsParametersPresenter]
 })
 export class AdminDashboardProductsParametersComponent implements OnInit {
 
   data: any[] = [];
+  parameters: any[] = [];
   item = {};
   productId = 0;
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private productParametersHttp: ProductParametersHttp, private activatedRoute: ActivatedRoute,
-    private router:Router) { }
+  constructor(private productParametersHttp: ProductParametersHttp, private parameterHttp: ParameterHttp,
+    private activatedRoute: ActivatedRoute, private router:Router, private presenter: AdminDashboardProductsParametersPresenter) { }
 
   ngOnInit() {
     this.activatedRoute.params
     .pipe(
       mergeMap(params => {
         this.productId = +params['id'];
+        return this.parameterHttp.getAll();
+      }),
+      mergeMap(parameterData => {
+        this.parameters = this.presenter.getAllSelectedParameters(parameterData)
         return this.productParametersHttp.getAll();
       }),
     ).pipe(
@@ -33,7 +41,7 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
         return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
       })
     ).subscribe((productParametersData) => {
-      this.data = productParametersData;
+      this.data = productParametersData.filter((productParameter) => productParameter.productId === this.productId);
     });
   }
 

@@ -45,4 +45,8 @@ export class ComponentListSubParametersComponent {
   update(item: any) {
     this.updated.emit(item);
   }
+
+  add(item: any){
+    this.added.emit(item);
+  }
 }

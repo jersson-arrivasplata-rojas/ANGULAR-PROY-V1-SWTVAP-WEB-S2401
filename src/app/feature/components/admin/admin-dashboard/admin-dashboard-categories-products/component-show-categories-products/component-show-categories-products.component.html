@@ -6,10 +6,10 @@
           <p>Código: {{ item.code }}</p>
           <p>Nombre: {{ item.name }}</p>
           <p>Descripción: {{ item.description }}</p>
-          <p>Precio: {{ item.price }}</p>
+          <p>Precio: {{ item.price | addZeros }}</p>
           <p>Stock: {{ item.stock }}</p>
           <p>Stock Mínimo: {{ item.stockMin }}</p>
-          <p>Otros Detalles: {{ item.otherDetails }}</p>
+          <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         </ng-container>
         <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
           <p>Nombre: {{ item.name }}</p>

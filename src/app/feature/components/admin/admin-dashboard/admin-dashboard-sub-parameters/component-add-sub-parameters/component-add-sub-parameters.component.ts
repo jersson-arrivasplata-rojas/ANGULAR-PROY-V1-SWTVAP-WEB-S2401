@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './component-add-sub-parameters.component.html',
   styleUrls: ['./component-add-sub-parameters.component.scss'],
 })
-export class ComponentAddSubParametersComponent {
+export class ComponentAddSubParametersComponent implements OnChanges {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
-
+  @Input() parentId;
   itemForm: FormGroup;
 
   constructor(
@@ -17,13 +17,19 @@ export class ComponentAddSubParametersComponent {
   ) {
     this.itemForm = this.formBuilder.group({
       parentId: ['', Validators.required],
-      groupId: ['', Validators.required],
+      groupId: [null],
       description: ['', Validators.required],
       value: ['', Validators.required],
       code: [null],
       position: [null],
       status: [false, [Validators.required]]
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.parentId && changes.parentId.currentValue) {
+      this.itemForm.patchValue({ parentId: this.parentId });
+    }
   }
 
   add() {

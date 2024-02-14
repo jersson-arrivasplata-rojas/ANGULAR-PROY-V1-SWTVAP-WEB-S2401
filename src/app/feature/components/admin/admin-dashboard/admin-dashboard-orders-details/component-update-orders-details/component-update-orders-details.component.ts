@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
+import { AdminDashboardOrdersDetailsPresenter } from '../admin-dashboard-orders-details.presenter';
 
 @Component({
   selector: 'app-component-update-orders-details',
   templateUrl: './component-update-orders-details.component.html',
   styleUrls: ['./component-update-orders-details.component.scss'],
+  providers: [AdminDashboardOrdersDetailsPresenter]
 })
 export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
@@ -18,25 +21,28 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
 
   constructor(
     private formBuilder: FormBuilder,
-    private orderDetailsHttp: OrderDetailsHttp
+    private orderDetailsHttp: OrderDetailsHttp,
+    private presenter: AdminDashboardOrdersDetailsPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      quantity: ['', Validators.required],
-      unitPrice: ['', Validators.required],
-      unitPriceUSD: ['', Validators.required],
-      unitPriceEUR: ['', Validators.required],
-      subtotal: ['', Validators.required],
-      subtotalUSD: ['', Validators.required],
-      subtotalEUR: ['', Validators.required],
-      discountPercentage: ['', Validators.required],
+      quantity: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
+      unitPrice: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      unitPriceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      unitPriceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      subtotal: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      subtotalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      subtotalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
+      discountPercentage: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
       status: [false, [Validators.required]]
     });
+    this.presenter.itemForm = this.itemForm;
   }
 
   ngOnInit(): void {
     this.itemForm.patchValue({ordersId: this.ordersId});
     this.itemForm.patchValue(this.item);
+    this.presenter.handleForm();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

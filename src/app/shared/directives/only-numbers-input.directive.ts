@@ -4,10 +4,16 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
   selector: '[appOnlyNumbersInput]'
 })
 export class OnlyNumbersInputDirective {
-  regexStr = '^[0-9]*$';
-  constructor(private el: ElementRef) { }
 
   @Input() OnlyNumber: boolean;
+  @Input() AllowPlus: boolean;
+  @Input() AllowPoint: boolean;
+
+  regexStr = '^[0-9]*$';
+  regexStrPlus = '^[0-9+]*$';
+  regexStrPoint = '^[0-9.]*$';
+
+  constructor(private el: ElementRef) { }
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
     let e = <any> event;
@@ -27,11 +33,20 @@ export class OnlyNumbersInputDirective {
           return;
         }
       let ch = String.fromCharCode(e.keyCode);
-      let regEx =  new RegExp(this.regexStr);
+      let regEx = this.getRegex();
       if(regEx.test(ch))
         return;
       else
-         e.preventDefault();
+        e.preventDefault();
       }
+  }
+  private getRegex(): RegExp {
+    if (this.AllowPoint) {
+      return new RegExp(this.regexStrPoint);
+    } else if (this.AllowPlus) {
+      return new RegExp(this.regexStrPlus);
+    } else {
+      return new RegExp(this.regexStr);
+    }
   }
 }

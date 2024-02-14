@@ -20,10 +20,10 @@
                   <td>{{ item.name }}</td>
                   <td>{{ item.address }}</td>
                   <td>{{ item.phone }}</td>
-                  <td>{{ item.cellphone }}</td>
+                  <td>{{ item.countryCode }}-{{ item.cellphone }}</td>
                   <td>{{ item.email }}</td>
                   <td>{{ item.whatsapp | status }}</td>
-                  <td>{{ item.sourceAggregate }}</td>
+                  <td>{{ item.sourceAggregate ==="WEB" ? item.sourceAggregate : 'SISTEMA ADMINSTRATIVO' }}</td>
                   <td>
                     <div class="d-flex flex-column">
                       <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>

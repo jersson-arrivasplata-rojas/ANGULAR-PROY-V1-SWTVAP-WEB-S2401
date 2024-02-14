@@ -4,7 +4,7 @@
         <p>Asociado: {{ item.relationship | statusRelationship }}</p>
         <p>Nombre: {{ item.name }}</p>
         <p *ngIf="item.code">Código: {{ item.code }}</p>
-        <p>Descripción: {{ item.description }}</p>
+        <p *ngIf="item.description">Descripción: {{ item.description }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>

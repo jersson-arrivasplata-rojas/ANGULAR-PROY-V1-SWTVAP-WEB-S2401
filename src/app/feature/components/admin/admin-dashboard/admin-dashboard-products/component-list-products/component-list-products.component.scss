@@ -11,4 +11,14 @@ button {
       color:var(--theme_color_second_text)!important;
     }
   }
+  &.btn.btn-first{
+    span{
+      color: var(--theme_color_white) !important;
+    }
+  }
 }
+table td {
+  text-align: center;
+  vertical-align: middle!important;
+}
+

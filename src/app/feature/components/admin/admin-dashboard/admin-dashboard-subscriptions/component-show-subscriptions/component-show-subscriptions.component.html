@@ -2,7 +2,7 @@
     <div class="card-body">
         <h2>Id: {{ item.newsletterSubscriptionId }}</h2>
         <p>Correo: {{ item.email }}</p>
-        <p>Fecha de Suscripción: {{ item.subscribedAt }}</p>
+        <p>Fecha de Suscripción: {{ item.subscribedAt | date }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
           <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>

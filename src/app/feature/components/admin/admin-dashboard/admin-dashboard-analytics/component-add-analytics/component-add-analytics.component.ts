@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 
 @Component({
   selector: 'app-component-add-analytics',
@@ -16,8 +17,8 @@ export class ComponentAddAnalyticsComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      visitedPage: ['', Validators.required],
-      visitedDate: ['', Validators.required]
+      visitedPage: ['', [Validators.required]],
+      visitedDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]]
     });
   }
 

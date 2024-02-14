@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.http';
 
 @Component({
@@ -20,8 +21,8 @@ export class ComponentUpdateMarketingCampaignsComponent implements OnInit, OnCha
   ) {
     this.itemForm = this.formBuilder.group({
       name: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required],
+      startDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
+      endDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
       description: ['']
     });
   }

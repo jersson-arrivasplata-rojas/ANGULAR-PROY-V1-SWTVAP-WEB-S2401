@@ -25,7 +25,11 @@
               <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
                 <td>{{ item.code }}</td>
                 <td>{{ item.name }}</td>
-                <td>{{ item.price }}</td>
+                <td class="text-left">
+                  <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
+                  <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
+                  <span *ngIf="item.priceEUR">€/{{ item.priceEUR | addZeros }}</span>
+                </td>
                 <td>{{ item.stock }}</td>
                 <td>{{ item.stockMin }}</td>
               </ng-container>
@@ -34,10 +38,10 @@
               </ng-container>
               <td>{{ item.status | status }}</td>
               <td>
-                <div class="d-flex flex-column">
-                  <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
-                  <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                <div class="d-flex flex-column align-items-center">
+                  <button *ngIf="!item.relationship" class=" btn btn-first font-16px" (click)="add(item)">Asociar</button>
+                  <button *ngIf="item.relationship" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                  <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
                 </div>
               </td>
           </tr>

@@ -16,15 +16,16 @@ export class AdminDashboardSubParametersComponent implements OnInit {
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private parameterHttp: ParameterHttp, private router:Router, private activatedRoute: ActivatedRoute) { }
+  id;
+  constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
     this.activatedRoute.params
       .pipe(
         mergeMap(params => {
-          const id = +params['id'];
-          return this.parameterHttp.getById(id);
+          this.id = +params['id'];
+          return this.parameterHttp.getById(this.id);
         }),
         mergeMap(item => {
           this.item = item;
@@ -76,7 +77,11 @@ export class AdminDashboardSubParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
-  back(){
+  handleTableAdded(data: any) {
+    this.router.navigate(['/admin/dashboard/parameters/add', this.id, 'add-secondary', data.id]);
+  }
+
+  back() {
     this.router.navigate(['/admin/dashboard/parameters']);
   }
 }

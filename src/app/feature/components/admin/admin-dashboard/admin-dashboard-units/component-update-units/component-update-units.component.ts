@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { UnitHttp } from 'src/app/shared/http/units.http';
 
 @Component({
@@ -21,7 +22,7 @@ export class ComponentUpdateUnitsComponent implements OnInit, OnChanges {
     this.itemForm = this.formBuilder.group({
       unitName: ['', Validators.required],
       abbreviation: ['', Validators.required],
-      conversionFactor: [''],
+      conversionFactor: ['', [Validators.pattern(PatternEnum.NUMBER_POINT)]],
       status: [false, [Validators.required]]
     });
   }
