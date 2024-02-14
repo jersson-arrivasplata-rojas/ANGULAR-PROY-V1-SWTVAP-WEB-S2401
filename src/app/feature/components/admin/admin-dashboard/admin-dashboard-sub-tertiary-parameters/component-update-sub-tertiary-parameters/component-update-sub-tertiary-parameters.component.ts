@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 @Component({
-  selector: 'app-component-update-sub-secondary-parameters',
-  templateUrl: './component-update-sub-secondary-parameters.component.html',
-  styleUrls: ['./component-update-sub-secondary-parameters.component.scss'],
+  selector: 'app-component-update-sub-tertiary-parameters',
+  templateUrl: './component-update-sub-tertiary-parameters.component.html',
+  styleUrls: ['./component-update-sub-tertiary-parameters.component.scss'],
 })
-export class ComponentUpdateSubSecondaryParametersComponent implements OnInit, OnChanges {
+export class ComponentUpdateSubTertiaryParametersComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
 

@@ -22,9 +22,9 @@ export class ComponentUpdateParametersComponent implements OnInit, OnChanges {
       parentId: [null],
       groupId: ['', Validators.required],
       description: ['', Validators.required],
+      position: [null],
       value: ['', Validators.required],
       code: [null],
-      position: [null],
       status: [false, [Validators.required]]
     });
   }

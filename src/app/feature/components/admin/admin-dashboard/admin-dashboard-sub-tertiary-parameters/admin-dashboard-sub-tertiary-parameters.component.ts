@@ -5,11 +5,11 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-sub-secondary-parameters',
-  templateUrl: './admin-dashboard-sub-secondary-parameters.component.html',
-  styleUrls: ['./admin-dashboard-sub-secondary-parameters.component.css']
+  selector: 'app-admin-dashboard-sub-tertiary-parameters',
+  templateUrl: './admin-dashboard-sub-tertiary-parameters.component.html',
+  styleUrls: ['./admin-dashboard-sub-tertiary-parameters.component.css']
 })
-export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
+export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
 
   data: any[] = [];
   item;
@@ -18,6 +18,7 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
   showItem = false;
   properties = {
     id: 0,
+    idSubParameter: 0,
     idParentParameter: 0
   }
   constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -28,7 +29,8 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
       .pipe(
         mergeMap(params => {
           this.properties.id = +params['id'];
-          this.properties.idParentParameter = +params['idSubParameter'];
+          this.properties.idSubParameter = +params['idSubParameter'];
+          this.properties.idParentParameter = +params['idSubSecondaryParameter'];
           return this.parameterHttp.getById(this.properties.idParentParameter);
         }),
         mergeMap(item => {
@@ -81,11 +83,7 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
-  handleTableAdded(data: any) {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idParentParameter, 'add-tertiary', data.id]);
-  }
-
   back() {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id]);
+    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idSubParameter]);
   }
 }

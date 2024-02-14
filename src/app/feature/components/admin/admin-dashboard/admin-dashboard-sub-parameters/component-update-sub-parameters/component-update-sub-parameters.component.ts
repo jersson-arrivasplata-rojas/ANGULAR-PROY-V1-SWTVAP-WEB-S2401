@@ -11,6 +11,7 @@ export class ComponentUpdateSubParametersComponent implements OnInit, OnChanges 
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
+  @Input() parentId;
 
   itemForm: FormGroup;
 
@@ -20,7 +21,7 @@ export class ComponentUpdateSubParametersComponent implements OnInit, OnChanges 
   ) {
     this.itemForm = this.formBuilder.group({
       parentId: ['', Validators.required],
-      groupId: ['', Validators.required],
+      groupId: [null],
       description: ['', Validators.required],
       value: ['', Validators.required],
       code: [null],

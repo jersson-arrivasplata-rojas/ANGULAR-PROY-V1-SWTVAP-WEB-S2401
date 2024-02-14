@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-sub-secondary-parameters',
-  templateUrl: './component-add-sub-secondary-parameters.component.html',
-  styleUrls: ['./component-add-sub-secondary-parameters.component.scss'],
+  selector: 'app-component-add-sub-tertiary-parameters',
+  templateUrl: './component-add-sub-tertiary-parameters.component.html',
+  styleUrls: ['./component-add-sub-tertiary-parameters.component.scss'],
 })
-export class ComponentAddSubSecondaryParametersComponent implements OnChanges {
+export class ComponentAddSubTertiaryParametersComponent implements OnChanges {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
 

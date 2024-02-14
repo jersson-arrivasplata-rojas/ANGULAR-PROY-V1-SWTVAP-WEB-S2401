@@ -15,10 +15,10 @@
           <ng-container *ngFor="let item of data" >
               <tr *ngIf="item.deleted!=false && !item.parentId">
                   <td>{{ item.id }}</td>
-                  <td>{{ item.groupId }}</td>
+                  <td>{{ item.code }}</td>
+                  <td>{{ item.groupId | emptyText }}</td>
                   <td>{{ item.description | truncateText }}</td>
                   <td>{{ item.value | truncateText }}</td>
-                  <td>{{ item.code }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">

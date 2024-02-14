@@ -88,6 +88,7 @@ import { ComponentShowProductsImagesComponent } from './admin-dashboard-products
 import { ComponentUpdateProductsImagesComponent } from './admin-dashboard-products-images/component-update-products-images/component-update-products-images.component';
 import { AdminDashboardProductsParametersComponent } from './admin-dashboard-products-parameters/admin-dashboard-products-parameters.component';
 import { ComponentAddProductsParametersComponent } from './admin-dashboard-products-parameters/component-add-products-parameters/component-add-products-parameters.component';
+import { ComponentListProductsParametersProductsComponent } from './admin-dashboard-products-parameters/component-list-product-parameters-products/component-list-product-parameters-products.component';
 import { ComponentListProductsParametersComponent } from './admin-dashboard-products-parameters/component-list-products-parameters/component-list-products-parameters.component';
 import { ComponentShowProductsParametersComponent } from './admin-dashboard-products-parameters/component-show-products-parameters/component-show-products-parameters.component';
 import { ComponentUpdateProductsParametersComponent } from './admin-dashboard-products-parameters/component-update-products-parameters/component-update-products-parameters.component';
@@ -115,6 +116,11 @@ import { ComponentAddSubSecondaryParametersComponent } from './admin-dashboard-s
 import { ComponentListSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-list-sub-secondary-parameters/component-list-sub-secondary-parameters.component';
 import { ComponentShowSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-show-sub-secondary-parameters/component-show-sub-secondary-parameters.component';
 import { ComponentUpdateSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/component-update-sub-secondary-parameters/component-update-sub-secondary-parameters.component';
+import { AdminDashboardSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/admin-dashboard-sub-tertiary-parameters.component';
+import { ComponentAddSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/component-add-sub-tertiary-parameters/component-add-sub-tertiary-parameters.component';
+import { ComponentListSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/component-list-sub-tertiary-parameters/component-list-sub-tertiary-parameters.component';
+import { ComponentShowSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/component-show-sub-tertiary-parameters/component-show-sub-tertiary-parameters.component';
+import { ComponentUpdateSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/component-update-sub-tertiary-parameters/component-update-sub-tertiary-parameters.component';
 import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
 import { ComponentAddSubscriptionsComponent } from './admin-dashboard-subscriptions/component-add-subscriptions/component-add-subscriptions.component';
 import { ComponentListSubscriptionsComponent } from './admin-dashboard-subscriptions/component-list-subscriptions/component-list-subscriptions.component';
@@ -188,10 +194,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentUpdateSubParametersComponent,
     ComponentShowSubParametersComponent,
     AdminDashboardSubSecondaryParametersComponent,
+    ComponentListProductsParametersProductsComponent,
     ComponentListSubSecondaryParametersComponent,
     ComponentAddSubSecondaryParametersComponent,
     ComponentUpdateSubSecondaryParametersComponent,
     ComponentShowSubSecondaryParametersComponent,
+    AdminDashboardSubTertiaryParametersComponent,
+    ComponentListSubTertiaryParametersComponent,
+    ComponentAddSubTertiaryParametersComponent,
+    ComponentUpdateSubTertiaryParametersComponent,
+    ComponentShowSubTertiaryParametersComponent,
     AdminDashboardCatalogsCategoriesComponent,
     ComponentListCatalogsCategoriesComponent,
     ComponentShowCatalogsCategoriesComponent,

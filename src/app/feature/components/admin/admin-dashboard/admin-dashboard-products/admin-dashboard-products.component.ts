@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError, mergeMap, of } from 'rxjs';
+import { CommentHttp } from 'src/app/shared/http/comments.http';
 import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.http';
+import { ProductDiscountsHttp } from 'src/app/shared/http/product-discounts.http';
+import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
+import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
 import { ProductProvidersHttp } from 'src/app/shared/http/product-providers.http';
 import { ProductUnitsHttp } from 'src/app/shared/http/product-units.http';
 import { ProductHttp } from 'src/app/shared/http/products.http';
@@ -19,12 +23,38 @@ export class AdminDashboardProductsComponent implements OnInit {
   updateItem = false;
   showItem = false;
   constructor(private productHttp: ProductHttp, private productCategoriesHttp: ProductCategoriesHttp,
+    private productDiscountsHttp: ProductDiscountsHttp, private productImagesHttp: ProductImagesHttp,
+    private productCommentHttp: CommentHttp, private productParameterHttp: ProductParametersHttp,
     private productProvidersHttp: ProductProvidersHttp, private productUnitsHttp: ProductUnitsHttp) { }
 
   ngOnInit() {
     this.productHttp.getAll().pipe(
       mergeMap(productData => {
         this.data = productData;
+        return this.productDiscountsHttp.getAll();
+      }),
+      mergeMap(productDiscountData => {
+        this.data.map((product: any) => {
+          product.discounts = productDiscountData.filter(productDiscount => productDiscount.productId === product.productId)
+        });
+        return this.productCommentHttp.getAll();
+      }),
+      mergeMap(productCommentData => {
+        this.data.map((product: any) => {
+          product.comments = productCommentData.filter(productComment => productComment.productId === product.productId)
+        });
+        return this.productImagesHttp.getAll();
+      }),
+      mergeMap(productImageData => {
+        this.data.map((product: any) => {
+          product.images = productImageData.filter(productImage => productImage.productId === product.productId)
+        });
+        return this.productParameterHttp.getAll();
+      }),
+      mergeMap(productParameterData => {
+        this.data.map((product: any) => {
+          product.parameters = productParameterData.filter(productParameter => productParameter.productId === product.productId)
+        });
         return this.productCategoriesHttp.getAll();
       }),
       mergeMap(productCategories => {

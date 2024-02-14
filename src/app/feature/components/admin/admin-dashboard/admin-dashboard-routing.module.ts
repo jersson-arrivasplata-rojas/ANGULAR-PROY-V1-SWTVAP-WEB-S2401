@@ -25,6 +25,7 @@ import { AdminDashboardProvidersProductsComponent } from './admin-dashboard-prov
 import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
 import { AdminDashboardSubParametersComponent } from './admin-dashboard-sub-parameters/admin-dashboard-sub-parameters.component';
 import { AdminDashboardSubSecondaryParametersComponent } from './admin-dashboard-sub-secondary-parameters/admin-dashboard-sub-secondary-parameters.component';
+import { AdminDashboardSubTertiaryParametersComponent } from './admin-dashboard-sub-tertiary-parameters/admin-dashboard-sub-tertiary-parameters.component';
 import { AdminDashboardSubscriptionsComponent } from './admin-dashboard-subscriptions/admin-dashboard-subscriptions.component';
 import { AdminDashboardUnitsProductsComponent } from './admin-dashboard-units-products/admin-dashboard-units-products.component';
 import { AdminDashboardUnitsComponent } from './admin-dashboard-units/admin-dashboard-units.component';
@@ -99,6 +100,10 @@ const routes: Routes =  [
       {
         path: 'parameters/add/:id/add-secondary/:idSubParameter',
         component: AdminDashboardSubSecondaryParametersComponent
+      },
+      {
+        path: 'parameters/add/:id/add-secondary/:idSubParameter/add-tertiary/:idSubSecondaryParameter',
+        component: AdminDashboardSubTertiaryParametersComponent
       },
       {
         path: 'products',
