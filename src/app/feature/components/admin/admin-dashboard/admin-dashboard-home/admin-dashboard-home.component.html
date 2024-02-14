@@ -14,7 +14,7 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta en el ultimo año</p>
+                                <p class="text-small text-muted-2 m-0">Venta en el último año</p>
                                 <div class="d-flex justify-content-start">
                                   <span class="text-28 mr-3">S/{{ $amount_year_total }}</span>
                                   <span class="text-28 mr-3">$/{{ $amount_year_totalUSD }}</span>
@@ -45,7 +45,7 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta de los ultimos Seis meses</p>
+                                <p class="text-small text-muted-2 m-0">Venta de los últimos seis meses</p>
                                 <div class="d-flex justify-content-start">
                                   <span class="text-28 mr-3">S/{{ $amount_month_six_total }}</span>
                                   <span class="text-28 mr-3">$/{{ $amount_month_six_totalUSD }}</span>
@@ -77,7 +77,7 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta en el ultimo mes</p>
+                                <p class="text-small text-muted-2 m-0">Venta en el último mes</p>
                                 <div class="d-flex justify-content-start">
                                   <span class="text-28 mr-3">S/{{ $amount_month_total }}</span>
                                   <span class="text-28 mr-3">$/{{ $amount_month_totalUSD }}</span>
@@ -121,7 +121,7 @@
                                         <div class="ul-widget__content-v4 text-center card-icon-bg">
                                             <i class="dripicons-to-do text-info-2 font-size-3em"></i>
                                             <h3 class="t-font-boldest">{{ $order_news_totals }}</h3>
-                                            <span>Ordenes</span>
+                                            <span>Órdenes</span>
                                         </div>
                                     </div>
 
@@ -146,7 +146,7 @@
                                 <div class="ul-widget__head __g-support v-margin  mb-4">
                                     <div class="ul-widget__head-label d-flex justify-content-between">
                                         <h3 class="ul-widget__head-title">
-                                            Nuevos Clientes (Ultimos 10)
+                                            Nuevos Clientes (últimos 10)
                                         </h3>
                                         <a [routerLink]="['/admin/dashboard/clients']" type="button" class="btn btn-outline-first border-radius-15 " >
                                             Todos los clientes
@@ -189,11 +189,11 @@
                                 <div class="ul-widget__head __g-support v-margin">
                                     <div class="ul-widget__head-label d-flex justify-content-between">
                                         <h3 class="ul-widget__head-title">
-                                            Ordenes (Ultimos 10)
+                                            Órdenes (últimos 10)
                                         </h3>
 
                                         <a [routerLink]="['/admin/dashboard/orders']"  type="button" class="btn btn-outline-first border-radius-15 " >
-                                            Todas las ordenes
+                                            Todas las órdenes
                                         </a>
                                     </div>
                                     <hr/>
@@ -201,7 +201,7 @@
                                 </div>
                                 <div class="table-responsive" style="max-height: 400px;">
                                     <table class="table table-bordered text-center" >
-                                      <caption>Tabla de Ordenes</caption>
+                                      <caption>Tabla de órdenes</caption>
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -220,7 +220,7 @@
                                                 <td>{{ $value.otherDate | date }}</td>
                                             </tr>
                                             <tr *ngIf="$orders_news.length<=0">
-                                                <td colspan="4">No se encontrarón nuevas ordenes</td>
+                                                <td colspan="4">No se encontraron nuevas órdenes</td>
                                             </tr>
 
                                         </tbody>
