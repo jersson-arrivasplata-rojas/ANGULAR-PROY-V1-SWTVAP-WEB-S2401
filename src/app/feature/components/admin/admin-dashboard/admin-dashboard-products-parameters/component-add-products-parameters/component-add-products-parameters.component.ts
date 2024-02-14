@@ -14,10 +14,13 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   @Input() parameters = [];
   @Input() productId;
 
+  selectAllParameters = [];
+  selectAllParametersFilter = [];
   itemForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public presenter: AdminDashboardProductsParametersPresenter
   ) {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
@@ -27,7 +30,15 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ productId: this.productId, parameter: this.parameters[0]?.id});
+    this.selectAllParameters = this.presenter.getAllSelectedParameters(this.parameters);
+    if (this.selectAllParameters.length > 0) {
+      const firstDetail = this.selectAllParameters[0]?.details[0];
+      this.itemForm.patchValue({ productId: this.productId, parameter: firstDetail?.id }, { emitEvent: false });
+
+      if (firstDetail?.details.length > 0) {
+        this.selectAllParametersFilter = firstDetail.details;
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -47,6 +58,10 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
       const item = { ...this.init(), ...this.itemForm.value };
       this.added.emit(item);
     }
+  }
+
+  addParameter(item) {
+    this.added.emit(item);
   }
 
   init() {

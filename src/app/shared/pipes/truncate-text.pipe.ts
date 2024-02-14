@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TruncateTextPipe implements PipeTransform {
   transform(value: string): string {
-    if (value.length > 20) {
+    if (value && value.length > 20) {
       return value.substring(0, 20) + '...';
     }
     return value;

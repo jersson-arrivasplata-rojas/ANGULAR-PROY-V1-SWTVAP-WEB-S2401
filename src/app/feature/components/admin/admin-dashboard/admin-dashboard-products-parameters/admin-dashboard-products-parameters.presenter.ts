@@ -4,11 +4,21 @@ import { ParametersEnum } from "src/app/shared/config/parameters.enum";
 @Injectable()
 export class AdminDashboardProductsParametersPresenter {
 
+  parameters: any[] = [];
 
   getAllSelectedParameters(parameters) {
-    const select =  parameters.filter((parameter) => parameter.code === ParametersEnum.SELECT).at(0);
-    const response = parameters.filter((parameter) => parameter.parentId === select.id);
-
-    return response;
+    return parameters
+      .filter(parameter => parameter.code === ParametersEnum.SELECT)
+      .map(select => {
+        const details = parameters.filter(parameter => parameter.parentId === select.id);
+        return {
+          ...select,
+          details: details.map(detail => ({
+            ...detail,
+            details: parameters.filter(parameter => parameter.parentId === detail.id)
+          }))
+        };
+      });
   }
+
 }
