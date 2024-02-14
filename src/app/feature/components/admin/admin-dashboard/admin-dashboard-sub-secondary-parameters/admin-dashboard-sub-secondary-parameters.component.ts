@@ -20,7 +20,15 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
     id: 0,
     idParentParameter: 0
   }
-  constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
+  private previousUrl: string;
+  private currentUrl: string;
+
+  constructor(private parameterHttp: ParameterHttp,
+    private router: Router, private activatedRoute: ActivatedRoute) {
+    this.currentUrl = this.router.url;
+    this.previousUrl = this.router.getCurrentNavigation().previousNavigation.finalUrl.toString();
+    console.log('Ruta anterior:', this.previousUrl);
+  }
 
   ngOnInit() {
 
@@ -81,11 +89,19 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
+  public getPreviousUrl() {
+    return this.previousUrl;
+  }
+
   handleTableAdded(data: any) {
     this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idParentParameter, 'add-tertiary', data.id]);
   }
 
   back() {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id]);
+    if (this.previousUrl.includes('/admin/dashboard/products')){
+      this.router.navigate([this.previousUrl]);
+    } else {
+      this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id]);
+    }
   }
 }

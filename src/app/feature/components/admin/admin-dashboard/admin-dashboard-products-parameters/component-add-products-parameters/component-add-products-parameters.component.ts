@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ParametersEnum } from 'src/app/shared/config/parameters.enum';
 import { AdminDashboardProductsParametersPresenter } from '../admin-dashboard-products-parameters.presenter';
 
@@ -21,7 +22,8 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
 
   constructor(
     private formBuilder: FormBuilder,
-    public presenter: AdminDashboardProductsParametersPresenter
+    public presenter: AdminDashboardProductsParametersPresenter,
+    private router: Router
   ) {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
@@ -71,6 +73,10 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
 
   addParameter(item) {
     this.added.emit(item);
+  }
+
+  goToParameters() {
+    this.router.navigate(['/admin/dashboard/parameters/add', this.selectAllParameters[0].parentId, 'add-secondary', this.selectAllParameters[0].id]);
   }
 
   init() {
