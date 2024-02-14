@@ -19,8 +19,8 @@ export class ComponentUpdateCategoriesComponent implements OnInit, OnChanges {
     private categoryHttp: CategoryHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(200)]],
+      description: [null],
       status: [false, [Validators.required]]
     });
   }

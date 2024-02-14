@@ -10,7 +10,7 @@ import { AdminDashboardProductsParametersPresenter } from './admin-dashboard-pro
   selector: 'app-admin-dashboard-products-parameters',
   templateUrl: './admin-dashboard-products-parameters.component.html',
   styleUrls: ['./admin-dashboard-products-parameters.component.css'],
-  providers: [ AdminDashboardProductsParametersPresenter]
+  providers: [AdminDashboardProductsParametersPresenter]
 })
 export class AdminDashboardProductsParametersComponent implements OnInit {
 
@@ -22,36 +22,69 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
   updateItem = false;
   showItem = false;
   constructor(private productParametersHttp: ProductParametersHttp, private parameterHttp: ParameterHttp,
-    private activatedRoute: ActivatedRoute, private router:Router, private presenter: AdminDashboardProductsParametersPresenter) { }
+    private activatedRoute: ActivatedRoute, private router: Router, private presenter: AdminDashboardProductsParametersPresenter) { }
 
   ngOnInit() {
     this.activatedRoute.params
-    .pipe(
-      mergeMap(params => {
-        this.productId = +params['id'];
-        return this.parameterHttp.getAll();
-      }),
-      mergeMap(parameterData => {
-        this.parameters = this.presenter.getAllSelectedParameters(parameterData)
-        return this.productParametersHttp.getAll();
-      }),
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
-      })
-    ).subscribe((productParametersData) => {
-      this.data = productParametersData.filter((productParameter) => productParameter.productId === this.productId);
-    });
+      .pipe(
+        mergeMap(params => {
+          this.productId = +params['id'];
+          return this.parameterHttp.getAll();
+        }),
+        mergeMap(parameterData => {
+          this.parameters = parameterData;
+          return this.productParametersHttp.getAll();
+        }),
+      ).pipe(
+        catchError(error => {
+          console.error('Error al consultar datos:', error);
+          return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        })
+      ).subscribe((productParametersData) => {
+        this.getAllSelectedParameters(productParametersData);
+      });
   }
 
-  handleAdded(data: any) {
-    this.productParametersHttp.add(data).subscribe((data) => {
-      this.data.push(data);
-      this.updateItem = false;
-      this.showItem = false;
-      this.addItem = false;
+  getAllSelectedParameters(parameters: any[]) {
+    this.data = parameters.filter((productParameter) => productParameter.productId === this.productId);
+    this.data = this.data.map((parameter) => {
+      const response = {
+        ...parameter,
+        parameter: this.parameters.find((p) => p.id === parseInt(parameter.code) && p.status === true)
+      };
+
+      response.parameterParent = this.parameters.find((p) => p.id === response.parameter.parentId);
+
+      return response;
     });
+    this.data = this.data.sort((a, b) => a.parameterParent.code.localeCompare(b.parameterParent.code));
+  }
+
+  handleAdded(item: any) {
+    let data = {
+      code: item.id,
+      productId: this.productId,
+    };
+    const filter = this.data.find((parameter) => {
+      const data = parseInt(parameter.code) === item.id && parameter.productId === this.productId;
+      return data;
+    });
+
+    if (!filter) {
+      this.productParametersHttp.add(data)
+        .pipe(
+          mergeMap(data => {
+            return this.productParametersHttp.getAll();
+          }),
+        ).subscribe((productParametersData) => {
+          this.getAllSelectedParameters(productParametersData);
+          this.updateItem = false;
+          this.showItem = false;
+          this.addItem = false;
+        });
+    }
+
+
   }
 
   handleUpdated(item: any) {
@@ -85,7 +118,7 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
     this.updateItem = false;
   }
 
-  back(){
+  back() {
     this.router.navigate([`/admin/dashboard/products`]);
   }
 }

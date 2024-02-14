@@ -25,7 +25,8 @@ export class ComponentListProductsParametersComponent {
       return;
     }
     this.productParametersHttp.getById(item.productParameterId).subscribe((response) => {
-      this.item = response;
+      this.item = this.data.find((p) => p.productParameterId === response.productParameterId)
+
       if (!this.showItem) this.showItem = !this.showItem;
       this.showed.emit({item: this.item, showItem: this.showItem});
     });

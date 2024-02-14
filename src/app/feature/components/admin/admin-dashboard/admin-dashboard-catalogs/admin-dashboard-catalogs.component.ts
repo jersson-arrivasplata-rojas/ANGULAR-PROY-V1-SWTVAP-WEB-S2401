@@ -46,12 +46,6 @@ export class AdminDashboardCatalogsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.catalogId === item.catalogId) {
-        return item;
-      }
-      return response;
-    });
     this.addItem = false;
     this.updateItem = false;
     this.showItem = false;

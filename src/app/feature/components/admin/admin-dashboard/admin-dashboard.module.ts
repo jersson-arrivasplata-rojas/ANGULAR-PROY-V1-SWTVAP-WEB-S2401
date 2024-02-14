@@ -91,7 +91,6 @@ import { ComponentAddProductsParametersComponent } from './admin-dashboard-produ
 import { ComponentListProductsParametersProductsComponent } from './admin-dashboard-products-parameters/component-list-product-parameters-products/component-list-product-parameters-products.component';
 import { ComponentListProductsParametersComponent } from './admin-dashboard-products-parameters/component-list-products-parameters/component-list-products-parameters.component';
 import { ComponentShowProductsParametersComponent } from './admin-dashboard-products-parameters/component-show-products-parameters/component-show-products-parameters.component';
-import { ComponentUpdateProductsParametersComponent } from './admin-dashboard-products-parameters/component-update-products-parameters/component-update-products-parameters.component';
 import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
 import { ComponentAddProductsComponent } from './admin-dashboard-products/component-add-products/component-add-products.component';
 import { ComponentListProductsComponent } from './admin-dashboard-products/component-list-products/component-list-products.component';
@@ -234,7 +233,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminDashboardProductsParametersComponent,
     ComponentListProductsParametersComponent,
     ComponentAddProductsParametersComponent,
-    ComponentUpdateProductsParametersComponent,
     ComponentShowProductsParametersComponent,
     AdminDashboardCommentsComponent,
     ComponentListCommentsComponent,

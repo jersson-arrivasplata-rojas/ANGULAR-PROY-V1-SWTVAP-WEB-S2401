@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ParametersEnum } from 'src/app/shared/config/parameters.enum';
 import { AdminDashboardProductsParametersPresenter } from '../admin-dashboard-products-parameters.presenter';
 
 @Component({
@@ -14,10 +15,13 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   @Input() parameters = [];
   @Input() productId;
 
+  selectAllParameters = [];
+  selectAllParametersFilter = [];
   itemForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public presenter: AdminDashboardProductsParametersPresenter
   ) {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
@@ -27,7 +31,15 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ productId: this.productId, parameter: this.parameters[0]?.id});
+    this.selectAllParameters = this.presenter.getAllSelectedParameters(this.parameters);
+    if (this.selectAllParameters.length > 0) {
+      const firstDetail = this.selectAllParameters[0]?.details[0];
+      this.itemForm.patchValue({ productId: this.productId, parameter: firstDetail?.id }, { emitEvent: false });
+
+      if (firstDetail?.details.length > 0) {
+        this.selectAllParametersFilter = firstDetail.details;
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -39,7 +51,15 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   show(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const selectedValue = selectElement.value;
-    console.log(selectedValue);
+    if (this.selectAllParameters.length > 0) {
+      const selectedItem = this.selectAllParameters.find(item => item.code === ParametersEnum.SELECT);
+      const firstDetail = selectedItem?.details.find(detail => detail.id === parseInt(selectedValue, 10));
+
+      if (firstDetail) {
+        this.itemForm.patchValue({ parameter: firstDetail.id }, { emitEvent: false });
+        this.selectAllParametersFilter = firstDetail.details;
+      }
+    }
   }
 
   add() {
@@ -47,6 +67,10 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
       const item = { ...this.init(), ...this.itemForm.value };
       this.added.emit(item);
     }
+  }
+
+  addParameter(item) {
+    this.added.emit(item);
   }
 
   init() {

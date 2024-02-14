@@ -56,12 +56,6 @@ export class AdminDashboardCategoriesComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.categoryId === item.categoryId) {
-        return item;
-      }
-      return response;
-    });
     this.addItem = false;
     this.updateItem = false;
     this.showItem = false;
