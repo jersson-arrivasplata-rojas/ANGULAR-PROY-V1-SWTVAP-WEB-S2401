@@ -57,6 +57,7 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
 
       return response;
     });
+    this.data = this.data.sort((a, b) => a.parameterParent.code.localeCompare(b.parameterParent.code));
   }
 
   handleAdded(item: any) {

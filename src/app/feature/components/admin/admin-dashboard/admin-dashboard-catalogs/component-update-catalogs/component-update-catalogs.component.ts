@@ -19,9 +19,9 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
     private catalogHttp: CatalogHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      code: ['', Validators.required],
-      description: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(200)]],
+      code: ['', [Validators.required, Validators.maxLength(50)]],
+      description: [null],
       status: [false, [Validators.required]]
     });
   }
