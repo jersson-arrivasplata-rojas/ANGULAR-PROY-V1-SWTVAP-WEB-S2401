@@ -41,18 +41,22 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
           return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
         })
       ).subscribe((productParametersData) => {
-        this.data = productParametersData.filter((productParameter) => productParameter.productId === this.productId);
-        this.data = this.data.map((parameter) => {
-          const response =  {
-            ...parameter,
-            parameter: this.parameters.find((p) => p.id === parseInt(parameter.code) && p.status === true)
-          };
-
-          response.parameterParent = this.parameters.find((p) => p.id === response.parameter.parentId);
-
-          return response;
-        });
+        this.getAllSelectedParameters(productParametersData);
       });
+  }
+
+  getAllSelectedParameters(parameters: any[]) {
+    this.data = parameters.filter((productParameter) => productParameter.productId === this.productId);
+    this.data = this.data.map((parameter) => {
+      const response = {
+        ...parameter,
+        parameter: this.parameters.find((p) => p.id === parseInt(parameter.code) && p.status === true)
+      };
+
+      response.parameterParent = this.parameters.find((p) => p.id === response.parameter.parentId);
+
+      return response;
+    });
   }
 
   handleAdded(item: any) {
@@ -66,12 +70,17 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
     });
 
     if (!filter) {
-      this.productParametersHttp.add(data).subscribe((data) => {
-        this.data.push(data);
-        this.updateItem = false;
-        this.showItem = false;
-        this.addItem = false;
-      });
+      this.productParametersHttp.add(data)
+        .pipe(
+          mergeMap(data => {
+            return this.productParametersHttp.getAll();
+          }),
+        ).subscribe((productParametersData) => {
+          this.getAllSelectedParameters(productParametersData);
+          this.updateItem = false;
+          this.showItem = false;
+          this.addItem = false;
+        });
     }
 
 
