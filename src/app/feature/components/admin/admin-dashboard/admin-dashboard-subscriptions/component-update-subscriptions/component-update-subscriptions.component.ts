@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
+import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
   selector: 'app-component-update-subscriptions',
@@ -19,8 +21,8 @@ export class ComponentUpdateSubscriptionsComponent implements OnInit, OnChanges 
     private subscriptionHttp: SubscriptionHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      subscribedAt: ['', Validators.required],
+      email: ['', [Validators.required, emailDomainValidator()]],
+      subscribedAt: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
       status: [false, Validators.required]
     });
   }

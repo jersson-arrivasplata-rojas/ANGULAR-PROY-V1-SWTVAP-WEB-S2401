@@ -27,7 +27,6 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
     private router: Router, private activatedRoute: ActivatedRoute) {
     this.currentUrl = this.router.url;
     this.previousUrl = this.router.getCurrentNavigation().previousNavigation.finalUrl.toString();
-    console.log('Ruta anterior:', this.previousUrl);
   }
 
   ngOnInit() {
@@ -47,6 +46,12 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
       .subscribe(data => {
         this.data = data.filter((response) => response.parentId === (this.item as any)?.id);
       });
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['previousUrl']) {
+        this.previousUrl = params['previousUrl'];
+      }
+    });
   }
 
   handleAdded(data: any) {
@@ -59,11 +64,14 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.id === item.id) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.id === item.id) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;
@@ -94,11 +102,13 @@ export class AdminDashboardSubSecondaryParametersComponent implements OnInit {
   }
 
   handleTableAdded(data: any) {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idParentParameter, 'add-tertiary', data.id]);
+    const extras = (this.previousUrl.includes('/admin/dashboard/products')) ? { queryParams: { previousUrl: this.previousUrl } } : {};
+    this.router.navigate(
+      ['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idParentParameter, 'add-tertiary', data.id], extras);
   }
 
   back() {
-    if (this.previousUrl.includes('/admin/dashboard/products')){
+    if (this.previousUrl.includes('/admin/dashboard/products')) {
       this.router.navigate([this.previousUrl]);
     } else {
       this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id]);

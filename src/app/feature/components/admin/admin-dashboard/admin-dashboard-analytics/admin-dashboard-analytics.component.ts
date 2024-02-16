@@ -32,11 +32,14 @@ export class AdminDashboardAnalyticsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.analyticId === item.analyticId) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.analyticId === item.analyticId) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

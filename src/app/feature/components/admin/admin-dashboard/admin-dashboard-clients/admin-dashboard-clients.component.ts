@@ -32,11 +32,14 @@ export class AdminDashboardClientsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.clientId === item.clientId) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.clientId === item.clientId) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

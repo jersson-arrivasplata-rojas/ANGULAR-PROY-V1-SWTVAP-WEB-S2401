@@ -6,13 +6,13 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="visitedPage">Página Visitada:</label>
-                <input type="text" class="form-control" id="visitedPage" formControlName="visitedPage">
+                <input type="text" class="form-control" id="visitedPage" maxlength="250" formControlName="visitedPage">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="visitedDate">Fecha Visitada:</label>
-                <input type="text" class="form-control" id="visitedDate" formControlName="visitedDate" appDateFormat>
+                <label for="visitedDate">Fecha Visitada (YYYY-MM-DD):</label>
+                <input type="text" class="form-control" id="visitedDate" formControlName="visitedDate" maxlength="10" appDateFormat>
             </div>
         </div>
         <div class="col-lg-12">

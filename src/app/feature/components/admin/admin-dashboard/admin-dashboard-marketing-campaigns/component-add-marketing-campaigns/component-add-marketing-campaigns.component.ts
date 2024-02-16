@@ -17,7 +17,7 @@ export class ComponentAddMarketingCampaignsComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(100)]],
       startDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
       endDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
       description: ['']

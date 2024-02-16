@@ -48,7 +48,6 @@ export class AdminDashboardCategoriesComponent implements OnInit {
 
   handleAdded(data: any) {
     this.categoryHttp.add(data).subscribe((data) => {
-      this.data.push(data);
       this.updateItem = false;
       this.showItem = false;
       this.addItem = false;
@@ -56,6 +55,15 @@ export class AdminDashboardCategoriesComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
+    this.data = this.data.map((data) => {
+      if (data.categoryId === item.categoryId) {
+        return {
+          ...data,
+          ...item
+        };
+      }
+      return data;
+    });
     this.addItem = false;
     this.updateItem = false;
     this.showItem = false;

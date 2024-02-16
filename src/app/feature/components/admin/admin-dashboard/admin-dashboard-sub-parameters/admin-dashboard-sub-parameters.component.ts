@@ -47,11 +47,14 @@ export class AdminDashboardSubParametersComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.id === item.id) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.id === item.id) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

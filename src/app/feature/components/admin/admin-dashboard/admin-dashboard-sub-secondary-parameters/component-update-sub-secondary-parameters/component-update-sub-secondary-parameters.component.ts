@@ -25,7 +25,7 @@ export class ComponentUpdateSubSecondaryParametersComponent implements OnInit, O
       groupId: [''],
       description: ['', Validators.required],
       value: ['', Validators.required],
-      code: [null],
+      code: [null, Validators.maxLength(50)],
       position: [null],
       status: [false, [Validators.required]]
     });

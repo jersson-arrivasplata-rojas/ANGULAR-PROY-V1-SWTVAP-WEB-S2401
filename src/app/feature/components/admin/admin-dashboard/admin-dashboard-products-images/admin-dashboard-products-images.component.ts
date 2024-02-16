@@ -47,11 +47,14 @@ export class AdminDashboardProductsImagesComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.productParameterId === item.productParameterId) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.productParameterId === item.productParameterId) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

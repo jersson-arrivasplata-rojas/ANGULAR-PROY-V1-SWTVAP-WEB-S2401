@@ -6,19 +6,19 @@
       <div class="col-lg-12">
           <div class="form-group">
               <label for="name">Nombre:</label>
-              <input type="text" class="form-control" id="name" formControlName="name">
+              <input type="text" class="form-control" id="name" formControlName="name" maxlength="100">
           </div>
       </div>
       <div class="col-lg-12">
           <div class="form-group">
               <label for="startDate">Fecha Inicio (YYYY-MM-DD):</label>
-              <input type="text" class="form-control" id="startDate" formControlName="startDate" appDateFormat>
+              <input type="text" class="form-control" id="startDate" formControlName="startDate" maxlength="10" appDateFormat>
           </div>
       </div>
       <div class="col-lg-12">
           <div class="form-group">
               <label for="endDate">Fecha Fin (YYYY-MM-DD):</label>
-              <input type="text" class="form-control" id="endDate" formControlName="endDate" appDateFormat>
+              <input type="text" class="form-control" id="endDate" formControlName="endDate" maxlength="10" appDateFormat>
           </div>
       </div>
       <div class="col-lg-12">

@@ -17,8 +17,8 @@ export class ComponentAddUnitsComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      unitName: ['', Validators.required],
-      abbreviation: ['', Validators.required],
+      unitName: ['', [Validators.required, Validators.maxLength(50)]],
+      abbreviation: ['', [Validators.required, Validators.maxLength(10)]],
       conversionFactor: ['', [Validators.pattern(PatternEnum.NUMBER_POINT)]],
       status: [false, [Validators.required]]
     });

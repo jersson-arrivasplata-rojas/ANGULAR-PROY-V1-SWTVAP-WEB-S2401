@@ -18,9 +18,9 @@ export class ComponentAddParametersComponent {
     this.itemForm = this.formBuilder.group({
       parentId: [null],
       groupId: [''],
-      description: ['', Validators.required],
+      description: ['', [Validators.required]],
       value: ['', Validators.required],
-      code: [null],
+      code: [null, Validators.maxLength(50)],
       position: [null],
       status: [false, [Validators.required]]
     });

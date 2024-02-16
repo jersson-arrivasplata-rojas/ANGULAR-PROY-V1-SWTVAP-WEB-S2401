@@ -20,7 +20,7 @@ export class ComponentUpdateAnalyticsComponent implements OnInit, OnChanges {
     private analyticHttp: AnalyticHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      visitedPage: ['', Validators.required],
+      visitedPage: ['', [Validators.required, Validators.maxLength(250)]],
       visitedDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]]
     });
   }

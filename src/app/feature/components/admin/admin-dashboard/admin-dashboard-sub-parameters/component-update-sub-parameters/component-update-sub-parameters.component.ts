@@ -24,7 +24,7 @@ export class ComponentUpdateSubParametersComponent implements OnInit, OnChanges 
       groupId: [null],
       description: ['', Validators.required],
       value: ['', Validators.required],
-      code: [null],
+      code: [null, Validators.maxLength(50)],
       position: [null],
       status: [false, [Validators.required]]
     });

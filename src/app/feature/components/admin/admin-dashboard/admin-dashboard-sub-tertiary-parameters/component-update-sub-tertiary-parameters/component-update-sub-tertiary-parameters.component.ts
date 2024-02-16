@@ -25,7 +25,7 @@ export class ComponentUpdateSubTertiaryParametersComponent implements OnInit, On
       groupId: [''],
       description: ['', Validators.required],
       value: ['', Validators.required],
-      code: [null],
+      code: [null, Validators.maxLength(50)],
       position: [null],
       status: [false, [Validators.required]]
     });

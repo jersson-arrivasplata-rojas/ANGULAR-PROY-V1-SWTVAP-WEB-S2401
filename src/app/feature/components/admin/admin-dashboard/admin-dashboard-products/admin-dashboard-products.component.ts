@@ -91,11 +91,14 @@ export class AdminDashboardProductsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.productId === item.productId) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.productId === item.productId) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

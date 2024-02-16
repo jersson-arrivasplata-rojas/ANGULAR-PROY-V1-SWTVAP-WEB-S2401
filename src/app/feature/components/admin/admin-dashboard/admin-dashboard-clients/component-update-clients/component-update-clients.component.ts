@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { ClientHttp } from 'src/app/shared/http/clients.http';
+import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
   selector: 'app-component-update-clients',
@@ -20,14 +21,14 @@ export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
     private clientHttp: ClientHttp
   ) {
     this.itemForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      address: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
-      cellphone: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
-      countryCode: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER_PLUS)]],
-      email: ['', [Validators.required, Validators.email]],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      address: ['', [Validators.required, Validators.maxLength(250)]],
+      phone: ['', [Validators.required, Validators.maxLength(20), Validators.pattern(PatternEnum.NUMBER)]],
+      cellphone: ['', [Validators.required, Validators.maxLength(20), Validators.pattern(PatternEnum.NUMBER)]],
+      countryCode: ['', [Validators.required, Validators.maxLength(5), Validators.pattern(PatternEnum.NUMBER_PLUS)]],
+      email: ['', [Validators.required, Validators.maxLength(50), emailDomainValidator()]],
       whatsapp: [false, Validators.required],
-      details: ['', Validators.required],
+      details: [''],
       otherDetails: [''],
       sourceAggregate: ['ADMINISTRATIVE_SYSTEM', Validators.required]
     });

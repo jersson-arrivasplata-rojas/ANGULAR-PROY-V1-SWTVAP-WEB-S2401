@@ -17,7 +17,7 @@ export class ComponentAddAnalyticsComponent {
     private formBuilder: FormBuilder
   ) {
     this.itemForm = this.formBuilder.group({
-      visitedPage: ['', [Validators.required]],
+      visitedPage: ['', [Validators.required, Validators.maxLength(250)]],
       visitedDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]]
     });
   }

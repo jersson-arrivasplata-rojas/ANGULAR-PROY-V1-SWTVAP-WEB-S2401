@@ -24,7 +24,7 @@ export class ComponentUpdateParametersComponent implements OnInit, OnChanges {
       description: ['', Validators.required],
       position: [null],
       value: ['', Validators.required],
-      code: [null],
+      code: [null, Validators.maxLength(50)],
       status: [false, [Validators.required]]
     });
   }

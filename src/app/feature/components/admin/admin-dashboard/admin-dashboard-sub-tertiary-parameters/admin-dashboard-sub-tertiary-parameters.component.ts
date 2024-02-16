@@ -20,8 +20,12 @@ export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
     id: 0,
     idSubParameter: 0,
     idParentParameter: 0
-  }
-  constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
+  };
+
+  previousUrl: string = '';
+
+  constructor(private parameterHttp: ParameterHttp, private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -41,6 +45,12 @@ export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
       .subscribe(data => {
         this.data = data.filter((response) => response.parentId === (this.item as any)?.id);
       });
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      if(params['previousUrl']){
+        this.previousUrl = params['previousUrl'];
+      }
+    });
   }
 
   handleAdded(data: any) {
@@ -53,11 +63,14 @@ export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.id === item.id) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.id === item.id) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;
@@ -84,6 +97,11 @@ export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idSubParameter]);
+    const extras = (this.previousUrl.includes('/admin/dashboard/products')) ? { queryParams: { previousUrl: this.previousUrl } } : {};
+
+    this.router.navigate(
+      ['/admin/dashboard/parameters/add', this.properties.id, 'add-secondary', this.properties.idSubParameter],
+      extras
+    );
   }
 }

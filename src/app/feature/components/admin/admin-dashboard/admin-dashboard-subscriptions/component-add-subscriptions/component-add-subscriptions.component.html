@@ -6,13 +6,13 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="email">Correo:</label>
-                <input type="text" class="form-control" id="email" formControlName="email">
+                <input type="text" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="subscribedAt">Fecha de Suscripción (YYYY-MM-DD):</label>
-                <input type="text" class="form-control" id="subscribedAt" formControlName="subscribedAt" appDateFormat>
+                <input type="text" class="form-control" id="subscribedAt" formControlName="subscribedAt" maxlength="10" appDateFormat>
             </div>
         </div>
         <div class="col-lg-12">

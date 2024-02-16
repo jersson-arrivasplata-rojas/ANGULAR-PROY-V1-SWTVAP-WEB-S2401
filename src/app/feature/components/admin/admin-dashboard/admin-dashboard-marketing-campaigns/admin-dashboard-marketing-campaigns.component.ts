@@ -31,11 +31,14 @@ export class AdminDashboardMarketingCampaignsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
-    this.data = this.data.map((response) => {
-      if (response.marketingCampaignId === item.marketingCampaignId) {
-        return item;
+    this.data = this.data.map((data) => {
+      if (data.marketingCampaignId === item.marketingCampaignId) {
+        return {
+          ...data,
+          ...item
+        };
       }
-      return response;
+      return data;
     });
     this.addItem = false;
     this.updateItem = false;

@@ -143,15 +143,18 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="card o-hidden mb-4" id="UsuariosFinalizados">
                             <div class="card-body">
-                                <div class="ul-widget__head __g-support v-margin  mb-4">
+                                <div class="ul-widget__head __g-support v-margin">
                                     <div class="ul-widget__head-label d-flex justify-content-between">
                                         <h3 class="ul-widget__head-title">
                                             Nuevos Clientes (Ultimos 10)
                                         </h3>
+
                                         <a [routerLink]="['/admin/dashboard/clients']" type="button" class="btn btn-outline-first border-radius-15 " >
                                             Todos los clientes
                                         </a>
                                     </div>
+                                    <hr/>
+
                                 </div>
                                 <div class="table-responsive" style="max-height: 400px;">
                                     <table class="table table-bordered text-center" >
