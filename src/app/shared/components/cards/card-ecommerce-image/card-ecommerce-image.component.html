@@ -1,11 +1,13 @@
 <div class="card text-first o-hidden mb-3 boder-card-ecoommerce-image-style" style="box-shadow:0 0.125rem 4rem 5px rgb(0 0 0 / 8%)">
     <div class="card text-first o-hidden boder-card-ecoommerce-image-style">
         <div *ngIf="imageArray.length >= 2">
+            <!--
             <owl-carousel-o #owl [options]="customOptions" (changed)="getData($event)" (initialized)="getPassedData($event,owl)">
                 <ng-template carouselSlide *ngFor="let im of imageArray;  let j= index" id="owl-slide-{{id}}-{{j}}">
                     <img class="d-block w-100 slider-img-store card-img boder-card-ecoommerce-image-style img-card-ecoommerce-image-style c" src="{{getImageProduct(im.image)}}" alt="">
                 </ng-template>
             </owl-carousel-o>
+            -->
         </div>
 
         <!--*ngIf="item.product_images.length < 2 || item.product_images.length == 0"-->
