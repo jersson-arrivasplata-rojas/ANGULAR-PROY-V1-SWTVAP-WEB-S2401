@@ -220,7 +220,7 @@
                                                 <th scope="row">{{ (j+1) }}</th>
                                                 <td *ngIf="$value.clientId">{{ $value.client?.name }}</td>
                                                 <td>{{ $value.code }}</td>
-                                                <td>{{ $value.otherDate | date }}</td>
+                                                <td>{{ $value.orderDate | date }}</td>
                                             </tr>
                                             <tr *ngIf="$orders_news.length<=0">
                                                 <td colspan="4">No se encontraron nuevas &oacute;rdenes</td>

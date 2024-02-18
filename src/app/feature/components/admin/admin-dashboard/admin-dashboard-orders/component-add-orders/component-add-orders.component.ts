@@ -57,7 +57,7 @@ export class ComponentAddOrdersComponent implements OnInit {
     return {
       clientId: '',
       code: '',
-      otherDate: CommonUtils.getDayNow(),
+      orderDate: CommonUtils.getDayNow(),
       address: '',
       subtotal: 0,
       subtotalUSD: 0,

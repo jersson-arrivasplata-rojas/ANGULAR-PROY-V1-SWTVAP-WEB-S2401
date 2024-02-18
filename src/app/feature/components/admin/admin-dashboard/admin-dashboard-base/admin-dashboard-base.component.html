@@ -11,28 +11,9 @@
     </a>
     <div class="navbar-brand navbar-nav-scroll w-100">
         <div *ngIf="getType()" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdownActive==true}'>
-            <div id="dropDown" #DropDown class="drop-down__button btn btn-outline-first border-input" (click)="dropdown(DropDown)">
-                <i class="mdi mdi-chevron-down mr-1"></i>
-                <span class="drop-down__name mr-1">Men&uacute;</span>
-            </div>
-            <div class="drop-down__menu-box">
-                <ul class="drop-down__menu">
-                    <li data-name="home" class="drop-down__item">
-                        <a class="d-block w-100" [routerLink]="['/admin/dashboard/home']">
-                            <i class="mdi mdi-home-outline mr-1"></i> Inicio
-                        </a>
-                    </li>
-                    <li data-name="salir" class="drop-down__item">
-                        <a href="#" class="d-block w-100" (click)="logout()">
-                            <i class="mdi mdi-logout-variant mr-1"></i> Salir
-                        </a>
-                    </li>
-                </ul>
-
-                <button type="button" class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;" (click)="dropdown(DropDown)">
-          <i class="fas fa-times"></i>
-        </button>
-            </div>
+            <button type="button" class="navbar-brand mr-0 mr-md-2 btn-outline-first btn-first-menu-toggle cursor-pointer" (click)="logout()" style="width: 110px;font-size: 16px;">
+              <i class="mdi mdi-logout-variant mr-1"></i> Salir
+            </button>
         </div>
 
         <div *ngIf="!getType()" class="drop-down drop-down-auth-dashboard-bar" [ngClass]='{"drop-down--active":dropdownActive==true}'>
