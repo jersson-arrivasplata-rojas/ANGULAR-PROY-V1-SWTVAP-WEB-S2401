@@ -1,7 +1,7 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.productDiscountId }}</h2>
-        <p>Descuento: {{ item.discountPercentage }}</p>
+        <p>Descuento: {{ item.discountPercentage | transformText:'percentage' }}</p>
         <p>Fecha de Inicio: {{ item.startDate | date }}</p>
         <p>Fecha de Fin: {{ item.endDate | date }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>

@@ -3,7 +3,7 @@
         <h2>Id: {{ item.orderId }}</h2>
         <p *ngIf="item.clientId">Cliente: {{ item.clientId }}</p>
         <p>C&oacute;digo: {{ item.code | uppercase }}</p>
-        <p>Fecha de la Orden: {{ item.otherDate | date }}</p>
+        <p>Fecha de la &Oacute;rden: {{ item.otherDate | date }}</p>
         <p>Direcci&oacute;n: {{ item.address }}</p>
         <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal | addZeros }}</p>
         <p *ngIf="item.subtotalUSD">SubTotal en D&oacute;lares: $/{{ item.subtotalUSD | addZeros }}</p>
