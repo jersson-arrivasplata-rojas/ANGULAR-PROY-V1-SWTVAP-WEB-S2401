@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { map, mergeMap } from 'rxjs';
 import { TypesEnum } from 'src/app/shared/config/types.enum';
-import { ClientHttp } from 'src/app/shared/http/clients.http';
 import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
@@ -24,12 +23,11 @@ export class ComponentListOrdersClientsComponent implements OnInit {
   item: any;
   showItem = false;
 
-  constructor(private clientHttp: ClientHttp, private orderHttp: OrderHttp,
-    private shareDataService: ShareDataService) { }
+  constructor(private orderHttp: OrderHttp, private shareDataService: ShareDataService) { }
 
   ngOnInit(): void {
     this.shareDataService.getData().subscribe((response: any) => {
-      if (response.add) {
+      if (response && response.add) {
         this.order = response.order;
 
         this.getRelationshipByOrderAndClient(this.order);
@@ -57,7 +55,7 @@ export class ComponentListOrdersClientsComponent implements OnInit {
         })
       )
       .subscribe((response) => {
-        this.item = response;
+        this.item = this.data.find((f) => f.clientId === response.clientId);
         if (!this.showItem) this.showItem = !this.showItem;
         this.showed.emit({ item: this.item, showItem: this.showItem });
       });
@@ -105,7 +103,7 @@ export class ComponentListOrdersClientsComponent implements OnInit {
 
   getRelationshipByOrderAndClient(order: any) {
     this.data.forEach(item => {
-      if ((order.clientId).includes((item.clientId))) {
+      if (order.clientId == item.clientId) {
         item.relationship = true;
       }
     });

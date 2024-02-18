@@ -23,7 +23,7 @@
                   <td>{{ item.orderId }}</td>
                   <td>
                     <span *ngIf="item.clientId">{{ getClientName(item.clientId) | transformText }}</span>
-                    <div *ngIf="!item.clientId" class="d-flex flex-column align-items-center">
+                    <div class="d-flex flex-column align-items-center mt-2">
                       <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addClient(item)">
                         Agregar Cliente
                       </button>

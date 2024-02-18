@@ -10,7 +10,6 @@
             <th>Celular</th>
             <th>Correo</th>
             <th>Whatsapp</th>
-            <th>Estado</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -24,7 +23,6 @@
               <td>{{ item.cellphone }}</td>
               <td>{{ item.email }}</td>
               <td>{{ item.whatsapp | status }}</td>
-              <td>{{ item.status | status }}</td>
               <td>
                 <div class="d-flex flex-column">
                   <button type="button" *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>

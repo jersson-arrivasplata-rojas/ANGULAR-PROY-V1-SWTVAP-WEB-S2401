@@ -9,7 +9,6 @@
         <p>Whatsapp: {{ item.whatsapp | status }}</p>
         <p>Detalle: {{ item.details }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
-        <p>Estado: {{ item.status | status }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

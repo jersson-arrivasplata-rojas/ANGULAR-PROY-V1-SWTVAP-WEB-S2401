@@ -32,7 +32,7 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
 
   ngOnInit(): void {
     this.shareDataService.getData().subscribe((response: any) => {
-      if (response.add) {
+      if (response && response.add) {
         this.dispatches = response.dispatches;
 
         this.getRelationshipByOrderAndDispatch(this.dispatches);
