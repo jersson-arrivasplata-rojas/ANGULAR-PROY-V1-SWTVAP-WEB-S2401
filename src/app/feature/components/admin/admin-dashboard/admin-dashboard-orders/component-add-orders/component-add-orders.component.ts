@@ -34,7 +34,7 @@ export class ComponentAddOrdersComponent implements OnInit {
       totalUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       totalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       pickUp: [false, Validators.required],
-      otherDetails: ['', [Validators.pattern(PatternEnum.DATE)]],
+      otherDetails: [''],
       status: [true, [Validators.required]]
     });
     this.presenter.itemForm = this.itemForm;

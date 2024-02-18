@@ -4,13 +4,13 @@
       <p>Asociado: {{ item.relationship | statusRelationship }}</p>
       <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
         <p>Nombre de la Unidad: {{ item.unitName }}</p>
-        <p>Abreviación: {{ item.abbreviation }}</p>
-        <p>Factor de Conversión: {{ item.conversionFactor }}</p>
+        <p>Abreviaci&oacute;n: {{ item.abbreviation }}</p>
+        <p>Factor de Conversi&oacute;n: {{ item.conversionFactor }}</p>
       </ng-container>
       <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
         <p>Nombre: {{ item.name }}</p>
-        <p>Dirección: {{ item.address }}</p>
-        <p>Teléfono: {{ item.phone }}</p>
+        <p>Direcci&oacute;n: {{ item.address }}</p>
+        <p>Tel&eacute;fono: {{ item.phone }}</p>
         <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
         <p>Correo: {{ item.email }}</p>
         <p>Whatsapp: {{ item.whatsapp | status }}</p>
@@ -19,7 +19,7 @@
       </ng-container>
       <p>Estado: {{ item.status | status }}</p>
       <p>
-        <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
       </p>
   </div>
 </div>

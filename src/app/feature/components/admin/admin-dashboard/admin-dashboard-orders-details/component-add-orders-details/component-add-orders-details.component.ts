@@ -13,12 +13,13 @@ import { AdminDashboardOrdersDetailsPresenter } from '../admin-dashboard-orders-
 export class ComponentAddOrdersDetailsComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
-  @Input() ordersId;
+  @Input() orderId;
 
   itemForm: FormGroup;
   products: any[] = [];
   productName: string;
   showProduct: boolean = false;
+  disabledProduct: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,8 +43,8 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.itemForm.patchValue({ ordersId: this.ordersId });
+    this.itemForm.disable();
+    this.itemForm.patchValue({ orderId: this.orderId });
 
     this.productHttp.getAll().subscribe((products) => {
       this.products = products.filter((product) => product.status === true);
@@ -59,6 +60,8 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
   }
 
   addProduct(item) {
+    this.disabledProduct = false;
+    this.itemForm.enable();
     this.productName = item.name;
     this.itemForm.patchValue({
       productId: item.productId,
@@ -74,7 +77,7 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
 
   init() {
     return {
-      ordersId: this.ordersId,
+      orderId: this.orderId,
       unitPrice: 0,
       unitPriceUSD: 0,
       unitPriceEUR: 0,

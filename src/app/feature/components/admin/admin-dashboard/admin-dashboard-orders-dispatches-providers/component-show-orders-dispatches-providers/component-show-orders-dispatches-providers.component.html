@@ -2,8 +2,8 @@
     <div class="card-body">
         <h2>Id: {{ item.providerId }}</h2>
         <p>Nombre: {{ item.name }}</p>
-        <p>Dirección: {{ item.address }}</p>
-        <p>Teléfono: {{ item.phone }}</p>
+        <p>Direcci&oacute;n: {{ item.address }}</p>
+        <p>Tel&eacute;fono: {{ item.phone }}</p>
         <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
         <p>Correo: {{ item.email }}</p>
         <p>Whatsapp: {{ item.whatsapp | status }}</p>
@@ -11,7 +11,7 @@
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

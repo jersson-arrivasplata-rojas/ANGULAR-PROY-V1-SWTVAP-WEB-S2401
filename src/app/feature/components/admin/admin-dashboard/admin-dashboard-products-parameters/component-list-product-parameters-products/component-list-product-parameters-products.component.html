@@ -4,9 +4,9 @@
           <tr>
             <th>ID</th>
             <th>Identificador de Grupo</th>
-            <th>Descripción</th>
+            <th>Descripci&oacute;n</th>
             <th>Valor</th>
-            <th>Código</th>
+            <th>C&oacute;digo</th>
             <th>Acciones</th>
           </tr>
       </thead>
@@ -14,13 +14,13 @@
           <ng-container *ngFor="let item of data" >
               <tr>
                   <td>{{ item.id }}</td>
-                  <td>{{ item.code }}</td>
+                  <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.groupId | emptyText }}</td>
                   <td>{{ item.description | truncateText }}</td>
                   <td>{{ item.value | truncateText }}</td>
                   <td>
                     <div class="d-flex flex-column">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="add(item)">Asignar</button>
+                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="add(item)">Asignar</button>
                     </div>
                   </td>
               </tr>

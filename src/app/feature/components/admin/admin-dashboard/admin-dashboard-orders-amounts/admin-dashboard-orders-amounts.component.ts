@@ -13,7 +13,7 @@ export class AdminDashboardOrdersAmountsComponent implements OnInit {
 
   data: any[] = [];
   item = {};
-  ordersId = 0;
+  orderId = 0;
   addItem = false;
   updateItem = false;
   showItem = false;
@@ -24,16 +24,16 @@ export class AdminDashboardOrdersAmountsComponent implements OnInit {
     this.activatedRoute.params
     .pipe(
       mergeMap(params => {
-        this.ordersId = +params['id'];
+        this.orderId = +params['id'];
         return this.orderAmountsHttp.getAll();
       }),
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((orderAmountsData) => {
-      this.data = orderAmountsData.filter((orderAmount: any) => orderAmount.orderId === this.ordersId);
+      this.data = orderAmountsData.filter((orderAmount: any) => orderAmount.orderId === this.orderId);
     });
   }
 

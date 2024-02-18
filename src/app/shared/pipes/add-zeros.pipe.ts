@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AddZerosPipe implements PipeTransform {
 
-  transform(value: number, digits: number = 3): string {
+  transform(value: number, digits: number = 4): string {
     const strValue = value.toString();
     const decimalIndex = strValue.indexOf('.');
     if (decimalIndex !== -1) {

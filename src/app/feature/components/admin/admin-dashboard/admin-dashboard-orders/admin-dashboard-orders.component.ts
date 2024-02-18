@@ -42,18 +42,18 @@ export class AdminDashboardOrdersComponent implements OnInit {
       }),
       mergeMap(orderAmounts => {
         this.data.map((order: any) => {
-          order.amounts = orderAmounts.filter(orderAmount => orderAmount.order.orderId === order.orderId);
+          order.amounts = orderAmounts.filter(orderAmount => orderAmount.orderId === order.orderId);
         });
         return this.orderTransactionsHttp.getAll();
       })
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((orderTransactions) => {
       this.data.map((order: any) => {
-        order.units = orderTransactions.filter(orderTransaction => orderTransaction.order.orderId === order.orderId);
+        order.units = orderTransactions.filter(orderTransaction => orderTransaction.orderId === order.orderId);
       });
     });
   }

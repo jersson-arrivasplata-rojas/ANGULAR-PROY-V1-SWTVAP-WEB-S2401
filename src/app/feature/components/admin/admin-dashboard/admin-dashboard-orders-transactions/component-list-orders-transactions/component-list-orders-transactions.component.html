@@ -3,10 +3,10 @@
       <thead>
           <tr>
               <th>ID</th>
-              <th>Método de Pago</th>
+              <th>M&eacute;todo de Pago</th>
               <th>Tipo de Pago</th>
               <th>Monto</th>
-              <th>Fecha de Transacción</th>
+              <th>Fecha de Transacci&oacute;n</th>
               <th>Acciones</th>
           </tr>
       </thead>
@@ -20,9 +20,9 @@
                   <td>{{ item.transactionDate | date }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

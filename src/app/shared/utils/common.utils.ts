@@ -1,5 +1,6 @@
 import { sha256 } from 'js-sha256';
 import { jwtDecode } from 'jwt-decode';
+import { StatusEnum } from '../config/status.enum';
 
 export class CommonUtils {
   public static price_max = 100000000000000;
@@ -2286,6 +2287,9 @@ export class CommonUtils {
 
   public static isFloat(value) {
     return !isNaN(parseFloat(value)) && isFinite(value);
+  }
+  static fromStatusBoolean(value: boolean): StatusEnum {
+    return value ? StatusEnum.ACTIVE : StatusEnum.INACTIVE;
   }
 }
 // https://www.typescriptlang.org/docs/handbook/functions.html

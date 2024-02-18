@@ -2,24 +2,24 @@
     <div class="card-body">
         <h2>Id: {{ item.orderId }}</h2>
         <p *ngIf="item.clientId">Cliente: {{ item.clientId }}</p>
-        <p>Código: {{ item.code }}</p>
+        <p>C&oacute;digo: {{ item.code | uppercase }}</p>
         <p>Fecha de la Orden: {{ item.otherDate | date }}</p>
-        <p>Dirección: {{ item.address }}</p>
+        <p>Direcci&oacute;n: {{ item.address }}</p>
         <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal | addZeros }}</p>
-        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: $/{{ item.subtotalUSD | addZeros }}</p>
+        <p *ngIf="item.subtotalUSD">SubTotal en D&oacute;lares: $/{{ item.subtotalUSD | addZeros }}</p>
         <p *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR | addZeros }}</p>
         <p *ngIf="item.taxes">Impuesto en Soles: S/{{ item.taxes | addZeros }}</p>
-        <p *ngIf="item.taxesUSD">Impuesto en Dólares: $/{{ item.taxesUSD | addZeros }}</p>
+        <p *ngIf="item.taxesUSD">Impuesto en D&oacute;lares: $/{{ item.taxesUSD | addZeros }}</p>
         <p *ngIf="item.taxesEUR">Impuesto en Euros: €/{{ item.taxesEUR | addZeros }}</p>
         <p>Monto de descuento: {{ item.discountAmount | transformText }}</p>
         <p *ngIf="item.total">Total en Soles: S/{{ item.total | addZeros }}</p>
-        <p *ngIf="item.totalUSD">Total en Dólares: $/{{ item.totalUSD | addZeros }}</p>
+        <p *ngIf="item.totalUSD">Total en D&oacute;lares: $/{{ item.totalUSD | addZeros }}</p>
         <p *ngIf="item.totalEUR">Total en Euros: €/{{ item.totalEUR | addZeros }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Recojo en Tienda: {{ item.pickUp ? 'Si': 'No' }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

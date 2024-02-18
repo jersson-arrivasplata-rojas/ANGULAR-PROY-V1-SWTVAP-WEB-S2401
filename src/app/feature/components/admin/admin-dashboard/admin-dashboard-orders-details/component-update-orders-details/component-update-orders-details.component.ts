@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { AdminDashboardOrdersDetailsPresenter } from '../admin-dashboard-orders-details.presenter';
 
 @Component({
@@ -14,7 +15,7 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
-  @Input() ordersId;
+  @Input() orderId;
   products: any[] = [];
 
   itemForm: FormGroup;
@@ -40,7 +41,7 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ordersId: this.ordersId});
+    this.itemForm.patchValue({ orderId: this.orderId });
     this.itemForm.patchValue(this.item);
     this.presenter.handleForm();
   }
@@ -53,9 +54,13 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
 
   update() {
     if (this.itemForm.valid) {
+
       const item = { ...this.item, ...this.itemForm.value };
-      this.orderDetailsHttp.update(item.orderDetailId, item).subscribe((item) => {
-        this.updated.emit(item);
+      const { order, product, ...data } = item;
+      data.status = CommonUtils.fromStatusBoolean(data.status);
+      this.orderDetailsHttp.update(item.orderDetailId, data).subscribe((response) => {
+        const data = { ...order, ...response, order, product };
+        this.updated.emit(data);
       });
     }
   }

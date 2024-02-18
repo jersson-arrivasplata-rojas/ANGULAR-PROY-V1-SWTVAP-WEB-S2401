@@ -14,7 +14,7 @@ export class ComponentUpdateOrdersDispatchesComponent implements OnInit, OnChang
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
-  @Input() ordersId;
+  @Input() orderId;
 
   itemForm: FormGroup;
 
@@ -24,7 +24,7 @@ export class ComponentUpdateOrdersDispatchesComponent implements OnInit, OnChang
     private presenter: AdminDashboardOrdersDispatchesPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      ordersId: [''],
+      orderId: [''],
       providerId: [''],
       cost: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       typeCurrency: ['USD', Validators.required],
@@ -36,7 +36,7 @@ export class ComponentUpdateOrdersDispatchesComponent implements OnInit, OnChang
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ordersId: this.ordersId});
+    this.itemForm.patchValue({orderId: this.orderId});
     this.itemForm.patchValue(this.item);
     this.presenter.handleForm();
   }

@@ -6,7 +6,7 @@
         <p>Fecha de Fin: {{ item.endDate | date }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

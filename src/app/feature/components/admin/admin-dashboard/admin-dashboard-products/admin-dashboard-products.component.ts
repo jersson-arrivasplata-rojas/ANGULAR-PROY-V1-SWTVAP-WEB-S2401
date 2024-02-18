@@ -72,7 +72,7 @@ export class AdminDashboardProductsComponent implements OnInit {
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((productUnits) => {
       this.data.map((product: any) => {

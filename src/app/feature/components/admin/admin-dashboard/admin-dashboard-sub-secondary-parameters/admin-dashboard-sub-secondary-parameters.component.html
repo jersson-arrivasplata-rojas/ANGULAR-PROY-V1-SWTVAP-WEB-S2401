@@ -1,7 +1,7 @@
 <div id="STORE-DASHBOARD-PARAMETERS">
     <div class="main-content">
         <div class="breadcrumb d-flex">
-          <button class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
+          <button type="button" class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
               Regresar
           </button>
 
@@ -22,10 +22,10 @@
                 <div class="card-body">
                   <p>Identificador: {{item.id}}</p>
                   <p *ngIf="item.groupId">Grupo: {{item.groupId}}</p>
-                  <p *ngIf="item.description">Descripción: {{item.description}}</p>
+                  <p *ngIf="item.description">Descripci&oacute;n: {{item.description}}</p>
                   <p *ngIf="item.value">Valor: {{item.value}}</p>
-                  <p *ngIf="item.code">Código: {{item.code}}</p>
-                  <p *ngIf="item.position">Posición: {{item.position}}</p>
+                  <p *ngIf="item.code">C&oacute;digo: {{item.code | uppercase }}</p>
+                  <p *ngIf="item.position">Posici&oacute;n: {{item.position}}</p>
                   <p *ngIf="item.status">Estado: {{item.status | status}}</p>
                 </div>
               </div>
@@ -37,7 +37,7 @@
                           <p class="w-50 float-left card-title m-0">Tabla de Sub Parametros Secundarios</p>
                         </div>
                         <div class="text-right w-50 float-right">
-                            <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>

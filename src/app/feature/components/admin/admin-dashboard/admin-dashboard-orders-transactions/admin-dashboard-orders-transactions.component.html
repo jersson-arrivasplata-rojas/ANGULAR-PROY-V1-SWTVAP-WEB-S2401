@@ -1,7 +1,7 @@
 <div id="STORE-DASHBOARD-PRODUCTS-IMAGES">
     <div class="main-content">
         <div class="breadcrumb d-flex">
-            <button class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
+            <button type="button" class="btn btn-danger btn-color-settings text-black mr-2" (click)="back()">
                 Regresar
             </button>
             <h1>Pagos Realizados de la Orden</h1>
@@ -9,8 +9,8 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-orders-transactions *ngIf="addItem" [ordersId]="ordersId" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders-transactions>
-              <app-component-update-orders-transactions *ngIf="updateItem" [ordersId]="ordersId" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders-transactions>
+              <app-component-add-orders-transactions *ngIf="addItem" [orderId]="orderId" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders-transactions>
+              <app-component-update-orders-transactions *ngIf="updateItem" [orderId]="orderId" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders-transactions>
               <app-component-show-orders-transactions *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-orders-transactions>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
@@ -18,7 +18,7 @@
                     <div class="card-header">
                         <p class="w-50 float-left card-title m-0">Tabla de Pagos Realizados de la Orden</p>
                         <div class="text-right w-50 float-right">
-                            <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
 import { ProductHttp } from 'src/app/shared/http/products.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
   data: any[] = [];
   products: any[] = [];
   item = {};
-  ordersId = 0;
+  orderId = 0;
   addItem = false;
   updateItem = false;
   showItem = false;
@@ -26,7 +27,7 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
     this.activatedRoute.params
     .pipe(
       mergeMap(params => {
-        this.ordersId = +params['id'];
+        this.orderId = +params['id'];
         return this.productHttp.getAll();
       }),
       mergeMap(products => {
@@ -36,15 +37,19 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((orderDetailsData) => {
-      this.data = orderDetailsData.filter((orderDetail: any) => orderDetail.orderId === this.ordersId);
+      this.data = orderDetailsData.filter((orderDetail: any) => orderDetail.orderId === this.orderId);
     });
   }
 
-  handleAdded(data: any) {
-    this.orderDetailsHttp.add(data).subscribe((data) => {
+  handleAdded(item: any) {
+
+    const { order, product, ...data } = item;
+    data.status = CommonUtils.fromStatusBoolean(data.status);
+    this.orderDetailsHttp.add(data).subscribe((response) => {
+      const data = { ...response, order, product };
       this.data.push(data);
       this.updateItem = false;
       this.showItem = false;
@@ -53,6 +58,7 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
   }
 
   handleUpdated(item: any) {
+
     this.data = this.data.map((data) => {
       if (data.orderDetailId === item.orderDetailId) {
         return {

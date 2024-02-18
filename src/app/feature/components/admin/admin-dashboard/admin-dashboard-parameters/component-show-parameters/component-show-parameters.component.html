@@ -2,12 +2,12 @@
     <div class="card-body">
         <h2>Id: {{ item.id }}</h2>
         <p>Identificador de Grupo: {{ item.groupId }}</p>
-        <p>Descripción: {{ item.description | transformText }}</p>
+        <p>Descripci&oacute;n: {{ item.description | transformText }}</p>
         <p>Valor: {{ item.value | transformText }}</p>
-        <p>Código: {{ item.code | transformText }}</p>
+        <p>C&oacute;digo: {{ item.code | transformText | uppercase }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

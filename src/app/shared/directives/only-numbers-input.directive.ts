@@ -15,10 +15,18 @@ export class OnlyNumbersInputDirective {
 
   constructor(private el: ElementRef) { }
 
+
+  @HostListener('input', ['$event']) onInput(event) {
+    let value = this.el.nativeElement.value;
+    if (typeof value === 'string' && value.length > 1 && value[0] === '0') {
+      this.el.nativeElement.value = value.slice(1);
+    }
+  }
+
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    let e = <any> event;
+    let e = <any>event;
     if (this.OnlyNumber) {
-        if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
+      if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
         // Allow: Ctrl+A
         (e.keyCode == 65 && e.ctrlKey === true) ||
         // Allow: Ctrl+C
@@ -29,16 +37,16 @@ export class OnlyNumbersInputDirective {
         (e.keyCode == 88 && e.ctrlKey === true) ||
         // Allow: home, end, left, right
         (e.keyCode >= 35 && e.keyCode <= 39)) {
-          // let it happen, don't do anything
-          return;
-        }
+        // let it happen, don't do anything
+        return;
+      }
       let ch = String.fromCharCode(e.keyCode);
       let regEx = this.getRegex();
-      if(regEx.test(ch))
+      if (regEx.test(ch))
         return;
       else
         e.preventDefault();
-      }
+    }
   }
   private getRegex(): RegExp {
     if (this.AllowPoint) {

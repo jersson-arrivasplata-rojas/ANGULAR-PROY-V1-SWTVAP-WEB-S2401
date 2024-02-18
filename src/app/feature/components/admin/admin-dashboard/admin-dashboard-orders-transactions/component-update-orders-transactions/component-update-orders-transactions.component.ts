@@ -14,7 +14,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
-  @Input() ordersId;
+  @Input() orderId;
 
   itemForm: FormGroup;
 
@@ -24,7 +24,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
     private presenter: AdminDashboardOrdersTransactionsPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      ordersId: ['', Validators.required],
+      orderId: ['', Validators.required],
       paymentMethod: ['Transfer', Validators.required],
       typeCurrency: ['USD', Validators.required],
       amount: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
@@ -34,7 +34,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ ordersId: this.ordersId });
+    this.itemForm.patchValue({ orderId: this.orderId });
     this.itemForm.patchValue(this.item);
     this.presenter.handleForm();
   }

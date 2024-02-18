@@ -134,6 +134,7 @@ import { AmountValidatorDirective } from './directives/amount-validator.directiv
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
+import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { AddZerosPipe } from './pipes/add-zeros.pipe';
@@ -287,7 +288,8 @@ import { ServicesModule } from './services/services.module';
     AddZerosPipe,
     DateFormatDirective,
     TransformTextPipe,
-    PrefixValueDirective
+    PrefixValueDirective,
+    UppercaseDirective,
   ],
   exports: [
     GeneratorCssComponent,
@@ -433,7 +435,8 @@ import { ServicesModule } from './services/services.module';
     AddZerosPipe,
     DateFormatDirective,
     TransformTextPipe,
-    PrefixValueDirective
+    PrefixValueDirective,
+    UppercaseDirective,
   ],
   imports: [
     CommonModule,

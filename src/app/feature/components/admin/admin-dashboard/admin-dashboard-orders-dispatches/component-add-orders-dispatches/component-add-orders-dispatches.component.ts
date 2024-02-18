@@ -13,7 +13,7 @@ import { AdminDashboardOrdersDispatchesPresenter } from '../admin-dashboard-orde
 export class ComponentAddOrdersDispatchesComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
-  @Input() ordersId;
+  @Input() orderId;
 
   itemForm: FormGroup;
 
@@ -22,11 +22,11 @@ export class ComponentAddOrdersDispatchesComponent implements OnInit {
     private presenter: AdminDashboardOrdersDispatchesPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      ordersId: [''],
+      orderId: [''],
       providerId: [''],
       cost: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       typeCurrency: ['USD', Validators.required],
-      date: ['', Validators.required],
+      date: [CommonUtils.getDayNow(), Validators.required],
       status: ['0', Validators.required],
       otherDetails: ['']
     });
@@ -34,7 +34,7 @@ export class ComponentAddOrdersDispatchesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ordersId: this.ordersId});
+    this.itemForm.patchValue({orderId: this.orderId});
     this.presenter.handleForm();
   }
 
@@ -47,7 +47,7 @@ export class ComponentAddOrdersDispatchesComponent implements OnInit {
 
   init() {
     return {
-      ordersId: this.ordersId,
+      orderId: this.orderId,
       providerId: '',
       cost: 0,
       typeCurrency: 'USD',

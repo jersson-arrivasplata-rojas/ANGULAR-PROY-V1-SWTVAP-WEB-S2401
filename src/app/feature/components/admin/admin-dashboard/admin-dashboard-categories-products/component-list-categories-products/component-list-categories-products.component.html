@@ -5,11 +5,11 @@
             <th>ID</th>
             <th>Asociado</th>
             <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-              <th>Código</th>
+              <th>C&oacute;digo</th>
               <th>Nombre</th>
               <th>Precio</th>
               <th>Stock</th>
-              <th>Stock Mínimo</th>
+              <th>Stock M&iacute;nimo</th>
             </ng-container>
             <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
               <th>Nombre</th>
@@ -23,7 +23,7 @@
               <td>{{item.categoryId? item.categoryId  : item.productId  }}</td>
               <td>{{ item.relationship | statusRelationship }}</td>
               <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-                <td>{{ item.code }}</td>
+                <td>{{ item.code | uppercase }}</td>
                 <td>{{ item.name }}</td>
                 <td class="text-left">
                   <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
@@ -39,9 +39,9 @@
               <td>{{ item.status | status }}</td>
               <td>
                 <div class="d-flex flex-column align-items-center">
-                  <button *ngIf="!item.relationship" class=" btn btn-first font-16px" (click)="add(item)">Asociar</button>
-                  <button *ngIf="item.relationship" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                  <button type="button" *ngIf="!item.relationship" class=" btn btn-first font-16px" (click)="add(item)">Asociar</button>
+                  <button type="button" *ngIf="item.relationship" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                  <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
                 </div>
               </td>
           </tr>

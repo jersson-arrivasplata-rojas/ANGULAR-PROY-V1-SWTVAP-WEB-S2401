@@ -3,9 +3,9 @@
       <thead>
           <tr>
               <th>ID</th>
-              <th>Código</th>
+              <th>C&oacute;digo</th>
               <th>Nombre</th>
-              <th>Categorías Asignadas</th>
+              <th>Categor&iacute;as Asignadas</th>
               <th>Estado</th>
               <th>Acciones</th>
           </tr>
@@ -14,19 +14,19 @@
           <ng-container *ngFor="let item of data" >
               <tr>
                   <td>{{ item.catalogId }}</td>
-                  <td>{{ item.code }}</td>
+                  <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.name }}</td>
                   <td>
-                    <button class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
+                    <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
                       <span class="mr-2">({{ item.categories?item.categories.length:0 }} Categorias)</span>Agregar
                     </button>
                   </td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

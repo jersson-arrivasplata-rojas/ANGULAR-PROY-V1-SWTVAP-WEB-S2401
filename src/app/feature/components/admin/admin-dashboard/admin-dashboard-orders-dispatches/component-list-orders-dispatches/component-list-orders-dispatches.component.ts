@@ -10,7 +10,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 })
 export class ComponentListOrdersDispatchesComponent {
   @Input() data: any[] = [];
-  @Input() ordersId;
+  @Input() orderId;
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
@@ -51,6 +51,6 @@ export class ComponentListOrdersDispatchesComponent {
 
   addProvider(item: any) {
     this.shareDataService.add(null);
-    this.router.navigate(['/admin/dashboard/orders/add-dispatches', this.ordersId, 'add-providers', item.id]);
+    this.router.navigate(['/admin/dashboard/orders/add-dispatches', this.orderId, 'add-providers', item.id]);
   }
 }

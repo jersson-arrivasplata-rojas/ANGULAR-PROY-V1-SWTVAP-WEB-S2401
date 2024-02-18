@@ -8,7 +8,7 @@
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ getStatusProvider(item.status) | statusProvider}}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

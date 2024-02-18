@@ -5,13 +5,13 @@
       <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="paymentMethod">Métodos de Pagos:</label>
+                <label for="paymentMethod">M&eacute;todos de Pagos:</label>
                 <select class="form-control" id="paymentMethod" formControlName="paymentMethod">
                     <option value="Cash">Efectivo</option>
-                    <option value="Credit Card">Tarjeta de Crédito</option>
-                    <option value="Debit Card">Tarjeta de Débito</option>
+                    <option value="Credit Card">Tarjeta de Cr&eacute;dito</option>
+                    <option value="Debit Card">Tarjeta de D&eacute;bito</option>
                     <option value="Transfer">Transferencia</option>
-                    <option value="Deposit">Depósito</option>
+                    <option value="Deposit">Dep&oacute;sito</option>
                     <option value="Check">Cheque</option>
                     <option value="PayPal">PayPal</option>
                     <option value="Bitcoin">Bitcoin</option>
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="typeCurrency">Tipo de Pago:</label>
                 <select class="form-control" id="typeCurrency" formControlName="typeCurrency">
-                    <option value="USD">Dólares</option>
+                    <option value="USD">D&oacute;lares</option>
                     <option value="EUR">Euros</option>
                     <option value="PEN">Soles</option>
                     <option value="Otro">Otro</option>
@@ -40,14 +40,14 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="transactionDate">Fecha de Transacción (YYYY-MM-DD):</label>
+                <label for="transactionDate">Fecha de Transacci&oacute;n (YYYY-MM-DD):</label>
                 <input type="text" class="form-control" id="transactionDate" formControlName="transactionDate" appDateFormat>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
               <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
-              <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+              <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
             </div>
         </div>
       </div>

@@ -3,20 +3,20 @@
         <h2>Id: {{ item.productId?item.productId:item.providerId }}</h2>
         <p>Asociado: {{ item.relationship | statusRelationship }}</p>
         <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-          <p>Código: {{ item.code }}</p>
+          <p>C&oacute;digo: {{ item.code | uppercase }}</p>
           <p>Nombre: {{ item.name }}</p>
-          <p>Descripción: {{ item.description }}</p>
+          <p>Descripci&oacute;n: {{ item.description }}</p>
           <p *ngIf="item.price">Precio en Soles: S/{{ item.price }}</p>
-          <p *ngIf="item.priceUSD">Precio en Dólares: $/{{ item.priceUSD }}</p>
+          <p *ngIf="item.priceUSD">Precio en D&oacute;lares: $/{{ item.priceUSD }}</p>
           <p *ngIf="item.priceEUR">Precio en Euros: €/{{ item.priceEUR }}</p>
           <p>Stock: {{ item.stock }}</p>
-          <p>Stock Mínimo: {{ item.stockMin }}</p>
+          <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
           <p>Otros Detalles: {{ item.otherDetails }}</p>
         </ng-container>
         <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
           <p>Nombre: {{ item.name }}</p>
-          <p>Dirección: {{ item.address }}</p>
-          <p>Teléfono: {{ item.phone }}</p>
+          <p>Direcci&oacute;n: {{ item.address }}</p>
+          <p>Tel&eacute;fono: {{ item.phone }}</p>
           <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
           <p>Correo: {{ item.email }}</p>
           <p>Whatsapp: {{ item.whatsapp | status }}</p>
@@ -25,7 +25,7 @@
         </ng-container>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

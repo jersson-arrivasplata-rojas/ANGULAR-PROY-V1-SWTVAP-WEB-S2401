@@ -11,13 +11,13 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="abbreviation">Abreviación:</label>
+                <label for="abbreviation">Abreviaci&oacute;n:</label>
                 <input type="text" class="form-control" id="abbreviation" formControlName="abbreviation" maxlength="10" placeholder="Ejmplo: pz, kg, g, L u otros">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="conversionFactor">Factor de Conversión:</label>
+                <label for="conversionFactor">Factor de Conversi&oacute;n:</label>
                 <input type="text" class="form-control" id="conversionFactor" formControlName="conversionFactor" appOnlyNumbersInput [OnlyNumber]="true" [AllowPoint]="true">
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col-lg-12">
             <div class="form-group">
               <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
-              <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+              <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
             </div>
         </div>
       </div>

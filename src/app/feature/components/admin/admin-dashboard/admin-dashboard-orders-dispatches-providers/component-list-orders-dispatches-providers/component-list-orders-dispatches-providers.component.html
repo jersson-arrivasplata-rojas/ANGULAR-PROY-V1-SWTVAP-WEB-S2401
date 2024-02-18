@@ -5,8 +5,8 @@
             <th>ID</th>
             <th>Asociado</th>
             <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
+            <th>Direcci&oacute;n</th>
+            <th>Tel&eacute;fono</th>
             <th>Celular</th>
             <th>Correo</th>
             <th>Whatsapp</th>
@@ -27,14 +27,14 @@
               <td>{{ item.status | status }}</td>
               <td>
                 <div class="d-flex flex-column">
-                  <button *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
-                  <button *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                  <button type="button" *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
+                  <button type="button" *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                  <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
                 </div>
               </td>
           </tr>
       <tr *ngIf="!data.length">
-        <td [attr.colspan]="9">
+        <td [attr.colspan]="10">
             Aun no se a agregado ningun registro
         </td>
       </tr>

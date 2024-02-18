@@ -1,6 +1,6 @@
 <header style="z-index: 10;" id="header-dashboard-principal" class="navbar navbar-expand navbar-dark
   flex-column w-100 flex-md-row bd-navbar header-dashboard">
-    <button class="navbar-brand mr-0 mr-md-2 btn-outline-first
+    <button type="button" class="navbar-brand mr-0 mr-md-2 btn-outline-first
     btn-first-menu-toggle cursor-pointer" (click)="menuToggle($event)" id="#menu-toggle">
     <span class="mdi mdi-menu"></span>
   </button>
@@ -13,7 +13,7 @@
         <div *ngIf="getType()" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdownActive==true}'>
             <div id="dropDown" #DropDown class="drop-down__button btn btn-outline-first border-input" (click)="dropdown(DropDown)">
                 <i class="mdi mdi-chevron-down mr-1"></i>
-                <span class="drop-down__name mr-1">Menú</span>
+                <span class="drop-down__name mr-1">Men&uacute;</span>
             </div>
             <div class="drop-down__menu-box">
                 <ul class="drop-down__menu">
@@ -29,7 +29,7 @@
                     </li>
                 </ul>
 
-                <button class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;" (click)="dropdown(DropDown)">
+                <button type="button" class="btn btn-danger-2 border-radius-15 content-times" style="border-radius: 50px;" (click)="dropdown(DropDown)">
           <i class="fas fa-times"></i>
         </button>
             </div>
@@ -62,12 +62,12 @@
             </li>
             <li data-uri='catalogs'>
                 <a [routerLink]="['/admin/dashboard/catalogs']">
-                    <i class="mdi mdi-shape mr-1"></i> <span>Catálogos</span>
+                    <i class="mdi mdi-shape mr-1"></i> <span>Cat&aacute;logos</span>
                 </a>
             </li>
             <li data-uri='categories'>
                 <a [routerLink]="['/admin/dashboard/categories']">
-                    <i class="mdi mdi-adjust mr-1"></i> <span>Categorías</span>
+                    <i class="mdi mdi-adjust mr-1"></i> <span>Categor&iacute;as</span>
                 </a>
             </li>
             <li data-uri='products'>
@@ -77,7 +77,7 @@
             </li>
             <li data-uri='orders'>
                 <a [routerLink]="['/admin/dashboard/orders']">
-                    <i class="mdi mdi-file-document mr-1"></i> <span>Órdenes</span>
+                    <i class="mdi mdi-file-document mr-1"></i> <span>&Oacute;rdenes</span>
                 </a>
             </li>
             <li data-uri='clients'>
@@ -112,7 +112,7 @@
             </li>
             <li  data-uri='analytics'>
                 <a [routerLink]="['/admin/dashboard/analytics']">
-                    <i class="mdi mdi-pulse mr-1"></i> <span>Estadística de Visitas</span>
+                    <i class="mdi mdi-pulse mr-1"></i> <span>Estad&iacute;stica de Visitas</span>
                 </a>
             </li>
         </ul>

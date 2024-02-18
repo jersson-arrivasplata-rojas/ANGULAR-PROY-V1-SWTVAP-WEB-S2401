@@ -16,21 +16,21 @@
                   <td>{{ item.categoryId }}</td>
                   <td>{{ item.name }}</td>
                   <td>
-                    <button class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
-                      <span class="mr-2">({{ item.catalogs?item.catalogs.length:0 }} Catálogos)</span>Agregar
+                    <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
+                      <span class="mr-2">({{ item.catalogs?item.catalogs.length:0 }} Cat&aacute;logos)</span>Agregar
                     </button>
                   </td>
                   <td>
-                    <button class=" btn btn-outline-first btn-sm font-14px" (click)="addProductCategories(item)">
+                    <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addProductCategories(item)">
                       <span class="mr-2">({{ item.products?item.products.length:0 }} Productos)</span>Agregar
                     </button>
                   </td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

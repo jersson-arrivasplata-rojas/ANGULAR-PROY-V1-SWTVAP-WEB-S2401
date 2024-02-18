@@ -5,13 +5,13 @@
     <div class="row">
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="code">Código:</label>
-              <input type="text" class="form-control" id="code" placeholder="ORDER-00000001" formControlName="code">
+              <label for="code">C&oacute;digo:</label>
+              <input type="text" class="form-control" id="code" placeholder="Ejemplo: ORDER-00000001" formControlName="code" appUppercase>
           </div>
       </div>
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="address">Dirección:</label>
+              <label for="address">Direcci&oacute;n:</label>
               <textarea rows="3" class="form-control" id="address" formControlName="address">
               </textarea>
           </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="subtotalUSD">SubTotal en Dólares:</label>
+              <label for="subtotalUSD">SubTotal en D&oacute;lares:</label>
               <input type="text" class="form-control" id="subtotalUSD" formControlName="subtotalUSD" readonly>
           </div>
       </div>
@@ -42,7 +42,7 @@
       </div>
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="taxesUSD">Impuestos en Dólares:</label>
+              <label for="taxesUSD">Impuestos en D&oacute;lares:</label>
               <input type="text" class="form-control" id="taxesUSD" formControlName="taxesUSD" appAmountValidator>
           </div>
       </div>
@@ -66,7 +66,7 @@
       </div>
       <div class="col-lg-12">
           <div class="form-group">
-              <label for="totalUSD">Total en Dólares:</label>
+              <label for="totalUSD">Total en D&oacute;lares:</label>
               <input type="text" class="form-control" id="totalUSD" formControlName="totalUSD" readonly>
           </div>
       </div>
@@ -98,7 +98,7 @@
       <div class="col-lg-12">
           <div class="form-group">
             <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Actualizar</button>
-            <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+            <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
           </div>
       </div>
     </div>

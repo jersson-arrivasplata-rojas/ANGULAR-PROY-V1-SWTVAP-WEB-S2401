@@ -4,16 +4,16 @@
         <p>Producto: {{ productName }}</p>
         <p>Cantidad: {{ item.quantity }}</p>
         <p>Precio x Unidad en Soles: S/{{ item.unitPrice | addZeros }}</p>
-        <p *ngIf="item.unitPriceUSD">Precio x Unidad en Dólares: $/{{ item.unitPriceUSD | addZeros }}</p>
+        <p *ngIf="item.unitPriceUSD">Precio x Unidad en D&oacute;lares: $/{{ item.unitPriceUSD | addZeros }}</p>
         <p *ngIf="item.unitPriceEUR">Precio x Unidad en Euros: €/{{ item.unitPriceEUR | addZeros }}</p>
         <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal | addZeros }}</p>
-        <p *ngIf="item.subtotalUSD">SubTotal en Dólares: $/{{ item.subtotalUSD | addZeros }}</p>
+        <p *ngIf="item.subtotalUSD">SubTotal en D&oacute;lares: $/{{ item.subtotalUSD | addZeros }}</p>
         <p *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR | addZeros }}</p>
         <p>Descuento x Porcentaje: {{ item.discountPercentage | transformText }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

@@ -8,7 +8,7 @@ import { TimersEnum } from '../config/timers.enum';
 })
 export class AmountValidatorDirective {
 
-  pattern = /^\d*\.?\d{0,3}/;
+  pattern = /^\d*\.?\d{0,4}/;
 
   constructor(private ngControl: NgControl) { }
 

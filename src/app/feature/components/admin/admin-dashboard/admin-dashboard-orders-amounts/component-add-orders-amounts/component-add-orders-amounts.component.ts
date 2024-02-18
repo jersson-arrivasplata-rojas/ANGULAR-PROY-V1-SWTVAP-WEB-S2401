@@ -12,7 +12,7 @@ import { AdminDashboardOrdersAmountsPresenter } from '../admin-dashboard-orders-
 export class ComponentAddOrdersAmountsComponent implements OnInit {
   @Output() added: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
-  @Input() ordersId;
+  @Input() orderId;
 
   itemForm: FormGroup;
 
@@ -21,7 +21,7 @@ export class ComponentAddOrdersAmountsComponent implements OnInit {
     private presenter: AdminDashboardOrdersAmountsPresenter
   ) {
     this.itemForm = this.formBuilder.group({
-      ordersId: ['', Validators.required],
+      orderId: ['', Validators.required],
       name: ['', Validators.required],
       amount: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       amountUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
@@ -32,7 +32,7 @@ export class ComponentAddOrdersAmountsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemForm.patchValue({ ordersId: this.ordersId });
+    this.itemForm.patchValue({ orderId: this.orderId });
     this.presenter.handleForm();
   }
 
@@ -45,7 +45,7 @@ export class ComponentAddOrdersAmountsComponent implements OnInit {
 
   init() {
     return {
-      ordersId: this.ordersId,
+      orderId: this.orderId,
       name: '',
       amount: 0,
       amountUSD: 0,

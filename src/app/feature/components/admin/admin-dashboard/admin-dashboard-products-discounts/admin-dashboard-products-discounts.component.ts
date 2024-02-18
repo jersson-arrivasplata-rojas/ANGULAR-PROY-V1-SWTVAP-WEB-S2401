@@ -30,7 +30,7 @@ export class AdminDashboardProductsDiscountsComponent implements OnInit {
     ).pipe(
       catchError(error => {
         console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((productDiscountsData) => {
       this.data = productDiscountsData.filter((productDiscount) => productDiscount.productId === this.productId);

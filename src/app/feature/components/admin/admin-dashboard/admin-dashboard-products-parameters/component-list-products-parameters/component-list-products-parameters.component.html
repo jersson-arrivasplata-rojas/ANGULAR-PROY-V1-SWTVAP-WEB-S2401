@@ -4,9 +4,9 @@
           <tr>
               <th>ID</th>
               <th>Tipo</th>
-              <th>Código</th>
+              <th>C&oacute;digo</th>
               <th>Identificador de Grupo</th>
-              <th>Descripción</th>
+              <th>Descripci&oacute;n</th>
               <th>Valor</th>
               <th>Acciones</th>
           </tr>
@@ -15,15 +15,15 @@
           <ng-container *ngFor="let item of data" >
               <tr>
                   <td>{{ item.productParameterId }}</td>
-                  <td>{{ item.parameterParent.code }}</td>
-                  <td>{{ item.parameter.code }}</td>
+                  <td>{{ item.parameterParent.code | uppercase }}</td>
+                  <td>{{ item.parameter.code | uppercase }}</td>
                   <td>{{ item.parameter.groupId | emptyText }}</td>
                   <td>{{ item.parameter.description | truncateText }}</td>
                   <td>{{ item.parameter.value | truncateText }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

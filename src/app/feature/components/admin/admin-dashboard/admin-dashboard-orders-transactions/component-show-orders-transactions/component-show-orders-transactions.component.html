@@ -1,12 +1,12 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.orderTransactionId }}</h2>
-        <p>Método de Pago: {{ item.paymentMethod }}</p>
+        <p>M&eacute;todo de Pago: {{ item.paymentMethod }}</p>
         <p>Tipo de Pago: {{ item.typeCurrency }}</p>
         <p>Monto: {{ item.amount | addZeros }}</p>
-        <p>Fecha de Transacción: {{ item.transactionDate | date }}</p>
+        <p>Fecha de Transacci&oacute;n: {{ item.transactionDate | date }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

@@ -42,7 +42,7 @@ export class DashboardHourContent implements OnInit {
     nodeStoreService.getStore().subscribe(data=>{
       this.store = data.store;
 
-      
+
 
     });
   }
@@ -60,7 +60,7 @@ export class DashboardHourContent implements OnInit {
     $.ajax({
       url: own.APP_URL_API + 'dashboard/home/' + id + '/get-hour',
       type: 'GET',
-      headers: { 
+      headers: {
         "Authorization": localStorage.getItem('accessToken')
       },
       dataType: 'json',
@@ -119,34 +119,34 @@ export class DashboardHourContent implements OnInit {
           url: own.APP_URL_API + 'dashboard/home/hour/' + id,//ok
 
           type: 'DELETE',
-          headers: { 
+          headers: {
             "Authorization": localStorage.getItem('accessToken')
           },
-          // el tipo de información que se espera de respuesta
+          // el tipo de informaci&oacute;n que se espera de respuesta
           dataType: 'json',
-          // código a ejecutar si la petición es satisfactoria;
-          // la respuesta es pasada como argumento a la función
+          // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+          // la respuesta es pasada como argumento a la funci&oacute;n
           success: function (data) {
 
             own.eventHour.emit(1);
-            
+
 
 
           },
           error: function (xhr, status) {
-            // alert('Disculpe, existió un problema');
+            // alert('Disculpe, existi&oacute; un problema');
           },
 
-          // código a ejecutar sin importar si la petición falló o no
+          // c&oacute;digo a ejecutar sin importar si la petici&oacute;n fall&oacute; o no
           complete: function (xhr, status) {
-            //  alert('Petición realizada');
+            //  alert('Petici&oacute;n realizada');
             own.isLoadingDeleteHour=false;
             $(own.idGeneral).find('.alerts').append(Metodos.deleteAlert());
 
           }
         });
       } else if (result.isDenied) {
-       
+
       }
     });
   }
@@ -155,7 +155,7 @@ export class DashboardHourContent implements OnInit {
     let own = this;
 
     var data: any = {}
-    
+
     data.id = own.store.stores_id;
     data.day = $(own.idGeneral).find('#hourModal').find('select[name="day"]').val()
     data.time_start = own.timeInit;
@@ -180,7 +180,7 @@ export class DashboardHourContent implements OnInit {
       data.acronym = "VI";
       data.position = 5;
     }
-    if (data.day == "Sábado") {
+    if (data.day == "S&aacute;bado") {
       data.acronym = "SA";
       data.position = 6;
     }
@@ -197,19 +197,19 @@ export class DashboardHourContent implements OnInit {
       own.isLoadingUpdateHour=true;
 
       $.ajax({
-        // la URL para la petición
+        // la URL para la petici&oacute;n
         url: own.APP_URL_API + 'dashboard/home/add-hour',//ok
 
         data: data,
 
         type: 'POST',
-        headers: { 
+        headers: {
           "Authorization": localStorage.getItem('accessToken')
         },
-        // el tipo de información que se espera de respuesta
+        // el tipo de informaci&oacute;n que se espera de respuesta
         dataType: 'json',
-        // código a ejecutar si la petición es satisfactoria;
-        // la respuesta es pasada como argumento a la función
+        // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+        // la respuesta es pasada como argumento a la funci&oacute;n
         success: function (json) {
           //    console.log(json);
           own.eventHour.emit(1);
@@ -218,7 +218,7 @@ export class DashboardHourContent implements OnInit {
         },
 
         error: function (xhr, status) {
-          // alert('Disculpe, existió un problema');
+          // alert('Disculpe, existi&oacute; un problema');
           if (status == "error") {
             //responseJSON
             var data = xhr.responseJSON;
@@ -239,7 +239,7 @@ export class DashboardHourContent implements OnInit {
           }
         },
         complete: function (xhr, status) {
-          //  alert('Petición realizada');
+          //  alert('Petici&oacute;n realizada');
           own.isLoadingUpdateHour=false;
           $(own.idGeneral).find('.alerts').append(Metodos.insertAlert())
 
@@ -314,7 +314,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
 
   isLoadingHour: boolean = false;
   preloadDashboard:boolean = false;
-  
+
   public $stores_deparments:Department[]= [];
   public $filters: Select2Data=[];//
   public $filters_options: Options;
@@ -351,7 +351,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     this.textWhatsapp = Metodos.textWhatsapp
     this.phoneWhatsapp = Metodos.phoneWhatsapp
 
- 
+
 
     $.getScript(this.APP_URL+'assets/javascript/tours/dashboard/dashboard-perfil-tienda-tour.js');
     //https://stackblitz.com/edit/ng-select2?file=src%2Fapp%2Fdemos%2Fmultiple%2Fmultiple.component.html
@@ -363,8 +363,8 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       width: '300'
     };
 
-  
- 
+
+
   }
   ngAfterViewInit() {
     this.getAll();
@@ -377,63 +377,63 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
   getCoverages() {
     let own = this;
     $.ajax({
-      // la URL para la petición
+      // la URL para la petici&oacute;n
       url: own.APP_URL_API + 'dashboard/home/coverages',//ok
 
       type: 'GET',
-      headers: { 
+      headers: {
         "Authorization": localStorage.getItem('accessToken')
       },
       data: { id: own.store.stores_id },
 
-      // el tipo de información que se espera de respuesta
+      // el tipo de informaci&oacute;n que se espera de respuesta
       dataType: 'json',
-      // código a ejecutar si la petición es satisfactoria;
-      // la respuesta es pasada como argumento a la función
+      // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+      // la respuesta es pasada como argumento a la funci&oacute;n
       success: function (data) {
 
         own.$stores_coverages = data.stores_coverages;
       },
 
       error: function (xhr, status) {
-        // alert('Disculpe, existió un problema');
+        // alert('Disculpe, existi&oacute; un problema');
       },
 
-      // código a ejecutar sin importar si la petición falló o no
+      // c&oacute;digo a ejecutar sin importar si la petici&oacute;n fall&oacute; o no
       complete: function (xhr, status) {
-        //  alert('Petición realizada');
+        //  alert('Petici&oacute;n realizada');
       }
     });
   }
   getHours() {
     let own = this;
     $.ajax({
-      // la URL para la petición
+      // la URL para la petici&oacute;n
       url: own.APP_URL_API + 'dashboard/home/hours',//ok
 
       type: 'GET',
-      headers: { 
+      headers: {
         "Authorization": localStorage.getItem('accessToken')
       },
       data: { id: own.store.stores_id },
 
-      // el tipo de información que se espera de respuesta
+      // el tipo de informaci&oacute;n que se espera de respuesta
       dataType: 'json',
-      // código a ejecutar si la petición es satisfactoria;
-      // la respuesta es pasada como argumento a la función
+      // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+      // la respuesta es pasada como argumento a la funci&oacute;n
       success: function (data) {
 
         own.updateHourContent(own,data.hours);
-      
+
       },
 
       error: function (xhr, status) {
-        // alert('Disculpe, existió un problema');
+        // alert('Disculpe, existi&oacute; un problema');
       },
 
-      // código a ejecutar sin importar si la petición falló o no
+      // c&oacute;digo a ejecutar sin importar si la petici&oacute;n fall&oacute; o no
       complete: function (xhr, status) {
-        //  alert('Petición realizada');
+        //  alert('Petici&oacute;n realizada');
       }
     });
   }
@@ -475,7 +475,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       data.acronym = "VI";
       data.position = 5;
     }
-    if (data.day == "Sábado") {
+    if (data.day == "S&aacute;bado") {
       data.acronym = "SA";
       data.position = 6;
     }
@@ -491,19 +491,19 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     } else {
       own.isLoadingHour=true;
       $.ajax({
-        // la URL para la petición
+        // la URL para la petici&oacute;n
         url: own.APP_URL_API + 'dashboard/home/add-hour',//ok
 
         data: data,
 
         type: 'POST',
-        headers: { 
+        headers: {
           "Authorization": localStorage.getItem('accessToken')
         },
-        // el tipo de información que se espera de respuesta
+        // el tipo de informaci&oacute;n que se espera de respuesta
         dataType: 'json',
-        // código a ejecutar si la petición es satisfactoria;
-        // la respuesta es pasada como argumento a la función
+        // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+        // la respuesta es pasada como argumento a la funci&oacute;n
         success: function (json) {
        //   console.log(json);
 
@@ -512,12 +512,12 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
         },
 
         error: function (xhr, status) {
-          // alert('Disculpe, existió un problema');
+          // alert('Disculpe, existi&oacute; un problema');
         },
 
-        // código a ejecutar sin importar si la petición falló o no
+        // c&oacute;digo a ejecutar sin importar si la petici&oacute;n fall&oacute; o no
         complete: function (xhr, status) {
-          //  alert('Petición realizada');
+          //  alert('Petici&oacute;n realizada');
           own.isLoadingHour=false;
           $(own.idGeneral).find('.alerts').append(Metodos.insertAlert());
 
@@ -542,7 +542,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
 
       // replace space with dash/hyphen
       str = str.replace(/\s+/g, '-');
-      
+
       $(own.idGeneral).find('#uri-profile').val(str);
       $(own.idGeneral).find('.URLSET').attr('data-url', str);
       //http://localhost:4200/polize-store/dashboard/perfil-tienda
@@ -577,7 +577,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     var price = $(own.idGeneral).find('#cardCoverageAdd').find('input[name="price"]').val()
     var description = $(own.idGeneral).find('#cardCoverageAdd').find('textarea[name="description"]').val()
 
- 
+
     if (price == '') {
       Swal.fire(
         '¡Falta ingresar el precio!',
@@ -630,14 +630,14 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
           url: own.APP_URL_API + 'dashboard/store/coverage',
           data: data,
           type: 'POST',
-          headers: { 
+          headers: {
             "Authorization": localStorage.getItem('accessToken')
           },
           dataType: 'json',
           success: function (data) {
             own.$stores_coverages = data.stores_coverages;
           },
-  
+
           error: function (xhr, status) {
             $(own.idGeneral).find('.alerts').append(Metodos.noInsertAlert());
           },
@@ -675,19 +675,19 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       if (result.isConfirmed) {
         own.isLoadingDeleteCoverage=true;
         $.ajax({
-          // la URL para la petición
+          // la URL para la petici&oacute;n
           url: own.APP_URL_API + 'dashboard/store/coverage/'+ id+'/'+own.store.stores_id,//ok
 
           type: 'DELETE',
-          headers: { 
+          headers: {
             "Authorization": localStorage.getItem('accessToken')
           },
-          // el tipo de información que se espera de respuesta
+          // el tipo de informaci&oacute;n que se espera de respuesta
           dataType: 'json',
-          // código a ejecutar si la petición es satisfactoria;
-          // la respuesta es pasada como argumento a la función
+          // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+          // la respuesta es pasada como argumento a la funci&oacute;n
           success: function (data) {
-    
+
             own.$stores_coverages = data.stores_coverages;
           },
           error: function (xhr, status) {
@@ -700,11 +700,11 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
         });
 
       } else if (result.isDenied) {
-     
+
       }
     })
   }
-  updateStoreFilters($event){ 
+  updateStoreFilters($event){
     console.log($event.value);
     if($event.value.length>0){
       this.$stores_filters=$event.value;
@@ -789,18 +789,18 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       if (result.isConfirmed) {
         own.isLoadingProfile=true;
         $.ajax({
-          // la URL para la petición
+          // la URL para la petici&oacute;n
           url: own.APP_URL_API + 'dashboard/profile/'+ id,//ok
           data: data,
-  
+
           type: 'PUT',
-          headers: { 
+          headers: {
             "Authorization": localStorage.getItem('accessToken')
           },
-          // el tipo de información que se espera de respuesta
+          // el tipo de informaci&oacute;n que se espera de respuesta
           dataType: 'json',
-          // código a ejecutar si la petición es satisfactoria;
-          // la respuesta es pasada como argumento a la función
+          // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+          // la respuesta es pasada como argumento a la funci&oacute;n
           success: function (json) {
             //response
             //cantidad_url
@@ -823,13 +823,13 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
               },1000);
               //$(own.idGeneral).find('[name="uri"]').attr('data-url',  json.data.uri);
               //$(own.idGeneral).find('[name="uri"]').val(json.data.uri);
-             
-  
+
+
             }
-  
-  
+
+
           },
-  
+
           error: function (xhr, status) {
             $(own.idGeneral).find('.alerts').append(Metodos.noUpdateAlert());
 
@@ -840,13 +840,13 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
 
           }
         });
-      
+
       } else if (result.isDenied) {
-        
+
       }
 
 
-      
+
     });
 
   }
@@ -867,7 +867,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     }else{
       $('.disp-url').html('<strong>¡Puede seguir usando su url!</strong>')
     }
-  
+
   }
 
   goURLDATA(self, type) {
@@ -885,21 +885,21 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     Metodos.insertPreloadStoreRemoveHidden('PRELOAD-DASHBOARD-PERFIL', this.getImagePrincipal(), this.$stores_name);
     own.preloadDashboard=false;
     $.ajax({
-      // la URL para la petición
+      // la URL para la petici&oacute;n
       url: own.APP_URL_API + 'dashboard/profile',//ok
 
       type: 'GET',
-      headers: { 
+      headers: {
         "Authorization": localStorage.getItem('accessToken')
       },
       data: { id: own.store.stores_id },
 
-      // el tipo de información que se espera de respuesta
+      // el tipo de informaci&oacute;n que se espera de respuesta
       dataType: 'json',
-      // código a ejecutar si la petición es satisfactoria;
-      // la respuesta es pasada como argumento a la función
+      // c&oacute;digo a ejecutar si la petici&oacute;n es satisfactoria;
+      // la respuesta es pasada como argumento a la funci&oacute;n
       success: function (data) {
-           
+
 
         //$(own.idGeneral).find('#HoursCardBody').empty();
             own.$stores_name=data.stores_name;
@@ -931,9 +931,9 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
             for(var i =0; i<data.filters.length;i++){
               if(i==data.filters.length){ break;}
               own.$filters.push({
-                value: data.filters[i].id, 
-                label: data.filters[i].name, 
-                data: {  id: data.filters[i].id, name: data.filters[i].name }//color: 'white', 
+                value: data.filters[i].id,
+                label: data.filters[i].name,
+                data: {  id: data.filters[i].id, name: data.filters[i].name }//color: 'white',
               });
             }
 
@@ -948,7 +948,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       complete: function (xhr, status) {
         own.preloadDashboard=true;
         Metodos.removeNodoPreloadHidden('PRELOAD-DASHBOARD-PERFIL');
-      
+
         //
       }
     });
@@ -970,9 +970,9 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       for (var i = 0; i < this.$stores_deparments.length; i++) {
         if (i == this.$stores_deparments.length) { break; }
         if (parseInt(value) == this.$stores_deparments[i].id) {
-  
+
           //this.user.deparment_id = parseInt(value);
-  
+
           this.provinces = this.$stores_deparments[i].provinces;//districts
           this.districts = this.provinces[0].districts;
           break;
@@ -999,21 +999,21 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
           'Su Perfil no ha sido cambiado',
           'error'
         )
-    
+
     */
    let deparments:any = document.querySelector('select[name="deparments"]');
     if(value!=0 && deparments.value!=0){
       for (var i = 0; i < this.provinces.length; i++) {
         if (i == this.provinces.length) { break; }
-  
+
         if (parseInt(value) == this.provinces[i].id) {
-          
+
           this.districts = this.provinces[i].districts;//districts
-  
-  
+
+
           //this.user.province_id = parseInt(value);
           //this.user.district_id = this.provinces[0].districts[0].id;
-  
+
           break;
         }
       }
@@ -1021,7 +1021,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       let provinces:any = document.querySelector('select[name="provinces"]');
       provinces.value=0;
       let districts:any = document.querySelector('select[name="districts"]');
-      districts.value=0;   
+      districts.value=0;
      }
 
 
@@ -1036,7 +1036,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     if(value!=0&& deparments.value!=0&& provinces.value!=0){
 
     }else{
-      districts.value=0;  
+      districts.value=0;
     }
     //this.user.district_id = parseInt(value);
 
@@ -1047,9 +1047,9 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       for (var i = 0; i < this.$stores_deparments.length; i++) {
         if (i == this.$stores_deparments.length) { break; }
         if (parseInt(value) == this.$stores_deparments[i].id) {
-  
+
           //this.user.deparment_id = parseInt(value);
-  
+
           this.provinces = this.$stores_deparments[i].provinces;//districts
           this.districts = this.provinces[0].districts;
           break;
@@ -1076,21 +1076,21 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
           'Su Perfil no ha sido cambiado',
           'error'
         )
-    
+
     */
    let deparments:any = document.querySelector('select[name="deparments-edit"]');
     if(value!=0 && deparments.value!=0){
       for (var i = 0; i < this.provinces.length; i++) {
         if (i == this.provinces.length) { break; }
-  
+
         if (parseInt(value) == this.provinces[i].id) {
-          
+
           this.districts = this.provinces[i].districts;//districts
-  
-  
+
+
           //this.user.province_id = parseInt(value);
           //this.user.district_id = this.provinces[0].districts[0].id;
-  
+
           break;
         }
       }
@@ -1098,7 +1098,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
       let provinces:any = document.querySelector('select[name="provinces-edit"]');
       provinces.value=0;
       let districts:any = document.querySelector('select[name="districts-edit"]');
-      districts.value=0;   
+      districts.value=0;
      }
 
 
@@ -1113,7 +1113,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     if(value!=0&& deparments.value!=0&& provinces.value!=0){
 
     }else{
-      districts.value=0;  
+      districts.value=0;
     }
   }
   editCoverage(id){
@@ -1136,7 +1136,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     $.ajax({
       url: own.APP_URL_API + 'dashboard/home/coverage/id',
       type: 'GET',
-      headers: { 
+      headers: {
         "Authorization": localStorage.getItem('accessToken')
       },
       data: { id: id },
@@ -1145,7 +1145,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
         let array =response.data;
         if(array.length>0){
           let data =array[0];
-        
+
             for (var i = 0; i < own.$stores_deparments.length; i++) {
               if (i == own.$stores_deparments.length) { break; }
               if(own.$stores_deparments[i].id==data.department_id){
@@ -1153,7 +1153,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
                 break;
               }
             }
-         
+
 
           for (var j = 0; j < own.provinces.length; j++) {
             if (j == own.provinces.length) { break; }
@@ -1162,7 +1162,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
               break;
             }
           }
-        
+
           for (var y = 0; y < own.districts.length; y++) {
             if (y == own.districts.length) { break; }
 
@@ -1170,7 +1170,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
               break;
             }
           }
-        
+
           price.value= data.price;
           description.value= data.description;
           coverage_id.value= data.id;
@@ -1204,7 +1204,7 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
     var district_id = $(own.idGeneral).find('select[name="districts-edit"]').val()
     var price = $(own.idGeneral).find('input[name="price-edit"]').val()
     var description = $(own.idGeneral).find('textarea[name="description-edit"]').val()
- 
+
     if (price == '') {
        Swal.fire(
         '¡Falta ingresar el precio!',
@@ -1258,17 +1258,17 @@ export class AdminDashboardProfileComponent implements OnInit,AfterViewInit {
           url: own.APP_URL_API + 'dashboard/home/coverage/edit',
           data: data,
           type: 'put',
-          headers: { 
+          headers: {
             "Authorization": localStorage.getItem('accessToken')
           },
           dataType: 'json',
           success: function (data) {
             own.$stores_coverages = data.stores_coverages;
-           
+
             $(own.idGeneral).find('input[name="price-edit"]').val('');
             $(own.idGeneral).find('textarea[name="description-edit"]').val('');
              $(own.idGeneral).find('#CoverturaModal').modal('hide');
-           
+
           },
           error: function (xhr, status) {
             $(own.idGeneral).find('.alerts').append(Metodos.noUpdateAlert());

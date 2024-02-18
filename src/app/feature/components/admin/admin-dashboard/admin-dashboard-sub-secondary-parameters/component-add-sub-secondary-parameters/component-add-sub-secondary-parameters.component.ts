@@ -31,7 +31,7 @@ export class ComponentAddSubSecondaryParametersComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     // Verifica si la propiedad 'properties' ha cambiado
     if (changes.properties && changes.properties.currentValue) {
-      // Actualiza el formulario según los nuevos valores de 'properties'
+      // Actualiza el formulario seg&uacute;n los nuevos valores de 'properties'
       this.itemForm.patchValue({ parentId: this.properties.idParentParameter });
     }
   }

@@ -9,8 +9,8 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 m-auto col-12">
-              <app-component-add-orders-amounts *ngIf="addItem" [ordersId]="ordersId" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders-amounts>
-              <app-component-update-orders-amounts *ngIf="updateItem" [ordersId]="ordersId" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders-amounts>
+              <app-component-add-orders-amounts *ngIf="addItem" [orderId]="orderId" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-orders-amounts>
+              <app-component-update-orders-amounts *ngIf="updateItem" [orderId]="orderId" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-orders-amounts>
               <app-component-show-orders-amounts *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-orders-amounts>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 m-auto col-12">
@@ -18,7 +18,7 @@
                     <div class="card-header">
                         <p class="w-50 float-left card-title m-0">Tabla de Otros Montos de la Orden</p>
                         <div class="text-right w-50 float-right">
-                            <button class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>

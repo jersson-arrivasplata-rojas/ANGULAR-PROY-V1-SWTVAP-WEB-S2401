@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="subscribedAt">Fecha de Suscripción (YYYY-MM-DD):</label>
+                <label for="subscribedAt">Fecha de Suscripci&oacute;n (YYYY-MM-DD):</label>
                 <input type="text" class="form-control" id="subscribedAt" formControlName="subscribedAt" maxlength="10" appDateFormat>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="col-lg-12">
             <div class="form-group">
               <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
-              <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+              <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
             </div>
         </div>
       </div>

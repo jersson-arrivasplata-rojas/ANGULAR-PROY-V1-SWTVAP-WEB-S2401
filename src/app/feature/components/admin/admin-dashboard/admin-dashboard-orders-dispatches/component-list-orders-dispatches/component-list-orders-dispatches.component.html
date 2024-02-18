@@ -25,14 +25,14 @@
                       <span>{{ item.provider?.email }}</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-info-2 btn-sm mt-2 font-16px" (click)="addProvider(item)" style="max-width: 130px;">Asociar Provider</button>
+                      <button type="button" class=" btn btn-info-2 btn-sm mt-2 font-16px" (click)="addProvider(item)" style="max-width: 130px;">Asociar Provider</button>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

@@ -3,21 +3,21 @@
         <h2>Id: {{ item.productId?item.productId:item.categoryId }}</h2>
         <p>Asociado: {{ item.relationship | statusRelationship }}</p>
         <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-          <p>Código: {{ item.code }}</p>
+          <p>C&oacute;digo: {{ item.code | uppercase }}</p>
           <p>Nombre: {{ item.name }}</p>
-          <p>Descripción: {{ item.description }}</p>
+          <p>Descripci&oacute;n: {{ item.description }}</p>
           <p>Precio: {{ item.price | addZeros }}</p>
           <p>Stock: {{ item.stock }}</p>
-          <p>Stock Mínimo: {{ item.stockMin }}</p>
+          <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
           <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         </ng-container>
         <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
           <p>Nombre: {{ item.name }}</p>
-          <p>Descripción: {{ item.description }}</p>
+          <p>Descripci&oacute;n: {{ item.description }}</p>
         </ng-container>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

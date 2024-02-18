@@ -31,7 +31,7 @@ export class AdminDashboardOrdersDispatchesPresenter implements OnDestroy {
   onChangeValues({ field, value }) {
     let { cost } = this.itemForm.value;
 
-    if (field === 'cost') cost = value;
+    if (field === 'cost') cost = parseFloat(value);
 
     this.itemForm.patchValue({
       cost

@@ -3,7 +3,7 @@
       <thead>
           <tr>
               <th>ID</th>
-              <th>Página Visitada</th>
+              <th>P&aacute;gina Visitada</th>
               <th>Fecha Visitada</th>
               <th>Acciones</th>
           </tr>
@@ -16,9 +16,9 @@
                   <td>{{ item.visitedDate | date }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

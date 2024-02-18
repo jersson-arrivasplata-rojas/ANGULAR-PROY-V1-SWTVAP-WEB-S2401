@@ -1,18 +1,18 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.productId }}</h2>
-        <p>Código: {{ item.code }}</p>
+        <p>C&oacute;digo: {{ item.code | uppercase }}</p>
         <p>Nombre: {{ item.name }}</p>
-        <p>Descripción: {{ item.description }}</p>
+        <p>Descripci&oacute;n: {{ item.description }}</p>
         <p *ngIf="item.price">Precio Soles: S/{{ item.price | addZeros }}</p>
-        <p *ngIf="item.priceUSD">Precio Dólares: $/{{ item.priceUSD | addZeros }}</p>
+        <p *ngIf="item.priceUSD">Precio D&oacute;lares: $/{{ item.priceUSD | addZeros }}</p>
         <p *ngIf="item.priceEUR">Precio Euros: €/{{ item.priceEUR | addZeros }}</p>
         <p>Stock: {{ item.stock }}</p>
-        <p>Stock Mínimo: {{ item.stockMin }}</p>
+        <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
         <p>Otros Detalles: {{ item.otherDetails }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

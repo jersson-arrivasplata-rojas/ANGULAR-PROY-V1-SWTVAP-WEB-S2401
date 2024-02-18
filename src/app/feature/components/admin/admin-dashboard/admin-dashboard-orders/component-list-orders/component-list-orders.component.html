@@ -4,9 +4,9 @@
           <tr>
               <th>ID</th>
               <th>Cliente</th>
-              <th>Código</th>
+              <th>C&oacute;digo</th>
               <th>Fecha</th>
-              <th>Dirección</th>
+              <th>Direcci&oacute;n</th>
               <th>SubTotal</th>
               <th>Impuestos</th>
               <th>Monto de Descuento</th>
@@ -22,40 +22,40 @@
               <tr>
                   <td>{{ item.orderId }}</td>
                   <td>{{ getClientName(item.clientId) }}</td>
-                  <td>{{ item.code }}</td>
+                  <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.otherDate | date }}</td>
                   <td>{{ item.address }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.subtotal">S/{{ item.subtotal | addZeros }}</span><br/>
-                    <span *ngIf="item.subtotalUSD">$/{{ item.subtotalUSD | addZeros }}</span><br/>
-                    <span *ngIf="item.subtotalEUR">€/{{ item.subtotalEUR | addZeros }}</span>
+                    <span>S/{{ item.subtotal | addZeros }}</span><br/>
+                    <span>$/{{ item.subtotalUSD | addZeros }}</span><br/>
+                    <span>€/{{ item.subtotalEUR | addZeros }}</span>
                   </td>
                   <td class="text-left">
-                    <span *ngIf="item.taxes">S/{{ item.taxes | addZeros }}</span><br/>
-                    <span *ngIf="item.taxesUSD">$/{{ item.taxesUSD | addZeros }}</span><br/>
-                    <span *ngIf="item.taxesEUR">€/{{ item.taxesEUR | addZeros }}</span>
+                    <span>S/{{ item.taxes | addZeros }}</span><br/>
+                    <span>$/{{ item.taxesUSD | addZeros }}</span><br/>
+                    <span>€/{{ item.taxesEUR | addZeros }}</span>
                   </td>
-                  <td>{{ item.discountAmount | transformText }}</td>
+                  <td>{{ item.discountAmount | transformText:'percentage' }}</td>
                   <td class="text-left">
-                    <span *ngIf="item.total">S/{{ item.total | addZeros }}</span><br/>
-                    <span *ngIf="item.totalUSD">$/{{ item.totalUSD | addZeros }}</span><br/>
-                    <span *ngIf="item.totalEUR">€/{{ item.totalEUR | addZeros }}</span>
+                    <span>S/{{ item.total | addZeros }}</span><br/>
+                    <span>$/{{ item.totalUSD | addZeros }}</span><br/>
+                    <span>€/{{ item.totalEUR | addZeros }}</span>
                   </td>
                   <td>{{ item.pickUp ? 'Si': 'No' }}</td>
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column">
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addOrderDetails(item)">Detalle de la Orden</button>
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addOrderAmounts(item)">Otros Montos</button>
-                      <button class=" btn btn-first btn-sm font-16px" (click)="addOrderTransactions(item)">Pagos Realizados</button>
-                      <button class=" btn btn-warning-2 btn-sm font-16px" (click)="addDispatches(item)">Despacho</button>
+                      <button type="button" class=" btn btn-first btn-sm font-16px" (click)="addOrderDetails(item)">Detalle de la Orden</button>
+                      <button type="button" class=" btn btn-first btn-sm font-16px" (click)="addOrderAmounts(item)">Otros Montos</button>
+                      <button type="button" class=" btn btn-first btn-sm font-16px" (click)="addOrderTransactions(item)">Pagos Realizados</button>
+                      <button type="button" class=" btn btn-warning-2 btn-sm font-16px" (click)="addDispatches(item)">Despacho</button>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex flex-column">
-                      <button class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                      <button type="button" class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
+                      <button type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
                     </div>
                   </td>
               </tr>

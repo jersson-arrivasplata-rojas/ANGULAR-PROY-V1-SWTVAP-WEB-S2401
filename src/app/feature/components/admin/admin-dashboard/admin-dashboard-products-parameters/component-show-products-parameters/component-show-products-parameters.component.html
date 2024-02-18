@@ -3,11 +3,11 @@
         <h2>Id: {{ item.productParameterId }}</h2>
         <p *ngIf="item.parameterParent">Tipo: {{ item.parameterParent.code }}</p>
         <p *ngIf="item.parameter">Identificador de Grupo: {{ item.parameter.groupId }}</p>
-        <p *ngIf="item.parameter">Descripción: {{ item.parameter.description | transformText }}</p>
+        <p *ngIf="item.parameter">Descripci&oacute;n: {{ item.parameter.description | transformText }}</p>
         <p *ngIf="item.parameter">Valor: {{ item.parameter.value | transformText }}</p>
-        <p *ngIf="item.parameter">Código: {{ item.parameter.code | transformText }}</p>
+        <p *ngIf="item.parameter">C&oacute;digo: {{ item.parameter.code | transformText | uppercase }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>

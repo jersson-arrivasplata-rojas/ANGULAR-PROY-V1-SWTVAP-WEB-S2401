@@ -2,11 +2,11 @@
     <div class="card-body">
         <h2>Id: {{ item.catalogId }}</h2>
         <p *ngIf="item.name">Nombre: {{ item.name }}</p>
-        <p *ngIf="item.code">Código: {{ item.code }}</p>
-        <p *ngIf="item.description">Descripción: {{ item.description }}</p>
+        <p *ngIf="item.code">C&oacute;digo: {{ item.code | uppercase }}</p>
+        <p *ngIf="item.description">Descripci&oacute;n: {{ item.description }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
-          <button class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>
