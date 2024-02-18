@@ -14,29 +14,21 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo año</p>
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo a&ntilde;o en soles</p>
                                 <div class="d-flex justify-content-start">
-                                  <span class="text-28 mr-3">S/{{ $amount_year_total }}</span>
-                                  <span class="text-28 mr-3">$/{{ $amount_year_totalUSD }}</span>
-                                  <span class="text-28 ">€/{{ $amount_year_totalEUR }}</span>
+                                  <span class="text-28 mr-3">S/{{ $amount_year_total | addZeros }}</span>
                                 </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <div class="d-flex justify-content-between mt-4">
                                     <div class="flex-grow-1">
-                                        <span class="text-small">Año pasado</span>
+                                        <span class="text-small">A&ntilde;o pasado</span>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-start">
                                   <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
-                                    S/{{ $amount_last_year_total }}
-                                  </h5>
-                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
-                                    $/{{ $amount_last_year_totalUSD }}
-                                  </h5>
-                                  <h5 class="m-0 font-weight-bold text-muted-2">
-                                    €/{{ $amount_last_year_totalEUR }}
+                                    S/{{ $amount_last_year_total | addZeros }}
                                   </h5>
                                 </div>
                             </div>
@@ -45,11 +37,55 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta de los &uacute;ltimos seis meses</p>
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo a&ntilde;o en d&oacute;lares</p>
                                 <div class="d-flex justify-content-start">
-                                  <span class="text-28 mr-3">S/{{ $amount_month_six_total }}</span>
-                                  <span class="text-28 mr-3">$/{{ $amount_month_six_totalUSD }}</span>
-                                  <span class="text-28">€/{{ $amount_month_six_totalEUR }}</span>
+                                  <span class="text-28 mr-3">$/{{ $amount_year_totalUSD | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <div class="flex-grow-1">
+                                        <span class="text-small">A&ntilde;o pasado</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    $/{{ $amount_last_year_totalUSD | addZeros }}
+                                  </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                      <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo a&ntilde;o en euros</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 ">€/{{ $amount_year_totalEUR | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <div class="flex-grow-1">
+                                        <span class="text-small">A&ntilde;o pasado</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2">
+                                    €/{{ $amount_last_year_totalEUR | addZeros }}
+                                  </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta de los &uacute;ltimos seis meses en soles</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">S/{{ $amount_month_six_total | addZeros }}</span>
                                 </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
@@ -62,13 +98,7 @@
                                 </div>
                                 <div class="d-flex justify-content-start">
                                   <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
-                                    S/{{ $amount_last_month_six_total }}
-                                  </h5>
-                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
-                                    $/{{ $amount_last_month_six_totalUSD }}
-                                  </h5>
-                                  <h5 class="m-0 font-weight-bold text-muted-2">
-                                    €/{{ $amount_last_month_six_totalEUR }}
+                                    S/{{ $amount_last_month_six_total | addZeros }}
                                   </h5>
                                 </div>
                             </div>
@@ -77,11 +107,57 @@
                     <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
                         <div class="card o-hidden" id="VentaUltimoMes">
                             <div class="card-body">
-                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo mes</p>
+                                <p class="text-small text-muted-2 m-0">Venta de los &uacute;ltimos seis meses en d&oacute;lares</p>
                                 <div class="d-flex justify-content-start">
-                                  <span class="text-28 mr-3">S/{{ $amount_month_total }}</span>
-                                  <span class="text-28 mr-3">$/{{ $amount_month_totalUSD }}</span>
-                                  <span class="text-28">€/{{ $amount_month_totalEUR }}</span>
+                                  <span class="text-28 mr-3">$/{{ $amount_month_six_totalUSD | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Seis meses anteriores</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
+                                    $/{{ $amount_last_month_six_totalUSD | addZeros }}
+                                  </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta de los &uacute;ltimos seis meses en euros</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28">€/{{ $amount_month_six_totalEUR | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Seis meses anteriores</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                  <h5 class="m-0 font-weight-bold text-muted-2">
+                                    €/{{ $amount_last_month_six_totalEUR | addZeros }}
+                                  </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo mes en soles</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">S/{{ $amount_month_total | addZeros }}</span>
                                 </div>
                                 <div  class="echart-dashboard-inicio">
                                     <i class="fas fa-chart-line"></i>
@@ -93,13 +169,53 @@
                                 </div>
                                 <div class="d-flex justify-content-start">
                                   <h5 class="m-0 font-weight-bold text-muted-2 mr-3">
-                                    S/{{ $amount_last_month_total }}
+                                    S/{{ $amount_last_month_total | addZeros }}
                                   </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo mes en d&oacute;lares</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28 mr-3">$/{{ $amount_month_totalUSD | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Mes pasado</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
                                   <h5 class="m-0 font-weight-bold text-muted-2 mr-3 ">
-                                    $/{{ $amount_last_month_totalUSD }}
+                                    $/{{ $amount_last_month_totalUSD | addZeros }}
                                   </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  col-sm-6 col-12  mb-4">
+                        <div class="card o-hidden" id="VentaUltimoMes">
+                            <div class="card-body">
+                                <p class="text-small text-muted-2 m-0">Venta en el &uacute;ltimo mes en euros</p>
+                                <div class="d-flex justify-content-start">
+                                  <span class="text-28">€/{{ $amount_month_totalEUR | addZeros }}</span>
+                                </div>
+                                <div  class="echart-dashboard-inicio">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                  <div class="flex-grow-1">
+                                      <span class="text-small">Mes pasado</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
                                   <h5 class="m-0 font-weight-bold text-muted-2">
-                                    €/{{ $amount_last_month_totalEUR }}
+                                    €/{{ $amount_last_month_totalEUR | addZeros }}
                                   </h5>
                                 </div>
                             </div>

@@ -38,10 +38,11 @@ export class AdminDashboardHomeComponent implements OnInit {
   public $orders_news: any[] = [];
   public $order_news_totals: any = 0;
   public $product_news_totals: any = 0;
+  public $orderSummary: any = {};
   //https://stackoverflow.com/questions/14919894/getscript-but-for-stylesheets-in-jquery
 
   constructor(private clientHttp: ClientHttp, private orderHttp: OrderHttp,
-    private productHttp: ProductHttp){}
+    private productHttp: ProductHttp) { }
 
   ngOnInit(): void {
     this.clientHttp.getAll()
@@ -58,6 +59,34 @@ export class AdminDashboardHomeComponent implements OnInit {
             }
             return 0;
           }).reverse().slice(0, 10);
+
+          return this.orderHttp.getSummary();
+        }),
+        mergeMap((sumary) => {
+
+          this.$orderSummary = sumary ? sumary.reduce((obj, item) => {
+            obj[item[0]] = item.slice(1);
+            return obj;
+          }, {}) : {};
+
+          this.$amount_year_total = this.$orderSummary['Current Year'] ? this.$orderSummary['Current Year'][0] : 0;
+          this.$amount_year_totalUSD = this.$orderSummary['Current Year'] ? this.$orderSummary['Current Year'][1] : 0;
+          this.$amount_year_totalEUR = this.$orderSummary['Current Year'] ? this.$orderSummary['Current Year'][2] : 0;
+          this.$amount_last_year_total = this.$orderSummary['Previous Year'] ? this.$orderSummary['Previous Year'][0] : 0;
+          this.$amount_last_year_totalUSD = this.$orderSummary['Previous Year'] ? this.$orderSummary['Previous Year'][1] : 0;
+          this.$amount_last_year_totalEUR = this.$orderSummary['Previous Year'] ? this.$orderSummary['Previous Year'][2] : 0;
+          this.$amount_month_six_total = this.$orderSummary['Last 6 Months'] ? this.$orderSummary['Last 6 Months'][0] : 0;
+          this.$amount_month_six_totalUSD = this.$orderSummary['Last 6 Months'] ? this.$orderSummary['Last 6 Months'][1] : 0;
+          this.$amount_month_six_totalEUR = this.$orderSummary['Last 6 Months'] ? this.$orderSummary['Last 6 Months'][2] : 0;
+          this.$amount_last_month_six_total = this.$orderSummary['6 to 12 Months Ago'] ? this.$orderSummary['6 to 12 Months Ago'][0] : 0;
+          this.$amount_last_month_six_totalUSD = this.$orderSummary['6 to 12 Months Ago'] ? this.$orderSummary['6 to 12 Months Ago'][1] : 0;
+          this.$amount_last_month_six_totalEUR = this.$orderSummary['6 to 12 Months Ago'] ? this.$orderSummary['6 to 12 Months Ago'][2] : 0;
+          this.$amount_last_month_total = this.$orderSummary['Last Month'] ? this.$orderSummary['Last Month'][0] : 0;
+          this.$amount_last_month_totalUSD = this.$orderSummary['Last Month'] ? this.$orderSummary['Last Month'][1] : 0;
+          this.$amount_last_month_totalEUR = this.$orderSummary['Last Month'] ? this.$orderSummary['Last Month'][2] : 0;
+          this.$amount_month_total = this.$orderSummary['1 to 2 Months Ago'] ? this.$orderSummary['1 to 2 Months Ago'][0] : 0;
+          this.$amount_month_totalUSD = this.$orderSummary['1 to 2 Months Ago'] ? this.$orderSummary['1 to 2 Months Ago'][1] : 0;
+          this.$amount_month_totalEUR = this.$orderSummary['1 to 2 Months Ago'] ? this.$orderSummary['1 to 2 Months Ago'][2] : 0;
 
           return this.productHttp.getAll();
         }),
@@ -84,6 +113,4 @@ export class AdminDashboardHomeComponent implements OnInit {
         }).reverse().slice(0, 10);
       });
   }
-
-
 }

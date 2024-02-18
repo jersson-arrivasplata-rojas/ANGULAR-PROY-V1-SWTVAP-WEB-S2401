@@ -12,6 +12,15 @@ export class OrderHttp {
 
   constructor(private http: HttpClient) {}
 
+  getSummary(): Observable<any> {
+    const url = `${this.apiUrl}/order-summary`;
+    return this.http.get<any>(url).pipe(
+      map((response: any) => {
+        return response; //JSON.stringify(response);
+      }),
+    );
+  }
+
   getAll(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((response: any) => {
