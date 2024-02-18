@@ -47,6 +47,9 @@ import { ComponentAddOrdersAmountsComponent } from './admin-dashboard-orders-amo
 import { ComponentListOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-list-orders-amounts/component-list-orders-amounts.component';
 import { ComponentShowOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-show-orders-amounts/component-show-orders-amounts.component';
 import { ComponentUpdateOrdersAmountsComponent } from './admin-dashboard-orders-amounts/component-update-orders-amounts/component-update-orders-amounts.component';
+import { AdminDashboardOrdersClientsComponent } from './admin-dashboard-orders-clients/admin-dashboard-orders-clients.component';
+import { ComponentListOrdersClientsComponent } from './admin-dashboard-orders-clients/component-list-orders-clients/component-list-orders-clients.component';
+import { ComponentShowOrdersClientsComponent } from './admin-dashboard-orders-clients/component-show-orders-clients/component-show-orders-clients.component';
 import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
 import { ComponentAddOrdersDetailsComponent } from './admin-dashboard-orders-details/component-add-orders-details/component-add-orders-details.component';
 import { ComponentListOrdersDetailsProductsComponent } from './admin-dashboard-orders-details/component-list-orders-details-products/component-list-orders-details-products.component';
@@ -266,6 +269,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentListOrdersDispatchesProvidersComponent,
     ComponentShowOrdersDispatchesProvidersComponent,
     ComponentListOrdersDetailsProductsComponent,
+    AdminDashboardOrdersClientsComponent,
+    ComponentShowOrdersClientsComponent,
+    ComponentListOrdersClientsComponent
   ],
   imports: [
     AdminDashboardRoutingModule,

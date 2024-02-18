@@ -67,4 +67,7 @@ export class ComponentListOrdersComponent {
     this.router.navigate(['/admin/dashboard/orders/add-dispatches', item.orderId]);
   }
 
+  addClient(item: any){
+    this.router.navigate(['/admin/dashboard/orders/add-client', item.orderId]);
+  }
 }

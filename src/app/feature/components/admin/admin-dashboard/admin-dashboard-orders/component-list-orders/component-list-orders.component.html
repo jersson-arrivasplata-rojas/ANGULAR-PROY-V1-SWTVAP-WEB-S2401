@@ -21,7 +21,14 @@
           <ng-container *ngFor="let item of data" >
               <tr>
                   <td>{{ item.orderId }}</td>
-                  <td>{{ getClientName(item.clientId) }}</td>
+                  <td>
+                    <span *ngIf="item.clientId">{{ getClientName(item.clientId) | transformText }}</span>
+                    <div *ngIf="!item.clientId" class="d-flex flex-column align-items-center">
+                      <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addClient(item)">
+                        Agregar Cliente
+                      </button>
+                    </div>
+                  </td>
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.otherDate | date }}</td>
                   <td>{{ item.address }}</td>

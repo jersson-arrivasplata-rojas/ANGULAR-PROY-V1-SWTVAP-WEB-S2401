@@ -11,6 +11,7 @@ import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admi
 import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashboard-home.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardOrdersAmountsComponent } from './admin-dashboard-orders-amounts/admin-dashboard-orders-amounts.component';
+import { AdminDashboardOrdersClientsComponent } from './admin-dashboard-orders-clients/admin-dashboard-orders-clients.component';
 import { AdminDashboardOrdersDetailsComponent } from './admin-dashboard-orders-details/admin-dashboard-orders-details.component';
 import { AdminDashboardOrdersDispatchesProvidersComponent } from './admin-dashboard-orders-dispatches-providers/admin-dashboard-orders-dispatches-providers.component';
 import { AdminDashboardOrdersDispatchesComponent } from './admin-dashboard-orders-dispatches/admin-dashboard-orders-dispatches.component';
@@ -140,6 +141,10 @@ const routes: Routes =  [
       {
         path: 'orders',
         component: AdminDashboardOrdersComponent
+      },
+      {
+        path: 'orders/add-client/:id',
+        component: AdminDashboardOrdersClientsComponent
       },
       {
         path: 'orders/add-amounts/:id',
