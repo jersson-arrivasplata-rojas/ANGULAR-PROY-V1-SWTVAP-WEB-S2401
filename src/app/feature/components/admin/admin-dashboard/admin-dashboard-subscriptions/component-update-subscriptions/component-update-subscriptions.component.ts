@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
@@ -33,7 +34,7 @@ export class ComponentUpdateSubscriptionsComponent implements OnInit, OnChanges 
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
-      this.item.status = Boolean(this.item.status);
+      this.item.status = CommonUtils.fromStatusText(this.item.status);
       this.itemForm.patchValue(this.item);
     }
   }
@@ -44,6 +45,7 @@ export class ComponentUpdateSubscriptionsComponent implements OnInit, OnChanges 
       item.status = Number(item.status);
       this.subscriptionHttp.update(item.newsletterSubscriptionId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

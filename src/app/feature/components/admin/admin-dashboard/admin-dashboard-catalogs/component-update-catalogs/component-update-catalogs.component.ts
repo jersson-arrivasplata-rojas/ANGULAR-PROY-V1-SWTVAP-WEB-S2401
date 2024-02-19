@@ -43,6 +43,7 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.catalogHttp.update(item.catalogId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

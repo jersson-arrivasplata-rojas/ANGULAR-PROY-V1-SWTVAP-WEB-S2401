@@ -50,6 +50,7 @@ export class ComponentUpdateProductsComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.productHttp.update(item.productId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

@@ -48,6 +48,7 @@ export class AdminDashboardCommentsComponent implements OnInit {
       this.data.push(data);
       const commentTree = new CommentTree(this.data);
       this.commentTree = commentTree.buildTree();
+      (window as any).success("¡Guardado!");
     });
   }
 

@@ -1,12 +1,12 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.id }}</h2>
-        <p>Proveedor: {{ item.provider_id }}</p>
+        <p *ngIf="item.providerId">Proveedor: {{ item.provider.name }}</p>
         <p>Costo: {{ item.cost | addZeros }}</p>
         <p *ngIf="item.typeCurrency">Tipo de Pago: {{ item.typeCurrency }}</p>
         <p>Fecha: {{ item.date | date }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
-        <p>Estado: {{ getStatusProvider(item.status) | statusProvider}}</p>
+        <p>Estado: {{ item.status | statusProvider}}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

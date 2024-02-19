@@ -46,6 +46,7 @@ export class ComponentUpdateParametersComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.parameterHttp.update(item.id, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

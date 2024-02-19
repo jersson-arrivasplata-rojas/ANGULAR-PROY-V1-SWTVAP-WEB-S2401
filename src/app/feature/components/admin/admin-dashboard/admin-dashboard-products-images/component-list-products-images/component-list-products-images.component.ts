@@ -31,13 +31,14 @@ export class ComponentListProductsImagesComponent {
     });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.productImagesHttp.delete(item.productImageId).subscribe(() => {
         item.deleted = true;
         this.data = this.data.filter((f) => f.productImageId !== item.productImageId);
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }

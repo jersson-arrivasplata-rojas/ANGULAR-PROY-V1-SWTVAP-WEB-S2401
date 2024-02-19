@@ -50,6 +50,7 @@ export class ComponentUpdateOrdersTransactionsComponent implements OnInit, OnCha
       const item = { ...this.item, ...this.itemForm.value };
       this.orderTransactionsHttp.update(item.orderTransactionId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

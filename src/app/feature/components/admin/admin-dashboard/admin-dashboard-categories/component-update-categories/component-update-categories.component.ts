@@ -42,6 +42,7 @@ export class ComponentUpdateCategoriesComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.categoryHttp.update(item.categoryId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

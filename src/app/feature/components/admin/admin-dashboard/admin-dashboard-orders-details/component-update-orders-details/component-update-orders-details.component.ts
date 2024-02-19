@@ -61,6 +61,7 @@ export class ComponentUpdateOrdersDetailsComponent implements OnInit, OnChanges 
       this.orderDetailsHttp.update(item.orderDetailId, data).subscribe((response) => {
         const data = { ...order, ...response, order, product };
         this.updated.emit(data);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

@@ -52,6 +52,7 @@ export class ComponentUpdateOrdersDispatchesComponent implements OnInit, OnChang
       const item = { ...this.item, ...this.itemForm.value };
       this.orderDispatchesHttp.update(item.id, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

@@ -31,13 +31,14 @@ export class ComponentListOrdersDetailsComponent {
     });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.orderDetailsHttp.delete(item.orderDetailId).subscribe(() => {
         item.deleted = true;
         this.data = this.data.filter((f) => f.orderDetailId !== item.orderDetailId);
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }

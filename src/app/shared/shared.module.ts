@@ -133,6 +133,7 @@ import { CommentComponent } from './components/comments/comment/comment.componen
 import { AmountValidatorDirective } from './directives/amount-validator.directive';
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
+import { ModalComponentDirective } from './directives/modal.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
@@ -290,6 +291,7 @@ import { ServicesModule } from './services/services.module';
     TransformTextPipe,
     PrefixValueDirective,
     UppercaseDirective,
+    ModalComponentDirective,
   ],
   exports: [
     GeneratorCssComponent,
@@ -437,6 +439,7 @@ import { ServicesModule } from './services/services.module';
     TransformTextPipe,
     PrefixValueDirective,
     UppercaseDirective,
+    ModalComponentDirective,
   ],
   imports: [
     CommonModule,

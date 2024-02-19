@@ -61,9 +61,9 @@ export class ComponentListOrdersClientsComponent implements OnInit {
       });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.orderHttp.getById(this.properties.id)
         .pipe(
           mergeMap((response) => {
@@ -77,13 +77,14 @@ export class ComponentListOrdersClientsComponent implements OnInit {
             const relationship = (item.clientId === order.clientId) ? true : false;
             item.relationship = relationship;
           });
+          (window as any).success("¡Actualizado!");
         });
     }
   }
 
-  add(item: any) {
+  async add(item: any) {
     let text = 'Presiona el bot\xf3n para continuar! ';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.orderHttp.getById(this.properties.id)
         .pipe(
           mergeMap((response) => {
@@ -97,6 +98,7 @@ export class ComponentListOrdersClientsComponent implements OnInit {
             const relationship = (item.clientId === order.clientId) ? true : false;
             item.relationship = relationship;
           });
+          (window as any).success("¡Actualizado!");
         });
     }
   }

@@ -8,7 +8,7 @@
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
               <app-component-add-analytics *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-analytics>
               <app-component-update-analytics *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-analytics>
-              <app-component-show-analytics *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-analytics>
+              <app-component-show-analytics *ngIf="showItem" [item]="item" (revoke)="showItem=false" ></app-component-show-analytics>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
                 <div class="card o-hidden mb-4">

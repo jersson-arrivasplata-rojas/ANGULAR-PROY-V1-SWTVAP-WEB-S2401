@@ -56,9 +56,9 @@ export class ComponentListProvidersProductsComponent {
       });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.productProvidersHttp.delete(item.productProviderId).subscribe(() => {
         this.data.map((f) => {
           if (f.productProviderId === item.productProviderId) {
@@ -66,13 +66,14 @@ export class ComponentListProvidersProductsComponent {
           }
         });
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }
 
-  add(item: any) {
+  async add(item: any) {
     let text = 'Presiona el bot\xf3n para continuar! ';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       let data = { product:{ productId: 0 }, provider: { providerId: 0 } };
 
       if(this.properties.type === TypesEnum.PRODUCTS) {
@@ -90,6 +91,7 @@ export class ComponentListProvidersProductsComponent {
             f.productProviderId = response.id;
           }
         });
+        (window as any).success("¡Guardado!");
       });
     }
   }

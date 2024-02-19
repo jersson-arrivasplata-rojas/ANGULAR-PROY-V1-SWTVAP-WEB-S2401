@@ -45,6 +45,7 @@ export class ComponentUpdateProductsDiscountsComponent implements OnInit, OnChan
       const item = { ...this.item, ...this.itemForm.value };
       this.productDiscountsHttp.update(item.productDiscountId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

@@ -2291,6 +2291,9 @@ export class CommonUtils {
   static fromStatusBoolean(value: boolean): StatusEnum {
     return value ? StatusEnum.ACTIVE : StatusEnum.INACTIVE;
   }
+  static fromStatusText(value: string) {
+    return Boolean(value == StatusEnum.ACTIVE);
+  }
 }
 // https://www.typescriptlang.org/docs/handbook/functions.html
 /*public static data(): any {

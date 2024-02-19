@@ -66,9 +66,9 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
       });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.dispatcheHttp.getById(this.properties.dispatchId)
         .pipe(
           mergeMap((response) => {
@@ -83,13 +83,14 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
             const relationship = (item.providerId === dispatch.providerId) ? true : false;
             item.relationship = relationship;
           });
+          (window as any).success("¡Actualizado!");
         });
     }
   }
 
-  add(item: any) {
+  async add(item: any) {
     let text = 'Presiona el bot\xf3n para continuar! ';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.dispatcheHttp.getById(this.properties.dispatchId)
         .pipe(
           mergeMap((response) => {
@@ -104,6 +105,7 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
             const relationship = (item.providerId === dispatch.providerId) ? true : false;
             item.relationship = relationship;
           });
+          (window as any).success("¡Actualizado!");
         });
     }
   }

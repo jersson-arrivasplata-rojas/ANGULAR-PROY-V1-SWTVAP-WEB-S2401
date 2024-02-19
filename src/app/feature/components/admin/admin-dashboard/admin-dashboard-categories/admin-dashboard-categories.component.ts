@@ -51,6 +51,7 @@ export class AdminDashboardCategoriesComponent implements OnInit {
       this.updateItem = false;
       this.showItem = false;
       this.addItem = false;
+      (window as any).success("¡Guardado!");
     });
   }
 

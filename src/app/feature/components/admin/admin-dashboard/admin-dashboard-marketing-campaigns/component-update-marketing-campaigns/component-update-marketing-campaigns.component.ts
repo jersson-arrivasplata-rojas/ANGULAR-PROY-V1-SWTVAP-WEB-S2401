@@ -42,6 +42,7 @@ export class ComponentUpdateMarketingCampaignsComponent implements OnInit, OnCha
       const item = { ...this.item, ...this.itemForm.value };
       this.marketingcampaignHttp.update(item.marketingCampaignId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

@@ -51,6 +51,7 @@ export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
       item.whatsapp = Number(item.whatsapp);
       this.clientHttp.update(item.clientId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

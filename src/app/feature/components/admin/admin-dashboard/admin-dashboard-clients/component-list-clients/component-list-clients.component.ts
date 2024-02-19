@@ -30,13 +30,14 @@ export class ComponentListClientsComponent {
     });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.clientHttp.delete(item.clientId).subscribe(() => {
         item.deleted = true;
         this.data = this.data.filter((f) => f.clientId !== item.clientId);
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }

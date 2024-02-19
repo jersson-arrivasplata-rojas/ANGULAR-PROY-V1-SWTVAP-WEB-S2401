@@ -51,6 +51,7 @@ export class ComponentUpdateOrdersAmountsComponent implements OnInit, OnChanges 
       const item = { ...this.item, ...this.itemForm.value };
       this.orderAmountsHttp.update(item.orderAmountId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

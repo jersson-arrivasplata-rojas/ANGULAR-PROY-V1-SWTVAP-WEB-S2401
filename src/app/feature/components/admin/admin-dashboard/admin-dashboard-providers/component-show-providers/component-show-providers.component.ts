@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-show-providers',
@@ -13,7 +14,7 @@ export class ComponentShowProvidersComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
       this.item.whatsapp = Boolean(this.item.whatsapp);
-      this.item.status = Boolean(this.item.status);
+      this.item.status = CommonUtils.fromStatusText(this.item.status);
       this.item = changes['item'].currentValue;
     }
   }

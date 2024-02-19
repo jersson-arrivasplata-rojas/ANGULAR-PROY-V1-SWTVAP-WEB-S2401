@@ -62,6 +62,7 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
       item.pickUp = Number(item.pickUp);
       this.orderHttp.update(item.orderId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

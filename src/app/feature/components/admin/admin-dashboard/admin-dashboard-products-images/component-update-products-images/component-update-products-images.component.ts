@@ -41,6 +41,7 @@ export class ComponentUpdateProductsImagesComponent implements OnInit, OnChanges
       const item = { ...this.item, ...this.itemForm.value };
       this.productImagesHttp.update(item.productImageId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

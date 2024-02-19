@@ -56,9 +56,9 @@ export class ComponentListUnitsProductsComponent {
       });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.productUnitsHttp.delete(item.productUnitId).subscribe(() => {
         this.data.map((f) => {
           if (f.productUnitId === item.productUnitId) {
@@ -66,13 +66,14 @@ export class ComponentListUnitsProductsComponent {
           }
         });
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }
 
-  add(item: any) {
+  async add(item: any) {
     let text = 'Presiona el bot\xf3n para continuar! ';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       let data = { product:{ productId: 0 }, unit: { unitId: 0 } };
 
       if(this.properties.type === TypesEnum.PRODUCTS) {
@@ -90,6 +91,7 @@ export class ComponentListUnitsProductsComponent {
             f.productUnitId = response.id;
           }
         });
+        (window as any).success("¡Guardado!");
       });
     }
   }

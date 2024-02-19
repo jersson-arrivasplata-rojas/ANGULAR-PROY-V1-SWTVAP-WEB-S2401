@@ -56,9 +56,9 @@ export class ComponentListCategoriesProductsComponent {
       });
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.productCategoriesHttp.delete(item.productCategoryId).subscribe(() => {
         this.data.map((f) => {
           if (f.productCategoryId === item.productCategoryId) {
@@ -66,13 +66,14 @@ export class ComponentListCategoriesProductsComponent {
           }
         });
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }
 
-  add(item: any) {
+  async add(item: any) {
     let text = 'Presiona el bot\xf3n para continuar! ';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       let data = { product:{ productId: 0 }, category: { categoryId: 0 } };
 
       if(this.properties.type === TypesEnum.PRODUCTS) {
@@ -90,6 +91,7 @@ export class ComponentListCategoriesProductsComponent {
             f.productCategoryId = response.id;
           }
         });
+        (window as any).success("¡Guardado!");
       });
     }
   }

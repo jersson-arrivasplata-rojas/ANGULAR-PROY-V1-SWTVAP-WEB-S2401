@@ -44,6 +44,7 @@ export class ComponentUpdateUnitsComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.unitHttp.update(item.unitId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }

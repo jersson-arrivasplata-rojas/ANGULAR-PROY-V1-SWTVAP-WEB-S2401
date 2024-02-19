@@ -44,15 +44,16 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges, OnDest
     this.subscription.unsubscribe();
   }
 
-  delete(item: any) {
+  async delete(item: any) {
     let text = '¡Presiona el bot\xf3n para eliminar!';
-    if (confirm(text) === true) {
+    if (await confirm(text) === true) {
       this.commentHttp.delete(item.commentId).subscribe(() => {
         this.data.filter((f) => f.commentId === item.commentId)
         .forEach((m) => {
           m.status = 0;
         });
         this.deleted.emit(this.data);
+        (window as any).success('¡Eliminado!');
       });
     }
   }

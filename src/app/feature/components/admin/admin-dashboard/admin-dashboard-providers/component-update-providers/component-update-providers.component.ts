@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { ProviderHttp } from 'src/app/shared/http/providers.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
@@ -42,7 +43,7 @@ export class ComponentUpdateProvidersComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
       this.item.whatsapp = Boolean(this.item.whatsapp);
-      this.item.status = Boolean(this.item.status);
+      this.item.status = CommonUtils.fromStatusText(this.item.status);
       this.itemForm.patchValue(this.item);
     }
   }
@@ -54,6 +55,7 @@ export class ComponentUpdateProvidersComponent implements OnInit, OnChanges {
       item.status = Number(item.status);
       this.providerHttp.update(item.providerId, item).subscribe((item) => {
         this.updated.emit(item);
+        (window as any).success("¡Actualizado!");
       });
     }
   }
