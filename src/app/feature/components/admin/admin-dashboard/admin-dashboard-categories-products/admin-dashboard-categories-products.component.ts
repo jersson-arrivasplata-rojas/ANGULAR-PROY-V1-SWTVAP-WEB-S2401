@@ -81,7 +81,7 @@ export class AdminDashboardCategoriesProductsComponent implements OnInit {
   }
 
   getType() {
-    return this.properties.type === TypesEnum.CATEGORIES ? 'Lista de Productos' : 'Lista de Categorias';
+    return this.properties.type === TypesEnum.CATEGORIES ? 'Lista de Productos' : 'Lista de Categor\u00EDas';
   }
 
   back(){
