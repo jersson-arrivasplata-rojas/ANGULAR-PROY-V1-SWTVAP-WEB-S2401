@@ -31,7 +31,7 @@ export class ComponentListSubscriptionsComponent {
   }
 
   delete(item: any) {
-    let text = 'Presiona el bot\xf3n para eliminar! ';
+    let text = '¡Presiona el bot\xf3n para eliminar!';
     if (confirm(text) === true) {
       this.subscriptionHttp.delete(item.newsletterSubscriptionId).subscribe(() => {
         item.deleted = true;

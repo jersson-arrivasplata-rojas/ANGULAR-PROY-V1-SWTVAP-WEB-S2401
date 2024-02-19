@@ -57,7 +57,7 @@ export class ComponentListCatalogsCategoriesComponent {
   }
 
   delete(item: any) {
-    let text = 'Presiona el bot\xf3n para eliminar! ';
+    let text = '¡Presiona el bot\xf3n para eliminar!';
     if (confirm(text) === true) {
       this.categoryCatalogsHttp.delete(item.catalogCategoryId).subscribe(() => {
         this.data.map((f) => {

@@ -45,7 +45,7 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges, OnDest
   }
 
   delete(item: any) {
-    let text = 'Presiona el bot\xf3n para eliminar! ';
+    let text = '¡Presiona el bot\xf3n para eliminar!';
     if (confirm(text) === true) {
       this.commentHttp.delete(item.commentId).subscribe(() => {
         this.data.filter((f) => f.commentId === item.commentId)

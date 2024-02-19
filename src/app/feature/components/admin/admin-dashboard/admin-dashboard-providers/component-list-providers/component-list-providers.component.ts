@@ -31,7 +31,7 @@ export class ComponentListProvidersComponent {
   }
 
   delete(item: any) {
-    let text = 'Presiona el bot\xf3n para eliminar! ';
+    let text = '¡Presiona el bot\xf3n para eliminar!';
     if (confirm(text) === true) {
       this.providerHttp.delete(item.providerId).subscribe(() => {
         item.deleted = true;

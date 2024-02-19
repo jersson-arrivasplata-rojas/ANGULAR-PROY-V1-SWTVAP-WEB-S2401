@@ -26,7 +26,7 @@ export class OnlyNumbersInputDirective {
   @HostListener('keydown', ['$event']) onKeyDown(event) {
     let e = <any>event;
     if (this.OnlyNumber) {
-      if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
+      if ([46, 8, 9, 27, 13, 110, 190, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105].indexOf(e.keyCode) !== -1 ||
         // Allow: Ctrl+A
         (e.keyCode == 65 && e.ctrlKey === true) ||
         // Allow: Ctrl+C

@@ -33,7 +33,7 @@ export class ComponentListProductsComponent {
   }
 
   delete(item: any) {
-    let text = 'Presiona el bot\xf3n para eliminar! ';
+    let text = '¡Presiona el bot\xf3n para eliminar!';
     if (confirm(text) === true) {
       this.productHttp.delete(item.productId).subscribe(() => {
         item.deleted = true;
