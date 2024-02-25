@@ -135,6 +135,7 @@ import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ModalComponentDirective } from './directives/modal.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
+import { ScrollOnClickDirective } from './directives/scroll-on-click.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
@@ -292,6 +293,7 @@ import { ServicesModule } from './services/services.module';
     PrefixValueDirective,
     UppercaseDirective,
     ModalComponentDirective,
+    ScrollOnClickDirective,
   ],
   exports: [
     GeneratorCssComponent,
@@ -440,6 +442,7 @@ import { ServicesModule } from './services/services.module';
     PrefixValueDirective,
     UppercaseDirective,
     ModalComponentDirective,
+    ScrollOnClickDirective,
   ],
   imports: [
     CommonModule,

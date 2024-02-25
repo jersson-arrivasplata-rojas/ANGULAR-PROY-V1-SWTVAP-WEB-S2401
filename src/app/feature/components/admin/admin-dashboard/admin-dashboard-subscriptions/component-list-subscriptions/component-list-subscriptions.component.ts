@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-subscriptions',
@@ -35,7 +36,13 @@ export class ComponentListSubscriptionsComponent {
     if (await confirm(text) === true) {
       this.subscriptionHttp.delete(item.newsletterSubscriptionId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.newsletterSubscriptionId !== item.newsletterSubscriptionId);
+        this.data = this.data.map((f) => {
+          if (f.newsletterSubscriptionId === item.newsletterSubscriptionId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

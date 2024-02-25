@@ -36,3 +36,16 @@ body {
 
   --wrapper-width: 185px;
 }
+
+span.badge.badge-danger{
+  width: 100%;
+  max-width: 180px;
+  height: 35px;
+  /* color: var(--white) !important; */
+  font-weight: 100;
+  line-height: 2;
+  font-size: 12px;
+  border-color: #f44336;
+  border-style: solid;
+  background: white;
+}

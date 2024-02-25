@@ -14,6 +14,7 @@ export class ComponentListSubTertiaryParametersComponent {
 
   @Input() data: any[] = [];
   @Input() properties:any;
+  @Input() parameter:any;
 
   item: any;
 

@@ -12,6 +12,8 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 export class AdminDashboardSubParametersComponent implements OnInit {
 
   data: any[] = [];
+  dataTree: any[] = [];
+  parameter;
   item;
   addItem = false;
   updateItem = false;
@@ -28,12 +30,13 @@ export class AdminDashboardSubParametersComponent implements OnInit {
           return this.parameterHttp.getById(this.id);
         }),
         mergeMap(item => {
+          this.parameter = item;
           this.item = item;
           return this.parameterHttp.getAll();
         })
       )
       .subscribe(data => {
-        this.data = data.filter((response) => response.parentId === (this.item as any)?.id);
+        this.data = data.filter((response) => response.parentId === (this.parameter as any)?.id);
       });
   }
 

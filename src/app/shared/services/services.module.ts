@@ -8,6 +8,7 @@ import { NodeStoreService } from './node-store.service';
 import { NodeUserService } from './node-user.service';
 import { SeoService } from './seo.service';
 import { SlowComponentResolverService } from './slow-component-resolver.service';
+import { WindowService } from './window.service';
 
 @NgModule({
   providers: [
@@ -19,7 +20,8 @@ import { SlowComponentResolverService } from './slow-component-resolver.service'
     NodeUserService,
     SeoService,
     SlowComponentResolverService,
-    LocalService
+    LocalService,
+    WindowService
   ]
 })
 export class ServicesModule { }

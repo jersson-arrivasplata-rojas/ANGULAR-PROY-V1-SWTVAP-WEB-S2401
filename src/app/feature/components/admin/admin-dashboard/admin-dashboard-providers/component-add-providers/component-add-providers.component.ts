@@ -27,7 +27,7 @@ export class ComponentAddProvidersComponent {
       whatsapp: [false, Validators.required],
       details: [''],
       otherDetails: [''],
-      status: [false, [Validators.required]]
+      status: [true, [Validators.required]]
     });
   }
 

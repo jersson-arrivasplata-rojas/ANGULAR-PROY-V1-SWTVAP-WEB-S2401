@@ -18,7 +18,8 @@ export class AdminDashboardCatalogsCategoriesComponent implements OnInit {
   item = {};
   properties = {
     id: 0,
-    type: ''
+    type: '',
+    deletedAt: ''
   };
   typesEnum = TypesEnum;
 
@@ -38,6 +39,10 @@ export class AdminDashboardCatalogsCategoriesComponent implements OnInit {
       .pipe(
         mergeMap(params => {
           this.properties.id = +params['id'];
+          return this.properties.type === TypesEnum.CATALOGS ? this.catalogHttp.getById(this.properties.id) : this.categoryHttp.getById(this.properties.id);
+        }),
+        mergeMap(item => {
+          this.properties.deletedAt = item.deletedAt;
           return this.properties.type === TypesEnum.CATALOGS ? this.categoryHttp.getAll() : this.catalogHttp.getAll();
         }),
         mergeMap(data => {
@@ -81,7 +86,7 @@ export class AdminDashboardCatalogsCategoriesComponent implements OnInit {
   }
 
   getType() {
-    return this.properties.type === TypesEnum.CATALOGS ? 'Lista de Categor&iacute;as' : 'Lista de Cat&aacute;logos';
+    return this.properties.type === TypesEnum.CATALOGS ? 'Lista de Categor\u00EDas' : 'Lista de Cat\u00E1logos';
   }
 
   back(){

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-add-analytics',
@@ -18,7 +19,7 @@ export class ComponentAddAnalyticsComponent {
   ) {
     this.itemForm = this.formBuilder.group({
       visitedPage: ['', [Validators.required, Validators.maxLength(250)]],
-      visitedDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]]
+      visitedDate: [CommonUtils.getDayNow(), [Validators.required, Validators.pattern(PatternEnum.DATE)]]
     });
   }
 

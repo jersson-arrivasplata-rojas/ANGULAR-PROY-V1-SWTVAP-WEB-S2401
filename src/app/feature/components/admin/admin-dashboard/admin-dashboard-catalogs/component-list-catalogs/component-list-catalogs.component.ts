@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-catalogs',
@@ -36,7 +37,13 @@ export class ComponentListCatalogsComponent {
     if (await confirm(text) === true) {
       this.catalogHttp.delete(item.catalogId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.catalogId !== item.catalogId);
+        this.data = this.data.map((f) => {
+          if (f.catalogId === item.catalogId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });
@@ -45,6 +52,10 @@ export class ComponentListCatalogsComponent {
 
   update(item: any) {
     this.updated.emit(item);
+  }
+
+  findDeletedAtInData() {
+    return this.data.filter(item => 'deletedAt' in item).length === this.data.length;
   }
 
   addCategoryCatalogs(item: any){

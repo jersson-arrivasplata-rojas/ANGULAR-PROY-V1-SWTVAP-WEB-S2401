@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UnitHttp } from 'src/app/shared/http/units.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-units',
@@ -35,7 +36,13 @@ export class ComponentListUnitsComponent {
     if (await confirm(text) === true) {
       this.unitHttp.delete(item.unitId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.unitId !== item.unitId);
+        this.data = this.data.map((f) => {
+          if (f.unitId === item.unitId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ClientHttp } from 'src/app/shared/http/clients.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-clients',
@@ -35,7 +36,13 @@ export class ComponentListClientsComponent {
     if (await confirm(text) === true) {
       this.clientHttp.delete(item.clientId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.clientId !== item.clientId);
+        this.data = this.data.map((f) => {
+          if (f.clientId === item.clientId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

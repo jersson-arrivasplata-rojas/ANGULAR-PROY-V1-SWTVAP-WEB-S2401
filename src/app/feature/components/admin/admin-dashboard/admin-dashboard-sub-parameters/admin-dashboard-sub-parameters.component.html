@@ -44,7 +44,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-sub-parameters [data]="data" (added)="handleTableAdded($event)" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-parameters>
+                      <app-component-list-sub-parameters [data]="data" [parameter]="parameter" (added)="handleTableAdded($event)" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-parameters>
                     </div>
                 </div>
             </div>

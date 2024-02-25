@@ -22,7 +22,7 @@ export class ComponentAddParametersComponent {
       value: ['', Validators.required],
       code: [null, Validators.maxLength(50)],
       position: [null],
-      status: [false, [Validators.required]]
+      status: [true, [Validators.required]]
     });
   }
 

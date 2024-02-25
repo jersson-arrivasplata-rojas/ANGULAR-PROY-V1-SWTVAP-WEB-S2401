@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
@@ -19,8 +20,8 @@ export class ComponentAddSubscriptionsComponent {
   ) {
     this.itemForm = this.formBuilder.group({
       email: ['', [Validators.required, emailDomainValidator()]],
-      subscribedAt: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
-      status: [false, Validators.required]
+      subscribedAt: [CommonUtils.getDayNow(), [Validators.required, Validators.pattern(PatternEnum.DATE)]],
+      status: [true, Validators.required]
     });
   }
 

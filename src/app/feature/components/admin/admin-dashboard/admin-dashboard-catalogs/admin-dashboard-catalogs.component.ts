@@ -31,7 +31,7 @@ export class AdminDashboardCatalogsComponent implements OnInit {
       })
     ).subscribe((categoryCatalogs) => {
       this.data.map((catalog: any) => {
-        catalog.categories = categoryCatalogs.filter(categoryCatalog => categoryCatalog.catalog.catalogId === catalog.catalogId);
+        catalog.categories = categoryCatalogs.filter(categoryCatalog => categoryCatalog.catalog.catalogId === catalog.catalogId && !categoryCatalog.category.deletedAt);
       });
     });
   }

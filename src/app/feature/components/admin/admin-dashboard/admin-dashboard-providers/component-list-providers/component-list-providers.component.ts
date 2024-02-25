@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProviderHttp } from 'src/app/shared/http/providers.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-providers',
@@ -35,7 +36,13 @@ export class ComponentListProvidersComponent {
     if (await confirm(text) === true) {
       this.providerHttp.delete(item.providerId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.providerId !== item.providerId);
+        this.data = this.data.map((f) => {
+          if (f.providerId === item.providerId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

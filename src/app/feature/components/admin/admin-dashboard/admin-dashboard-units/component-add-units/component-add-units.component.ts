@@ -20,7 +20,7 @@ export class ComponentAddUnitsComponent {
       unitName: ['', [Validators.required, Validators.maxLength(50)]],
       abbreviation: ['', [Validators.required, Validators.maxLength(10)]],
       conversionFactor: ['', [Validators.pattern(PatternEnum.NUMBER_POINT)]],
-      status: [false, [Validators.required]]
+      status: [true, [Validators.required]]
     });
   }
 

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-marketing-campaigns',
@@ -35,7 +36,13 @@ export class ComponentListMarketingCampaignsComponent {
     if (await confirm(text) === true) {
       this.marketingcampaignHttp.delete(item.marketingCampaignId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.marketingCampaignId !== item.marketingCampaignId);
+        this.data = this.data.map((f) => {
+          if (f.marketingCampaignId === item.marketingCampaignId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

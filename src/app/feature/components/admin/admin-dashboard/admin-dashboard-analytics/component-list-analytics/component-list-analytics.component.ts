@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-analytics',
@@ -35,7 +36,13 @@ export class ComponentListAnalyticsComponent {
     if (await confirm(text) === true) {
       this.analyticHttp.delete(item.analyticId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.analyticId !== item.analyticId);
+        this.data = this.data.map((f) => {
+          if (f.analyticId === item.analyticId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });
@@ -44,5 +51,9 @@ export class ComponentListAnalyticsComponent {
 
   update(item: any) {
     this.updated.emit(item);
+  }
+
+  findDeletedAtInData() {
+    return this.data.some(item => 'deletedAt' in item);
   }
 }

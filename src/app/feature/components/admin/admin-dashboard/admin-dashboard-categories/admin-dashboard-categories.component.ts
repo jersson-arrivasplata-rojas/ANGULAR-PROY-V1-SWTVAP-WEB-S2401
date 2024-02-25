@@ -29,7 +29,7 @@ export class AdminDashboardCategoriesComponent implements OnInit {
       mergeMap(categoryCatalogs => {
 
         this.data.map((category: any) => {
-          category.catalogs = categoryCatalogs.filter(categoryCatalog => categoryCatalog.category.categoryId === category.categoryId);
+          category.catalogs = categoryCatalogs.filter(categoryCatalog => categoryCatalog.category.categoryId === category.categoryId && !categoryCatalog.catalog.deletedAt);
         });
 
         return this.productCategoriesHttp.getAll();
@@ -47,10 +47,13 @@ export class AdminDashboardCategoriesComponent implements OnInit {
   }
 
   handleAdded(data: any) {
-    this.categoryHttp.add(data).subscribe((data) => {
+    this.categoryHttp.add(data).subscribe((item) => {
       this.updateItem = false;
       this.showItem = false;
       this.addItem = false;
+      item.catalogs = [];
+      item.products = [];
+      this.data.push(item);
       (window as any).success("¡Guardado!");
     });
   }

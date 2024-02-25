@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap } from 'rxjs';
+import { ParameterTree } from 'src/app/shared/class/parameter-tree.class';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 
@@ -12,6 +13,8 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
 
   data: any[] = [];
+  dataTree: any[] = [];
+  parameter;
   item;
   addItem = false;
   updateItem = false;
@@ -38,12 +41,16 @@ export class AdminDashboardSubTertiaryParametersComponent implements OnInit {
           return this.parameterHttp.getById(this.properties.idParentParameter);
         }),
         mergeMap(item => {
+          this.parameter = item;
           this.item = item;
           return this.parameterHttp.getAll();
         })
       )
       .subscribe(data => {
-        this.data = data.filter((response) => response.parentId === (this.item as any)?.id);
+        const parameterTree = new ParameterTree(data);
+        this.dataTree = parameterTree.buildTree();
+        this.parameter.deletedAt = parameterTree.hasDeletedParent(this.parameter);
+        this.data = data.filter((response) => response.parentId === (this.parameter as any)?.id);
       });
 
     this.activatedRoute.queryParams.subscribe(params => {

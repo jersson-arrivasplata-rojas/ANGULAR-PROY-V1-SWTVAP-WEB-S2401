@@ -1,22 +1,22 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.productId?item.productId:item.unitId }}</h2>
-        <p>Asociado: {{ item.relationship | statusRelationship }}</p>
+        <p *ngIf="item.relationship">Asociado: {{ item.relationship | statusRelationship }}</p>
         <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
-          <p>C&oacute;digo: {{ item.code | uppercase }}</p>
-          <p>Nombre: {{ item.name }}</p>
-          <p>Descripci&oacute;n: {{ item.description }}</p>
-          <p>Precio: {{ item.price }}</p>
-          <p>Stock: {{ item.stock }}</p>
-          <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
-          <p>Otros Detalles: {{ item.otherDetails }}</p>
+          <p *ngIf="item.code">C&oacute;digo: {{ item.code | uppercase }}</p>
+          <p *ngIf="item.name">Nombre: {{ item.name }}</p>
+          <p *ngIf="item.description">Descripci&oacute;n: {{ item.description }}</p>
+          <p *ngIf="item.price">Precio: {{ item.price }}</p>
+          <p *ngIf="item.stock">Stock: {{ item.stock }}</p>
+          <p *ngIf="item.stockMin">Stock M&iacute;nimo: {{ item.stockMin }}</p>
+          <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         </ng-container>
         <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
-          <p>Nombre de la Unidad: {{ item.unitName }}</p>
-          <p>Abreviaci&oacute;n: {{ item.abbreviation }}</p>
-          <p>Factor de Conversi&oacute;n: {{ item.conversionFactor }}</p>
+          <p *ngIf="item.unitName">Nombre de la Unidad: {{ item.unitName }}</p>
+          <p *ngIf="item.abbreviation">Abreviaci&oacute;n: {{ item.abbreviation }}</p>
+          <p *ngIf="item.conversionFactor">Factor de Conversi&oacute;n: {{ item.conversionFactor }}</p>
         </ng-container>
-        <p>Estado: {{ item.status | status }}</p>
+        <p *ngIf="item.status">Estado: {{ item.status | status }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

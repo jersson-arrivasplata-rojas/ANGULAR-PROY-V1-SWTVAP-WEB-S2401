@@ -24,10 +24,10 @@ export class AdminDashboardAnalyticsComponent implements OnInit {
 
   handleAdded(data: any) {
     this.analyticHttp.add(data).subscribe((data) => {
-      this.data.push(data);
       this.updateItem = false;
       this.showItem = false;
       this.addItem = false;
+      this.data.push(data);
       (window as any).success("¡Guardado!");
     });
   }

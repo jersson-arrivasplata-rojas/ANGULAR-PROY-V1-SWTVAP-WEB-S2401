@@ -14,7 +14,8 @@ export class ComponentListCatalogsCategoriesComponent {
   @Input() data: any[] = [];
   @Input() properties = {
     id: 0,
-    type: ''
+    type: '',
+    deletedAt: ''
   };
 
   @Output() deleted: EventEmitter<any> = new EventEmitter();
@@ -94,5 +95,9 @@ export class ComponentListCatalogsCategoriesComponent {
         (window as any).success("¡Guardado!");
       });
     }
+  }
+
+  findDeletedAtInData() {
+    return this.data.filter(item => 'deletedAt' in item).length === this.data.length;
   }
 }

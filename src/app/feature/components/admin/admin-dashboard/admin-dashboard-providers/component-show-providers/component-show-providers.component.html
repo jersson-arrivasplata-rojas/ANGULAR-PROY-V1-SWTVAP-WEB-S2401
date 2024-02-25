@@ -1,15 +1,15 @@
 <div class="card mb-4">
     <div class="card-body">
         <h2>Id: {{ item.providerId }}</h2>
-        <p>Nombre: {{ item.name }}</p>
-        <p>Direcci&oacute;n: {{ item.address }}</p>
-        <p>Tel&eacute;fono: {{ item.phone }}</p>
-        <p>Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
-        <p>Correo: {{ item.email }}</p>
-        <p>Whatsapp: {{ item.whatsapp | status }}</p>
-        <p>Detalle: {{ item.details }}</p>
-        <p>Otros Detalles: {{ item.otherDetails }}</p>
-        <p>Estado: {{ item.status | status }}</p>
+        <p *ngIf="item.name">Nombre: {{ item.name }}</p>
+        <p *ngIf="item.address">Direcci&oacute;n: {{ item.address }}</p>
+        <p *ngIf="item.phone">Tel&eacute;fono: {{ item.phone }}</p>
+        <p *ngIf="item.countryCode && item.cellphone">Celular: {{ item.countryCode }}-{{ item.cellphone }}</p>
+        <p *ngIf="item.email">Correo: {{ item.email }}</p>
+        <p *ngIf="item.whatsapp">Whatsapp: {{ item.whatsapp | status }}</p>
+        <p *ngIf="item.details">Detalle: {{ item.details }}</p>
+        <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
+        <p *ngIf="item.status">Estado: {{ item.status | status }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
