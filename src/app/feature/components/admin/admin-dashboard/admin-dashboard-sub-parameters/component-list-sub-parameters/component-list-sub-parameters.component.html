@@ -24,7 +24,7 @@
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button type="button" class=" btn btn-warning font-16px" (click)="add(item)">{{parameter.deletedAt? 'Ver Par\u00E1metros': 'Agregar'}}</button>
+                      <button type="button" class=" btn btn-warning font-16px" (click)="add(item)">{{item.deletedAt || parameter.deletedAt? 'Ver Par\u00E1metros': 'Agregar'}}</button>
                       <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
                       <button *ngIf="!item.deletedAt && !parameter.deletedAt" type="button" class=" btn btn-first font-16px" (click)="update(item)" [disabled]="parameter.deletedAt" appScrollOnClick>Actualizar</button>
                       <button *ngIf="!item.deletedAt && !parameter.deletedAt" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="parameter.deletedAt">Eliminar</button>

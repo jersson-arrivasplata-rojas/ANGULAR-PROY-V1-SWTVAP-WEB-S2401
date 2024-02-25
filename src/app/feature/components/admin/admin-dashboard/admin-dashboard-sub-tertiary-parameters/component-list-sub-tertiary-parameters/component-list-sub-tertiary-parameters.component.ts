@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-sub-tertiary-parameters',
@@ -39,7 +40,13 @@ export class ComponentListSubTertiaryParametersComponent {
     if (await confirm(text) === true) {
       this.parameterHttp.delete(item.id).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.id !== item.id);
+        this.data = this.data.map((f) => {
+          if (f.id === item.id) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });
