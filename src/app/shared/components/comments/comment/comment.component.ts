@@ -11,6 +11,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 export class CommentComponent {
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Input() comment: any;
+  @Input() product: any;
 
   comments: any[] = [
     // Tu lista de comentarios aquí
@@ -49,9 +50,9 @@ export class CommentComponent {
       type: '',
       name: '',
       status: 1,
-      commentDate: CommonUtils.getDayNow(),
-      createdDate: CommonUtils.getDayNow(),
-      deletedDate: null
+      commentAt: CommonUtils.getDayNow(),
+      createdAt: CommonUtils.getDayNow(),
+      deletedAt: null
     };
   }
 }

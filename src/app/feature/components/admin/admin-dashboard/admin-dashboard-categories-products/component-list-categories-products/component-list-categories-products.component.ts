@@ -96,8 +96,4 @@ export class ComponentListCategoriesProductsComponent {
       });
     }
   }
-
-  findDeletedAtInData() {
-    return this.data.some(item => 'deletedAt' in item);
-  }
 }

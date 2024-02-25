@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductHttp } from 'src/app/shared/http/products.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-products',
@@ -37,7 +38,13 @@ export class ComponentListProductsComponent {
     if (await confirm(text) === true) {
       this.productHttp.delete(item.productId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.productId !== item.productId);
+        this.data = this.data.map((f) => {
+          if (f.productId === item.productId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

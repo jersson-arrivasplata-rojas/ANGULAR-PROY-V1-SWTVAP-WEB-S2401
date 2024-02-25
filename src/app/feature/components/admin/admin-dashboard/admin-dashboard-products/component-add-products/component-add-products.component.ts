@@ -26,7 +26,7 @@ export class ComponentAddProductsComponent {
       stock: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       stockMin: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
-      status: [false, [Validators.required]]
+      status: [true, [Validators.required]]
     });
   }
 

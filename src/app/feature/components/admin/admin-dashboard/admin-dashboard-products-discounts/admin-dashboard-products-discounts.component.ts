@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { ProductDiscountsHttp } from 'src/app/shared/http/product-discounts.http';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
@@ -14,27 +15,32 @@ export class AdminDashboardProductsDiscountsComponent implements OnInit {
   data: any[] = [];
   item = {};
   productId = 0;
+  product;
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private productDiscountsHttp: ProductDiscountsHttp, private activatedRoute: ActivatedRoute,
-    private router:Router) { }
+  constructor(private productDiscountsHttp: ProductDiscountsHttp, private productHttp: ProductHttp,
+    private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params
-    .pipe(
-      mergeMap(params => {
-        this.productId = +params['id'];
-        return this.productDiscountsHttp.getAll();
-      }),
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-      })
-    ).subscribe((productDiscountsData) => {
-      this.data = productDiscountsData.filter((productDiscount) => productDiscount.productId === this.productId);
-    });
+      .pipe(
+        mergeMap(params => {
+          this.productId = +params['id'];
+          return this.productHttp.getById(this.productId);
+        }),
+        mergeMap(item => {
+          this.product = item;
+          return this.productDiscountsHttp.getAll();
+        }),
+      ).pipe(
+        catchError(error => {
+          console.error('Error al consultar datos:', error);
+          return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
+        })
+      ).subscribe((productDiscountsData) => {
+        this.data = productDiscountsData.filter((productDiscount) => productDiscount.productId === this.productId);
+      });
   }
 
   handleAdded(data: any) {
@@ -81,7 +87,11 @@ export class AdminDashboardProductsDiscountsComponent implements OnInit {
     this.updateItem = false;
   }
 
-  back(){
+  findDeletedAtInData() {
+    return this.data.filter(item => !(item.deletedAt)).length;
+  }
+
+  back() {
     this.router.navigate([`/admin/dashboard/products`]);
   }
 }

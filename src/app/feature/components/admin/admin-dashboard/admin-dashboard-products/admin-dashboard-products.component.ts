@@ -35,19 +35,19 @@ export class AdminDashboardProductsComponent implements OnInit {
       }),
       mergeMap(productDiscountData => {
         this.data.map((product: any) => {
-          product.discounts = productDiscountData.filter(productDiscount => productDiscount.productId === product.productId)
+          product.discounts = productDiscountData.filter(productDiscount => productDiscount.productId === product.productId && !productDiscount.deletedAt)
         });
         return this.productCommentHttp.getAll();
       }),
       mergeMap(productCommentData => {
         this.data.map((product: any) => {
-          product.comments = productCommentData.filter(productComment => productComment.productId === product.productId)
+          product.comments = productCommentData.filter(productComment => productComment.productId === product.productId && !productComment.deletedAt)
         });
         return this.productImagesHttp.getAll();
       }),
       mergeMap(productImageData => {
         this.data.map((product: any) => {
-          product.images = productImageData.filter(productImage => productImage.productId === product.productId)
+          product.images = productImageData.filter(productImage => productImage.productId === product.productId && !productImage.deletedAt)
         });
         return this.productParameterHttp.getAll();
       }),

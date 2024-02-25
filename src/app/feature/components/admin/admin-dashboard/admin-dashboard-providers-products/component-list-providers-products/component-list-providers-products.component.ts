@@ -14,7 +14,8 @@ export class ComponentListProvidersProductsComponent {
   @Input() data: any[] = [];
   @Input() properties = {
     id: 0,
-    type: ''
+    type: '',
+    deletedAt: ''
   };
 
   @Output() deleted: EventEmitter<any> = new EventEmitter();

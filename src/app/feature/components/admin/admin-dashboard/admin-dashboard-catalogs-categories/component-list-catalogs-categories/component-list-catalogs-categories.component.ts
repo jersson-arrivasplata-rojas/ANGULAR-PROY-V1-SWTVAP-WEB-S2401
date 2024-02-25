@@ -96,8 +96,4 @@ export class ComponentListCatalogsCategoriesComponent {
       });
     }
   }
-
-  findDeletedAtInData() {
-    return this.data.filter(item => 'deletedAt' in item).length === this.data.length;
-  }
 }

@@ -4,6 +4,7 @@ import { catchError, mergeMap, of } from 'rxjs';
 import { CommentTree } from 'src/app/shared/class/comment-tree.class';
 import { StatusEnum } from 'src/app/shared/config/status.enum';
 import { CommentHttp } from 'src/app/shared/http/comments.http';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
@@ -16,16 +17,21 @@ export class AdminDashboardCommentsComponent implements OnInit {
   data: any[] = [];
   item = {};
   productId = 0;
+  product;
   commentTree: any[];
 
-  constructor(private commentHttp: CommentHttp, private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+  constructor(private commentHttp: CommentHttp, private productHttp: ProductHttp,
+    private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params
       .pipe(
         mergeMap(params => {
           this.productId = +params['id'];
+          return this.productHttp.getById(this.productId);
+        }),
+        mergeMap(item => {
+          this.product = item;
           return this.commentHttp.getAll();
         }),
       ).pipe(

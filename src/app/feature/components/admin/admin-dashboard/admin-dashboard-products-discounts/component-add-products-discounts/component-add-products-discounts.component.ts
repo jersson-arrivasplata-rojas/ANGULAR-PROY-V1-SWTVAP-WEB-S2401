@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-add-products-discounts',
@@ -20,8 +21,8 @@ export class ComponentAddProductsDiscountsComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
       discountPercentage: ['', [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
-      startDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
-      endDate: ['', [Validators.required, Validators.pattern(PatternEnum.DATE)]],
+      startDate: [CommonUtils.getDayNow(), [Validators.required, Validators.pattern(PatternEnum.DATE)]],
+      endDate: [CommonUtils.getDayNow(), [Validators.required, Validators.pattern(PatternEnum.DATE)]],
       otherDetails: ['']
     });
   }

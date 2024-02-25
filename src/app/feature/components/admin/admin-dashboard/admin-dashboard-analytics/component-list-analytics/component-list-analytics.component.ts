@@ -52,8 +52,4 @@ export class ComponentListAnalyticsComponent {
   update(item: any) {
     this.updated.emit(item);
   }
-
-  findDeletedAtInData() {
-    return this.data.some(item => 'deletedAt' in item);
-  }
 }

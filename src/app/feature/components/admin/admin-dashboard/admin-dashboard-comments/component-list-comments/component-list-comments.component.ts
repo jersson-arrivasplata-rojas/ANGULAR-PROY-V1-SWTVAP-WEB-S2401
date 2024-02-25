@@ -14,6 +14,7 @@ export class ComponentListCommentsComponent implements OnInit, OnChanges, OnDest
   @Input() data: any[] = [];
   @Input() commentTree: any[] = [];
   @Input() productId;
+  @Input() product;
 
   item: any;
   private subscription: Subscription = new Subscription();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
@@ -14,17 +15,22 @@ export class AdminDashboardProductsImagesComponent implements OnInit {
   data: any[] = [];
   item = {};
   productId = 0;
+  product;
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private productImagesHttp: ProductImagesHttp, private activatedRoute: ActivatedRoute,
-    private router:Router) { }
+  constructor(private productImagesHttp: ProductImagesHttp, private productHttp: ProductHttp,
+    private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     this.activatedRoute.params
     .pipe(
       mergeMap(params => {
         this.productId = +params['id'];
+        return this.productHttp.getById(this.productId);
+      }),
+      mergeMap(item => {
+        this.product = item;
         return this.productImagesHttp.getAll();
       }),
     ).pipe(
@@ -79,6 +85,10 @@ export class AdminDashboardProductsImagesComponent implements OnInit {
     this.showItem = data.showItem;
     this.addItem = false;
     this.updateItem = false;
+  }
+
+  findDeletedAtInData() {
+    return this.data.filter(item => !(item.deletedAt)).length;
   }
 
   back(){

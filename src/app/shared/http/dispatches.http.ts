@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StatusProviderEnum } from '../config/status-provider.enum';
 
@@ -20,6 +20,10 @@ export class DispatcheHttp {
           return item;
         });
       }),
+      catchError(error => {
+        console.error('Ocurrió un error al obtener los datos', error);
+        return of([]);
+      })
     );
   }
 

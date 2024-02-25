@@ -54,10 +54,6 @@ export class ComponentListCategoriesComponent {
     this.updated.emit(item);
   }
 
-  findDeletedAtInData() {
-    return this.data.filter(item => 'deletedAt' in item).length === this.data.length;
-  }
-
   addCategoryCatalogs(item: any){
     this.router.navigate(['/admin/dashboard/categories/add', item.categoryId]);
   }
