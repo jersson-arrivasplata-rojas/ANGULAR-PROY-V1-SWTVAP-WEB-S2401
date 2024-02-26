@@ -1,0 +1,55 @@
+
+<div>
+    <form [formGroup]="itemForm" (ngSubmit)="add()">
+      <h2>Agregar</h2>
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="abbreviation">Descripci&oacute;n:</label>
+                <textarea rows="3" class="form-control" id="description" formControlName="description">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="value">Valor:</label>
+                <textarea rows="3" class="form-control" id="value" formControlName="value">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="code">C&oacute;digo:</label>
+                <input type="text" class="form-control" id="code" formControlName="code" maxlength="50" appUppercase>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="position">Posici&oacute;n:</label>
+                <input type="text" class="form-control" id="position" formControlName="position" appOnlyNumbersInput [OnlyNumber]="true">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="groupId">Identificador de Grupo:</label>
+                <input type="text" class="form-control" id="groupId" formControlName="groupId" appOnlyNumbersInput [OnlyNumber]="true">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group d-flex">
+                <label for="code">Estado:</label>
+                <input type="checkbox" class="form-control" id="status" formControlName="status">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+              <button class="btn btn-success-2 mr-2" type="submit" [disabled]="itemForm.invalid">Agregar</button>
+              <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+            </div>
+        </div>
+      </div>
+      <ng-container *ngIf="!itemForm.valid">
+        <p>¡Registro No Valido!</p>
+      </ng-container>
+    </form>
+</div>

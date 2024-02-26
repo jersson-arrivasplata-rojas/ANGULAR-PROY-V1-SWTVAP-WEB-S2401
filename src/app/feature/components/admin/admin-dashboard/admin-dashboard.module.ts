@@ -94,6 +94,16 @@ import { ComponentAddProductsParametersComponent } from './admin-dashboard-produ
 import { ComponentListProductsParametersProductsComponent } from './admin-dashboard-products-parameters/component-list-product-parameters-products/component-list-product-parameters-products.component';
 import { ComponentListProductsParametersComponent } from './admin-dashboard-products-parameters/component-list-products-parameters/component-list-products-parameters.component';
 import { ComponentShowProductsParametersComponent } from './admin-dashboard-products-parameters/component-show-products-parameters/component-show-products-parameters.component';
+import { AdminDashboardProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/admin-dashboard-products-sub-parameters.component';
+import { ComponentAddProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/component-add-products-sub-parameters/component-add-products-sub-parameters.component';
+import { ComponentListProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/component-list-products-sub-parameters/component-list-products-sub-parameters.component';
+import { ComponentShowProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/component-show-products-sub-parameters/component-show-products-sub-parameters.component';
+import { ComponentUpdateProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/component-update-products-sub-parameters/component-update-products-sub-parameters.component';
+import { AdminDashboardProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/admin-dashboard-products-sub-tertiary-parameters.component';
+import { ComponentAddProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/component-add-products-sub-tertiary-parameters/component-add-products-sub-tertiary-parameters.component';
+import { ComponentListProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/component-list-products-sub-tertiary-parameters/component-list-products-sub-tertiary-parameters.component';
+import { ComponentShowProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/component-show-products-sub-tertiary-parameters/component-show-products-sub-tertiary-parameters.component';
+import { ComponentUpdateProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/component-update-products-sub-tertiary-parameters/component-update-products-sub-tertiary-parameters.component';
 import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
 import { ComponentAddProductsComponent } from './admin-dashboard-products/component-add-products/component-add-products.component';
 import { ComponentListProductsComponent } from './admin-dashboard-products/component-list-products/component-list-products.component';
@@ -271,7 +281,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentListOrdersDetailsProductsComponent,
     AdminDashboardOrdersClientsComponent,
     ComponentShowOrdersClientsComponent,
-    ComponentListOrdersClientsComponent
+    ComponentListOrdersClientsComponent,
+    AdminDashboardProductsSubParametersComponent,
+    ComponentListProductsSubParametersComponent,
+    ComponentAddProductsSubParametersComponent,
+    ComponentUpdateProductsSubParametersComponent,
+    ComponentShowProductsSubParametersComponent,
+    AdminDashboardProductsSubTertiaryParametersComponent,
+    ComponentListProductsSubTertiaryParametersComponent,
+    ComponentAddProductsSubTertiaryParametersComponent,
+    ComponentUpdateProductsSubTertiaryParametersComponent,
+    ComponentShowProductsSubTertiaryParametersComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

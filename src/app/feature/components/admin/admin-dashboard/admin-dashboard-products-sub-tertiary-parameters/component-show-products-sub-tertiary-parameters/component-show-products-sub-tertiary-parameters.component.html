@@ -1,0 +1,14 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h2>Id: {{ item.id }}</h2>
+        <p *ngIf="item.groupId">Identificador de Grupo: {{ item.groupId }}</p>
+        <p *ngIf="item.description">Descripci&oacute;n: {{ item.description }}</p>
+        <p *ngIf="item.value">Valor: {{ item.value }}</p>
+        <p *ngIf="item.code">C&oacute;digo: {{ item.code | uppercase }}</p>
+        <p *ngIf="item.position">Posici&oacute;n: {{ item.position }}</p>
+        <p>Estado: {{ item.status | status }}</p>
+        <p>
+          <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
+        </p>
+    </div>
+</div>

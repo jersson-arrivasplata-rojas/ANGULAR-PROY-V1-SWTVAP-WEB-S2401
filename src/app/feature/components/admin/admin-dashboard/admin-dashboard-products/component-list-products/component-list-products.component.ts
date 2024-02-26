@@ -18,6 +18,7 @@ export class ComponentListProductsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private productHttp: ProductHttp, private router:Router, private shareDataService: ShareDataService) {}
 

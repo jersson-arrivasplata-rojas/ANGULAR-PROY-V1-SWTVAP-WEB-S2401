@@ -17,6 +17,7 @@ export class ComponentListCategoriesComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private categoryHttp: CategoryHttp, private router:Router) {}
 

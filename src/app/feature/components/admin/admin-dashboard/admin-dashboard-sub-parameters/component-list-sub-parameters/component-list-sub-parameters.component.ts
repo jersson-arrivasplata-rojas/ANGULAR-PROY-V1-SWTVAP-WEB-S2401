@@ -18,6 +18,7 @@ export class ComponentListSubParametersComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private parameterHttp: ParameterHttp) {}
 

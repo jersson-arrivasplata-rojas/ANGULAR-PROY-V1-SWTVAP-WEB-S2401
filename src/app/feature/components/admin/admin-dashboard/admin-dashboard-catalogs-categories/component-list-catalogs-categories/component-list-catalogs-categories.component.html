@@ -2,7 +2,7 @@
   <table class="table table-bordered text-center" aria-label="Table of catalogs">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Asociado</th>
             <th *ngIf="!(properties.type === typesEnum.CATALOGS)">C&oacute;digo</th>
             <th>Nombre</th>
@@ -11,9 +11,9 @@
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngFor="let item of data">
+        <ng-container *ngFor="let item of data; let i = index">
           <tr *ngIf="!item.deletedAt">
-            <td>{{item.categoryId? item.categoryId  : item.catalogId  }}</td>
+            <td>{{ (i + 1 )}}</td>
             <td>{{ item.relationship | statusRelationship }}</td>
             <td *ngIf="item.code">{{ item.code | uppercase }}</td>
             <td>{{ item.name }}</td>
@@ -36,7 +36,7 @@
 <ng-template #showNgTemplateContent>
   <tr *ngIf="(!data.length)">
     <td [attr.colspan]="(properties.type === typesEnum.CATALOGS)?5:6">
-        Aun no se a agregado ningun registro
+        A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>
 </ng-template>

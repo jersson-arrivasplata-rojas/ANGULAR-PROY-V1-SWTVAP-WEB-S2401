@@ -2295,15 +2295,13 @@ export class CommonUtils {
     return Boolean(value == StatusEnum.ACTIVE);
   }
 }
+
 // https://www.typescriptlang.org/docs/handbook/functions.html
 /*public static data(): any {
-
-
-
-     return {
-       bootstrapFiles: bootstrapFile,
-       cssToAdds: cssToAdd,
-       fontKeys: fontKey,
-       sassFunctionKeys: sassFunctionKey
-     };
-   }*/
+    return {
+      bootstrapFiles: bootstrapFile,
+      cssToAdds: cssToAdd,
+      fontKeys: fontKey,
+      sassFunctionKeys: sassFunctionKey
+    };
+}*/

@@ -12,6 +12,7 @@ export class ComponentListProductsParametersProductsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor() { }
 

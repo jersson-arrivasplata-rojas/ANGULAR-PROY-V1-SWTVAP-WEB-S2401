@@ -16,6 +16,7 @@ export class ComponentListClientsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private clientHttp: ClientHttp) {}
 

@@ -26,6 +26,7 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private providerHttp: ProviderHttp, private dispatcheHttp: DispatcheHttp,
     private shareDataService: ShareDataService) { }

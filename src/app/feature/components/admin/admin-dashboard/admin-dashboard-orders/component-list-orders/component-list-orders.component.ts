@@ -17,6 +17,7 @@ export class ComponentListOrdersComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private orderHttp: OrderHttp, private router:Router) {}
 

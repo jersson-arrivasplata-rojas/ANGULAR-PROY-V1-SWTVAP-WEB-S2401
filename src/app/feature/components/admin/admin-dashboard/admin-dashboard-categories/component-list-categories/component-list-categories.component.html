@@ -1,8 +1,9 @@
-<div class="table-responsive">
+<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[1]" [search]="searchTerm">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por nombre...">
   <table class="table table-bordered text-center" aria-label="Table of categorys">
       <thead>
           <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Nombre</th>
               <th>Catalogos Asignados</th>
               <th>Productos Asignados</th>
@@ -11,9 +12,9 @@
           </tr>
       </thead>
       <tbody>
-          <ng-container *ngFor="let item of data" >
+          <ng-container *ngFor="let item of data; let i = index">
               <tr>
-                  <td>{{ item.categoryId }}</td>
+                  <td>{{ (i + 1 )}}</td>
                   <td>{{ item.name }}</td>
                   <td>
                     <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
@@ -44,8 +45,8 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr>
-    <td COLSPAN=6>
-        Aun no se a agregado ningun registro
+    <td colspan=6>
+        A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>
 </ng-template>

@@ -21,6 +21,8 @@ import { AdminDashboardParametersComponent } from './admin-dashboard-parameters/
 import { AdminDashboardProductsDiscountsComponent } from './admin-dashboard-products-discounts/admin-dashboard-products-discounts.component';
 import { AdminDashboardProductsImagesComponent } from './admin-dashboard-products-images/admin-dashboard-products-images.component';
 import { AdminDashboardProductsParametersComponent } from './admin-dashboard-products-parameters/admin-dashboard-products-parameters.component';
+import { AdminDashboardProductsSubParametersComponent } from './admin-dashboard-products-sub-parameters/admin-dashboard-products-sub-parameters.component';
+import { AdminDashboardProductsSubTertiaryParametersComponent } from './admin-dashboard-products-sub-tertiary-parameters/admin-dashboard-products-sub-tertiary-parameters.component';
 import { AdminDashboardProductsComponent } from './admin-dashboard-products/admin-dashboard-products.component';
 import { AdminDashboardProvidersProductsComponent } from './admin-dashboard-providers-products/admin-dashboard-providers-products.component';
 import { AdminDashboardProvidersComponent } from './admin-dashboard-providers/admin-dashboard-providers.component';
@@ -137,6 +139,14 @@ const routes: Routes =  [
       {
         path: 'products/add-comments/:id',
         component: AdminDashboardCommentsComponent
+      },
+      {
+        path: 'products/add-parameters/:id/parameters/:idParameter/add-secondary/:idSubParameter',
+        component: AdminDashboardProductsSubParametersComponent
+      },
+      {
+        path: 'products/add-parameters/:id/parameters/:idParameter/add-secondary/:idSubParameter/add-tertiary/:idSubSecondaryParameter',
+        component: AdminDashboardProductsSubTertiaryParametersComponent
       },
       {
         path: 'orders',

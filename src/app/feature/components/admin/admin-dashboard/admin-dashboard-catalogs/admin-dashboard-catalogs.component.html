@@ -19,10 +19,10 @@
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>
-
                     </div>
                     <div class="card-body">
-                      <app-component-list-catalogs [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-catalogs>
+                      <app-component-list-catalogs [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)">
+                      </app-component-list-catalogs>
                     </div>
                 </div>
             </div>

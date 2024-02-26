@@ -20,6 +20,7 @@ export class ComponentListSubTertiaryParametersComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private parameterHttp: ParameterHttp) {}
 

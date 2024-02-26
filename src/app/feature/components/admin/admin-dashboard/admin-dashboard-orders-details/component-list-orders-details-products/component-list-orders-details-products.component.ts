@@ -12,6 +12,7 @@ export class ComponentListOrdersDetailsProductsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor() { }
 

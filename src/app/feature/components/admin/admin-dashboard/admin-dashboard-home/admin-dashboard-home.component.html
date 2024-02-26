@@ -286,7 +286,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr *ngFor="let $value of $users_news let j= index" >
+                                            <tr *ngFor="let $value of $users_news let j= index">
                                                 <th scope="row">{{ (j+1) }}</th>
                                                 <td>{{ $value.name }}</td>
                                                 <td>{{ $value.cellphone }}</td>
@@ -332,7 +332,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr *ngFor="let $value of $orders_news let j= index" >
+                                            <tr *ngFor="let $value of $orders_news let j= index">
                                                 <th scope="row">{{ (j+1) }}</th>
                                                 <td *ngIf="$value.clientId">{{ $value.client?.name }}</td>
                                                 <td>{{ $value.code }}</td>

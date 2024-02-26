@@ -1,8 +1,9 @@
-<div class="table-responsive">
+<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[1,3]" [search]="searchTerm">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por c&oacute;digo o por descripci&oacute;n...">
   <table class="table table-bordered text-center" aria-label="Table of parameters">
       <thead>
           <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>C&oacute;digo</th>
               <th>Identificador de Grupo</th>
               <th>Descripci&oacute;n</th>
@@ -13,9 +14,9 @@
           </tr>
       </thead>
       <tbody>
-          <ng-container *ngFor="let item of data" >
+          <ng-container *ngFor="let item of data; let i = index" >
               <tr *ngIf="item.parentId">
-                  <td>{{ item.id }}</td>
+                  <td>{{ (i + 1 )}}</td>
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.groupId | emptyText }}</td>
                   <td>{{ item.description | truncateText }}</td>
@@ -26,8 +27,8 @@
                     <div class="d-flex flex-column align-items-center">
                       <button type="button" class=" btn btn-warning font-16px" (click)="add(item)">{{item.deletedAt || parameter.deletedAt? 'Ver Par\u00E1metros': 'Agregar'}}</button>
                       <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
-                      <button *ngIf="!item.deletedAt && !parameter.deletedAt" type="button" class=" btn btn-first font-16px" (click)="update(item)" [disabled]="parameter.deletedAt" appScrollOnClick>Actualizar</button>
-                      <button *ngIf="!item.deletedAt && !parameter.deletedAt" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="parameter.deletedAt">Eliminar</button>
+                      <button *ngIf="!item.deletedAt && !parameter.deletedAt && item.code !=='SELECT'" type="button" class=" btn btn-first font-16px" (click)="update(item)" [disabled]="parameter.deletedAt" appScrollOnClick>Actualizar</button>
+                      <button *ngIf="!item.deletedAt && !parameter.deletedAt && item.code !=='SELECT'" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="parameter.deletedAt">Eliminar</button>
                       <span *ngIf="item.deletedAt" class="badge badge-danger font-16px">ELIMINADO</span>
                     </div>
                   </td>
@@ -41,8 +42,8 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td COLSPAN=8>
-        Aun no se a agregado ningun registro
+    <td colspan=8>
+        A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>
 </ng-template>

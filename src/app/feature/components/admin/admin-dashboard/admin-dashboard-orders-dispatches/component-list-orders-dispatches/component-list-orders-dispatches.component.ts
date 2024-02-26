@@ -18,6 +18,7 @@ export class ComponentListOrdersDispatchesComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private orderDispatchesHttp: DispatcheHttp, private router: Router,
     private shareDataService: ShareDataService) { }

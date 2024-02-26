@@ -22,6 +22,7 @@ export class ComponentListOrdersClientsComponent implements OnInit {
   typesEnum = TypesEnum;
   item: any;
   showItem = false;
+  searchTerm = '';
 
   constructor(private orderHttp: OrderHttp, private shareDataService: ShareDataService) { }
 

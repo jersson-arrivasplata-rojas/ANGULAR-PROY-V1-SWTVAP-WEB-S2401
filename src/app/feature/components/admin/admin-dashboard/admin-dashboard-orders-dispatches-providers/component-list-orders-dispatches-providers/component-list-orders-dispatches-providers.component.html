@@ -1,8 +1,9 @@
-<div class="table-responsive">
+<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[2,6]" [search]="searchTerm">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por nombre o por correo...">
   <table class="table table-bordered text-center" aria-label="Table of categories">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Asociado</th>
             <th>Nombre</th>
             <th>Direcci&oacute;n</th>
@@ -15,8 +16,8 @@
         </tr>
     </thead>
     <tbody>
-          <tr *ngFor="let item of data" >
-              <td>{{ item.providerId }}</td>
+          <tr *ngFor="let item of data; let i = index" >
+              <td>{{ (i + 1 )}}</td>
               <td>{{ item.relationship | statusRelationship }}</td>
               <td>{{ item.name }}</td>
               <td>{{ item.address }}</td>
@@ -35,7 +36,7 @@
           </tr>
       <tr *ngIf="!data.length">
         <td [attr.colspan]="10">
-            Aun no se a agregado ningun registro
+            A&uacute;n no se ha agregado ning&uacute;n registro
         </td>
       </tr>
     </tbody>

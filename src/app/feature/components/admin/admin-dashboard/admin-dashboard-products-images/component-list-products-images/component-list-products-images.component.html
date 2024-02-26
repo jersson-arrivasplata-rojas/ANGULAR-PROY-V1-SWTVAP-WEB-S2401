@@ -2,15 +2,15 @@
   <table class="table table-bordered text-center" aria-label="Table of products">
       <thead>
           <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Ruta</th>
               <th>Acciones</th>
           </tr>
       </thead>
       <tbody>
-          <ng-container *ngFor="let item of data" >
+          <ng-container *ngFor="let item of data; let i = index" >
               <tr>
-                  <td>{{ item.productImageId }}</td>
+                  <td>{{ (i + 1 )}}</td>
                   <td>
                     <img [src]="item.path" alt="Imagen de producto" class="img-fluid" style="max-width: 200px;">
                   </td>
@@ -32,8 +32,8 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td COLSPAN=5>
-        Aun no se a agregado ningun registro
+    <td colspan=5>
+        A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>
 </ng-template>

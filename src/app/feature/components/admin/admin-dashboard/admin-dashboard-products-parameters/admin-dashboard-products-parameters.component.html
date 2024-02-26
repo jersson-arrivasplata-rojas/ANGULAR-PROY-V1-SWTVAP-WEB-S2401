@@ -17,14 +17,14 @@
                     <div class="card-header">
                         <p class="w-50 float-left card-title m-0">Tabla de Par&aacute;metros del Producto</p>
                         <div class="text-right w-50 float-right">
-                            <button type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button *ngIf="!product?.deletedAt" type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-products-parameters [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-products-parameters>
+                      <app-component-list-products-parameters [data]="data" [product]="product" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-products-parameters>
                     </div>
                 </div>
             </div>

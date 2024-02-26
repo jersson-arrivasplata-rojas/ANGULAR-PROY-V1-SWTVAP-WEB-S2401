@@ -16,6 +16,7 @@ export class ComponentListProvidersComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private providerHttp: ProviderHttp) {}
 

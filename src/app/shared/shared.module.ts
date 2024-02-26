@@ -134,6 +134,7 @@ import { AmountValidatorDirective } from './directives/amount-validator.directiv
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ModalComponentDirective } from './directives/modal.directive';
+import { PaginationDirective } from './directives/pagination.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
 import { ScrollOnClickDirective } from './directives/scroll-on-click.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
@@ -294,6 +295,7 @@ import { ServicesModule } from './services/services.module';
     UppercaseDirective,
     ModalComponentDirective,
     ScrollOnClickDirective,
+    PaginationDirective,
   ],
   exports: [
     GeneratorCssComponent,
@@ -443,6 +445,7 @@ import { ServicesModule } from './services/services.module';
     UppercaseDirective,
     ModalComponentDirective,
     ScrollOnClickDirective,
+    PaginationDirective,
   ],
   imports: [
     CommonModule,

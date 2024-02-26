@@ -76,7 +76,7 @@ export class ComponentAddProductsParametersComponent implements OnInit, OnChange
   }
 
   goToParameters() {
-    this.router.navigate(['/admin/dashboard/parameters/add', this.selectAllParameters[0].parentId, 'add-secondary', this.selectAllParameters[0].id]);
+    this.router.navigate(['/admin/dashboard/products/add-parameters', this.productId, 'parameters', this.selectAllParameters[0].parentId, 'add-secondary', this.selectAllParameters[0].id]);
   }
 
   init() {

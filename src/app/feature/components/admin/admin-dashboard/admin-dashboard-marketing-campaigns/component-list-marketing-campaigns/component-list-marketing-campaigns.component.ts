@@ -16,6 +16,7 @@ export class ComponentListMarketingCampaignsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private marketingcampaignHttp: MarketingCampaignHttp) {}
 

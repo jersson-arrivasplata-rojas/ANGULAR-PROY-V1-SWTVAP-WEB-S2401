@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
@@ -13,12 +14,14 @@ export class ComponentListCatalogsComponent {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
+  @Output() filtered: EventEmitter<any> = new EventEmitter();
 
   item: any;
 
   showItem = false;
-
-  constructor(private catalogHttp: CatalogHttp, private router:Router) {}
+  searchTerm = '';
+  subscription: Subscription;
+  constructor(private catalogHttp: CatalogHttp, private router: Router) { }
 
   show(item: any) {
     if (item.catalogId === this.item?.catalogId && this.showItem) {
@@ -28,7 +31,7 @@ export class ComponentListCatalogsComponent {
     this.catalogHttp.getById(item.catalogId).subscribe((response) => {
       this.item = response;
       if (!this.showItem) this.showItem = !this.showItem;
-      this.showed.emit({item: this.item, showItem: this.showItem});
+      this.showed.emit({ item: this.item, showItem: this.showItem });
     });
   }
 
@@ -54,7 +57,7 @@ export class ComponentListCatalogsComponent {
     this.updated.emit(item);
   }
 
-  addCategoryCatalogs(item: any){
+  addCategoryCatalogs(item: any) {
     this.router.navigate(['/admin/dashboard/catalogs/add', item.catalogId]);
   }
 }

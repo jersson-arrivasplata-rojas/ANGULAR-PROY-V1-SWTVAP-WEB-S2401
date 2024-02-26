@@ -1,8 +1,9 @@
-<div class="table-responsive">
+<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[2, 4]" [search]="searchTerm">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por c&oacute;digo o por descripci&oacute;n...">
   <table class="table table-bordered text-center" aria-label="Table of products">
       <thead>
           <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Identificador de Grupo</th>
             <th>Descripci&oacute;n</th>
             <th>Valor</th>
@@ -11,9 +12,9 @@
           </tr>
       </thead>
       <tbody>
-          <ng-container *ngFor="let item of data" >
+          <ng-container *ngFor="let item of data; let i = index" >
               <tr>
-                  <td>{{ item.id }}</td>
+                  <td>{{ (i + 1 )}}</td>
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.groupId | emptyText }}</td>
                   <td>{{ item.description | truncateText }}</td>
@@ -26,8 +27,8 @@
               </tr>
           </ng-container>
         <tr *ngIf="!data.length">
-          <td COLSPAN=6>
-              Aun no se a agregado ningun registro
+          <td colspan=6>
+              A&uacute;n no se ha agregado ning&uacute;n registro
           </td>
         </tr>
       </tbody>

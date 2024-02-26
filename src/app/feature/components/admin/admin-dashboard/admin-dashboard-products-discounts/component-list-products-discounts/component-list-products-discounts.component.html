@@ -2,7 +2,7 @@
   <table class="table table-bordered text-center" aria-label="Table of products">
       <thead>
           <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Descuento x Porcentaje</th>
               <th>Fecha de Inicio</th>
               <th>Fecha de Fin</th>
@@ -10,9 +10,9 @@
           </tr>
       </thead>
       <tbody>
-          <ng-container *ngFor="let item of data" >
+          <ng-container *ngFor="let item of data; let i = index" >
               <tr>
-                  <td>{{ item.productDiscountId }}</td>
+                  <td>{{ (i + 1 )}}</td>
                   <td>{{ item.discountPercentage | transformText:'percentage' }}</td>
                   <td>{{ item.startDate | date }}</td>
                   <td>{{ item.endDate | date }}</td>
@@ -34,8 +34,8 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td COLSPAN=5>
-        Aun no se a agregado ningun registro
+    <td colspan=5>
+        A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>
 </ng-template>

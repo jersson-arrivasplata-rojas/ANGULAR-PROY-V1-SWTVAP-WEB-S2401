@@ -16,6 +16,7 @@ export class ComponentListSubscriptionsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private subscriptionHttp: SubscriptionHttp) {}
 

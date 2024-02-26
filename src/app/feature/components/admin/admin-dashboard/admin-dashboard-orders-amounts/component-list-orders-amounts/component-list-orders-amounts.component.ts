@@ -15,6 +15,7 @@ export class ComponentListOrdersAmountsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private orderAmountsHttp: OrderAmountsHttp) {}
 

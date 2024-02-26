@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { catchError, mergeMap, of } from 'rxjs';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
@@ -12,11 +12,14 @@ import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http
 export class AdminDashboardCatalogsComponent implements OnInit {
 
   data: any[] = [];
+  dataFilter: any[] = [];
   item = {};
+  searchTerm = '';
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private catalogHttp: CatalogHttp, private categoryCatalagHttp: CategoryCatalogsHttp) { }
+  constructor(private catalogHttp: CatalogHttp, private categoryCatalagHttp: CategoryCatalogsHttp,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.catalogHttp.getAll().pipe(
@@ -78,6 +81,13 @@ export class AdminDashboardCatalogsComponent implements OnInit {
     this.showItem = data.showItem;
     this.addItem = false;
     this.updateItem = false;
+  }
+
+  onPageChange({ page, data}) {
+    console.log(page, data);
+    //this.data = data;
+    this.dataFilter = data;
+    this.cdr.detectChanges();
   }
 
 }

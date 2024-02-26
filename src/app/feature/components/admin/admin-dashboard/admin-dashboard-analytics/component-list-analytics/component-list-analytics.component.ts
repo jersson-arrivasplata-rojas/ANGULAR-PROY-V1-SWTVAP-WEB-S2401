@@ -16,6 +16,7 @@ export class ComponentListAnalyticsComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private analyticHttp: AnalyticHttp) {}
 

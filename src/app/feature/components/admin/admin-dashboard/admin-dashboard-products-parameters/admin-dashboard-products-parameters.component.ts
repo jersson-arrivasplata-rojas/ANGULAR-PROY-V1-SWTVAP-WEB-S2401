@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
+import { ProductHttp } from 'src/app/shared/http/products.http';
 import { AdminDashboardProductsParametersPresenter } from './admin-dashboard-products-parameters.presenter';
 
 
@@ -16,19 +17,25 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
 
   data: any[] = [];
   parameters: any[] = [];
+  product;
   item = {};
   productId = 0;
   addItem = false;
   updateItem = false;
   showItem = false;
   constructor(private productParametersHttp: ProductParametersHttp, private parameterHttp: ParameterHttp,
-    private activatedRoute: ActivatedRoute, private router: Router, private presenter: AdminDashboardProductsParametersPresenter) { }
+    private productHttp: ProductHttp, private activatedRoute: ActivatedRoute, private router: Router,
+    private presenter: AdminDashboardProductsParametersPresenter) { }
 
   ngOnInit() {
     this.activatedRoute.params
       .pipe(
         mergeMap(params => {
           this.productId = +params['id'];
+          return this.productHttp.getById(this.productId);
+        }),
+        mergeMap(item => {
+          this.product = item;
           return this.parameterHttp.getAll();
         }),
         mergeMap(parameterData => {

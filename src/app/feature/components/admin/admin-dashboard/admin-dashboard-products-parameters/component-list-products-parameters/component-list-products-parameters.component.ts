@@ -9,6 +9,7 @@ import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.ht
 })
 export class ComponentListProductsParametersComponent {
   @Input() data: any[] = [];
+  @Input() product;
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
@@ -16,6 +17,7 @@ export class ComponentListProductsParametersComponent {
   item: any;
 
   showItem = false;
+  searchTerm = '';
 
   constructor(private productParametersHttp: ProductParametersHttp, private router:Router) {}
 
