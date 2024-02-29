@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-orders-details',
@@ -9,6 +10,7 @@ import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
 export class ComponentListOrdersDetailsComponent {
   @Input() data: any[] = [];
   @Input() products: any[] = [];
+  @Input() order;
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
@@ -37,7 +39,13 @@ export class ComponentListOrdersDetailsComponent {
     if (await confirm(text) === true) {
       this.orderDetailsHttp.delete(item.orderDetailId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.orderDetailId !== item.orderDetailId);
+        this.data = this.data.map((f) => {
+          if (f.orderDetailId === item.orderDetailId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

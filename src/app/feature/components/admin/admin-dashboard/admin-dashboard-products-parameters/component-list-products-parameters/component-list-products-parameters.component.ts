@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-products-parameters',
@@ -39,7 +40,13 @@ export class ComponentListProductsParametersComponent {
     if (await confirm(text) === true) {
       this.productParametersHttp.delete(item.productParameterId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.productParameterId !== item.productParameterId);
+        this.data = this.data.map((f) => {
+          if (f.productParameterId === item.productParameterId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
+import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { ProductHttp } from 'src/app/shared/http/products.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
@@ -17,10 +18,11 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
   products: any[] = [];
   item = {};
   orderId = 0;
+  order;
   addItem = false;
   updateItem = false;
   showItem = false;
-  constructor(private orderDetailsHttp: OrderDetailsHttp, private productHttp: ProductHttp,
+  constructor(private orderDetailsHttp: OrderDetailsHttp, private productHttp: ProductHttp, private orderHttp: OrderHttp,
     private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
     .pipe(
       mergeMap(params => {
         this.orderId = +params['id'];
+        return this.orderHttp.getById(this.orderId);
+      }),
+      mergeMap(item => {
+        this.order = item;
         return this.productHttp.getAll();
       }),
       mergeMap(products => {
