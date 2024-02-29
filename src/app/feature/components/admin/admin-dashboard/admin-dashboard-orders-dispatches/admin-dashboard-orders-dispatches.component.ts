@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, mergeMap, of } from 'rxjs';
 import { StatusProviderEnum } from 'src/app/shared/config/status-provider.enum';
 import { DispatcheHttp } from 'src/app/shared/http/dispatches.http';
+import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { ProviderHttp } from 'src/app/shared/http/providers.http';
 
 
@@ -17,17 +18,22 @@ export class AdminDashboardOrdersDispatchesComponent implements OnInit {
   providers: any[] = [];
   item = {};
   orderId = 0;
+  order;
   addItem = false;
   updateItem = false;
   showItem = false;
   constructor(private orderDispatchesHttp: DispatcheHttp, private providerHttp: ProviderHttp,
-    private activatedRoute: ActivatedRoute, private router:Router) { }
+    private orderHttp: OrderHttp, private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     this.activatedRoute.params
     .pipe(
       mergeMap(params => {
         this.orderId = +params['id'];
+        return this.orderHttp.getById(this.orderId);
+      }),
+      mergeMap(item => {
+        this.order = item;
         return this.providerHttp.getAll();
       }),
       mergeMap(providers => {

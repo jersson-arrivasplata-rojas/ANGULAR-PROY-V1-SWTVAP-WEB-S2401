@@ -19,9 +19,9 @@
                   <td>{{ item.status | status }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
-                      <button *ngIf="!item.deletedAt" type="button" class=" btn btn-first mr-2 font-16px" (click)="update(item)" appScrollOnClick>Actualizar</button>
-                      <button *ngIf="!item.deletedAt" type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)" appScrollOnClick>Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
+                      <button *ngIf="!item.deletedAt" type="button" class=" btn btn-first font-16px" (click)="update(item)" appScrollOnClick>Actualizar</button>
+                      <button *ngIf="!item.deletedAt" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" appScrollOnClick>Eliminar</button>
                       <span *ngIf="item.deletedAt" class="badge badge-danger font-16px">ELIMINADO</span>
                     </div>
                   </td>

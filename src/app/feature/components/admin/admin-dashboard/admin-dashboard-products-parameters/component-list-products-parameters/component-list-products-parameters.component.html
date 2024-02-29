@@ -23,8 +23,8 @@
                   <td>{{ item.parameter.value | truncateText }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
-                      <button *ngIf="!item.deletedAt && !product?.deletedAt" type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)" [disabled]="product.deletedAt">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
+                      <button *ngIf="!item.deletedAt && !product?.deletedAt" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="product.deletedAt">Eliminar</button>
                       <span *ngIf="item.deletedAt" class="badge badge-danger font-16px">ELIMINADO</span>
                     </div>
                   </td>

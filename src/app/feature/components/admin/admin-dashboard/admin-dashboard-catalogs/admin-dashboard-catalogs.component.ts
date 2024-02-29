@@ -18,6 +18,7 @@ export class AdminDashboardCatalogsComponent implements OnInit {
   addItem = false;
   updateItem = false;
   showItem = false;
+
   constructor(private catalogHttp: CatalogHttp, private categoryCatalagHttp: CategoryCatalogsHttp,
     private cdr: ChangeDetectorRef) { }
 
@@ -89,5 +90,4 @@ export class AdminDashboardCatalogsComponent implements OnInit {
     this.dataFilter = data;
     this.cdr.detectChanges();
   }
-
 }

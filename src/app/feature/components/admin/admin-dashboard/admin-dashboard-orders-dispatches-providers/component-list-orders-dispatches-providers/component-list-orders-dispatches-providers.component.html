@@ -16,7 +16,8 @@
         </tr>
     </thead>
     <tbody>
-          <tr *ngFor="let item of data; let i = index" >
+        <ng-container *ngFor="let item of data; let i = index">
+          <tr *ngIf="!item.deletedAt">
               <td>{{ (i + 1 )}}</td>
               <td>{{ item.relationship | statusRelationship }}</td>
               <td>{{ item.name }}</td>
@@ -28,17 +29,23 @@
               <td>{{ item.status | status }}</td>
               <td>
                 <div class="d-flex flex-column">
-                  <button type="button" *ngIf="!item.relationship" class=" btn btn-first mr-2 font-16px" (click)="add(item)">Asociar</button>
-                  <button type="button" *ngIf="item.relationship" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
-                  <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
+                  <button type="button" *ngIf="!item.relationship" class=" btn btn-first font-16px" (click)="add(item)" [disabled]="properties.deletedAt">Asociar</button>
+                  <button type="button" *ngIf="item.relationship" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="properties.deletedAt">Eliminar</button>
+                  <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
                 </div>
               </td>
           </tr>
-      <tr *ngIf="!data.length">
-        <td [attr.colspan]="10">
-            A&uacute;n no se ha agregado ning&uacute;n registro
-        </td>
-      </tr>
+        </ng-container>
+        <ng-container *ngIf="!data.length">
+          <ng-container *ngTemplateOutlet="showNgTemplateContent"></ng-container>
+        </ng-container>
     </tbody>
   </table>
 </div>
+<ng-template #showNgTemplateContent>
+  <tr *ngIf="!data.length">
+    <td [attr.colspan]="10">
+        A&uacute;n no se ha agregado ning&uacute;n registro
+    </td>
+  </tr>
+</ng-template>

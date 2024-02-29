@@ -1,7 +1,16 @@
 button {
   width: 100%;
-  margin-bottom: 0.5rem;
-  max-width: 100px;
+  margin-bottom: 0.5rem!important;
+  max-width: 180px;
+  span{
+    color: var(--theme_color_first) !important;
+  }
+  &:hover{
+    color:var(--theme_color_second_text)!important;
+    span{
+      color:var(--theme_color_second_text)!important;
+    }
+  }
 }
 table td {
   text-align: center;

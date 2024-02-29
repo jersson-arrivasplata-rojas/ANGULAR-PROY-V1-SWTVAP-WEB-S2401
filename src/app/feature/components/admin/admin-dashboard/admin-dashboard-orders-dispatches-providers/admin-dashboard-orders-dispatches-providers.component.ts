@@ -20,7 +20,8 @@ export class AdminDashboardOrdersDispatchesProvidersComponent implements OnInit 
   properties = {
     id: 0,
     dispatchId: 0,
-    type: ''
+    type: '',
+    deletedAt: ''
   };
   typesEnum = TypesEnum;
 

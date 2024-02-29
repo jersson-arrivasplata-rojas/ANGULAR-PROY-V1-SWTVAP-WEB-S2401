@@ -16,7 +16,8 @@ export class ComponentListOrdersDispatchesProvidersComponent implements OnInit {
   @Input() properties = {
     id: 0,
     dispatchId: 0,
-    type: ''
+    type: '',
+    deletedAt: ''
   };
 
   @Output() showed: EventEmitter<any> = new EventEmitter();

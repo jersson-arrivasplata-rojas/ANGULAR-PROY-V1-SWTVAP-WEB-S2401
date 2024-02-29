@@ -18,14 +18,14 @@
                     <div class="card-header">
                         <p class="w-50 float-left card-title m-0">Tabla de Pagos Realizados de la &Oacute;rden</p>
                         <div class="text-right w-50 float-right">
-                            <button type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button *ngIf="!order?.deletedAt" type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-orders-transactions [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders-transactions>
+                      <app-component-list-orders-transactions [data]="data" [order]="order" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-orders-transactions>
                     </div>
                 </div>
             </div>

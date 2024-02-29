@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderHttp } from 'src/app/shared/http/orders.http';
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
   selector: 'app-component-list-orders',
@@ -19,7 +20,7 @@ export class ComponentListOrdersComponent {
   showItem = false;
   searchTerm = '';
 
-  constructor(private orderHttp: OrderHttp, private router:Router) {}
+  constructor(private orderHttp: OrderHttp, private router: Router) { }
 
   show(item: any) {
     if (item.orderId === this.item?.orderId && this.showItem) {
@@ -29,7 +30,7 @@ export class ComponentListOrdersComponent {
     this.orderHttp.getById(item.orderId).subscribe((response) => {
       this.item = response;
       if (!this.showItem) this.showItem = !this.showItem;
-      this.showed.emit({item: this.item, showItem: this.showItem});
+      this.showed.emit({ item: this.item, showItem: this.showItem });
     });
   }
 
@@ -38,7 +39,13 @@ export class ComponentListOrdersComponent {
     if (await confirm(text) === true) {
       this.orderHttp.delete(item.orderId).subscribe(() => {
         item.deleted = true;
-        this.data = this.data.filter((f) => f.orderId !== item.orderId);
+        this.data = this.data.map((f) => {
+          if (f.orderId === item.orderId) {
+            item.deletedAt = CommonUtils.getDayNow();
+            return item;
+          }
+          return f;
+        });
         this.deleted.emit(this.data);
         (window as any).success('¡Eliminado!');
       });
@@ -46,30 +53,31 @@ export class ComponentListOrdersComponent {
   }
 
   getClientName(clientId: number) {
-    return this.clients.find((c) => c.clientId === clientId)?.name;
+    const client = this.clients.find((f) => f.clientId === clientId);
+    return client ? client?.name : 'No asignado';
   }
 
   update(item: any) {
     this.updated.emit(item);
   }
 
-  addOrderDetails(item: any){
+  addOrderDetails(item: any) {
     this.router.navigate(['/admin/dashboard/orders/add-details', item.orderId]);
   }
 
-  addOrderAmounts(item: any){
+  addOrderAmounts(item: any) {
     this.router.navigate(['/admin/dashboard/orders/add-amounts', item.orderId]);
   }
 
-  addOrderTransactions(item: any){
+  addOrderTransactions(item: any) {
     this.router.navigate(['/admin/dashboard/orders/add-transactions', item.orderId]);
   }
 
-  addDispatches(item: any){
+  addDispatches(item: any) {
     this.router.navigate(['/admin/dashboard/orders/add-dispatches', item.orderId]);
   }
 
-  addClient(item: any){
+  addClient(item: any) {
     this.router.navigate(['/admin/dashboard/orders/add-client', item.orderId]);
   }
 }

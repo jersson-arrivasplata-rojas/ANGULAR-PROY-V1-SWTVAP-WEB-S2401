@@ -10,12 +10,12 @@ export class AdminDashboardProductsParametersPresenter {
     return parameters
       .filter(parameter => parameter.code === ParametersEnum.SELECT)
       .map(select => {
-        const details = parameters.filter(parameter => parameter.parentId === select.id && !parameter.deletedAt);
+        const details = parameters.filter(parameter => parameter.parentId === select.id && !parameter?.deletedAt);
         return {
           ...select,
           details: details.map(detail => ({
             ...detail,
-            details: parameters.filter(parameter => parameter.parentId === detail.id && !parameter.deletedAt)
+            details: parameters.filter(parameter => parameter.parentId === detail.id && !parameter?.deletedAt)
           }))
         };
       });

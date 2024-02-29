@@ -37,7 +37,7 @@
                           <p class="w-50 float-left card-title m-0">Tabla de Sub Par&aacute;metros</p>
                         </div>
                         <div class="text-right w-50 float-right">
-                            <button *ngIf="!parameter.deletedAt" type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
+                            <button *ngIf="!parameter?.deletedAt" type="button" class="btn btn-first btn-color-settings text-black mr-2" (click)="addItem=true;updateItem=false;showItem=false;">
                                 Agregar <i class="nav-icon i-Gear-2"></i>
                             </button>
                         </div>

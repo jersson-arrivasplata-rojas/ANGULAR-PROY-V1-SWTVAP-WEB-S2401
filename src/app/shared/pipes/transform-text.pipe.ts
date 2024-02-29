@@ -18,6 +18,6 @@ export class TransformTextPipe implements PipeTransform {
 
   transformText(value: string | boolean): string {
     value = String(value ? value : '');
-    return value.trim() === '' ? '-' : `${value}`;
+    return value.toString().trim() === '' ? '-' : `${value}`;
   }
 }

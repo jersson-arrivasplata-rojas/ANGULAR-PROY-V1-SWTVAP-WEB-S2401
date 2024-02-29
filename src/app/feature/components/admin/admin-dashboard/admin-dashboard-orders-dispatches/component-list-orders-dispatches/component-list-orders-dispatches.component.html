@@ -25,24 +25,34 @@
                       <span>{{ item.provider?.name }}</span><br/>
                       <span>{{ item.provider?.email }}</span>
                     </div>
-                    <div class="d-flex flex-column align-items-center">
-                      <button type="button" class=" btn btn-info-2 btn-sm mt-2 font-16px" (click)="addProvider(item)" style="max-width: 130px;">Asociar Provider</button>
+                    <div>
+                      <span *ngIf="!item.providerId">No Asignado</span>
+                    </div>
+                    <div *ngIf="!item.deletedAt && !order.deletedAt" class="d-flex flex-column align-items-center">
+                      <button type="button" class=" btn btn-info-2 btn-sm mt-2 font-16px" (click)="addProvider(item)" >Asociar Provider</button>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
-                      <button type="button" class=" btn btn-success-2 mr-2 font-16px" (click)="show(item)">Mostrar</button>
-                      <button type="button" class=" btn btn-first mr-2 font-16px" (click)="update(item)">Actualizar</button>
-                      <button type="button" class=" btn btn-danger-2 mr-2 font-16px" (click)="delete(item)">Eliminar</button>
+                      <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
+                      <button *ngIf="!item.deletedAt && !order.deletedAt" type="button" class=" btn btn-first font-16px" (click)="update(item)" [disabled]="order.deletedAt" appScrollOnClick>Actualizar</button>
+                      <button *ngIf="!item.deletedAt && !order.deletedAt" type="button" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="order.deletedAt">Eliminar</button>
+                      <span *ngIf="item.deletedAt" class="badge badge-danger font-16px">ELIMINADO</span>
                     </div>
                   </td>
               </tr>
+            </ng-container>
+          <ng-container *ngIf="!data.length">
+            <ng-container *ngTemplateOutlet="showNgTemplateContent"></ng-container>
           </ng-container>
-        <tr *ngIf="!data.length">
-          <td colspan=8>
-              A&uacute;n no se ha agregado ning&uacute;n registro
-          </td>
-        </tr>
       </tbody>
   </table>
 </div>
+<ng-template #showNgTemplateContent>
+  <tr *ngIf="!data.length">
+    <td colspan=8>
+        A&uacute;n no se ha agregado ning&uacute;n registro
+    </td>
+  </tr>
+</ng-template>
+

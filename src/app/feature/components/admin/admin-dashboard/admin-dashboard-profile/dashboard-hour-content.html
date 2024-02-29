@@ -6,7 +6,7 @@
         <p class="m-0 text-small text-muted-2">{{ $val.time_start }} - {{ $val.time_end }}</p>
     </div>
     <div class="text-align-end">
-        <button type="button" class="btn btn-outline-first border-radius-15 btn-rounded mr-2 btn-sm"
+        <button type="button" class="btn btn-outline-first border-radius-15 btn-rounded btn-sm"
          (click)="updateHour(this,$val.id)"  [ladda]="isLoadingUpdateHour" >
             <i class="nav-icon i-Pen-2  font-weight-bold"></i> Editar
         </button>
