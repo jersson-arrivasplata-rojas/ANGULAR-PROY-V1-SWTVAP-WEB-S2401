@@ -35,7 +35,7 @@ export class ComponentAddOrdersComponent implements OnInit {
       totalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       pickUp: [false, Validators.required],
       otherDetails: [''],
-      status: [true, [Validators.required]]
+      status: ['PENDING_PAYMENT', [Validators.required]]
     });
     this.presenter.itemForm = this.itemForm;
   }
@@ -48,7 +48,6 @@ export class ComponentAddOrdersComponent implements OnInit {
     if (this.itemForm.valid) {
       const item = { ...this.init(), ...this.itemForm.value };
       item.pickUp = Number(item.pickUp);
-      item.status = Number(item.status);
       this.added.emit(item);
     }
   }
@@ -71,7 +70,7 @@ export class ComponentAddOrdersComponent implements OnInit {
       totalEUR: 0,
       pickUp: false,
       otherDetails: '',
-      status: true
+      status: 0
     };
   }
 }

@@ -37,7 +37,7 @@ export class ComponentAddOrdersDetailsComponent implements OnInit {
       subtotalEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       discountPercentage: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
-      status: [false, [Validators.required]]
+      status: [true, [Validators.required]]
     });
     this.presenter.itemForm = this.itemForm;
   }

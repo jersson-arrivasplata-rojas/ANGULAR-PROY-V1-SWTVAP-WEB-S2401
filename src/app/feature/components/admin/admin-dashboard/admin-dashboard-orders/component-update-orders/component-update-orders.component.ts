@@ -37,7 +37,7 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
       totalEUR: ['', [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       pickUp: [false, Validators.required],
       otherDetails: [''],
-      status: [true, [Validators.required]]
+      status: ['PENDING_PAYMENT', [Validators.required]]
     });
     this.presenter.itemForm = this.itemForm;
   }
@@ -49,7 +49,6 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
-      this.item.status = Boolean(this.item.status);
       this.item.pickUp = Boolean(this.item.pickUp);
       this.itemForm.patchValue(this.item);
     }
@@ -58,7 +57,6 @@ export class ComponentUpdateOrdersComponent implements OnInit, OnChanges {
   update() {
     if (this.itemForm.valid) {
       const item = { ...this.item, ...this.itemForm.value };
-      item.status = Number(item.status);
       item.pickUp = Number(item.pickUp);
       this.orderHttp.update(item.orderId, item).subscribe((item) => {
         this.updated.emit(item);

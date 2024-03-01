@@ -143,6 +143,7 @@ import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { AddZerosPipe } from './pipes/add-zeros.pipe';
 import { EmptyTextPipe } from './pipes/empty-text.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
+import { OrderStatusPipe } from './pipes/order-status.pipe';
 import { StatusAddPipe } from './pipes/status-add.pipe';
 import { StatusProviderPipe } from './pipes/status-provider.pipe';
 import { StatusRelationshipPipe } from './pipes/status-relationship.pipe';
@@ -296,6 +297,7 @@ import { ServicesModule } from './services/services.module';
     ModalComponentDirective,
     ScrollOnClickDirective,
     PaginationDirective,
+    OrderStatusPipe,
   ],
   exports: [
     GeneratorCssComponent,
@@ -446,6 +448,7 @@ import { ServicesModule } from './services/services.module';
     ModalComponentDirective,
     ScrollOnClickDirective,
     PaginationDirective,
+    OrderStatusPipe,
   ],
   imports: [
     CommonModule,

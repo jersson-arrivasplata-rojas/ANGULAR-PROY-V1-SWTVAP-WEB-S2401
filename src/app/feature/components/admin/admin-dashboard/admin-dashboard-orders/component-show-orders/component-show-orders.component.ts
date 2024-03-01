@@ -12,7 +12,6 @@ export class ComponentShowOrdersComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
-      this.item.status = Boolean(this.item.status);
       this.item.pickUp = Boolean(this.item.pickUp);
       this.item = changes['item'].currentValue;
     }

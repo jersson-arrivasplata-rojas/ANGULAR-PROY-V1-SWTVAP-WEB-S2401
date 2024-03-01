@@ -50,7 +50,7 @@
                     <span>€/{{ item.totalEUR | addZeros }}</span>
                   </td>
                   <td>{{ item.pickUp ? 'Si': 'No' }}</td>
-                  <td>{{ item.status | status }}</td>
+                  <td>{{ item.status | orderStatusPipe }}</td>
                   <td>
                     <div class="d-flex flex-column">
                       <button type="button" class=" btn btn-first btn-sm font-16px" (click)="addOrderDetails(item)">Detalle de la Orden</button>

@@ -92,9 +92,23 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div class="form-group d-flex">
+          <div class="form-group">
                 <label for="status">Estado:</label>
-                <input type="checkbox" class="form-control" id="status" formControlName="status" >
+                <select class="form-control" id="status" formControlName="status">
+                  <option value="PENDING_PAYMENT">Pendiente de pago</option>
+                  <option value="PAYMENT_RECEIVED">Pago recibido</option>
+                  <option value="PROCESSING">En proceso de preparación</option>
+                  <option value="IN_TRANSIT">En tránsito</option>
+                  <option value="DELIVERED">Entregado</option>
+                  <option value="CANCELED_BY_CUSTOMER">Cancelado por el cliente</option>
+                  <option value="CANCELED_BY_COMPANY">Cancelado por la empresa</option>
+                  <option value="WAITING_FOR_PAYMENT_CONFIRMATION">En espera de confirmación de pago</option>
+                  <option value="REFUNDED">Reembolsado</option>
+                  <option value="CUSTOMS_PROCESSING">En proceso de aduanas</option>
+                  <option value="WAITING_FOR_DOCUMENTATION">En espera de documentación</option>
+                  <option value="INTERNATIONAL_TRANSIT">En tránsito internacional</option>
+                  <option value="HELD_IN_CUSTOMS">Retenido en aduanas</option>
+                </select>
             </div>
         </div>
         <div class="col-lg-12">

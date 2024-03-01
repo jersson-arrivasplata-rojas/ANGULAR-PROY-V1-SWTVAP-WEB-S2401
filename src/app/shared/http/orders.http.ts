@@ -29,7 +29,6 @@ export class OrderHttp {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((response: any) => {
         return response.map((item: any) => {
-          item.status = Boolean(item.status === StatusEnum.ACTIVE);
           return item;
         });
       }),

@@ -17,7 +17,7 @@
         <p *ngIf="item.totalEUR">Total en Euros: €/{{ item.totalEUR | addZeros }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Recojo en Tienda: {{ item.pickUp ? 'Si': 'No' }}</p>
-        <p>Estado: {{ item.status | status }}</p>
+        <p>Estado: {{ item.status | orderStatusPipe }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
