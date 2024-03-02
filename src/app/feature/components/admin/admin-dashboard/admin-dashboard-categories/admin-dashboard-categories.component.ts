@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { CategoryHttp } from 'src/app/shared/http/categories.http';
 import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
 import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.http';
@@ -34,11 +34,6 @@ export class AdminDashboardCategoriesComponent implements OnInit {
 
         return this.productCategoriesHttp.getAll();
       }),
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-      })
     ).subscribe((productCategories) => {
       this.data.map((category: any) => {
         category.products = productCategories.filter(productCategory => productCategory.category.categoryId === category.categoryId);

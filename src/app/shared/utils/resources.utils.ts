@@ -3,19 +3,19 @@ export class ResourcesUtils{
 
   // Recursos en Español
 
-  public static titulo = 'Mi Negocio Sumac Chasca Perú S.A.C.';
+  public static titulo = 'Mi Negocio Sumac Chasca Per\u00FA S.A.C.';
   public static siguiente = 'Siguiente';
   public static anterior = 'Anterior';
-  public static EsVersion = 'Versión 1.1';
+  public static EsVersion = 'Versi\u00F3n 1.1';
   public static EsInicio = 'Inicio';
 
   public static EsImprimirFactura = 'Imprimir Factura';
-  public static EsPedidoInformacion = 'Información de la Orden';
+  public static EsPedidoInformacion = 'Informaci\u00F3n de la Orden';
   public static EsPedidoEstado = 'Estado de la orden';
   public static EsPedidoFecha = 'Fecha de la orden';
   public static EsFactura = 'Factura';
   public static EsEditar = 'Editar';
-  public static EsNumeroOrden = 'Número de Orden';
+  public static EsNumeroOrden = 'N\u00FAmero de Orden';
   public static EsGuardar = 'Guardar';
   public static EsPendiente = 'Pendiente';
   public static EsProcesando = 'Procesando';
@@ -24,10 +24,10 @@ export class ResourcesUtils{
   public static EsFacturaHacia = 'Factura hacia';
   public static EsEliminar = 'Eliminar';
   public static EsAgregarItem = 'Agregar Item';
-  public static EsCopyright = '© 2019 Sumac Chasca Perú S.A.C.';
+  public static EsCopyright = '© 2019 Sumac Chasca Per\u00FA S.A.C.';
   public static EsDerechosReservados = 'Todos los derechos reservados';
-  public static EsFooterTitulo = 'Sumac Chasca Perú S.A.C. - Administrador para los emprendedores';
-  public static EsFooterDescripcion = 'Plataforma web de emprendedores donde pueden mostrar sus productos en el mundo digital creado por Sumac Chasca Perú S.A.C..';
+  public static EsFooterTitulo = 'Sumac Chasca Per\u00FA S.A.C. - Administrador para los emprendedores';
+  public static EsFooterDescripcion = 'Plataforma web de emprendedores donde pueden mostrar sus productos en el mundo digital creado por Sumac Chasca Per\u00FA S.A.C..';
   public static EsUrlWebDevInnovaPeru = 'https://devinnovaperu.com/';
   public static EsWebDevInnovaPeru = 'Web de DevInnova Peru';
   public static EsFacebook = 'Facebook';
@@ -36,11 +36,11 @@ export class ResourcesUtils{
   public static EsAnoAnterior = 'Año anterior';
   public static EsMesAnterior = 'Mes anterior';
   public static EsSemanaAnterior = 'Semana anterior';
-  public static EsDiaAnterior = 'Día anterior';
+  public static EsDiaAnterior = 'D\u00EDa anterior';
   public static EsVentaAno = 'Venta del año';
   public static EsVentaMes = 'Venta del mes';
   public static EsVentaSemana = 'Venta de la semana';
-  public static EsVentaDia = 'Venta del día';
+  public static EsVentaDia = 'Venta del d\u00EDa';
   public static EsVisitas = 'Visitas';
   public static EsMegustas = 'Me gustas';
   public static EsCompartidos = 'Compartidos';
@@ -50,7 +50,7 @@ export class ResourcesUtils{
   public static EsComentarios = 'Comentarios';
   public static EsFechaYHora = 'Fecha y Hora Actual';
   public static EsSeguidores = 'Seguidores';
-  public static EsVenta20UltimosDias = 'Venta de los últimos 20 días';
+  public static EsVenta20UltimosDias = 'Venta de los \u00FAltimos 20 d\u00EDas';
   public static EsAddWidgets = 'Agregar nuevos widgets';
 
   // Gull - Laravel 6 + Bootstrap 4 admin Dashboard template
@@ -74,10 +74,10 @@ export class ResourcesUtils{
   public static EnFacturaHacia = 'Bill To';
   public static EnEliminar = 'Delete';
   public static EnAgregarItem = 'Add Item';
-  public static EnCopyright = '© 2019 Sumac Chasca Perú S.A.C.';
+  public static EnCopyright = '© 2019 Sumac Chasca Per\u00FA S.A.C.';
   public static EnDerechosReservados = 'All rights reserved';
-  public static EnFooterTitulo = 'Sumac Chasca Perú S.A.C. - Manager for entrepreneurs';
-  public static EnFooterDescripcion = 'Entrepreneurs web platform where they can show their products in the digital world created by Sumac Chasca Perú S.A.C..';
+  public static EnFooterTitulo = 'Sumac Chasca Per\u00FA S.A.C. - Manager for entrepreneurs';
+  public static EnFooterDescripcion = 'Entrepreneurs web platform where they can show their products in the digital world created by Sumac Chasca Per\u00FA S.A.C..';
   public static EnUrlWebDevInnovaPeru = 'https://devinnovaperu.com/';
   public static EnWebDevInnovaPeru = 'Web de DevInnova Peru';
   public static EnFacebook = 'Facebook';

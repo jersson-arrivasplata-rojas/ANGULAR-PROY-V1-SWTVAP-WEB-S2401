@@ -102,7 +102,7 @@ export class GoogleDefaultComponent implements OnInit, AfterViewInit {
 
                 var hour = "";
                 if (self.stores[i]['today']['response'] == 1) {
-                    hour = '<p  class="mb-1  pr-2 pl-2  text-left text-primary font-weight-bold">Horario de atención: ' + self.stores[i]['today']['time_start'] + ' - ' + self.stores[i]['today']['time_end'] + '</p>'
+                    hour = '<p  class="mb-1  pr-2 pl-2  text-left text-primary font-weight-bold">Horario de atenci\u00F3n: ' + self.stores[i]['today']['time_start'] + ' - ' + self.stores[i]['today']['time_end'] + '</p>'
                 }
 
                 var celphone = "";

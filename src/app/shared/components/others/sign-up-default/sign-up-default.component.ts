@@ -5,8 +5,6 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { Router } from '@angular/router';
 //import { User } from 'src/app/models/user.model';
 //import { IResponse } from 'src/app/models/response.model';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
 import { CountryInterface as Country } from 'src/app/shared/interfaces/country.interface';
 import { environment } from 'src/environments/environment';
@@ -22,7 +20,7 @@ export class SignUpDefaultComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean;
   public isServer: boolean;
   public textPassword: string = 'Ver';
-  public textWhatsapp: string = 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string = 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string = '51900288628';
 
   public typePassword: string = 'password';
@@ -64,7 +62,7 @@ export class SignUpDefaultComponent implements OnInit, AfterViewInit {
   //signUpForm
   //users: User[];
 
-  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router, private authGuardHttp: AuthGuardHttp
+  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.isServer = isPlatformServer(platformId);
@@ -77,7 +75,7 @@ export class SignUpDefaultComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     if (this.isBrowser) {
       //background-repeat
-      this.allContries = this.authGuardHttp.getAllContries();
+      this.allContries = [];
      //console.log(this.allContries)
     }
   }
@@ -223,52 +221,6 @@ export class SignUpDefaultComponent implements OnInit, AfterViewInit {
       //preloader
       CommonUtils.insertPreload('PRELOAD-SIGNUP');
 
-      if(this.user.type_user == 'user'){
-        this.authGuardHttp.addUser(this.user)
-        .subscribe(
-        ( response:HttpResponse<any> ) => {
-
-          if(response.status == 201){
-            //console.log(response);
-
-            CommonUtils.removeNodoPreload('PRELOAD-SIGNUP',this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success',false);
-          }
-        },
-        ( response:HttpErrorResponse ) => {
-         // console.log(response);
-          var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-          CommonUtils.removeNodoPreload('PRELOAD-SIGNUP',this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-        },
-        () =>{
-
-        });
-
-
-      }else{
-        this.authGuardHttp.addStore(this.user)
-        .subscribe(
-        ( response:HttpResponse<any> ) => {
-
-          if(response.status == 201){
-            //console.log(response);
-            CommonUtils.removeNodoPreload('PRELOAD-SIGNUP',this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success',false);
-          }
-        },
-        ( response:HttpErrorResponse ) => {
-          //console.log(response);
-          var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-          CommonUtils.removeNodoPreload('PRELOAD-SIGNUP',this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-        },
-        () =>{
-
-        });
-
-
-      }
     }else{
       return null;
 

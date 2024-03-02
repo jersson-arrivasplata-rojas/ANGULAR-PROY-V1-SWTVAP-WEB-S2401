@@ -22,10 +22,10 @@ export class PaginationDirective implements AfterViewInit {
     table = element.querySelector('table');
     trs = table.querySelectorAll('tbody tr');
 
-    let currentPage = 1; // La página actual
-    let totalPages = Math.ceil(trs.length / this.itemsPerPage); // El número total de páginas
+    let currentPage = 1; // La p\u00E1gina actual
+    let totalPages = Math.ceil(trs.length / this.itemsPerPage); // El n\u00FAmero total de p\u00E1ginas
 
-    // Oculta todas las filas y luego muestra solo las de la página actual
+    // Oculta todas las filas y luego muestra solo las de la p\u00E1gina actual
     for (let i = 0; i < trs.length; i++) {
       this.renderer.setStyle(trs[i], 'display', 'none');
     }
@@ -48,7 +48,7 @@ export class PaginationDirective implements AfterViewInit {
     let uls = element.querySelectorAll('ul');
     uls.forEach(ul => this.renderer.removeChild(ul.parentNode, ul));
 
-    // Genera los elementos de la paginación
+    // Genera los elementos de la paginaci\u00F3n
     const ul = this.renderer.createElement('ul');
     this.renderer.addClass(ul, 'pagination');
     this.renderer.addClass(ul, 'ml-2');

@@ -2,9 +2,9 @@
     [style.background]="theme_color_primary" style="border-radius: 15px;height: 100%;z-index: 9;">
     <!--{ {url('/images/logos/LOGO.png')} }-->
     <div class="navbar-brand mr-0 mr-md-2 navbar-brand-left">
-      
+
         <!--<a href="{{APP_URL}}{{stores_uri}}">
-            
+
         </a>-->
 
         <div class="navbar-brand-left-img">
@@ -12,23 +12,23 @@
                 <h3  class="store-name text-first mb-2 ">{{stores_name}}</h3>
             </div>
             <img src="{{stores_image_url}}" alt="Image" class="img-logo-store" />
-            
+
         </div>
-    
+
         <div class="ml-2 list-container-bottom">
-           
+
              <!-- <a class="text-first" href="{{APP_URL}}{{stores_uri}}">
             </a>-->
             <h3  class="store-name text-first ml-3 mb-2">{{stores_name}}</h3>
 
             <p class=" text-first  ml-3  mb-0" style="font-size: 14px;">
-            
+
                     <a style="font-size: 13px;" target="_blank" href="{{store_address_google_maps}}" class="text-first"><!--Ver en google maps -->
                         <i class="mdi mdi-map-marker-outline text-first"></i> {{stores_address}}
                     </a>
-               
+
             </p>
-           
+
             <div class=" text-first  ml-3 d-flex flex-column align-items-start"  style="font-size: 13px;">
                 <p *ngIf="stores_collect!=''&&stores_collect!=null&&stores_collect!='NO'" class="mb-0  ">
                     <i class="mdi mdi-store "></i>
@@ -38,19 +38,19 @@
                     <i class="mdi mdi-truck-delivery "></i>
                     Realiza Delivery
                 </p>
-                
+
                 <p *ngIf="stores_coverage!=''&&stores_coverage!=null" class="mb-0  text-left ">
                     <i class="mdi mdi-timer "></i>
-                    Tiempo de Verificación de Compras {{stores_coverage}}
+                    Tiempo de Verificaci&oacute;n de Compras {{stores_coverage}}
                 </p>
             </div>
             <div class=" text-first  ml-3 mb-2 " *ngIf="hours.length>0">
-                <button class=" btn-sm border-radius-15 cursor-pointer text-first p-0 d-contents js-open btn-open-alert is-active" #horaTopButton style="display:contents;font-size: 13px;" 
+                <button class=" btn-sm border-radius-15 cursor-pointer text-first p-0 d-contents js-open btn-open-alert is-active" #horaTopButton style="display:contents;font-size: 13px;"
                 type="button" >
-                    <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atención
-                </button> 
+                    <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atenci&oacute;n
+                </button>
             </div>
-           
+
             <p class="mb-0 text-first ml-3">
                 <button class="btn btn-light-2 btn-active-share border-input mr-2"
                 id="hover-icon-like-{{stores_uri}}">
@@ -61,8 +61,8 @@
                     <i class="mdi mdi-check-outline d-none"></i> Seguir
                 </button>
             </p>
-      
-           
+
+
         </div>
     </div>
     <blockquote class="blockquote  mb-0  mt-0 text-center text-first blockquote-store">
@@ -109,19 +109,19 @@
                             <i class="mdi mdi-truck-delivery "></i>
                             Realiza Delivery
                         </p>
-                        
+
                         <p *ngIf="stores_coverage!=''&&stores_coverage!=null" class="mb-0  text-left ">
                             <i class="mdi mdi-timer "></i>
-                            Tiempo de Verificación de Compras {{stores_coverage}}
+                            Tiempo de Verificaci&oacute;n de Compras {{stores_coverage}}
                         </p>
                     </div>
                 </li>
                 <li *ngIf="hours.length>0">
                     <div class=" text-first mb-2">
-                        <button class="btn-sm border-radius-15 mb-2  p-0 d-contents cursor-pointer text-first btn-open-alert is-active " #horaBottomButton style="display:contents;" 
+                        <button class="btn-sm border-radius-15 mb-2  p-0 d-contents cursor-pointer text-first btn-open-alert is-active " #horaBottomButton style="display:contents;"
                         type="button"  >
-                            <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atención
-                        </button> 
+                            <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atenci&oacute;n
+                        </button>
                     </div>
                 </li>
             </ul>

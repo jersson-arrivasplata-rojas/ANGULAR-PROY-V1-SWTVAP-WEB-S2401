@@ -1,10 +1,8 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
 import { StoreInterface as Store } from 'src/app/shared/interfaces/store.interface';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { NodeStoreService } from 'src/app/shared/services/node-store.service';
@@ -53,7 +51,6 @@ export class HeaderDefaultComponent implements OnInit {
 
   constructor(private router: Router,
     private localStorageService:LocalStorageService,
-    private authorizationHttp: AuthorizationHttp,
     public nodeStoreService: NodeStoreService) {
     nodeStoreService.getStore().subscribe(data=>{
       this.store = data.store;
@@ -84,30 +81,6 @@ export class HeaderDefaultComponent implements OnInit {
 
   addStoreLike(element){
     let authorization = this.localStorageService.getItem('accessToken');
-    if(CommonUtils.validationAccessToken(authorization)==true){
-      let likeI = element.querySelector(`i`);
-      this.changeLike(likeI);
-      this.authorizationHttp.addStoreLike(this.stores_uri)
-      .subscribe(
-      ( response:HttpResponse<any> ) => {
-
-        if(response.status == 200){
-          //console.log(response);
-
-        }
-      },
-      ( response:HttpErrorResponse ) => {
-        //console.log(response);
-        //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-
-      },
-      () =>{
-      });
-    }else{
-      this.router.navigate(['/auth/login'], { queryParams: { store: this.store.stores_id, qim: this.store.stores_image ,qn:this.store.stores_name,uri:this.store.stores_uri } });
-
-    }
 
   }
   addStoreFollow(element){
@@ -115,23 +88,6 @@ export class HeaderDefaultComponent implements OnInit {
     if(CommonUtils.validationAccessToken(authorization)==true){
       let followI = element.querySelector(`i`);
       this.changeFollow(followI);
-      this.authorizationHttp.addStoreFollow(this.stores_uri)
-      .subscribe(
-      ( response:HttpResponse<any> ) => {
-
-        if(response.status == 200){
-          //console.log(response);
-
-        }
-      },
-      ( response:HttpErrorResponse ) => {
-        //console.log(response);
-        //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-
-      },
-      () =>{
-      });
     }else{
       this.router.navigate(['/auth/login'], { queryParams: { store: this.store.stores_id, qim: this.store.stores_image ,qn:this.store.stores_name,uri:this.store.stores_uri } });
 

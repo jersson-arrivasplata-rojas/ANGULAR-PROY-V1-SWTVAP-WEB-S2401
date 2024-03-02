@@ -7,6 +7,7 @@ import { ServicesEnum } from '../config/services.enum';
 @Injectable()
 export class AuthHttp {
   apiUrl = environment.apiUrl;
+  appUrl = environment.appUrl;
 
   constructor(
     private accessServices: HttpClient
@@ -18,13 +19,15 @@ export class AuthHttp {
     );
   }
 
-  logout(body: any): Observable<any> {
-    return this.accessServices.post<any>(this.apiUrl + ServicesEnum.LOGOUT, body).pipe(
+  logout(idToken: any): Observable<any> {
+    const params = `?redirectUri=${this.appUrl}?logout=true&idToken=${idToken}`;
+    return this.accessServices.get<any>(this.apiUrl + ServicesEnum.LOGOUT + params).pipe(
       take(1)
     );
   }
 
-  refreshToken(body: any): Observable<any> {
+  refreshToken(refreshToken: any): Observable<any> {
+    const body = { refreshToken: refreshToken };
     return this.accessServices.post<any>(this.apiUrl + ServicesEnum.REFRESH_TOKEN, body).pipe(
       take(1),
     );

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
@@ -29,7 +28,7 @@ export class SearchDefaultComponent implements OnInit {
   };
 
 
-  constructor( private router: Router, private authorizationHttp: AuthorizationHttp) { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
     this.search.price_min = CommonUtils.price_min;

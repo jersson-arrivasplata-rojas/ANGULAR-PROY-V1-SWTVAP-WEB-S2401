@@ -466,7 +466,6 @@ import { ServicesModule } from './services/services.module';
     ServicesModule,
     HttpModule
   ],
-  providers:[]
 })
 export class SharedModule { }
 //https://swimlane.github.io/ngx-charts/#/ngx-charts/bar-vertical

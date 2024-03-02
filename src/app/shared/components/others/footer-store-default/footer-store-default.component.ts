@@ -11,6 +11,6 @@ export class FooterStoreDefaultComponent {
   @Input() public image: string = 'https://via.placeholder.com/100x100';
   @Input() public container: string = 'container';
 
-  @Input() public store: string = 'Sumac Chasca Perú S.A.C.';
+  @Input() public store: string = 'Sumac Chasca Per\u00FA S.A.C.';
 
 }

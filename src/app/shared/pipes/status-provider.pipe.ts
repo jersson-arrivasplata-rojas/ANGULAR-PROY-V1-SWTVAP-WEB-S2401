@@ -9,16 +9,16 @@ export class StatusProviderPipe implements PipeTransform {
     let status = "";
     switch (value) {
       case 0:
-        status = "En Preparación"
+        status = "En Preparaci\u00F3n"
         break;
       case 1:
-        status = "Recibido por la Empresa de Envío"
+        status = "Recibido por la Empresa de Env\u00EDo"
         break;
       case 2:
-        status = "En Tránsito"
+        status = "En Tr\u00E1nsito"
         break;
       case 3:
-        status = "En Almacén Local"
+        status = "En Almac\u00E9n Local"
         break;
       case 4:
         status = "En Entrega"

@@ -1,8 +1,6 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
@@ -18,7 +16,7 @@ export class ForgotPasswordDefaultComponent implements OnInit, AfterViewInit {
 
   public isBrowser: boolean;
   public isServer: boolean;
-  public textWhatsapp: string= 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string= 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string= '51900288628';
   public content = {
 
@@ -48,7 +46,7 @@ export class ForgotPasswordDefaultComponent implements OnInit, AfterViewInit {
   };
   //@ViewChild('fbLoginButton', { static: true }) fbLoginButton: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router,private authGuardHttp: AuthGuardHttp
+  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.isServer = isPlatformServer(platformId);
@@ -83,29 +81,6 @@ export class ForgotPasswordDefaultComponent implements OnInit, AfterViewInit {
     //preloader
     CommonUtils.insertPreload('PRELOAD-FORGOT-PASSWORD');
 
-    this.authGuardHttp.forgotPassword(this.user)
-      .subscribe(
-      ( response:HttpResponse<any> ) => {
-
-        if(response.status == 200){
-          //console.log(response);
-
-          CommonUtils.removeNodoHomePreload('PRELOAD-FORGOT-PASSWORD',this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success');
-
-          setTimeout(() => {
-            this.router.navigate(['auth/login']);
-          }, 3000);
-        }
-      },
-      ( response:HttpErrorResponse ) => {
-        //console.log(response);
-        var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-        CommonUtils.removeNodoPreload('PRELOAD-FORGOT-PASSWORD',this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-      },
-      () =>{
-
-      });
   }
 }
 //user/password/reset

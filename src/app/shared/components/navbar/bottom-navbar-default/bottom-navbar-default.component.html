@@ -1,17 +1,17 @@
 <div class=""><!--container-->
-    
 
-    
-    <button class="mt-auto cursor-pointer btn-info-store btn btn-info-2 text-first btn-open-alert is-active " #infoBottomButton 
+
+
+    <button class="mt-auto cursor-pointer btn-info-store btn btn-info-2 text-first btn-open-alert is-active " #infoBottomButton
     type="button" (click)="alertShowModal(infoBottomButton)" >
         <i class="dripicons-wallet " ></i>
-    </button> 
+    </button>
 </div>
 
 <div class="wrap">
     <div class="modal-alert js-modal" style="top: 0;width: 100%;max-height: 100%;max-width: 100%;    overflow-y: scroll;" #infoModal>
-        
-        <h2 class="mb-3">MÉTODOS DE PAGO</h2>
+
+        <h2 class="mb-3">M&Eacute;TODOS DE PAGO</h2>
         <div class="d-flex flex-column mb-4">
             <div>
                 <h6 *ngIf="pagoEfectivo==1" class="widget-box__title mb-3">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-       
+
             <div class="d-flex flex-store-bottom-apps-default justify-content-center">
                 <div>
                     <h6 *ngIf="pagoAppBanco==1" class="widget-box__title mb-3">
@@ -57,12 +57,12 @@
                             </div>
                         </div>
                     </div>
-    
-                    
+
+
                 </div>
                <div>
                     <h6 *ngIf="pagoOtroMetodoPago==1" class="widget-box__title mb-3">
-                        También Aceptamos 
+                        Tambi&eacute;n Aceptamos
                     </h6>
                     <div class="d-flex items-center flex-wrap mt3 flex-store-bottom-default">
                         <div *ngFor="let item of payment_card; let i=index" class="d-flex">

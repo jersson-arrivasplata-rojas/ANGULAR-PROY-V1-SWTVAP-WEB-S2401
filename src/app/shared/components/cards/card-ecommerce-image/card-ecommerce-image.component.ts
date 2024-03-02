@@ -1,4 +1,3 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import {
   Component,
   ComponentFactoryResolver,
@@ -18,13 +17,11 @@ import {
   OwlOptions,
   SlidesOutputData
 } from 'ngx-owl-carousel-o';
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
 import { CommentInterface as Comment } from 'src/app/shared/interfaces/comment.interface';
 import { ImageInterface as Image } from 'src/app/shared/interfaces/image.interface';
 import { ProductTagInterface as ProductTag } from 'src/app/shared/interfaces/product-tag.interface';
 import { UserInterface as User } from 'src/app/shared/interfaces/user.interface';
 
-import Swal from 'sweetalert2';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -71,8 +68,7 @@ export class NgbdModalContent {
   @ViewChild('textComment') textComment: ElementRef;
 
   constructor(
-    public activeModal: NgbActiveModal,
-    private authorizationHttp: AuthorizationHttp
+    public activeModal: NgbActiveModal
   ) {}
 
   addComment() {
@@ -85,33 +81,6 @@ export class NgbdModalContent {
     if (email == '') return null;
     if (text == '') return null;
     // console.log(name)
-    this.authorizationHttp
-      .storeProductAddComments(this.id, name, email, celphone, text, this.uri)
-      .subscribe(
-        (response: HttpResponse<any>) => {
-          if (response.status == 200) {
-            name = '';
-            email = '';
-            celphone = '';
-            text = '';
-            //console.log(response);
-            var data = response.body;
-            var body = data.content; //Body del Producto
-            this.comments = body;
-          }
-        },
-        (response: HttpErrorResponse) => {
-          //console.log(response);
-          //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-        },
-        () => {
-          Swal.fire(
-            '¡Agregado!',
-            'Su comentario ha sido agregado satisfactoriamente.',
-            'success'
-          );
-        }
-      );
   }
 }
 
@@ -204,7 +173,6 @@ export class CardEcommerceImageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authorizationHttp: AuthorizationHttp,
     private renderer: Renderer2,
     private domSanitizer: DomSanitizer,
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -286,21 +254,6 @@ export class CardEcommerceImageComponent implements OnInit {
   }
   showComments() {
     this.products_comments = [];
-    this.authorizationHttp.storeProductComments(this.id).subscribe(
-      (response: HttpResponse<any>) => {
-        if (response.status == 200) {
-          //console.log(response);
-          var data = response.body;
-          var body = data.content; //Body del Producto
-          this.products_comments = body;
-        }
-      },
-      (response: HttpErrorResponse) => {
-        //console.log(response);
-        //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-      },
-      () => {}
-    );
   }
 
   eventEmitCart($event) {

@@ -1,12 +1,10 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 //import { LocalStorageService } from 'src/app/services/local-storage.service';
 //import * as $ from 'jquery';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from "angularx-social-login";
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
 import { CountryInterface as Country } from 'src/app/shared/interfaces/country.interface';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
@@ -36,9 +34,8 @@ export class NgbdModal2Content implements OnInit {
     border-style: none;
   `;
 
-  constructor(public activeModal: NgbActiveModal, private localStorageService: LocalStorageService, private router: Router,
-    private authGuardHttp: AuthGuardHttp) {
-    this.allContries = this.authGuardHttp.getAllContries();
+  constructor(public activeModal: NgbActiveModal, private localStorageService: LocalStorageService, private router: Router) {
+    this.allContries = [];
   }
   ngOnInit(): void {
     //console.log(this.social);
@@ -58,55 +55,7 @@ export class NgbdModal2Content implements OnInit {
     if(isNaN(this.social.country_id) == true ||this.social.country_id==null|| typeof this.social.country_id=='undefined') return null;
     if(this.social.check_terms_conditions==true && this.social.check_politics_privacy==true){
       CommonUtils.insertPreload(this.preloadId);
-      if(this.social.type_user == 'user'){
 
-        this.authGuardHttp.addUser(this.social)
-        .subscribe(
-        ( response:HttpResponse<any> ) => {
-
-          if(response.status == 201){
-            //console.log(response);
-            CommonUtils.removeNodoPreload(this.preloadId,this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success',false);
-            this.loginOauth();
-          }
-        },
-        ( response:HttpErrorResponse ) => {
-          //console.log(response);
-         var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-          CommonUtils.removeNodoPreload(this.preloadId,this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-        },
-        () =>{
-
-        });
-
-
-      }else{
-        this.authGuardHttp.addStore(this.social)
-        .subscribe(
-        ( response:HttpResponse<any> ) => {
-
-          if(response.status == 201){
-            //console.log(response);
-
-            CommonUtils.removeNodoPreload(this.preloadId,this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success',false);
-            this.loginOauth();
-          }
-        },
-        ( response:HttpErrorResponse ) => {
-          //console.log(response);
-          var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-          CommonUtils.removeNodoPreload(this.preloadId,this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-        },
-        () =>{
-
-        });
-
-
-      }
     }else{
       return null;
     }
@@ -116,34 +65,6 @@ export class NgbdModal2Content implements OnInit {
   loginOauth() {
     this.activeModal.dismiss('Cross click');
 
-    this.authGuardHttp.login(this.social)
-      .subscribe(
-        (response: HttpResponse<any>) => {
-
-          if (response.status == 200) {
-            this.localStorageService.setItem('accessToken', `${response.body.token_type} ${response.body.access_token}`);
-            this.localStorageService.setItem('stores_uri',`${response.body.stores.stores_uri}`);
-            this.localStorageService.setItem('type',`${response.body.type}`);
-
-           // CommonUtils.removeNodoHomePreload(this.preloadId, '../../../../assets/images/rutas/login/snapstore.png', response.body.message, 'success');
-
-            //this.router.navigate(['/']);
-            /*setTimeout(() => {
-              this.router.navigate(['/']);
-            }, 3000);*/
-
-          }
-        },
-        (response: HttpErrorResponse) => {
-          //console.log(response);
-
-          var message = (typeof response.error.message == 'undefined') ? '¡Sucedio un error inesperado!' : response.error.message;
-          //CommonUtils.removeNodoPreload(this.preloadId, '../../../../assets/images/rutas/login/snapstore.png', message, 'danger', true);
-
-        },
-        () => {
-
-        });
 
   }
 
@@ -238,7 +159,7 @@ export class LoginDefaultComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean;
   public isServer: boolean;
   public textPassword: string = 'Ver';
-  public textWhatsapp: string = 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string = 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string = '51900288628';
 
   public content = {
@@ -294,8 +215,7 @@ export class LoginDefaultComponent implements OnInit, AfterViewInit {
     last_name: ''
   };
   //
-  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router, private socialAuthService: SocialAuthService,
-    private authGuardHttp: AuthGuardHttp, private localStorageService: LocalStorageService, private modalService: NgbModal
+  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router, private socialAuthService: SocialAuthService, private localStorageService: LocalStorageService, private modalService: NgbModal
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.isServer = isPlatformServer(platformId);
@@ -374,43 +294,6 @@ export class LoginDefaultComponent implements OnInit, AfterViewInit {
     //preloader
     CommonUtils.insertPreload(this.preloadId);
     let stores_uri='';
-    this.authGuardHttp.login(this.user)
-      .subscribe(
-        (response: HttpResponse<any>) => {
-
-          if (response.status == 200) {
-            //console.log(response);
-            stores_uri = response.body.stores.stores_uri;
-
-            this.localStorageService.setItem('accessToken', `${response.body.token_type} ${response.body.access_token}`);
-            this.localStorageService.setItem('stores_uri',`${stores_uri}`);
-            this.localStorageService.setItem('type',`${response.body.type}`);
-
-            CommonUtils.removeNodoHomePreload(this.preloadId, this.APP_URL+'assets/images/rutas/login/snapstore.png', response.body.message, 'success');
-
-            /*setTimeout(() => {
-              this.router.navigate(['/']);
-            }, 3000);*/
-          }
-        },
-        (response: HttpErrorResponse) => {
-          //console.log(response);
-          var message = (typeof response.error.message == 'undefined') ? '¡Sucedio un error inesperado!' : response.error.message;
-          CommonUtils.removeNodoPreload(this.preloadId, this.APP_URL+'assets/images/rutas/login/snapstore.png', message, 'danger', true);
-
-        },
-        () => {
-          this.router.navigate(['/'+stores_uri]);
-
-          /*
-          'access_token' => $tokenResult->accessToken,
-                  'token_type' => 'Bearer',
-                  'message' => '¡Usuario autenticado correctamente!',
-                  'expires_at' => Carbon::parse(
-                      $tokenResult->token->expires_at
-                  )->toDateTimeString()
-          */
-        });
   }
 
 
@@ -478,48 +361,6 @@ export class LoginDefaultComponent implements OnInit, AfterViewInit {
 
     CommonUtils.insertPreloadRemoveHidden(socialPreloadId);
     let stores_uri='';
-    this.authGuardHttp.login(this.social)
-      .subscribe(
-        (response: HttpResponse<any>) => {
-
-          //console.log(response);
-          CommonUtils.removeNodoPreloadHidden(socialPreloadId);
-
-          if (response.status == 200) {
-
-            stores_uri = response.body.stores.stores_uri;
-            this.localStorageService.setItem('accessToken', `${response.body.token_type} ${response.body.access_token}`);
-            this.localStorageService.setItem('stores_uri',`${stores_uri}`);
-            this.localStorageService.setItem('type',`${response.body.type}`);
-
-            CommonUtils.removeNodoHomePreload(socialPreloadId,this.APP_URL+'assets/images/rutas/login/snapstore.png', response.body.message, 'success');
-
-            /*setTimeout(() => {
-              this.router.navigate(['/']);
-            }, 3000);*/
-
-          } else if (response.status == 203) {
-            const modalRef = this.modalService.open(NgbdModal2Content, {
-              size: 'lg',
-              backdrop : 'static',
-              keyboard : false
-            });
-            modalRef.componentInstance.social = this.social;
-
-          }
-        },
-        (response: HttpErrorResponse) => {
-          //console.log(response);
-          CommonUtils.removeNodoPreloadHidden(socialPreloadId);
-
-          var message = (typeof response.error.message == 'undefined') ? '¡Sucedio un error inesperado!' : response.error.message;
-          CommonUtils.removeNodoPreload(socialPreloadId, this.APP_URL+'assets/images/rutas/login/snapstore.png', message, 'danger', true);
-
-        },
-        () => {
-          this.router.navigate(['/'+stores_uri]);
-
-        });
 
   }
   signOut(): void {

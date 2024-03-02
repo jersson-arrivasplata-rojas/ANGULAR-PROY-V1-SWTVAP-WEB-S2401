@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
@@ -44,7 +43,7 @@ export class TopBarDefaultComponent implements OnInit {
   public phoneWhatsapp=''
   disabled = true;
   public dropdown_active = false;
-  constructor(private authGuardHttp:AuthGuardHttp, private localStorageService:LocalStorageService,
+  constructor(private localStorageService:LocalStorageService,
     private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -88,7 +87,6 @@ export class TopBarDefaultComponent implements OnInit {
   }
   //position: absolute; right: 12.5rem;
   logout(){
-    this.authGuardHttp.signOut();
     this.router.navigate(['/'+this.stores_uri]);
   }
 

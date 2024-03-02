@@ -8,7 +8,7 @@
     <div class="container d-flex flex-column justify-content-between" style="height: 100vh">
       <div class="row">
         <div class="col-12">
-          <img class="logo-img cursor-pointer" [routerLink]="['/home']" src="https://via.placeholder.com/100x100" />
+          <img class="logo-img cursor-pointer" [routerLink]="['/']" [src]="assetUrl + '100x100'" alt="" />
         </div>
       </div>
       <div class="row">
@@ -19,14 +19,11 @@
                 (loginForm.touched || loginForm.dirty)
               ">
               <div class="row mb-4">
-                <h2 class="col-12 mt-0 mb-2 text-center">Iniciar Sesión</h2>
+                <h2 class="col-12 mt-0 mb-2 text-center">Iniciar Sesi&oacute;n</h2>
                 <h2 class="col-12 mt-0 mb-0 text-center">
                   {{ title }}
                 </h2>
               </div>
-              <!--
-                [a-z0-9._%+\\-]+@[a-z0-9.\\-]+\.[a-z]{2,4}$
-              -->
               <div class="input-group border-input-group-prepend mb-3">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
@@ -64,7 +61,7 @@
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted-2">
                   Su contraseña debe tener entre 6 y 20 caracteres, contener
-                  letras y números, y no debe contener espacios, caracteres
+                  letras y n&uacute;meros, y no debe contener espacios, caracteres
                   especiales ni emoji.
                 </small>
               </div>
@@ -73,14 +70,14 @@
                   <div class="message">
                     <h5>La contraseña debe contener lo siguiente:</h5>
                     <p id="letter" class="invalid mb-1">
-                      Una letra <b> minúscula </b>
+                      Una letra <b> min&uacute;scula </b>
                     </p>
                     <p id="capital" class="invalid mb-1">
-                      Una letra <b> mayúscula (mayúscula) </b>
+                      Una letra <b> may&uacute;scula (may&uacute;scula) </b>
                     </p>
-                    <p id="number" class="invalid mb-1">Un <b> número </b></p>
+                    <p id="number" class="invalid mb-1">Un <b> n&uacute;mero </b></p>
                     <p id="length" class="invalid mb-4">
-                      Mínimo <b> 6 caracteres </b>
+                      M&iacute;nimo <b> 6 caracteres </b>
                     </p>
                   </div>
                 </div>
@@ -100,7 +97,7 @@
       </div>
 
       <div class="d-flex justify-content-right">
-        <p class="small">©2024 Sumac Chasca Perú S.A.C.</p>
+        <p class="small">©2024 Sumac Chasca Per&uacute; S.A.C.</p>
       </div>
     </div>
   </section>

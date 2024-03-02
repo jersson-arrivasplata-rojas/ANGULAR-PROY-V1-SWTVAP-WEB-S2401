@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthLoginDefaultComponent {
   public assetUrl = environment.assetUrl;
-  public title = 'Sumac Chasca Perú S.A.C.';
+  public title = 'Sumac Chasca Per\u00FA S.A.C.';
   public textPassword: string = 'Ver';
 
   public user = {
@@ -51,22 +51,19 @@ export class AuthLoginDefaultComponent {
       this.textPassword = 'Ver';
     }
   }
-  home() {
-    this.router.navigate(['/']);
-  }
 
   submit() {
     this.authHttp.login(this.user).subscribe({
       next: (response) => {
-        // manejar la respuesta aquí
+        // manejar la respuesta aqu\u00ED
         this.localService.saveData('auth', JSON.stringify(response));
-        this.router.navigate(['/']);
+        this.router.navigate(['/admin/dashboard/home']);
       },
       error: (error) => {
         console.log(error);
       },
       complete: () => {
-        // cualquier lógica que necesites ejecutar cuando el Observable se complete
+        // cualquier l\u00F3gica que necesites ejecutar cuando el Observable se complete
       },
     });
   }

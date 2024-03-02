@@ -15,7 +15,7 @@ export class DateFormatDirective {
   }
 
   @HostListener('input', ['$event.target.value'])
-  onInput(value: string) {   // Verificar si el valor contiene solo números y guiones
+  onInput(value: string) {   // Verificar si el valor contiene solo n\u00FAmeros y guiones
     if (!/^[\d-]*$/.test(value)) {
       this.ngControl.control?.setValue(this.previousValue, { emitEvent: false });
       return;

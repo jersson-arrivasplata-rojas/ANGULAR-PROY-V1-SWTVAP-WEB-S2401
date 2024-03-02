@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../../guards/auth.guard';
+import { LogoutGuard } from '../../guards/logout.guard';
 import { AuthLoginDefaultComponent } from './auth-login-default/auth-login-default.component';
 import { AuthLogoutDefaultComponent } from './auth-logout-default/auth-logout-default.component';
 
@@ -13,8 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-
-    canActivate: [AuthGuard],
+    canActivate: [LogoutGuard],
     component: AuthLogoutDefaultComponent,
   },
 ];

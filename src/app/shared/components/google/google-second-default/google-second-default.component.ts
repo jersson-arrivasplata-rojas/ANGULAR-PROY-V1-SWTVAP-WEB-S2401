@@ -72,7 +72,7 @@ export class GoogleSecondDefaultComponent implements OnInit, AfterViewInit {
 
                 Swal.fire({
                     title: '¿Seguro de continuar?',
-                    text: "¡Si continuas se reemplazará la dirección de su negocio!",
+                    text: "¡Si continuas se reemplazar\u00E1 la direcci\u00F3n de su negocio!",
                     icon: 'warning',
                     //showDenyButton: false,
                     showCancelButton: true,
@@ -91,7 +91,7 @@ export class GoogleSecondDefaultComponent implements OnInit, AfterViewInit {
                     if (result.isConfirmed) {
                         own.isLoading=true;
                       $.ajax({
-                        // la URL para la petición
+                        // la URL para la petici\u00F3n
                         url: own.APP_URL_API + 'dashboard/stores/update/addresses',//
 
                         data: data,
@@ -102,8 +102,8 @@ export class GoogleSecondDefaultComponent implements OnInit, AfterViewInit {
                         headers: {
                             "Authorization": localStorage.getItem('accessToken')
                           },
-                        // código a ejecutar si la petición es satisfactoria;
-                        // la respuesta es pasada como argumento a la función
+                        // c\u00F3digo a ejecutar si la petici\u00F3n es satisfactoria;
+                        // la respuesta es pasada como argumento a la funci\u00F3n
                         success: function (data) {
 
                             //$(self).parent('tr').remove()
@@ -112,7 +112,7 @@ export class GoogleSecondDefaultComponent implements OnInit, AfterViewInit {
                         },
 
                         error: function (xhr, status) {
-                            // alert('Disculpe, existió un problema');
+                            // alert('Disculpe, existi\u00F3 un problema');
                             $(own.idGeneral).find('.alerts').append(CommonUtils.noInsertAlert());
 
                         },
@@ -1015,7 +1015,7 @@ export class GoogleSecondDefaultComponent implements OnInit, AfterViewInit {
 
     var hour = "";
     if (self.stores[i]['today']['response'] == 1) {
-        hour = '<p  class="mb-1  pr-2 pl-2  text-left text-primary font-weight-bold">Horario de atención: ' + self.stores[i]['today']['time_start'] + ' - ' + self.stores[i]['today']['time_end'] + '</p>'
+        hour = '<p  class="mb-1  pr-2 pl-2  text-left text-primary font-weight-bold">Horario de atenci\u00F3n: ' + self.stores[i]['today']['time_start'] + ' - ' + self.stores[i]['today']['time_end'] + '</p>'
     }
 
     var celphone = "";

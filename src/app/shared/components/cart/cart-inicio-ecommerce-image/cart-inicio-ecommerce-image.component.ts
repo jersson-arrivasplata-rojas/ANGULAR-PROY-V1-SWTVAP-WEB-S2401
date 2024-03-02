@@ -1,7 +1,5 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
 import { ImageInterface as Image } from 'src/app/shared/interfaces/image.interface';
 import { StoreInterface as Store } from 'src/app/shared/interfaces/store.interface';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
@@ -48,7 +46,6 @@ export class CartInicioEcommerceImageComponent implements OnInit {
   public store:Store;
   constructor(private router: Router,
     public localStorageService:LocalStorageService,
-    private authorizationHttp: AuthorizationHttp,
     public nodeStoreService: NodeStoreService) {
       nodeStoreService.getStore().subscribe(data=>{
         this.store = data.store;
@@ -102,51 +99,6 @@ export class CartInicioEcommerceImageComponent implements OnInit {
       console.log(product_tags_image_type);
       console.log(product_tags_image_description);
       console.log(tag_description);
-
-
-      this.authorizationHttp.addCart(0,this.products_id,((inputProductId.value=='')?1:inputProductId.value),this.store.stores_id,this.type,product_tags_image_type,product_tags_image_description,tag_description)
-      .subscribe(
-      ( response:HttpResponse<any> ) => {
-
-        if(response.status == 200){
-          //console.log(response);
-          this.alerProduct=false;
-
-          //this.alert.nativeElement.classList.remove('d-none');
-          //alertProductId.classList.remove('d-none');
-          this.emitEvent.emit(response.body.content);
-          this.emitAlertEvent.emit({
-            response: true,
-            id: this.id,
-            data:this.alert.nativeElement
-          });
-
-        }
-      },
-      ( response:HttpErrorResponse ) => {
-        //console.log(response);
-        //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-
-      },
-      () =>{
-          spinnerCartId.classList.remove('d-none');
-          spinnerProductId.classList.add('d-none');
-          let self = this;
-          setTimeout(function(){
-            if(self.type==0){
-              inputProductId.value='';
-              console.log(1)
-              self.alert.nativeElement.classList.add('d-none');
-            }
-          },3000);
-
-          setTimeout(function(){
-            if(self.alert.nativeElement.classList.contains('d-none')==true){
-              alertProductId.classList.remove('d-none');
-            }
-          },2000);
-      });
 
     }else{
       this.router.navigate(['/auth/login'], { queryParams: { store: this.store.stores_id, qim: this.store.stores_image ,qn:this.store.stores_name,uri:this.store.stores_uri } });

@@ -6,7 +6,7 @@ export class CommonUtils {
   public static price_max = 100000000000000;
   public static price_min = 0;
   public static filter_badge_count = 4;
-  public static textWhatsapp = 'Hola Sumac Chasca Perú S.A.C.';
+  public static textWhatsapp = 'Hola Sumac Chasca Per\u00FA S.A.C.';
   public static phoneWhatsapp = '51900288628';
   public static randomPayment = () =>
     CommonUtils.getRandomMinToMax(100000, 999999);
@@ -18,7 +18,7 @@ export class CommonUtils {
     let purchaamou = {
       basic: {
         amount: 1990,
-        description: 'Plan Emprendedor Básico - S/19.90 x Mes',
+        description: 'Plan Emprendedor B\u00E1sico - S/19.90 x Mes',
       },
     };
     let purchaver = 'RCjKGcqWZHztDZhbuHU=362453532773';
@@ -87,7 +87,7 @@ export class CommonUtils {
         name: 'Panaderia y Pasteleria',
         position: 26,
       },
-      { id: 25, image: 'Bebes&Ninos.png', name: 'Bebés', position: 7 },
+      { id: 25, image: 'Bebes&Ninos.png', name: 'Beb\u00E9s', position: 7 },
       {
         id: 23,
         image: 'Libros&Revistas.png',
@@ -101,7 +101,7 @@ export class CommonUtils {
       {
         id: 3,
         image: 'corte y confeccion.png',
-        name: 'Corte y Confección',
+        name: 'Corte y Confecci\u00F3n',
         position: 14,
       },
       {
@@ -113,7 +113,7 @@ export class CommonUtils {
       {
         id: 7,
         image: 'electrodomesticos.png',
-        name: 'Electrodomésticos',
+        name: 'Electrodom\u00E9sticos',
         position: 16,
       },
       {
@@ -131,19 +131,19 @@ export class CommonUtils {
       {
         id: 11,
         image: 'accesorios para vechiculos.png',
-        name: 'Accesorios para Vehículos',
+        name: 'Accesorios para Veh\u00EDculos',
         position: 1,
       },
       {
         id: 12,
         image: 'telefonos y celulares.png',
-        name: 'Celulares y Teléfonos',
+        name: 'Celulares y Tel\u00E9fonos',
         position: 10,
       },
       {
         id: 13,
         image: 'audio y video.png',
-        name: 'Electrónica, Audio y Video',
+        name: 'Electr\u00F3nica, Audio y Video',
         position: 17,
       },
       {
@@ -179,7 +179,7 @@ export class CommonUtils {
       {
         id: 21,
         image: 'herramientas y construccion.png',
-        name: 'Herramientas y Construcción',
+        name: 'Herramientas y Construcci\u00F3n',
         position: 18,
       },
       {
@@ -216,7 +216,7 @@ export class CommonUtils {
         position: 32,
       },
       { id: 42, image: 'veterinaria.png', name: 'Veterinaria', position: 31 },
-      { id: 43, image: 'artesanias.png', name: 'Artesanía', position: 5 },
+      { id: 43, image: 'artesanias.png', name: 'Artesan\u00EDa', position: 5 },
     ];
 
   public static bootstrapFile: string[] = [
@@ -1481,13 +1481,13 @@ export class CommonUtils {
                                           </div>
                                       </div>
                                       <h2 class="col-12 text-center">${message}</h2>
-                                      <p class="col-12 text-center mt-2">Gracias por confiar en Sumac Chasca Perú S.A.C.</p>
+                                      <p class="col-12 text-center mt-2">Gracias por confiar en Sumac Chasca Per\u00FA S.A.C.</p>
                                       ${reload == false
         ? `
                                         <div class="row mt-5">
                                             <div class="col-12 links text-center">
                                                 <div>
-                                                    <a href="javascript:void(0);" class="font-size-link" (click)="login($event)" style="text-decoration: underline;">Ir a Iniciar sesión</a>
+                                                    <a href="javascript:void(0);" class="font-size-link" (click)="login($event)" style="text-decoration: underline;">Ir a Iniciar sesi\u00F3n</a>
                                                 </div>
                                             </div>
                                             <div class="col-12 links  mt-3 text-center">
@@ -1548,7 +1548,7 @@ export class CommonUtils {
                                           </div>
                                       </div>
                                       <h2 class="col-12 text-center">${message}</h2>
-                                      <p class="col-12 text-center mt-2">Gracias por confiar en Sumac Chasca Perú S.A.C.</p>
+                                      <p class="col-12 text-center mt-2">Gracias por confiar en Sumac Chasca Per\u00FA S.A.C.</p>
                                       <p class="col-12 text-center mt-2">Esperando mientras redirige al home</p>
                                       <div class="row mt-5">
                                         <div class="col-12 links text-center">
@@ -1952,7 +1952,7 @@ export class CommonUtils {
     let month: number | string = date.getMonth() + 1; // Añadimos 1 porque los meses empiezan desde 0
     let day: number | string = date.getDate();
 
-    // Aseguramos que el mes y el día siempre tengan dos dígitos
+    // Aseguramos que el mes y el d\u00EDa siempre tengan dos d\u00EDgitos
     month = month < 10 ? '0' + month : month;
     day = day < 10 ? '0' + day : day;
 
@@ -2278,7 +2278,7 @@ export class CommonUtils {
         return true;
       }
       const date = new Date(0);
-      date.setUTCSeconds(decoded.exp); // Convertir el tiempo de expiración de segundos a una fecha
+      date.setUTCSeconds(decoded.exp); // Convertir el tiempo de expiraci\u00F3n de segundos a una fecha
       return !(date.valueOf() > new Date().valueOf());
     } catch (err) {
       return true;

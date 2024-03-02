@@ -1,8 +1,6 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
@@ -18,7 +16,7 @@ export class ResetPasswordDefaultComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean;
   public isServer: boolean;
   public textPassword: string='Ver';
-  public textWhatsapp: string= 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string= 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string= '51900288628';
 
   public content = {
@@ -51,8 +49,7 @@ export class ResetPasswordDefaultComponent implements OnInit, AfterViewInit {
   token:string;
   email:string;
   //
-  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router,private activatedRoute:ActivatedRoute,
-   private authGuardHttp: AuthGuardHttp, private localStorageService:LocalStorageService
+  constructor(@Inject(PLATFORM_ID) private platformId, private router: Router,private activatedRoute:ActivatedRoute, private localStorageService:LocalStorageService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.isServer = isPlatformServer(platformId);
@@ -131,26 +128,6 @@ export class ResetPasswordDefaultComponent implements OnInit, AfterViewInit {
     //preloader
     CommonUtils.insertPreload('PRELOAD-RESET-PASSWORD');
 
-    this.authGuardHttp.resetPassword(this.user)
-    .subscribe(
-    ( response:HttpResponse<any> ) => {
-
-      if(response.status == 200){
-        //console.log(response);
-
-        CommonUtils.removeNodoPreload('PRELOAD-RESET-PASSWORD',this.APP_URL+'assets/images/rutas/login/snapstore.png',response.body.message,'success',false);
-
-      }
-    },
-    ( response:HttpErrorResponse ) => {
-      //console.log(response);
-      var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-      CommonUtils.removeNodoPreload('PRELOAD-RESET-PASSWORD',this.APP_URL+'assets/images/rutas/login/snapstore.png',message,'danger',true);
-
-    },
-    () =>{
-
-    });
   }
 
   login(event: any) {

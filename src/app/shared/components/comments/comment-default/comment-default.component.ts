@@ -1,7 +1,4 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-comment-default',
@@ -51,7 +48,7 @@ export class CommentDefaultComponent implements OnInit {
   @ViewChild('celphoneComment') celphoneComment:ElementRef;
   @ViewChild('textComment') textComment:ElementRef;
 
-  constructor(private authorizationHttp:AuthorizationHttp) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.showComments();
@@ -59,26 +56,6 @@ export class CommentDefaultComponent implements OnInit {
 
   showComments(){
     this.commentArray=[];
-    this.authorizationHttp.storeProductComments(this.products_id)
-    .subscribe(
-    ( response:HttpResponse<any> ) => {
-
-      if(response.status == 200){
-        //console.log(response);
-        var data = response.body;
-        var body = data.content;//Body del Producto
-        this.commentArray=body;
-
-      }
-    },
-    ( response:HttpErrorResponse ) => {
-      //console.log(response);
-      //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-
-    },
-    () =>{
-    });
   }
   addComment(){
    let name =this.nameComment.nativeElement.value;
@@ -90,35 +67,5 @@ export class CommentDefaultComponent implements OnInit {
     if(email=='') return null;
     if(text=='') return null;
     console.log(name)
-    this.authorizationHttp.storeProductAddComments(this.products_id,name,email,celphone,text,this.stores_uri)
-    .subscribe(
-    ( response:HttpResponse<any> ) => {
-
-      if(response.status == 200){
-        name='';
-        email='';
-        celphone='';
-        text='';
-        //console.log(response);
-        var data = response.body;
-        var body = data.content;//Body del Producto
-        this.commentArray=body;
-
-      }
-    },
-    ( response:HttpErrorResponse ) => {
-      //console.log(response);
-      //var message = (typeof response.error.message=='undefined')?'¡Sucedio un error inesperado!':response.error.message;
-
-
-    },
-    () =>{
-      Swal.fire(
-        '¡Agregado!',
-        'Su comentario ha sido agregado satisfactoriamente.',
-        'success'
-      )
-
-    });
   }
 }

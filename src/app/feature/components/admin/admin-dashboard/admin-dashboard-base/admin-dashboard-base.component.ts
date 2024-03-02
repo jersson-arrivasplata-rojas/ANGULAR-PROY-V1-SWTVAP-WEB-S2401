@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminDashboardBaseComponent {
   public APP_URL = environment.apiUrl;
+  public assetUrl = environment.assetUrl;
   public dropdownActive = false;
   constructor(@Inject(PLATFORM_ID) public platformId,
     private authHttp: AuthHttp,
@@ -43,13 +44,10 @@ export class AdminDashboardBaseComponent {
   }
 
   getImagePrincipal() {
-    return 'https://via.placeholder.com/100x100';
+    return `${this.assetUrl}100x100`;
   }
 
   logout() {
-    this.authHttp.logout({}).subscribe((res) => {
-      this.router.navigate(['/']);
-    });
+    this.router.navigate(['/auth/logout']);
   }
-
 }

@@ -11,7 +11,7 @@ export class ParameterTree {
       parameterMap.set(parameter.id, parameter);
     });
 
-    // Organizar los comentarios en una estructura de árbol
+    // Organizar los comentarios en una estructura de \u00E1rbol
     this.parameters.forEach(parameter => {
       if (parameter.parentId !== null) {
         const parentParameter = parameterMap.get(parameter.parentId);

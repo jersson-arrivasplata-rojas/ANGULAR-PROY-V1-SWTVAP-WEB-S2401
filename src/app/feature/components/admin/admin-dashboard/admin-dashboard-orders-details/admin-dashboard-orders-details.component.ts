@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { OrderDetailsHttp } from 'src/app/shared/http/order-details.http';
 import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { ProductHttp } from 'src/app/shared/http/products.http';
@@ -40,11 +40,6 @@ export class AdminDashboardOrdersDetailsComponent implements OnInit {
         this.products = products;
         return this.orderDetailsHttp.getAll();
       }),
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-      })
     ).subscribe((orderDetailsData) => {
       this.data = orderDetailsData.filter((orderDetail: any) => orderDetail.orderId === this.orderId);
     });

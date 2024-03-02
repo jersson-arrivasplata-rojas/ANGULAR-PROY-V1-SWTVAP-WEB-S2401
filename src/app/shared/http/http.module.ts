@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AnalyticHttp } from './analytics.http';
-import { AuthGuardHttp } from './auth-guard.http';
 import { AuthHttp } from './auth.http';
-import { AuthorizationHttp } from './authorization.http';
 import { CatalogHttp } from './catalogs.http';
 import { CategoryHttp } from './categories.http';
 import { CategoryCatalogsHttp } from './category-catalogs.http';
@@ -28,8 +26,6 @@ import { UnitHttp } from './units.http';
 @NgModule({
   imports: [],
   providers: [
-    AuthGuardHttp,
-    AuthorizationHttp,
     AuthHttp,
     CategoryHttp,
     CatalogHttp,

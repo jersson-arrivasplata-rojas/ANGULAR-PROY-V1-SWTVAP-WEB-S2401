@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.http';
 import { ProductHttp } from 'src/app/shared/http/products.http';
@@ -42,11 +42,6 @@ export class AdminDashboardProductsParametersComponent implements OnInit {
           this.parameters = parameterData;
           return this.productParametersHttp.getAll();
         }),
-      ).pipe(
-        catchError(error => {
-          console.error('Error al consultar datos:', error);
-          return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-        })
       ).subscribe((productParametersData) => {
         this.getAllSelectedParameters(productParametersData);
       });

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuardHttp } from 'src/app/shared/http/auth-guard.http';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
@@ -24,7 +23,7 @@ export class HeaderTopDefaultComponent implements OnInit {
   public phoneWhatsapp=''
   @Input() type:number=1;
 
-  constructor(private authGuardHttp:AuthGuardHttp,
+  constructor(
      private router:Router,
      private localStorageService:LocalStorageService) { }
 
@@ -50,7 +49,6 @@ export class HeaderTopDefaultComponent implements OnInit {
     this.dropdown_active = !this.dropdown_active;//'drop-down--active'
   }
   logout(){
-    this.authGuardHttp.signOut();
     this.router.navigate(['/']);
   }
 

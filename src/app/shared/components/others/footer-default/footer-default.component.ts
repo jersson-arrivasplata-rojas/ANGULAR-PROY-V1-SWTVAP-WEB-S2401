@@ -10,7 +10,7 @@ export class FooterDefaultComponent implements OnInit {
 
   constructor() { }
   public APP_URL =  environment.apiUrl;
-  public textWhatsapp: string = 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string = 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string = '51900288628';
   ngOnInit(): void {
   }

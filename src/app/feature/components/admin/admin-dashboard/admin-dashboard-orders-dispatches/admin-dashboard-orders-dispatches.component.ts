@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { StatusProviderEnum } from 'src/app/shared/config/status-provider.enum';
 import { DispatcheHttp } from 'src/app/shared/http/dispatches.http';
 import { OrderHttp } from 'src/app/shared/http/orders.http';
@@ -40,11 +40,6 @@ export class AdminDashboardOrdersDispatchesComponent implements OnInit {
         this.providers = providers;
         return this.orderDispatchesHttp.getAll();
       }),
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-      })
     ).subscribe((orderDispatchesData) => {
       this.data = orderDispatchesData.filter((orderDispatch: any) => orderDispatch.orderId === this.orderId);
       this.data.map((orderDispatch: any) => {

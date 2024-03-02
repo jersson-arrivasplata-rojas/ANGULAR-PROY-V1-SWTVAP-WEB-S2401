@@ -1,8 +1,10 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { ComponentsRoutingModule } from './components-routing.module';
+import { EcommerceModule } from './ecommerce/ecommerce.module';
 
 
 @NgModule({
@@ -12,8 +14,10 @@ import { ComponentsRoutingModule } from './components-routing.module';
   imports: [
     ReactiveFormsModule,
     CommonModule,
+    ComponentsRoutingModule,
     AuthModule,
-    ComponentsRoutingModule
+    AdminModule,
+    EcommerceModule,
   ],
   providers: [DecimalPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -7,6 +7,8 @@
             <th>Identificador de Grupo</th>
             <th>Descripci&oacute;n</th>
             <th>Valor</th>
+            <th>Valor1</th>
+            <th>Valor2</th>
             <th>C&oacute;digo</th>
             <th>Acciones</th>
           </tr>
@@ -19,6 +21,8 @@
                   <td>{{ item.groupId | emptyText }}</td>
                   <td>{{ item.description | truncateText }}</td>
                   <td>{{ item.value | truncateText }}</td>
+                  <td>{{ item.value1 | truncateText }}</td>
+                  <td>{{ item.value2 | truncateText }}</td>
                   <td>
                     <div class="d-flex flex-column">
                       <button type="button" class=" btn btn-success-2 font-16px" (click)="add(item)">Asignar</button>
@@ -27,7 +31,7 @@
               </tr>
           </ng-container>
         <tr *ngIf="!data.length">
-          <td colspan=6>
+          <td colspan=8>
               A&uacute;n no se ha agregado ning&uacute;n registro
           </td>
         </tr>

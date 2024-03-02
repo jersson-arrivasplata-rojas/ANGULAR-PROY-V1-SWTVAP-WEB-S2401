@@ -11,15 +11,15 @@
         </div>
 
         <div class="input-group input-search-double" style="    margin-bottom: -3px;">
-     
+
             <input type="text"  [(ngModel)]="search.address" #address="ngModel"
-            name="address" id="address" class="form-control input  text-center" placeholder="¿En que ubicación busca?" >
+            name="address" id="address" class="form-control input  text-center" placeholder="¿En que ubicaci&oacute;n busca?" >
             <input type="text" [(ngModel)]="search.product" #product="ngModel"
-            name="product" id="product"  class="form-control input text-center" placeholder="¿Qué producto buscar?" >
+            name="product" id="product"  class="form-control input text-center" placeholder="¿Qu&eacute; producto buscar?" >
         </div>
         <div class="input-group input-search-one mt-2" >
             <input type="text" [(ngModel)]="search.name" #name="ngModel"
-            name="name" id="name" class="form-control input  text-center" placeholder="¿Qué tienda busca?">
+            name="name" id="name" class="form-control input  text-center" placeholder="¿Qu&eacute; tienda busca?">
         </div>
         <button class="btn btn-secondary shadow  btn-block mt-3 border-input" (click)="busquedaExplorar()">
             Buscar <i class="dripicons-search"></i>

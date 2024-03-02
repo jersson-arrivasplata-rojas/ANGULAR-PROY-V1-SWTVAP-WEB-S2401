@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
 
@@ -27,11 +27,6 @@ export class AdminDashboardCatalogsComponent implements OnInit {
       mergeMap(catalogData => {
         this.data = catalogData;
         return this.categoryCatalagHttp.getAll();
-      })
-    ).pipe(
-      catchError(error => {
-        console.error('Error al consultar datos:', error);
-        return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
       })
     ).subscribe((categoryCatalogs) => {
       this.data.map((catalog: any) => {

@@ -8,6 +8,7 @@ import { NodeStoreService } from './node-store.service';
 import { NodeUserService } from './node-user.service';
 import { SeoService } from './seo.service';
 import { SlowComponentResolverService } from './slow-component-resolver.service';
+import { TokenService } from './token.service';
 import { WindowService } from './window.service';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { WindowService } from './window.service';
     SeoService,
     SlowComponentResolverService,
     LocalService,
-    WindowService
+    WindowService,
+    TokenService
   ]
 })
 export class ServicesModule { }

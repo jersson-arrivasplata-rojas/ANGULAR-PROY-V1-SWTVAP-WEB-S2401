@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  appUrl: '',
   apiUrl: 'http://localhost:3001/',
   apiStorage: '',
   assetUrl: '',

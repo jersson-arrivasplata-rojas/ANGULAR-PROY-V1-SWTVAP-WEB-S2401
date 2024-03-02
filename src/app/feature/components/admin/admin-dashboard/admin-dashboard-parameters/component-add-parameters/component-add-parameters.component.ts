@@ -20,6 +20,8 @@ export class ComponentAddParametersComponent {
       groupId: [''],
       description: ['', [Validators.required]],
       value: ['', Validators.required],
+      value1: [''],
+      value2: [''],
       code: [null, Validators.maxLength(50)],
       position: [null],
       status: [true, [Validators.required]]
@@ -40,6 +42,8 @@ export class ComponentAddParametersComponent {
       groupId: '',
       description: '',
       value: '',
+      value1: '',
+      value2: '',
       code: '',
       position: '',
       status: false

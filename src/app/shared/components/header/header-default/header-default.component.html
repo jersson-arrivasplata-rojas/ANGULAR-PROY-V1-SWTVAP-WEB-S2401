@@ -3,7 +3,7 @@
     <div class="navbar-brand mr-0 mr-md-2 navbar-brand-left">
 
         <!--<a href="{{APP_URL}}{{stores_uri}}">
-            
+
         </a>-->
 
         <div class="navbar-brand-left-img">
@@ -38,18 +38,18 @@
                 </p>
 
                 <p *ngIf="stores_despatch_time!=''&&stores_despatch_time!=null" class="mb-0  text-left ">
-                    <i class="mdi mdi-timer "></i> Tiempo de Verificación de Compras {{stores_despatch_time}}
+                    <i class="mdi mdi-timer "></i> Tiempo de Verificaci&oacute;n de Compras {{stores_despatch_time}}
                 </p>
 
             </div>
             <div class=" text-first  ml-3  " *ngIf="stores_coverage != null && stores_coverage.length >0">
                 <button class=" btn-sm border-radius-15 cursor-pointer text-first p-0 d-contents js-open btn-open-alert is-active" data-toggle="modal" data-target="#CoberturaModal" style="display:contents;font-size: 13px;" type="button">
-                    <i class="mdi mdi-package-variant-closed cursor-pointer"></i> Ver Coberturas de mi tienda (Click aquí)
+                    <i class="mdi mdi-package-variant-closed cursor-pointer"></i> Ver Coberturas de mi tienda (Click aqu&iacute;)
                 </button>
             </div>
             <div class=" text-first  ml-3 mb-2 " *ngIf="hours != null && hours.length >0">
                 <button class=" btn-sm border-radius-15 cursor-pointer text-first p-0 d-contents js-open btn-open-alert is-active" #horaTopButton style="display:contents;font-size: 13px;" type="button" (click)="alertShowModal(horaTopButton)">
-                    <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atención (Click aquí)
+                    <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atenci&oacute;n (Click aqu&iacute;)
                 </button>
             </div>
 
@@ -114,7 +114,7 @@
                         </p>
 
                         <p *ngIf="stores_despatch_time!=''&&stores_despatch_time!=null" class="mb-0  text-left ">
-                            <i class="mdi mdi-timer "></i> Tiempo de Verificación de Compras {{stores_despatch_time}}
+                            <i class="mdi mdi-timer "></i> Tiempo de Verificaci&oacute;n de Compras {{stores_despatch_time}}
                         </p>
 
                     </div>
@@ -122,7 +122,7 @@
                 <li *ngIf="stores_coverage != null && stores_coverage.length >0">
                     <div class=" text-first ">
                         <button class="btn-sm border-radius-15 mb-2  p-0 d-contents cursor-pointer text-first btn-open-alert is-active " data-toggle="modal" data-target="#CoberturaModal" style="display:contents;" type="button">
-                            <i class="mdi mdi-package-variant-closed cursor-pointer"></i> Ver Coberturas de mi tienda (Click aquí)
+                            <i class="mdi mdi-package-variant-closed cursor-pointer"></i> Ver Coberturas de mi tienda (Click aqu&iacute;)
                         </button>
                     </div>
                 </li>
@@ -130,7 +130,7 @@
                 <li *ngIf="hours != null && hours.length >0">
                     <div class=" text-first mb-2">
                         <button class="btn-sm border-radius-15 mb-2  p-0 d-contents cursor-pointer text-first btn-open-alert is-active " #horaBottomButton style="display:contents;" type="button" (click)="alertShowModal(horaBottomButton)">
-                            <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atención (Click aquí)
+                            <i class="mdi mdi-timer-sand cursor-pointer"></i> Ver Horas de atenci&oacute;n (Click aqu&iacute;)
                         </button>
                     </div>
                 </li>
@@ -157,7 +157,7 @@
         <div class="modal-image-alert">
             <svg viewBox="0 0 32 32" style="fill:var(--theme_color_success)"><path d="M1 14 L5 10 L13 18 L27 4 L31 8 L13 26 z"></path></svg>
         </div>
-        <h2>Horas de Atención</h2>
+        <h2>Horas de Atenci&oacute;n</h2>
         <p class="mb-0" *ngFor="let item of hours; let i=index">{{item.day}} {{item.time_start}} - {{item.time_end}}</p>
         <button class="btn btn-danger-2 border-radius-15 mt-2" #closeHourModal (click)="alertCloseModal(closeHourModal)" style="border-radius: 50px;">
             <i class="fas fa-times"></i>
@@ -184,7 +184,7 @@
                         <li>Provincia: {{(($item.province==null||$item.province=='')?'Todas las provincias':$item.province)}}</li>
                         <li>Distrito: {{(($item.district==null||$item.district=='')?'Todos los distritos':$item.district)}}</li>
                         <li>Precio: {{$item.price| number : '.1-3'}}</li>
-                        <li *ngIf="$item.description!=''">Descripción: {{$item.description}}</li>
+                        <li *ngIf="$item.description!=''">Descripci&oacute;n: {{$item.description}}</li>
                     </ul>
                 </div>
 

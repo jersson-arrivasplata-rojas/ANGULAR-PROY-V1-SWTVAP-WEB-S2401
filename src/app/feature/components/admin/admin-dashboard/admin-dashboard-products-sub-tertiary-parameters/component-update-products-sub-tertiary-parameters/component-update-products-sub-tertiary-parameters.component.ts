@@ -25,6 +25,8 @@ export class ComponentUpdateProductsSubTertiaryParametersComponent implements On
       groupId: [''],
       description: ['', Validators.required],
       value: ['', Validators.required],
+      value1: [''],
+      value2: [''],
       code: [null, Validators.maxLength(50)],
       position: [null],
       status: [false, [Validators.required]]

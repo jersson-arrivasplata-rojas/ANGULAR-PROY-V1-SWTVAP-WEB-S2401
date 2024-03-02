@@ -16,7 +16,7 @@ export class AmountValidatorDirective {
   @HostListener('ngModelChange', ['$event'])
   onModelChange(value: string) {
     of(value).pipe(
-      debounceTime(TimersEnum.TIMER_VALUES_DIRECTIVE_CHANGES), // Limita la frecuencia de validación
+      debounceTime(TimersEnum.TIMER_VALUES_DIRECTIVE_CHANGES), // Limita la frecuencia de validaci\u00F3n
       map(value => this.applyPattern(value))
     ).subscribe();
   }
@@ -32,7 +32,7 @@ export class AmountValidatorDirective {
     }
 
     if (typeof value === 'string') {
-      const match = value.match(this.pattern); // Encuentra el valor que cumple con el patrón
+      const match = value.match(this.pattern); // Encuentra el valor que cumple con el patr\u00F3n
       if (match && this.ngControl.control.value !== match[0]) {
         this.ngControl.control?.setValue(match[0], { emitEvent: false });
       }

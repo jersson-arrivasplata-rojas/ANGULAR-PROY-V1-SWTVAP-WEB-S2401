@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class SuccessPasswordRecoverDefaultComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean;
   public isServer: boolean;
-  public textWhatsapp: string= 'Hola Sumac Chasca Perú S.A.C., me gustaría consultar lo siguiente ';
+  public textWhatsapp: string= 'Hola Sumac Chasca Per\u00FA S.A.C., me gustar\u00EDa consultar lo siguiente ';
   public phoneWhatsapp: string= '51900288628';
   public content = {
 

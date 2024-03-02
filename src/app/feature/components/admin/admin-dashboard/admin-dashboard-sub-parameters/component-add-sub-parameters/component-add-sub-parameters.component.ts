@@ -20,6 +20,8 @@ export class ComponentAddSubParametersComponent implements OnChanges {
       groupId: [null],
       description: ['', Validators.required],
       value: ['', Validators.required],
+      value1: [''],
+      value2: [''],
       code: [null, Validators.maxLength(50)],
       position: [null],
       status: [true, [Validators.required]]
@@ -46,6 +48,8 @@ export class ComponentAddSubParametersComponent implements OnChanges {
       groupId: '',
       description: '',
       value: '',
+      value1: '',
+      value2: '',
       code: '',
       position: '',
       status: false

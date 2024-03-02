@@ -50,7 +50,7 @@
                          && (loginForm.touched || loginForm.dirty)">
 
                              <div class="row mb-5">
-                                 <h2 class="col-12 text-center">Iniciar Sesión</h2>
+                                 <h2 class="col-12 text-center">Iniciar Sesi&oacute;n</h2>
                              </div>
                              <div class="input-group border-input-group-prepend mb-3">
                                 <div class="input-group-prepend">
@@ -60,11 +60,11 @@
                                 </div>
                                 <input type="email" appForbiddenName="bob"
                                 [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control border-input-left input-middle-prepend" name="email" id="email"
-                                    placeholder="Correo electrónico" required>
+                                    placeholder="Correo electr&oacute;nico" required>
                             </div>
 
                              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger alert-invalid-dirty">
-                                 Correo electrónico ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
+                                 Correo electr&oacute;nico ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
                              </div>
 
                              <div class="input-group border-input-group-prepend mb-3">
@@ -85,17 +85,17 @@
                                     </div>
                                 </div>
                                 <small id="passwordHelpBlock" class="form-text text-muted-2">
-                                    Su contraseña debe tener entre 6 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales ni emoji.
+                                    Su contraseña debe tener entre 6 y 20 caracteres, contener letras y n&uacute;meros, y no debe contener espacios, caracteres especiales ni emoji.
                                 </small>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="message" ><!--style="display: none;"-->
                                         <h5>La contraseña debe contener lo siguiente:</h5>
-                                        <p id="letter" class="invalid mb-1">Una letra <b> minúscula </b></p>
-                                        <p id="capital" class="invalid mb-1">Una letra <b> mayúscula (mayúscula) </b></p>
-                                        <p id="number" class="invalid mb-1">Un <b> número </b></p>
-                                        <p id="length" class="invalid mb-4">Mínimo <b> 6 caracteres </b></p>
+                                        <p id="letter" class="invalid mb-1">Una letra <b> min&uacute;scula </b></p>
+                                        <p id="capital" class="invalid mb-1">Una letra <b> may&uacute;scula (may&uacute;scula) </b></p>
+                                        <p id="number" class="invalid mb-1">Un <b> n&uacute;mero </b></p>
+                                        <p id="length" class="invalid mb-4">M&iacute;nimo <b> 6 caracteres </b></p>
                                       </div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <p class="small">©2024 Sumac Chasca Perú S.A.C.</p>
+                <p class="small">©2024 Sumac Chasca Per&uacute; S.A.C.</p>
                 <ul class="list-unstyle list-inline">
                     <li class="list-inline-item small">
                         <a target="_blank" href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">Ayuda</a>

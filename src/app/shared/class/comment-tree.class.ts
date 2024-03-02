@@ -12,7 +12,7 @@ export class CommentTree {
       commentMap.set(comment.commentId, comment);
     });
 
-    // Organizar los comentarios en una estructura de árbol
+    // Organizar los comentarios en una estructura de \u00E1rbol
     this.comments.forEach(comment => {
       if (comment.replyCommentId !== null) {
         const parentComment = commentMap.get(comment.replyCommentId);

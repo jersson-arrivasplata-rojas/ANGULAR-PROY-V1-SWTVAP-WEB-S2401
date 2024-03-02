@@ -10,12 +10,12 @@ export class ShareDataService {
 
   constructor() { }
 
-  // Método para enviar datos al BehaviorSubject
+  // M\u00E9todo para enviar datos al BehaviorSubject
   add(data: any) {
     this.shareDataBehaviorSubject.next(data);
   }
 
-  // Método para suscribirse al BehaviorSubject
+  // M\u00E9todo para suscribirse al BehaviorSubject
   getData() {
     return this.shareDataBehaviorSubject.asObservable();
   }

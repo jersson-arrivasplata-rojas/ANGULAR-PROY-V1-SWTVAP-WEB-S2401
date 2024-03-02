@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationHttp } from 'src/app/shared/http/authorization.http';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -37,7 +36,7 @@ export class HeaderDefaultExampleComponent implements OnInit {
   @Input() stores_delivery;
   @Input() stores_coverage;
 
-  constructor(private router: Router,private authorizationHttp: AuthorizationHttp) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

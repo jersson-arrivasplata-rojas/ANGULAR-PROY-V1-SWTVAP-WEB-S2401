@@ -14,7 +14,7 @@ export class CommentComponent {
   @Input() product: any;
 
   comments: any[] = [
-    // Tu lista de comentarios aquí
+    // Tu lista de comentarios aqu\u00ED
   ];
   commentTree: any[];
 

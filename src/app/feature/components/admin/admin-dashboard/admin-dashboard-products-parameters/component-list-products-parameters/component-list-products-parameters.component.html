@@ -9,6 +9,8 @@
               <th>Identificador de Grupo</th>
               <th>Descripci&oacute;n</th>
               <th>Valor</th>
+              <th>Valor1</th>
+              <th>Valor2</th>
               <th>Acciones</th>
           </tr>
       </thead>
@@ -21,6 +23,8 @@
                   <td>{{ item.parameter.groupId | emptyText }}</td>
                   <td>{{ item.parameter.description | truncateText }}</td>
                   <td>{{ item.parameter.value | truncateText }}</td>
+                  <td>{{ item.parameter.value1 | truncateText }}</td>
+                  <td>{{ item.parameter.value2 | truncateText }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
                       <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
@@ -38,7 +42,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td colspan=7>
+    <td colspan=9>
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

@@ -5,6 +5,8 @@
         <p *ngIf="item.parameter">Identificador de Grupo: {{ item.parameter.groupId }}</p>
         <p *ngIf="item.parameter">Descripci&oacute;n: {{ item.parameter.description | transformText }}</p>
         <p *ngIf="item.parameter">Valor: {{ item.parameter.value | transformText }}</p>
+        <p *ngIf="item.parameter">Valor1: {{ item.parameter.value1 | transformText }}</p>
+        <p *ngIf="item.parameter">Valor2: {{ item.parameter.value2 | transformText }}</p>
         <p *ngIf="item.parameter">C&oacute;digo: {{ item.parameter.code | transformText | uppercase }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>

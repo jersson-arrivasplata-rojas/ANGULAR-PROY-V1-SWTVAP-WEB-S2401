@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, mergeMap, of } from 'rxjs';
+import { mergeMap } from 'rxjs';
 import { CommentTree } from 'src/app/shared/class/comment-tree.class';
 import { StatusEnum } from 'src/app/shared/config/status.enum';
 import { CommentHttp } from 'src/app/shared/http/comments.http';
@@ -34,11 +34,6 @@ export class AdminDashboardCommentsComponent implements OnInit {
           this.product = item;
           return this.commentHttp.getAll();
         }),
-      ).pipe(
-        catchError(error => {
-          console.error('Error al consultar datos:', error);
-          return of([]); // Devuelve un observable vac&iacute;o para que la cadena de observables pueda continuar
-        })
       ).subscribe((commentsData) => {
         this.data = commentsData.filter((comment) => comment.productId === this.productId);;
         const commentTree = new CommentTree(this.data);
