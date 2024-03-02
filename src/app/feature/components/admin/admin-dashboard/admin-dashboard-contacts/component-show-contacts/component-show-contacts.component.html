@@ -5,14 +5,9 @@
         <p>N&uacute;mero de Contacto: {{ item.contact }}</p>
         <p>Correo: {{ item.email }}</p>
         <p>Detalle: {{ item.details }}</p>
-        <p>Estado: {{ item.visitedDate | statusContact }}</p>
+        <p>Estado: {{ item.status | statusContact }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>
     </div>
 </div>
-private String name;
-private String contact;
-private String email;
-private String details;
-private StatusContact status;

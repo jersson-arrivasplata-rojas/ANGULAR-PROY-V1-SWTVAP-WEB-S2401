@@ -58,6 +58,6 @@ export class AuthGuard implements CanActivate {
 
 
   private redirectTo() {
-    this.router.navigate(['/admin/dashboard/catalogs']);
+    this.router.navigate(['/admin/dashboard/home']);
   }
 }
