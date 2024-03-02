@@ -16,6 +16,9 @@ import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashbo
 import { AdminDashboardCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/admin-dashboard-catalogs-categories.component';
 import { ComponentListCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/component-list-catalogs-categories/component-list-catalogs-categories.component';
 import { ComponentShowCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/component-show-catalogs-categories/component-show-catalogs-categories.component';
+import { AdminDashboardCatalogsProductsComponent } from './admin-dashboard-catalogs-products/admin-dashboard-catalogs-products.component';
+import { ComponentListCatalogsProductsComponent } from './admin-dashboard-catalogs-products/component-list-catalogs-products/component-list-catalogs-products.component';
+import { ComponentShowCatalogsProductsComponent } from './admin-dashboard-catalogs-products/component-show-catalogs-products/component-show-catalogs-products.component';
 import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
 import { ComponentAddCatalogsComponent } from './admin-dashboard-catalogs/component-add-catalogs/component-add-catalogs.component';
 import { ComponentListCatalogsComponent } from './admin-dashboard-catalogs/component-list-catalogs/component-list-catalogs.component';
@@ -302,6 +305,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentAddContactsComponent,
     ComponentUpdateContactsComponent,
     ComponentShowContactsComponent,
+    AdminDashboardCatalogsProductsComponent,
+    ComponentListCatalogsProductsComponent,
+    ComponentShowCatalogsProductsComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

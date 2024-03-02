@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { StatusLangEnum } from '../config/status-lang.enum';
 
 @Pipe({
   name: 'statusLang'
@@ -6,16 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StatusLangPipe implements PipeTransform {
 
   transform(value: string | number): string {
-    let status = "";
-    switch (value) {
-      case 0:
-        status = "Espa\u00F1ol"
-        break;
-      case 1:
-        status = "Ingles"
-        break;
-    }
-    return status;
+    return StatusLangEnum[value];
   }
 
 }

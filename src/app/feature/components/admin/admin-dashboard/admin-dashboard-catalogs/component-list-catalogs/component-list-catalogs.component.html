@@ -6,7 +6,7 @@
               <th>#</th>
               <th>C&oacute;digo</th>
               <th>Nombre</th>
-              <th>Categor&iacute;as Asignadas</th>
+              <th>Asignados</th>
               <th>Idioma</th>
               <th>Estado</th>
               <th>Acciones</th>
@@ -21,6 +21,9 @@
                   <td>
                     <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
                       <span class="mr-2">({{ item.categories?item.categories.length:0 }} Categor&iacute;as)</span>{{!item.deletedAt?'Agregar':''}}
+                    </button><br/>
+                    <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addProductsCatalogs(item)">
+                      <span class="mr-2">({{ item.products?item.products.length:0 }} Productos)</span>{{!item.deletedAt?'Agregar':''}}
                     </button>
                   </td>
                   <td>{{ item.lang | statusLang }}</td>

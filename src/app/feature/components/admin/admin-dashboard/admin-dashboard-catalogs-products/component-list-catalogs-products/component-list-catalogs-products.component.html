@@ -1,0 +1,63 @@
+<div class="table-responsive">
+  <table class="table table-bordered text-center" aria-label="Table of catalogs">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Asociado</th>
+            <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
+              <th>C&oacute;digo</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Stock M&iacute;nimo</th>
+            </ng-container>
+            <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
+              <th>Nombre</th>
+            </ng-container>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+          <ng-container *ngFor="let item of data; let i = index">
+            <tr *ngIf="!item.deletedAt">
+                <td>{{ (i + 1 )}}</td>
+                <td>{{ item.relationship | statusRelationship }}</td>
+                <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
+                  <td>{{ item.code | uppercase }}</td>
+                  <td>{{ item.name }}</td>
+                  <td class="text-left">
+                    <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
+                    <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
+                    <span *ngIf="item.priceEUR">€/{{ item.priceEUR | addZeros }}</span>
+                  </td>
+                  <td>{{ item.stock }}</td>
+                  <td>{{ item.stockMin }}</td>
+                </ng-container>
+                <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
+                  <td>{{ item.name }}</td>
+                </ng-container>
+                <td>{{ item.status | status }}</td>
+                <td>
+                  <div class="d-flex flex-column align-items-center">
+                    <button type="button" *ngIf="!item.relationship" class=" btn btn-first font-16px" (click)="add(item)" [disabled]="properties.deletedAt">Asociar</button>
+                    <button type="button" *ngIf="item.relationship" class=" btn btn-danger-2 font-16px" (click)="delete(item)" [disabled]="properties.deletedAt">Eliminar</button>
+                    <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
+                  </div>
+                </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!data.length">
+            <ng-container *ngTemplateOutlet="showNgTemplateContent"></ng-container>
+          </ng-container>
+    </tbody>
+  </table>
+</div>
+<ng-template #showNgTemplateContent>
+  <tr *ngIf="!data.length">
+    <td  [attr.colspan]="(properties.type === typesEnum.PRODUCTS)?5:9">
+        A&uacute;n no se ha agregado ning&uacute;n registro
+    </td>
+  </tr>
+</ng-template>
+

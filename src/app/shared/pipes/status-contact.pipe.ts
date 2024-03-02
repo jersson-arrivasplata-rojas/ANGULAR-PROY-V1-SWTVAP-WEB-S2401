@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { StatusContactEnum } from '../config/status-contact.enum';
 
 @Pipe({
   name: 'statusContact'
@@ -6,16 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StatusContactPipe implements PipeTransform {
 
   transform(value: string | number): string {
-    let status = "";
-    switch (value) {
-      case 0:
-        status = "No Revisado"
-        break;
-      case 1:
-        status = "Revisado"
-        break;
-    }
-    return status;
+    return StatusContactEnum[value];
   }
 
 }

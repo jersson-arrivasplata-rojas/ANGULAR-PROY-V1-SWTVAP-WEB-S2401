@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardAnalyticsComponent } from './admin-dashboard-analytics/admin-dashboard-analytics.component';
 import { AdminDashboardBaseComponent } from './admin-dashboard-base/admin-dashboard-base.component';
 import { AdminDashboardCatalogsCategoriesComponent } from './admin-dashboard-catalogs-categories/admin-dashboard-catalogs-categories.component';
+import { AdminDashboardCatalogsProductsComponent } from './admin-dashboard-catalogs-products/admin-dashboard-catalogs-products.component';
 import { AdminDashboardCatalogsComponent } from './admin-dashboard-catalogs/admin-dashboard-catalogs.component';
 import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-categories-products/admin-dashboard-categories-products.component';
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
@@ -56,6 +57,10 @@ const routes: Routes =  [
       {
         path: 'catalogs/add/:id',
         component: AdminDashboardCatalogsCategoriesComponent
+      },
+      {
+        path: 'catalogs/add-products/:id',
+        component: AdminDashboardCatalogsProductsComponent
       },
       {
         path: 'categories',
@@ -116,6 +121,10 @@ const routes: Routes =  [
       {
         path: 'products',
         component: AdminDashboardProductsComponent
+      },
+      {
+        path: 'products/add-catalogs/:id',
+        component: AdminDashboardCatalogsProductsComponent
       },
       {
         path: 'products/add-categories/:id',

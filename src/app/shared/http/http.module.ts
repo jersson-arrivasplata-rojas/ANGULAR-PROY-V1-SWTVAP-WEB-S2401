@@ -13,6 +13,7 @@ import { OrderDetailsHttp } from './order-details.http';
 import { OrderTransactionsHttp } from './order-transactions.http';
 import { OrderHttp } from './orders.http';
 import { ParameterHttp } from './parameters.http';
+import { ProductCatalogsHttp } from './product-catalogs.http';
 import { ProductCategoriesHttp } from './product-categories.http';
 import { ProductDiscountsHttp } from './product-discounts.http';
 import { ProductImagesHttp } from './product-images.http';
@@ -52,6 +53,7 @@ import { UnitHttp } from './units.http';
     OrderAmountsHttp,
     OrderDetailsHttp,
     OrderTransactionsHttp,
+    ProductCatalogsHttp,
   ],
 })
 export class HttpModule {}

@@ -60,6 +60,10 @@ export class ComponentListProductsComponent {
     this.router.navigate(['/admin/dashboard/products/add-categories', item.productId]);
   }
 
+  addProductsCatalogs(item: any){
+    this.router.navigate(['/admin/dashboard/products/add-catalogs', item.productId]);
+  }
+
   addProductUnits(item: any){
     this.router.navigate(['/admin/dashboard/products/add-units', item.productId]);
   }

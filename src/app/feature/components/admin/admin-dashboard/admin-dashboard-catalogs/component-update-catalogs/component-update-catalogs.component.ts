@@ -22,7 +22,7 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
       name: ['', [Validators.required, Validators.maxLength(200)]],
       code: ['', [Validators.required, Validators.maxLength(50)]],
       description: [null],
-      lang: [0, [Validators.required]],
+      lang: ['ES', [Validators.required]],
       status: [false, [Validators.required]]
     });
   }

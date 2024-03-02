@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mergeMap } from 'rxjs';
 import { CommentHttp } from 'src/app/shared/http/comments.http';
+import { ProductCatalogsHttp } from 'src/app/shared/http/product-catalogs.http';
 import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.http';
 import { ProductDiscountsHttp } from 'src/app/shared/http/product-discounts.http';
 import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
@@ -25,7 +26,8 @@ export class AdminDashboardProductsComponent implements OnInit {
   constructor(private productHttp: ProductHttp, private productCategoriesHttp: ProductCategoriesHttp,
     private productDiscountsHttp: ProductDiscountsHttp, private productImagesHttp: ProductImagesHttp,
     private productCommentHttp: CommentHttp, private productParameterHttp: ProductParametersHttp,
-    private productProvidersHttp: ProductProvidersHttp, private productUnitsHttp: ProductUnitsHttp) { }
+    private productProvidersHttp: ProductProvidersHttp, private productUnitsHttp: ProductUnitsHttp,
+    private productCatalogsHttp: ProductCatalogsHttp) { }
 
   ngOnInit() {
     this.productHttp.getAll().pipe(
@@ -54,6 +56,12 @@ export class AdminDashboardProductsComponent implements OnInit {
       mergeMap(productParameterData => {
         this.data.map((product: any) => {
           product.parameters = productParameterData.filter(productParameter => productParameter.productId === product.productId)
+        });
+        return this.productCatalogsHttp.getAll();
+      }),
+      mergeMap(productCatalogs => {
+        this.data.map((product: any) => {
+          product.catalogs = productCatalogs.filter(productCatalog => productCatalog.product.productId === product.productId);
         });
         return this.productCategoriesHttp.getAll();
       }),

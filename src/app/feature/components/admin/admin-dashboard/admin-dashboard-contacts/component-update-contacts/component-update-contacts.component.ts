@@ -34,6 +34,7 @@ export class ComponentUpdateContactsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
+      changes['item'].currentValue.status = changes['item'].currentValue.status === "NOT_REVIEWED" ? 0 : 1;
       this.itemForm.patchValue(this.item);
     }
   }

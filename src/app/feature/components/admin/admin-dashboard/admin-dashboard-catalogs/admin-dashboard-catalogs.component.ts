@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { mergeMap } from 'rxjs';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http';
+import { ProductCatalogsHttp } from 'src/app/shared/http/product-catalogs.http';
 
 
 @Component({
@@ -20,17 +21,23 @@ export class AdminDashboardCatalogsComponent implements OnInit {
   showItem = false;
 
   constructor(private catalogHttp: CatalogHttp, private categoryCatalagHttp: CategoryCatalogsHttp,
-    private cdr: ChangeDetectorRef) { }
+    private productCatalogsHttp: ProductCatalogsHttp, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.catalogHttp.getAll().pipe(
       mergeMap(catalogData => {
         this.data = catalogData;
         return this.categoryCatalagHttp.getAll();
+      }),
+      mergeMap(categoryCatalogs => {
+        this.data.map((catalog: any) => {
+          catalog.categories = categoryCatalogs.filter(categoryCatalog => categoryCatalog.catalog.catalogId === catalog.catalogId && !categoryCatalog.category.deletedAt);
+        });
+        return this.productCatalogsHttp.getAll();
       })
-    ).subscribe((categoryCatalogs) => {
+    ).subscribe((productCatalogs) => {
       this.data.map((catalog: any) => {
-        catalog.categories = categoryCatalogs.filter(categoryCatalog => categoryCatalog.catalog.catalogId === catalog.catalogId && !categoryCatalog.category.deletedAt);
+        catalog.products = productCatalogs.filter(productCatalog => productCatalog.catalog.catalogId === catalog.catalogId && !productCatalog.product.deletedAt);
       });
     });
   }

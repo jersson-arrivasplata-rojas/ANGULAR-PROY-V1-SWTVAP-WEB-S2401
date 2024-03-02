@@ -60,4 +60,8 @@ export class ComponentListCatalogsComponent {
   addCategoryCatalogs(item: any) {
     this.router.navigate(['/admin/dashboard/catalogs/add', item.catalogId]);
   }
+
+  addProductsCatalogs(item: any) {
+    this.router.navigate(['/admin/dashboard/catalogs/add-products', item.catalogId]);
+  }
 }
