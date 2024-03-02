@@ -1,0 +1,17 @@
+#STORE-DASHBOARD-ANALITYCS #addModal .popover-body {
+
+  padding: 0px;
+}
+
+#STORE-DASHBOARD-ANALITYCS #cardContact .sortable-buttons {
+  display: none;
+}
+
+#STORE-DASHBOARD-ANALITYCS #cardContact .sortable-list {
+  display: table
+}
+
+#STORE-DASHBOARD-ANALITYCS #cardContact .sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+}

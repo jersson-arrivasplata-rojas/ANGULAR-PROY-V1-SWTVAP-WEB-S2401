@@ -36,6 +36,11 @@ import { ComponentShowClientsComponent } from './admin-dashboard-clients/compone
 import { ComponentUpdateClientsComponent } from './admin-dashboard-clients/component-update-clients/component-update-clients.component';
 import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
 import { ComponentListCommentsComponent } from './admin-dashboard-comments/component-list-comments/component-list-comments.component';
+import { AdminDashboardContactsComponent } from './admin-dashboard-contacts/admin-dashboard-contacts.component';
+import { ComponentAddContactsComponent } from './admin-dashboard-contacts/component-add-contacts/component-add-contacts.component';
+import { ComponentListContactsComponent } from './admin-dashboard-contacts/component-list-contacts/component-list-contacts.component';
+import { ComponentShowContactsComponent } from './admin-dashboard-contacts/component-show-contacts/component-show-contacts.component';
+import { ComponentUpdateContactsComponent } from './admin-dashboard-contacts/component-update-contacts/component-update-contacts.component';
 import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashboard-home.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { ComponentAddMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/component-add-marketing-campaigns/component-add-marketing-campaigns.component';
@@ -292,6 +297,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ComponentAddProductsSubTertiaryParametersComponent,
     ComponentUpdateProductsSubTertiaryParametersComponent,
     ComponentShowProductsSubTertiaryParametersComponent,
+    AdminDashboardContactsComponent,
+    ComponentListContactsComponent,
+    ComponentAddContactsComponent,
+    ComponentUpdateContactsComponent,
+    ComponentShowContactsComponent,
   ],
   imports: [
     AdminDashboardRoutingModule,

@@ -6,6 +6,7 @@ import { CategoryHttp } from './categories.http';
 import { CategoryCatalogsHttp } from './category-catalogs.http';
 import { ClientHttp } from './clients.http';
 import { CommentHttp } from './comments.http';
+import { ContactHttp } from './contacts.http';
 import { MarketingCampaignHttp } from './marketing-campaigns.http';
 import { OrderAmountsHttp } from './order-amounts.http';
 import { OrderDetailsHttp } from './order-details.http';
@@ -30,6 +31,7 @@ import { UnitHttp } from './units.http';
     CategoryHttp,
     CatalogHttp,
     CategoryCatalogsHttp,
+    ContactHttp,
     UnitHttp,
     ClientHttp,
     ProviderHttp,

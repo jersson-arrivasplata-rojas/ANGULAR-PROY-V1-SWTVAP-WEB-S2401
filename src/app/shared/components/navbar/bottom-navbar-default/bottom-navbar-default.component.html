@@ -2,7 +2,7 @@
 
 
 
-    <button class="mt-auto cursor-pointer btn-info-store btn btn-info-2 text-first btn-open-alert is-active " #infoBottomButton
+    <button title="d" class="mt-auto cursor-pointer btn-info-store btn btn-info-2 text-first btn-open-alert is-active " #infoBottomButton
     type="button" (click)="alertShowModal(infoBottomButton)" >
         <i class="dripicons-wallet " ></i>
     </button>
@@ -21,7 +21,7 @@
                     <div *ngFor="let item of payment_card; let i=index" >
                         <div *ngIf="item.type==0" class="mt-0 m-auto w-50 pb-4 cards-store-product-2">
                             <!--<span *ngFor="let cd of item.payment; let i=index">{{cd.description}}</span>-->
-                            <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                            <img alt="" *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="d-flex items-center justify-content-center flex-wrap mt3 flex-store-bottom-transferencia-default">
                     <div *ngFor="let item of payment_card; let i=index"  class="d-flex">
                         <div *ngIf="item.type==1" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product">
-                            <img *ngFor="let cd of item.card; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                            <img alt="" *ngFor="let cd of item.card; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
                             <p class="d-flex pr-1 pl-1 vm">
                                 <span *ngIf="item.visa==1&& item.mastercard==0">Visa</span>
                                 <span *ngIf="item.visa==1 && item.mastercard==1" >Visa y Mastercard</span>
@@ -53,7 +53,7 @@
                     <div class="d-flex items-center flex-wrap mt3 flex-store-bottom-default">
                         <div *ngFor="let item of payment_card; let i=index" >
                             <div *ngIf="item.type==2" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product-3">
-                                <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                                <img alt="" *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
                             </div>
                         </div>
                     </div>
@@ -67,16 +67,15 @@
                     <div class="d-flex items-center flex-wrap mt3 flex-store-bottom-default">
                         <div *ngFor="let item of payment_card; let i=index" class="d-flex">
                             <div *ngIf="item.type==3" class="pl-3 pr-4 pt-0 pb-1 mt-0 m-auto w-50 cards-store-product-3">
-                                <img *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
+                                <img alt="" *ngFor="let cd of item.payment; let i=index" src="{{APP_URL}}assets/images/pagos/{{cd.image_url}}"   class="w-100">
                             </div>
                         </div>
                     </div>
                </div>
             </div>
         </div>
-        <button class="btn btn-danger-2 border-radius-15 mt-2"  #closeInfoModal (click)="alertCloseModal(closeInfoModal)"
-         style="border-radius: 50px;width: 40px; height: 40px!important;">
-            <i class="fas fa-times"></i>
+        <button title="Close" type="button" class="btn btn-danger-2 border-radius-15 mt-2"  #closeInfoModal (click)="alertCloseModal(closeInfoModal)">
+          <i class="fas fa-times"></i>
         </button>
     </div>
 </div>

@@ -23,7 +23,7 @@
           <!--<img src="https://k0.okccdn.com/php/load_okc_image.php/images/32x0/971x939/0/10846088441021659030.webp?v=2" style="width: 30px;">-->
             Ejemplo
         </p>
-        <button class="card-header-icon btn btn-light-2" style="  display:contents;  line-height: 1;">
+        <button class="card-header-icon btn btn-light-2" title="Button Title">
           <span class="icon">
             <i class="fas fa-times"  (click)="closeForm()"></i>
           </span>
@@ -72,7 +72,8 @@
           </div>
         </div>
       </div>
-      <input type="file" id="FileUploadAuth" class="form-control sr-only">
+      <label for="FileUploadAuth">Upload File:</label>
+      <input type="file" id="FileUploadAuth" class="form-control sr-only" placeholder="Choose a file">
 
       <footer class="card-footer" id="chatBox-textbox">
         <div style="width: 100%">

@@ -145,6 +145,8 @@ import { EmptyTextPipe } from './pipes/empty-text.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { OrderStatusPipe } from './pipes/order-status.pipe';
 import { StatusAddPipe } from './pipes/status-add.pipe';
+import { StatusContactPipe } from './pipes/status-contact.pipe';
+import { StatusLangPipe } from './pipes/status-lang.pipe';
 import { StatusProviderPipe } from './pipes/status-provider.pipe';
 import { StatusRelationshipPipe } from './pipes/status-relationship.pipe';
 import { StatusPipe } from './pipes/status.pipe';
@@ -298,6 +300,8 @@ import { ServicesModule } from './services/services.module';
     ScrollOnClickDirective,
     PaginationDirective,
     OrderStatusPipe,
+    StatusLangPipe,
+    StatusContactPipe,
   ],
   exports: [
     GeneratorCssComponent,
@@ -449,6 +453,8 @@ import { ServicesModule } from './services/services.module';
     ScrollOnClickDirective,
     PaginationDirective,
     OrderStatusPipe,
+    StatusLangPipe,
+    StatusContactPipe,
   ],
   imports: [
     CommonModule,

@@ -1,15 +1,14 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PatternEnum } from 'src/app/shared/constants/patterns.const';
-import { ClientHttp } from 'src/app/shared/http/clients.http';
+import { ContactHttp } from 'src/app/shared/http/contacts.http';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-update-clients',
-  templateUrl: './component-update-clients.component.html',
-  styleUrls: ['./component-update-clients.component.scss'],
+  selector: 'app-component-update-contacts',
+  templateUrl: './component-update-contacts.component.html',
+  styleUrls: ['./component-update-contacts.component.scss'],
 })
-export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
+export class ComponentUpdateContactsComponent implements OnInit, OnChanges {
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() revoke: EventEmitter<any> = new EventEmitter();
   @Input() item: any = {};
@@ -18,19 +17,14 @@ export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientHttp: ClientHttp
+    private contactHttp: ContactHttp
   ) {
     this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
-      address: ['', [Validators.required, Validators.maxLength(200)]],
-      phone: ['', [Validators.required, Validators.maxLength(20), Validators.pattern(PatternEnum.NUMBER)]],
-      cellphone: ['', [Validators.required, Validators.maxLength(20), Validators.pattern(PatternEnum.NUMBER)]],
-      countryCode: ['', [Validators.required, Validators.maxLength(5), Validators.pattern(PatternEnum.NUMBER_PLUS)]],
+      contact: ['', [Validators.required, Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.maxLength(50), emailDomainValidator()]],
-      whatsapp: [false, Validators.required],
       details: [''],
-      otherDetails: [''],
-      sourceAggregate: ['ADMINISTRATIVE_SYSTEM', Validators.required]
+      status: [0, Validators.required]
     });
   }
 
@@ -40,7 +34,6 @@ export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
-      this.item.whatsapp = Boolean(this.item.whatsapp);
       this.itemForm.patchValue(this.item);
     }
   }
@@ -48,8 +41,7 @@ export class ComponentUpdateClientsComponent implements OnInit, OnChanges {
   update() {
     if (this.itemForm.valid) {
       const item = { ...this.item, ...this.itemForm.value };
-      item.whatsapp = Number(item.whatsapp);
-      this.clientHttp.update(item.clientId, item).subscribe((item) => {
+      this.contactHttp.update(item.contactId, item).subscribe((item) => {
         this.updated.emit(item);
         (window as any).success("¡Actualizado!");
       });

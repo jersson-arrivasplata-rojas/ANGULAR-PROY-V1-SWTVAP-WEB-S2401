@@ -44,7 +44,7 @@
         <div class="container d-flex flex-column justify-content-between" style="height: 100vh;">
             <div class="row">
                 <div class="col-12">
-                    <img class="logo-img" src="../../../../assets/images/rutas/login/snapstore.png">
+                    <img alt="" class="logo-img" src="../../../../assets/images/rutas/login/snapstore.png">
                 </div>
             </div>
             <div class="row">
@@ -93,7 +93,7 @@
                             <div class="input-group border-input-group-prepend mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text p-0">
-                                        <select id="country_phone_code" (change)="countryPhone($event)" name="country_phone_code" class="form-control   border-input "
+                                        <select title="select" id="country_phone_code" (change)="countryPhone($event)" name="country_phone_code" class="form-control   border-input "
                                             required [(ngModel)]="user.country_phone_code" #country_phone_code="ngModel" >
                                             <option  [ngStyle]="{backgroundImage:'url(https://flagcdn.com/48x36/'+(p.iso2).toLowerCase()+'.png)'}" *ngFor="let p of allContries" [value]="p.phone_code">{{p.name_es}}</option>
                                         </select>
@@ -104,7 +104,7 @@
                                     id="celphone" placeholder="Celular" required>
                                 <div class="input-group-append">
                                     <div style="background: transparent;" class="input-group-text  p-0">
-                                        <img style="width: 30px;margin-left: 1em;margin-right: 1em;" class="img-celphone" src="https://flagcdn.com/48x36/pe.png">
+                                        <img  alt="" style="width: 30px;margin-left: 1em;margin-right: 1em;" class="img-celphone" src="https://flagcdn.com/48x36/pe.png">
                                     </div>
                                 </div>
 
@@ -113,7 +113,7 @@
                                 N&uacute;mero de celular ingresado incorrectamente <span class="mdi mdi-arrow-up-bold"></span>
                             </div>
                             <div class="form-group content-div-document d-none">
-                                <select id="document_type" name="document_type"  (change)="selectTypeDocument($event)" class="form-control border-input"
+                                <select title="select" id="document_type" name="document_type"  (change)="selectTypeDocument($event)" class="form-control border-input"
                                     required [(ngModel)]="user.document_type" #document_type="ngModel" >
                                     <option *ngFor="let p of documents_type" [value]="p">{{p}}</option>
                                 </select>
@@ -234,7 +234,7 @@
                 <p class="small">©2024 Sumac Chasca Per&uacute; S.A.C.</p>
                 <ul class="list-unstyle list-inline">
                     <li class="list-inline-item small">
-                        <a target="_blank"
+                        <a rel="noopener" target="_blank"
                             href="https://api.whatsapp.com/send?phone={{phoneWhatsapp}}&text={{textWhatsapp}}">Ayuda</a>
                     </li>
                 </ul>

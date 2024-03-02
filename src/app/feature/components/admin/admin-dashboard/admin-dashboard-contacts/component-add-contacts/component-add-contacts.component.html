@@ -6,35 +6,35 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="name">Nombre:</label>
-                <input type="text" class="form-control" id="name" formControlName="name" maxlength="200">
+                <input type="text" class="form-control" id="name" formControlName="name" maxlength="50">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="code">C&oacute;digo:</label>
-                <input type="text" class="form-control" id="code" placeholder="Ejemplo: CATALOG-00000001" formControlName="code" maxlength="50" appUppercase>
+                <label for="contact">N&uacute;mero de Contacto:</label>
+                <input type="text" class="form-control" id="contact" formControlName="contact" maxlength="20" appOnlyNumbersInput [OnlyNumber]="true">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="description">Descripci&oacute;n:</label>
-                <textarea rows="3" class="form-control" id="description" formControlName="description">
+                <label for="email">Correo:</label>
+                <input type="text" class="form-control" id="email" formControlName="email" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="details">Detalle:</label>
+                <textarea rows="3" class="form-control" id="details" formControlName="details">
                 </textarea>
             </div>
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-                <label for="lang">Asignar a idioma:</label>
-                <select class="form-control" id="lang" formControlName="lang">
-                    <option value="0">Espa&ntilde;ol</option>
-                    <option value="1">Ingles</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="form-group d-flex">
                 <label for="status">Estado:</label>
-                <input type="checkbox" class="form-control" id="status" formControlName="status" >
+                <select class="form-control" id="status" formControlName="status">
+                    <option value="0">No Revisado</option>
+                    <option value="1">Revisado</option>
+                </select>
             </div>
         </div>
         <div class="col-lg-12">

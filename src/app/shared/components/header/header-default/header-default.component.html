@@ -159,7 +159,7 @@
         </div>
         <h2>Horas de Atenci&oacute;n</h2>
         <p class="mb-0" *ngFor="let item of hours; let i=index">{{item.day}} {{item.time_start}} - {{item.time_end}}</p>
-        <button class="btn btn-danger-2 border-radius-15 mt-2" #closeHourModal (click)="alertCloseModal(closeHourModal)" style="border-radius: 50px;">
+        <button class="btn btn-danger-2 border-radius-15 mt-2" #closeHourModal (click)="alertCloseModal(closeHourModal)" title="Close Modal">
             <i class="fas fa-times"></i>
         </button>
     </div>

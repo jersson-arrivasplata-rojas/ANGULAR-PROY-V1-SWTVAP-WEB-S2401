@@ -1,13 +1,12 @@
-<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[2,1]" [search]="searchTerm">
-  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por nombre o por c&oacute;digo...">
-  <table class="table table-bordered text-center" aria-label="Table of catalogs">
+<div *ngIf="data.length" class="table-responsive" appPagination [positions]="[1]" [search]="searchTerm">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control mb-3 app-pagination-input-search" placeholder="Buscar por p&aacute;gina visitada...">
+  <table class="table table-bordered text-center" aria-label="Table of contacts">
       <thead>
           <tr>
               <th>#</th>
-              <th>C&oacute;digo</th>
               <th>Nombre</th>
-              <th>Categor&iacute;as Asignadas</th>
-              <th>Idioma</th>
+              <th>Contacto</th>
+              <th>Correo</th>
               <th>Estado</th>
               <th>Acciones</th>
           </tr>
@@ -16,15 +15,10 @@
           <ng-container *ngFor="let item of data; let i = index">
               <tr>
                   <td>{{ (i + 1 )}}</td>
-                  <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.name }}</td>
-                  <td>
-                    <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
-                      <span class="mr-2">({{ item.categories?item.categories.length:0 }} Categor&iacute;as)</span>{{!item.deletedAt?'Agregar':''}}
-                    </button>
-                  </td>
-                  <td>{{ item.lang | statusLang }}</td>
-                  <td>{{ item.status | status }}</td>
+                  <td>{{ item.contact }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.status | statusContact }}</td>
                   <td>
                     <div class="d-flex flex-column align-items-center">
                       <button type="button" class=" btn btn-success-2 font-16px" (click)="show(item)" appScrollOnClick>Mostrar</button>
@@ -43,7 +37,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td colspan=7>
+    <td colspan=6>
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

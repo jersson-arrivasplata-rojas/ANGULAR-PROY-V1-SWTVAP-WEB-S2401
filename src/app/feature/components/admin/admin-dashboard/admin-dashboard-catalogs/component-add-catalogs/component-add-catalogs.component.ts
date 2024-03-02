@@ -19,6 +19,7 @@ export class ComponentAddCatalogsComponent {
       name: ['', [Validators.required, Validators.maxLength(200)]],
       code: ['', [Validators.required, Validators.maxLength(50)]],
       description: [null],
+      lang: [0, [Validators.required]],
       status: [true, [Validators.required]]
     });
   }
@@ -36,6 +37,7 @@ export class ComponentAddCatalogsComponent {
       name: '',
       code: '',
       description: '',
+      lang: 0,
       status: false
     };
   }

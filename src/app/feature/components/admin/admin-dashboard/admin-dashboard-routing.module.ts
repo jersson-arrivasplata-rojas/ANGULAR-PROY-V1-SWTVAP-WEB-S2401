@@ -8,6 +8,7 @@ import { AdminDashboardCategoriesProductsComponent } from './admin-dashboard-cat
 import { AdminDashboardCategoriesComponent } from './admin-dashboard-categories/admin-dashboard-categories.component';
 import { AdminDashboardClientsComponent } from './admin-dashboard-clients/admin-dashboard-clients.component';
 import { AdminDashboardCommentsComponent } from './admin-dashboard-comments/admin-dashboard-comments.component';
+import { AdminDashboardContactsComponent } from './admin-dashboard-contacts/admin-dashboard-contacts.component';
 import { AdminDashboardHomeComponent } from './admin-dashboard-home/admin-dashboard-home.component';
 import { AdminDashboardMarketingCampaignsComponent } from './admin-dashboard-marketing-campaigns/admin-dashboard-marketing-campaigns.component';
 import { AdminDashboardOrdersAmountsComponent } from './admin-dashboard-orders-amounts/admin-dashboard-orders-amounts.component';
@@ -83,6 +84,10 @@ const routes: Routes =  [
       {
         path: 'analytics',
         component: AdminDashboardAnalyticsComponent
+      },
+      {
+        path: 'contacts',
+        component: AdminDashboardContactsComponent
       },
       {
         path: 'marketing-campaigns',
