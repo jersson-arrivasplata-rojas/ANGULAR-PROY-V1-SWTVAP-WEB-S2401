@@ -20,14 +20,13 @@ export class ComponentAddCatalogsComponent {
       code: ['', [Validators.required, Validators.maxLength(50)]],
       description: [null],
       lang: ['ES', [Validators.required]],
-      status: [true, [Validators.required]]
+      status: ['ACTIVE', [Validators.required]]
     });
   }
 
   add() {
     if (this.itemForm.valid) {
       const item = { ...this.init(), ...this.itemForm.value };
-      item.status = Number(item.status);
       this.added.emit(item);
     }
   }
@@ -38,7 +37,7 @@ export class ComponentAddCatalogsComponent {
       code: '',
       description: '',
       lang: 'ES',
-      status: false
+      status: 'ACTIVE'
     };
   }
 }

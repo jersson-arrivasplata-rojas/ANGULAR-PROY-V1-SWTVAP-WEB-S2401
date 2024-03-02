@@ -23,7 +23,7 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
       code: ['', [Validators.required, Validators.maxLength(50)]],
       description: [null],
       lang: ['ES', [Validators.required]],
-      status: [false, [Validators.required]]
+      status: ['ACTIVE', [Validators.required]]
     });
   }
 
@@ -33,7 +33,6 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'] && changes['item'].currentValue) {
-      this.item.status = Boolean(this.item.status);
       this.itemForm.patchValue(this.item);
     }
   }
@@ -41,7 +40,6 @@ export class ComponentUpdateCatalogsComponent implements OnInit, OnChanges {
   update() {
     if (this.itemForm.valid) {
       const item = { ...this.item, ...this.itemForm.value };
-      item.status = Number(item.status);
       this.catalogHttp.update(item.catalogId, item).subscribe((item) => {
         this.updated.emit(item);
         (window as any).success("¡Actualizado!");

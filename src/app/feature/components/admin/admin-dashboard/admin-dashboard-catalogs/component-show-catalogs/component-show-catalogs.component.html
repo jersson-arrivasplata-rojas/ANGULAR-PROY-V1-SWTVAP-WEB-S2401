@@ -5,7 +5,7 @@
         <p *ngIf="item.code">C&oacute;digo: {{ item.code | uppercase }}</p>
         <p *ngIf="item.description">Descripci&oacute;n: {{ item.description }}</p>
         <p>Idioma: {{ item.lang | statusLang }}</p>
-        <p>Estado: {{ item.status | status }}</p>
+        <p>Estado: {{ item.status | statusCommon }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>
         </p>

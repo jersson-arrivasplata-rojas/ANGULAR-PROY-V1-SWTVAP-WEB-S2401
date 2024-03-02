@@ -145,6 +145,7 @@ import { EmptyTextPipe } from './pipes/empty-text.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { OrderStatusPipe } from './pipes/order-status.pipe';
 import { StatusAddPipe } from './pipes/status-add.pipe';
+import { StatusCommonPipe } from './pipes/status-common.pipe';
 import { StatusContactPipe } from './pipes/status-contact.pipe';
 import { StatusLangPipe } from './pipes/status-lang.pipe';
 import { StatusProviderPipe } from './pipes/status-provider.pipe';
@@ -302,6 +303,7 @@ import { ServicesModule } from './services/services.module';
     OrderStatusPipe,
     StatusLangPipe,
     StatusContactPipe,
+    StatusCommonPipe,
   ],
   exports: [
     GeneratorCssComponent,
@@ -455,6 +457,7 @@ import { ServicesModule } from './services/services.module';
     OrderStatusPipe,
     StatusLangPipe,
     StatusContactPipe,
+    StatusCommonPipe,
   ],
   imports: [
     CommonModule,

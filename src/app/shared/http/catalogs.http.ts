@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { StatusEnum } from '../config/status.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,6 @@ export class CatalogHttp {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((response: any) => {
         return response.map((item: any) => {
-          item.status = Boolean(item.status === StatusEnum.ACTIVE);
           return item;
         });
       }),

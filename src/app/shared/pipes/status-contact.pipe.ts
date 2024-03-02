@@ -9,5 +9,4 @@ export class StatusContactPipe implements PipeTransform {
   transform(value: string | number): string {
     return StatusContactEnum[value];
   }
-
 }
