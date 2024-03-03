@@ -130,6 +130,8 @@ import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
 import { CommentComponent } from './components/comments/comment/comment.component';
+import { FooterComponent } from './components/footers/footer/footer.component';
+import { HeaderComponent } from './components/headers/header/header.component';
 import { AmountValidatorDirective } from './directives/amount-validator.directive';
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
@@ -304,6 +306,8 @@ import { ServicesModule } from './services/services.module';
     StatusLangPipe,
     StatusContactPipe,
     StatusCommonPipe,
+    HeaderComponent,
+    FooterComponent,
   ],
   exports: [
     GeneratorCssComponent,
@@ -458,6 +462,8 @@ import { ServicesModule } from './services/services.module';
     StatusLangPipe,
     StatusContactPipe,
     StatusCommonPipe,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
