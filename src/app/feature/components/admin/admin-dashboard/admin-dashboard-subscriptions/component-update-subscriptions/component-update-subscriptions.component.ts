@@ -6,7 +6,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-update-subscriptions',
+  selector: 'swtvap-component-update-subscriptions',
   templateUrl: './component-update-subscriptions.component.html',
   styleUrls: ['./component-update-subscriptions.component.scss'],
 })

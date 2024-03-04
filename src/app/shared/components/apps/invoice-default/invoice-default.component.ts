@@ -3,7 +3,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { ResourcesUtils } from 'src/app/shared/utils/resources.utils';
 
 @Component({
-  selector: 'app-invoice-default',
+  selector: 'swtvap-invoice-default',
   templateUrl: './invoice-default.component.html',
   styleUrls: ['./invoice-default.component.scss']
 })

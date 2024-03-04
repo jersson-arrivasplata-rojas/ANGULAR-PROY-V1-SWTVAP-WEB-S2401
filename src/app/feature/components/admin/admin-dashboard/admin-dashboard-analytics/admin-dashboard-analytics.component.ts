@@ -3,7 +3,7 @@ import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-analytics',
+  selector: 'swtvap-admin-dashboard-analytics',
   templateUrl: './admin-dashboard-analytics.component.html',
   styleUrls: ['./admin-dashboard-analytics.component.css']
 })

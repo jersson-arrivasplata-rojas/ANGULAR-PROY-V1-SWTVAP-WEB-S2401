@@ -5,7 +5,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-header-top-default',
+  selector: 'swtvap-header-top-default',
   templateUrl: './header-top-default.component.html',
   styleUrls: ['./header-top-default.component.css']
 })

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { TypesEnum } from 'src/app/shared/config/types.enum';
 
 @Component({
-  selector: 'app-component-show-catalogs-products',
+  selector: 'swtvap-component-show-catalogs-products',
   templateUrl: './component-show-catalogs-products.component.html',
   styleUrls: ['./component-show-catalogs-products.component.scss'],
 })

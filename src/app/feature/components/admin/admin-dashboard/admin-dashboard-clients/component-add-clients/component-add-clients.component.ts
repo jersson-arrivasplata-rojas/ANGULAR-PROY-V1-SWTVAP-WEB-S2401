@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-add-clients',
+  selector: 'swtvap-component-add-clients',
   templateUrl: './component-add-clients.component.html',
   styleUrls: ['./component-add-clients.component.scss'],
 })

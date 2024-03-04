@@ -3,7 +3,7 @@ import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-subscriptions',
+  selector: 'swtvap-component-list-subscriptions',
   templateUrl: './component-list-subscriptions.component.html',
   styleUrls: ['./component-list-subscriptions.component.scss'],
 })

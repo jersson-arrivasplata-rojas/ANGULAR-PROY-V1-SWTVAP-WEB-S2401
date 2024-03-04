@@ -16,7 +16,7 @@
   <!-- Renderizar comentarios hijos de manera recursiva -->
   <ul class="{{comment.children && !comment.replyCommentId ? 'on-children':''}}" *ngIf="comment.children && comment.children.length > 0">
     <li *ngFor="let childComment of comment.children">
-      <app-comment [comment]="childComment"></app-comment>
+      <swtvap-comment [comment]="childComment"></swtvap-comment>
 
     </li>
   </ul>

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-products-images',
+  selector: 'swtvap-component-add-products-images',
   templateUrl: './component-add-products-images.component.html',
   styleUrls: ['./component-add-products-images.component.scss'],
 })

@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-lg-4 col-md-6 col-sm-6 col-12 form-group mb-3">
-    <app-input-default [color]="'danger'" [inputClass]="'form-control '" [placeholder]="'Ingrese nombre de icono'" ></app-input-default><!--(keyup)="FilterPipe($event?.target?.value)"-->
+    <swtvap-input-default [color]="'danger'" [inputClass]="'form-control '" [placeholder]="'Ingrese nombre de icono'" ></swtvap-input-default><!--(keyup)="FilterPipe($event?.target?.value)"-->
   </div>
   <div class="col-lg-8 col-md-6 col-sm-6 col-12">
   </div>
@@ -16,16 +16,16 @@
   <div [ngStyle]="iconClassDivContent"  class="flex-direction-column m-1" *ngFor="let item of copyIconClasses; let i = index">
     <i  class="iconClassI " ngClass="{{item}}"></i>
     <i  style="height: 45px;" class="flex-align-justify-center">.{{item}}</i>
-    <app-button-default (click)="copyTo($event,item)"  [color]="'danger'" [title]="'Copiar'" [icono]="'i-File-Copy-2'" [claseButton]="'m-1 btn-block'" [claseI]="'ml-1'"></app-button-default>
+    <swtvap-button-default (click)="copyTo($event,item)"  [color]="'danger'" [title]="'Copiar'" [icono]="'i-File-Copy-2'" [claseButton]="'m-1 btn-block'" [claseI]="'ml-1'"></swtvap-button-default>
   </div>
 </div>
 
 
 <div id="toast-container" class="toast-container d-none"   style="right: 30px;position: fixed;z-index: 999999;top: 12px;"><!--[ngClass]="{'d-none': toastActivate==false}"-->
-  <app-alert-default [tipo]="'primary'" [contenido]="'Copiado con &Eacute;xito'"  [claseAlert]="'text-left'" [claseClose]="'d-none'"></app-alert-default>
+  <swtvap-alert-default [tipo]="'primary'" [contenido]="'Copiado con &Eacute;xito'"  [claseAlert]="'text-left'" [claseClose]="'d-none'"></swtvap-alert-default>
 </div>
 
 <!--
   https://getbootstrap.com/docs/4.4/utilities/colors/#background-gradient
-  <app-icon-iconsmind-default></app-icon-iconsmind-default>
+  <swtvap-icon-iconsmind-default></swtvap-icon-iconsmind-default>
 -->

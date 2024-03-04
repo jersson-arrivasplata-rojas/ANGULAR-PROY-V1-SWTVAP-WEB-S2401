@@ -6,7 +6,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-products-images',
+  selector: 'swtvap-admin-dashboard-products-images',
   templateUrl: './admin-dashboard-products-images.component.html',
   styleUrls: ['./admin-dashboard-products-images.component.css']
 })

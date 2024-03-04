@@ -5,7 +5,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-orders-dispatches',
+  selector: 'swtvap-component-list-orders-dispatches',
   templateUrl: './component-list-orders-dispatches.component.html',
   styleUrls: ['./component-list-orders-dispatches.component.scss'],
 })

@@ -3,7 +3,7 @@ import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-analytics',
+  selector: 'swtvap-component-list-analytics',
   templateUrl: './component-list-analytics.component.html',
   styleUrls: ['./component-list-analytics.component.scss'],
 })

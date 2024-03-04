@@ -5,7 +5,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 import { AdminDashboardOrdersDetailsPresenter } from '../admin-dashboard-orders-details.presenter';
 
 @Component({
-  selector: 'app-component-add-orders-details',
+  selector: 'swtvap-component-add-orders-details',
   templateUrl: './component-add-orders-details.component.html',
   styleUrls: ['./component-add-orders-details.component.scss'],
   providers: [AdminDashboardOrdersDetailsPresenter]

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
 
 @Component({
-  selector: 'app-component-update-products-images',
+  selector: 'swtvap-component-update-products-images',
   templateUrl: './component-update-products-images.component.html',
   styleUrls: ['./component-update-products-images.component.scss'],
 })

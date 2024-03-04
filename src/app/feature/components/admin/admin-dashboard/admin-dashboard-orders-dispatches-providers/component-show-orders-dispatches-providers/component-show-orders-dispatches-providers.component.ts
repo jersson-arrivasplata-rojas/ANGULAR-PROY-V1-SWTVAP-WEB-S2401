@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-component-show-orders-dispatches-providers',
+  selector: 'swtvap-component-show-orders-dispatches-providers',
   templateUrl: './component-show-orders-dispatches-providers.component.html',
   styleUrls: ['./component-show-orders-dispatches-providers.component.scss'],
 })

@@ -3,7 +3,7 @@ import { SubscriptionHttp } from 'src/app/shared/http/subscriptions.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-subscriptions',
+  selector: 'swtvap-admin-dashboard-subscriptions',
   templateUrl: './admin-dashboard-subscriptions.component.html',
   styleUrls: ['./admin-dashboard-subscriptions.component.css']
 })

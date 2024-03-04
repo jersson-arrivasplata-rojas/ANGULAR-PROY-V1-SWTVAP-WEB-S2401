@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-payment-form-default',
+  selector: 'swtvap-widget-payment-form-default',
   templateUrl: './widget-payment-form-default.component.html',
   styleUrls: ['./widget-payment-form-default.component.scss']
 })

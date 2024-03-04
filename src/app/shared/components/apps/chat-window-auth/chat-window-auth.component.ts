@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-window-auth',
+  selector: 'swtvap-chat-window-auth',
   templateUrl: './chat-window-auth.component.html',
   styleUrls: ['./chat-window-auth.component.css']
 })

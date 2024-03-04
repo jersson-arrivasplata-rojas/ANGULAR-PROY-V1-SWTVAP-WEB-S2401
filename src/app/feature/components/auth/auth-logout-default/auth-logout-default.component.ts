@@ -5,6 +5,6 @@ import { Component, } from '@angular/core';
   template: `
     <div></div>
   `,
-  selector: 'app-auth-logout-default'
+  selector: 'swtvap-auth-logout-default'
 })
 export class AuthLogoutDefaultComponent { }

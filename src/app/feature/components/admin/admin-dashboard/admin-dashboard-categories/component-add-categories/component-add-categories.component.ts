@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-categories',
+  selector: 'swtvap-component-add-categories',
   templateUrl: './component-add-categories.component.html',
   styleUrls: ['./component-add-categories.component.scss'],
 })

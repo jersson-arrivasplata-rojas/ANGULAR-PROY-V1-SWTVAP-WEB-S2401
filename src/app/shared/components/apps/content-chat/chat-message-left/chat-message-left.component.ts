@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-message-left',
+  selector: 'swtvap-chat-message-left',
   templateUrl: './chat-message-left.component.html',
   styleUrls: ['./chat-message-left.component.scss']
 })

@@ -6,7 +6,7 @@ import { NodeStoreService } from 'src/app/shared/services/node-store.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-heart-default',
+  selector: 'swtvap-heart-default',
   templateUrl: './heart-default.component.html',
   styleUrls: ['./heart-default.component.css']
 })

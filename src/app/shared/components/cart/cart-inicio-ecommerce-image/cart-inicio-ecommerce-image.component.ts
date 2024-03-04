@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 
 //Component, OnInit, Input, Output,
 @Component({
-  selector: 'app-cart-inicio-ecommerce-image',
+  selector: 'swtvap-cart-inicio-ecommerce-image',
   templateUrl: './cart-inicio-ecommerce-image.component.html',
   styleUrls: ['./cart-inicio-ecommerce-image.component.css']
 })

@@ -4,7 +4,7 @@ import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-orders',
+  selector: 'swtvap-component-list-orders',
   templateUrl: './component-list-orders.component.html',
   styleUrls: ['./component-list-orders.component.scss'],
 })

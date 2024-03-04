@@ -5,7 +5,7 @@ import { LocalService } from 'src/app/shared/services/local.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-admin-dashboard-base',
+  selector: 'swtvap-admin-dashboard-base',
   templateUrl: './admin-dashboard-base.component.html',
   styleUrls: ['./admin-dashboard-base.component.css'],
 })

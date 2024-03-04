@@ -4,7 +4,7 @@ import { LocalStorageService } from 'src/app/shared/services/local-storage.servi
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-top-bar-default',
+  selector: 'swtvap-top-bar-default',
   templateUrl: './top-bar-default.component.html',
   styleUrls: ['./top-bar-default.component.css']
 })

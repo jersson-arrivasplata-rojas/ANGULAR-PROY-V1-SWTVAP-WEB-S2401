@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-textarea-default',
+  selector: 'swtvap-textarea-default',
   templateUrl: './textarea-default.component.html',
   styleUrls: ['./textarea-default.component.scss']
 })

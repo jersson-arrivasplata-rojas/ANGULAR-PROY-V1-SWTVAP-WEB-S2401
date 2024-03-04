@@ -8,7 +8,7 @@ import { CategoryCatalogsHttp } from 'src/app/shared/http/category-catalogs.http
 
 
 @Component({
-  selector: 'app-admin-dashboard-catalogs-categories',
+  selector: 'swtvap-admin-dashboard-catalogs-categories',
   templateUrl: './admin-dashboard-catalogs-categories.component.html',
   styleUrls: ['./admin-dashboard-catalogs-categories.component.css']
 })

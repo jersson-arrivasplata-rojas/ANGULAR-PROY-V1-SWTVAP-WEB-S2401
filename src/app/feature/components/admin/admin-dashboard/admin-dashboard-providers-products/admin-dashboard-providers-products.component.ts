@@ -8,7 +8,7 @@ import { ProviderHttp } from 'src/app/shared/http/providers.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-providers-products',
+  selector: 'swtvap-admin-dashboard-providers-products',
   templateUrl: './admin-dashboard-providers-products.component.html',
   styleUrls: ['./admin-dashboard-providers-products.component.css']
 })

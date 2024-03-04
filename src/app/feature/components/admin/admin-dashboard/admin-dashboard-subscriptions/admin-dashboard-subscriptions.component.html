@@ -6,9 +6,9 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-subscriptions *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-subscriptions>
-              <app-component-update-subscriptions *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-subscriptions>
-              <app-component-show-subscriptions *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-subscriptions>
+              <swtvap-component-add-subscriptions *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></swtvap-component-add-subscriptions>
+              <swtvap-component-update-subscriptions *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></swtvap-component-update-subscriptions>
+              <swtvap-component-show-subscriptions *ngIf="showItem" [item]="item" (revoke)="showItem=false"></swtvap-component-show-subscriptions>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
                 <div class="card o-hidden mb-4">
@@ -22,7 +22,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-subscriptions [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-subscriptions>
+                      <swtvap-component-list-subscriptions [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></swtvap-component-list-subscriptions>
                     </div>
                 </div>
             </div>

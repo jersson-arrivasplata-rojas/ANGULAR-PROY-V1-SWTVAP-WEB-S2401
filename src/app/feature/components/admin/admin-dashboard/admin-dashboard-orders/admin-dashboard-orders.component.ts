@@ -8,7 +8,7 @@ import { OrderHttp } from 'src/app/shared/http/orders.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-orders',
+  selector: 'swtvap-admin-dashboard-orders',
   templateUrl: './admin-dashboard-orders.component.html',
   styleUrls: ['./admin-dashboard-orders.component.css'],
 })

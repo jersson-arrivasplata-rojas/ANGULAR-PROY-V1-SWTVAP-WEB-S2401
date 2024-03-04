@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 //import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-success-password-recover-default',
+  selector: 'swtvap-success-password-recover-default',
   templateUrl: './success-password-recover-default.component.html',
   styleUrls: ['./success-password-recover-default.component.scss']
 })

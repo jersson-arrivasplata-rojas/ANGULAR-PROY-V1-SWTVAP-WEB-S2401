@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 //const fs = require('fs');
 
 @Component({
-  selector: 'app-icon-iconsmind-default',
+  selector: 'swtvap-icon-iconsmind-default',
   templateUrl: './icon-iconsmind-default.component.html',
   styleUrls: ['./icon-iconsmind-default.component.scss']
 })

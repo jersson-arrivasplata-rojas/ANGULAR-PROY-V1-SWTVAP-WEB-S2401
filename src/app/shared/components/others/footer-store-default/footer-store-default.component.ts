@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-footer-store-default',
+  selector: 'swtvap-footer-store-default',
   templateUrl: './footer-store-default.component.html',
   styleUrls: ['./footer-store-default.component.css']
 })

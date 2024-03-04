@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 
 @Component({
-  selector: 'app-generator-css',
+  selector: 'swtvap-generator-css',
   templateUrl: './generator-css.component.html',
   styleUrls: ['./generator-css.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-menu',
+  selector: 'swtvap-widget-menu',
   templateUrl: './widget-menu.component.html',
   styleUrls: ['./widget-menu.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-description-default',
+  selector: 'swtvap-description-default',
   templateUrl: './description-default.component.html',
   styleUrls: ['./description-default.component.scss']
 })

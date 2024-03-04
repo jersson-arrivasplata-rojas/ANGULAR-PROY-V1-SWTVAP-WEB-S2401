@@ -3,7 +3,7 @@ import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.h
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-marketing-campaigns',
+  selector: 'swtvap-component-list-marketing-campaigns',
   templateUrl: './component-list-marketing-campaigns.component.html',
   styleUrls: ['./component-list-marketing-campaigns.component.scss'],
 })

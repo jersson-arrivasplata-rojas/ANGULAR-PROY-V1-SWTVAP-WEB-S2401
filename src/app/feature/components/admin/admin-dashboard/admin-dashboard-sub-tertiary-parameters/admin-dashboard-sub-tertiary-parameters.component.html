@@ -10,9 +10,9 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-sub-tertiary-parameters *ngIf="addItem" [properties]="properties" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-sub-tertiary-parameters>
-              <app-component-update-sub-tertiary-parameters *ngIf="updateItem" [item]="item" [properties]="properties" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-sub-tertiary-parameters>
-              <app-component-show-sub-tertiary-parameters *ngIf="showItem" [item]="item" [properties]="properties" (revoke)="showItem=false"></app-component-show-sub-tertiary-parameters>
+              <swtvap-component-add-sub-tertiary-parameters *ngIf="addItem" [properties]="properties" (added)="handleAdded($event)" (revoke)="addItem=false;"></swtvap-component-add-sub-tertiary-parameters>
+              <swtvap-component-update-sub-tertiary-parameters *ngIf="updateItem" [item]="item" [properties]="properties" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></swtvap-component-update-sub-tertiary-parameters>
+              <swtvap-component-show-sub-tertiary-parameters *ngIf="showItem" [item]="item" [properties]="properties" (revoke)="showItem=false"></swtvap-component-show-sub-tertiary-parameters>
             </div>
             <div  *ngIf="!showItem && !updateItem && !addItem" class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
               <div *ngIf="item" class="card m-auto " style="max-width: 350px;margin-bottom: 1.5em!important;">
@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-sub-tertiary-parameters [data]="data" [parameter]="parameter" [properties]="properties" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-tertiary-parameters>
+                      <swtvap-component-list-sub-tertiary-parameters [data]="data" [parameter]="parameter" [properties]="properties" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></swtvap-component-list-sub-tertiary-parameters>
                     </div>
                 </div>
             </div>

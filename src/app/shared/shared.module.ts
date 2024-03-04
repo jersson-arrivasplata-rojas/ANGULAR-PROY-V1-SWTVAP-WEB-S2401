@@ -129,9 +129,17 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
+import { BillingInfoComponent } from './components/billings/billing-info/billing-info.component';
+import { CartAddComponent } from './components/cart/cart-add/cart-add.component';
+import { CheckoutCartComponent } from './components/checkouts/checkout-cart/checkout-cart.component';
+import { CheckoutInfoComponent } from './components/checkouts/checkout-info/checkout-info.component';
+import { CheckoutComponent } from './components/checkouts/checkout/checkout.component';
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { FooterComponent } from './components/footers/footer/footer.component';
 import { HeaderComponent } from './components/headers/header/header.component';
+import { NavComponent } from './components/navs/nav/nav.component';
+import { NewsletterComponent } from './components/newsletters/newsletter/newsletter.component';
+import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { AmountValidatorDirective } from './directives/amount-validator.directive';
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
@@ -144,8 +152,10 @@ import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { AddZerosPipe } from './pipes/add-zeros.pipe';
 import { EmptyTextPipe } from './pipes/empty-text.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { OrderStatusPipe } from './pipes/order-status.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 import { StatusAddPipe } from './pipes/status-add.pipe';
 import { StatusCommonPipe } from './pipes/status-common.pipe';
 import { StatusContactPipe } from './pipes/status-contact.pipe';
@@ -306,8 +316,18 @@ import { ServicesModule } from './services/services.module';
     StatusLangPipe,
     StatusContactPipe,
     StatusCommonPipe,
+    NavComponent,
     HeaderComponent,
     FooterComponent,
+    NewsletterComponent,
+    ProductListComponent,
+    SortByPipe,
+    FilterPipe,
+    CartAddComponent,
+    CheckoutComponent,
+    CheckoutCartComponent,
+    CheckoutInfoComponent,
+    BillingInfoComponent,
   ],
   exports: [
     GeneratorCssComponent,
@@ -462,8 +482,18 @@ import { ServicesModule } from './services/services.module';
     StatusLangPipe,
     StatusContactPipe,
     StatusCommonPipe,
+    NavComponent,
     HeaderComponent,
     FooterComponent,
+    NewsletterComponent,
+    ProductListComponent,
+    SortByPipe,
+    FilterPipe,
+    CartAddComponent,
+    CheckoutComponent,
+    CheckoutCartComponent,
+    CheckoutInfoComponent,
+    BillingInfoComponent,
   ],
   imports: [
     CommonModule,

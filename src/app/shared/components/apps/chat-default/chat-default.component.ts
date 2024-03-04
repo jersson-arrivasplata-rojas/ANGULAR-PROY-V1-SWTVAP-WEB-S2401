@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-default',
+  selector: 'swtvap-chat-default',
   templateUrl: './chat-default.component.html',
   styleUrls: ['./chat-default.component.scss']
 })

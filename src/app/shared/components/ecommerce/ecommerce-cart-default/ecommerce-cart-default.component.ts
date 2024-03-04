@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ecommerce-cart-default',
+  selector: 'swtvap-ecommerce-cart-default',
   templateUrl: './ecommerce-cart-default.component.html',
   styleUrls: ['./ecommerce-cart-default.component.scss']
 })

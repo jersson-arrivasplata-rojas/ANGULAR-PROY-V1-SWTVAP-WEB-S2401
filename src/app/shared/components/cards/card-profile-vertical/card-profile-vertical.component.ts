@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-profile-vertical',
+  selector: 'swtvap-card-profile-vertical',
   templateUrl: './card-profile-vertical.component.html',
   styleUrls: ['./card-profile-vertical.component.scss']
 })

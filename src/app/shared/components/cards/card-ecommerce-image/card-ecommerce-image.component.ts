@@ -1,21 +1,21 @@
 import {
-  Component,
-  ComponentFactoryResolver,
-  ComponentRef,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
-  ViewContainerRef
+    Component,
+    ComponentFactoryResolver,
+    ComponentRef,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewChild,
+    ViewContainerRef
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  OwlOptions,
-  SlidesOutputData
+    OwlOptions,
+    SlidesOutputData
 } from 'ngx-owl-carousel-o';
 import { CommentInterface as Comment } from 'src/app/shared/interfaces/comment.interface';
 import { ImageInterface as Image } from 'src/app/shared/interfaces/image.interface';
@@ -85,7 +85,7 @@ export class NgbdModalContent {
 }
 
 @Component({
-  selector: 'app-card-ecommerce-image',
+  selector: 'swtvap-card-ecommerce-image',
   templateUrl: './card-ecommerce-image.component.html',
   styleUrls: ['./card-ecommerce-image.component.scss'],
 })

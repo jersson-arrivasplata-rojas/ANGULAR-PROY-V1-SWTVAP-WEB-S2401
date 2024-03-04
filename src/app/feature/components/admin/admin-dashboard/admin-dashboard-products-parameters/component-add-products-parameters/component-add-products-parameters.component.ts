@@ -5,7 +5,7 @@ import { ParametersEnum } from 'src/app/shared/config/parameters.enum';
 import { AdminDashboardProductsParametersPresenter } from '../admin-dashboard-products-parameters.presenter';
 
 @Component({
-  selector: 'app-component-add-products-parameters',
+  selector: 'swtvap-component-add-products-parameters',
   templateUrl: './component-add-products-parameters.component.html',
   styleUrls: ['./component-add-products-parameters.component.scss'],
   providers: [AdminDashboardProductsParametersPresenter]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ecommerce-products-default',
+  selector: 'swtvap-ecommerce-products-default',
   templateUrl: './ecommerce-products-default.component.html',
   styleUrls: ['./ecommerce-products-default.component.scss']
 })

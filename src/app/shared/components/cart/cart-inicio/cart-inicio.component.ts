@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { Router } from '@angular/router';
 //Component, OnInit, Input, Output,
 @Component({
-  selector: 'app-cart-inicio',
+  selector: 'swtvap-cart-inicio',
   templateUrl: './cart-inicio.component.html',
   styleUrls: ['./cart-inicio.component.css']
 })

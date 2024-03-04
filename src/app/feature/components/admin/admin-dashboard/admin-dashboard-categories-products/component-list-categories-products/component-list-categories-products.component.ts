@@ -6,7 +6,7 @@ import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.ht
 import { ProductHttp } from 'src/app/shared/http/products.http';
 
 @Component({
-  selector: 'app-component-list-categories-products',
+  selector: 'swtvap-component-list-categories-products',
   templateUrl: './component-list-categories-products.component.html',
   styleUrls: ['./component-list-categories-products.component.scss'],
 })

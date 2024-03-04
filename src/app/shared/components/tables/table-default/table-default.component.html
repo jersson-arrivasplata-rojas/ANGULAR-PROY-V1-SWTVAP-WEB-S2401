@@ -3,7 +3,7 @@
   <div class="col-lg-8 col-md-6 col-sm-6 col-12">
   </div>
   <div class="col-lg-4 col-md-6 col-sm-6 col-12 form-group mb-3"><!--(keyup)="FilterPipe($event.target.value)"-->
-    <app-input-default [color]="'primary'" [inputClass]="'form-control '" [placeholder]="'Ingrese nombre para buscar'" ></app-input-default>
+    <swtvap-input-default [color]="'primary'" [inputClass]="'form-control '" [placeholder]="'Ingrese nombre para buscar'" ></swtvap-input-default>
   </div>
 </div>
 <table class="table {{tableClass}}" role="table">
@@ -39,10 +39,10 @@
     </tr>
   </tfoot>
 </table>
-<app-pagination-default [color]="table.color" [align]="table.alignPagination" [page]="table.page.toString()" [total]="table.total.toString()" [pagination]="table.pagination.toString()"></app-pagination-default>
+<swtvap-pagination-default [color]="table.color" [align]="table.alignPagination" [page]="table.page.toString()" [total]="table.total.toString()" [pagination]="table.pagination.toString()"></swtvap-pagination-default>
 
 <!--
-  <app-table-default></app-table-default>
+  <swtvap-table-default></swtvap-table-default>
 -->
 
 <!--Showing 1 to 5 of 5 entries-->

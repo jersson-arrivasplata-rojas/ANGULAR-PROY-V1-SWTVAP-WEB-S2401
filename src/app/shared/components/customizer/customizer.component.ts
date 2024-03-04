@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-customizer',
+  selector: 'swtvap-customizer',
   templateUrl: './customizer.component.html',
   styleUrls: ['./customizer.component.scss']
 })

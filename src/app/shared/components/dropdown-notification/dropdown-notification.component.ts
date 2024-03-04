@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown-notification',
+  selector: 'swtvap-dropdown-notification',
   templateUrl: './dropdown-notification.component.html',
   styleUrls: ['./dropdown-notification.component.scss']
 })

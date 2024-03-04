@@ -10,9 +10,9 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-sub-parameters *ngIf="addItem" [parentId]="id"  (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-sub-parameters>
-              <app-component-update-sub-parameters *ngIf="updateItem" [item]="item" [parentId]="id"  (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-sub-parameters>
-              <app-component-show-sub-parameters *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-sub-parameters>
+              <swtvap-component-add-sub-parameters *ngIf="addItem" [parentId]="id"  (added)="handleAdded($event)" (revoke)="addItem=false;"></swtvap-component-add-sub-parameters>
+              <swtvap-component-update-sub-parameters *ngIf="updateItem" [item]="item" [parentId]="id"  (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></swtvap-component-update-sub-parameters>
+              <swtvap-component-show-sub-parameters *ngIf="showItem" [item]="item" (revoke)="showItem=false"></swtvap-component-show-sub-parameters>
             </div>
             <div  *ngIf="!showItem && !updateItem && !addItem" class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
               <div class="card m-auto " style="max-width: 350px;margin-bottom: 1.5em!important;">
@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="card-body">
-                      <app-component-list-sub-parameters [data]="data" [parameter]="parameter" (added)="handleTableAdded($event)" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></app-component-list-sub-parameters>
+                      <swtvap-component-list-sub-parameters [data]="data" [parameter]="parameter" (added)="handleTableAdded($event)" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)"></swtvap-component-list-sub-parameters>
                     </div>
                 </div>
             </div>

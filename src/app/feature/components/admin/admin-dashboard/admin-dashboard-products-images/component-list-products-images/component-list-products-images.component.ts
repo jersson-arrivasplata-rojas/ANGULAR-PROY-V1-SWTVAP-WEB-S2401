@@ -4,7 +4,7 @@ import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-products-images',
+  selector: 'swtvap-component-list-products-images',
   templateUrl: './component-list-products-images.component.html',
   styleUrls: ['./component-list-products-images.component.scss'],
 })

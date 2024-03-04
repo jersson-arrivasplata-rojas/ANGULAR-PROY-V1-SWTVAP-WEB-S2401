@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-progress-bar-stripes',
+  selector: 'swtvap-progress-bar-stripes',
   templateUrl: './progress-bar-stripes.component.html',
   styleUrls: ['./progress-bar-stripes.component.scss']
 })

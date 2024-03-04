@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { ProductHttp } from 'src/app/shared/http/products.http';
 
 @Component({
-  selector: 'app-component-update-products',
+  selector: 'swtvap-component-update-products',
   templateUrl: './component-update-products.component.html',
   styleUrls: ['./component-update-products.component.scss'],
 })

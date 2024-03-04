@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 
 @Component({
-  selector: 'app-component-add-products',
+  selector: 'swtvap-component-add-products',
   templateUrl: './component-add-products.component.html',
   styleUrls: ['./component-add-products.component.scss'],
 })

@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-button-outline',
+  selector: 'swtvap-button-outline',
   templateUrl: './button-outline.component.html',
   styleUrls: ['./button-outline.component.scss']
 })

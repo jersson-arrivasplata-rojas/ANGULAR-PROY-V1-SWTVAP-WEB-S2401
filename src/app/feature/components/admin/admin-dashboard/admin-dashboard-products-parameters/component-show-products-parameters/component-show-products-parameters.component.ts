@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-component-show-products-parameters',
+  selector: 'swtvap-component-show-products-parameters',
   templateUrl: './component-show-products-parameters.component.html',
   styleUrls: ['./component-show-products-parameters.component.scss'],
 })

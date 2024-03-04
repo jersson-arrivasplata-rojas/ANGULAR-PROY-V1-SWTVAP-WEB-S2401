@@ -3,7 +3,7 @@ import { ContactHttp } from 'src/app/shared/http/contacts.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-contacts',
+  selector: 'swtvap-admin-dashboard-contacts',
   templateUrl: './admin-dashboard-contacts.component.html',
   styleUrls: ['./admin-dashboard-contacts.component.css']
 })

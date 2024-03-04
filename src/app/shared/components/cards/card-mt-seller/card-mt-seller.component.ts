@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-mt-seller',
+  selector: 'swtvap-card-mt-seller',
   templateUrl: './card-mt-seller.component.html',
   styleUrls: ['./card-mt-seller.component.scss']
 })

@@ -3,7 +3,7 @@ import { ResourcesUtils } from 'src/app/shared/utils/resources.utils';
 import { CommonUtils } from '../../utils/common.utils';
 
 @Component({
-  selector: 'app-dashboard-inicio-footer',
+  selector: 'swtvap-dashboard-inicio-footer',
   templateUrl: './dashboard-inicio-footer.component.html',
   styleUrls: ['./dashboard-inicio-footer.component.scss']
 })

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-parameters',
+  selector: 'swtvap-component-add-parameters',
   templateUrl: './component-add-parameters.component.html',
   styleUrls: ['./component-add-parameters.component.scss'],
 })

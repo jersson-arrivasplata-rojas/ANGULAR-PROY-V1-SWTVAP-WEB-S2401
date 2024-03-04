@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-category',
+  selector: 'swtvap-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })

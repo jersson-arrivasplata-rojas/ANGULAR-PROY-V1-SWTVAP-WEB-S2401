@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-component-show-sub-secondary-parameters',
+  selector: 'swtvap-component-show-sub-secondary-parameters',
   templateUrl: './component-show-sub-secondary-parameters.component.html',
   styleUrls: ['./component-show-sub-secondary-parameters.component.scss'],
 })

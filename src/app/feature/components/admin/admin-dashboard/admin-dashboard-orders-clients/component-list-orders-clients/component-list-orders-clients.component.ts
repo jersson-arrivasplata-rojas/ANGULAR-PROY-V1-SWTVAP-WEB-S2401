@@ -5,7 +5,7 @@ import { OrderHttp } from 'src/app/shared/http/orders.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 @Component({
-  selector: 'app-component-list-orders-clients',
+  selector: 'swtvap-component-list-orders-clients',
   templateUrl: './component-list-orders-clients.component.html',
   styleUrls: ['./component-list-orders-clients.component.scss'],
 })

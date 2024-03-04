@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 //import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-forgot-password-default',
+  selector: 'swtvap-forgot-password-default',
   templateUrl: './forgot-password-default.component.html',
   styleUrls: ['./forgot-password-default.component.scss']
 })

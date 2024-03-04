@@ -4,7 +4,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-search-default',
+  selector: 'swtvap-search-default',
   templateUrl: './search-default.component.html',
   styleUrls: ['./search-default.component.css']
 })

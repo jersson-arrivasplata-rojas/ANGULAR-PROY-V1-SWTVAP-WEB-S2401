@@ -4,7 +4,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-comment',
+  selector: 'swtvap-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })

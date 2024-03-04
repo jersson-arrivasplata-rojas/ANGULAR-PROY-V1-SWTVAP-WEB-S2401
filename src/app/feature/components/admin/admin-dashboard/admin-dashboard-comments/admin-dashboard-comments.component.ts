@@ -8,7 +8,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-comments',
+  selector: 'swtvap-admin-dashboard-comments',
   templateUrl: './admin-dashboard-comments.component.html',
   styleUrls: ['./admin-dashboard-comments.component.css']
 })

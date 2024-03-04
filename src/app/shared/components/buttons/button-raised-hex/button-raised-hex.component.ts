@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-button-raised-hex',
+  selector: 'swtvap-button-raised-hex',
   templateUrl: './button-raised-hex.component.html',
   styleUrls: ['./button-raised-hex.component.scss']
 })

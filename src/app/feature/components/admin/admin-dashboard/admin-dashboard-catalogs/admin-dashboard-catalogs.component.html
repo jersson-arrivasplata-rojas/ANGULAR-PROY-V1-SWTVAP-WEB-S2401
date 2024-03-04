@@ -6,9 +6,9 @@
         <div class="separator-breadcrumb "></div>
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
-              <app-component-add-catalogs *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></app-component-add-catalogs>
-              <app-component-update-catalogs *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></app-component-update-catalogs>
-              <app-component-show-catalogs *ngIf="showItem" [item]="item" (revoke)="showItem=false"></app-component-show-catalogs>
+              <swtvap-component-add-catalogs *ngIf="addItem" (added)="handleAdded($event)" (revoke)="addItem=false;"></swtvap-component-add-catalogs>
+              <swtvap-component-update-catalogs *ngIf="updateItem" [item]="item" (updated)="handleUpdated($event)" (revoke)="updateItem=false;"></swtvap-component-update-catalogs>
+              <swtvap-component-show-catalogs *ngIf="showItem" [item]="item" (revoke)="showItem=false"></swtvap-component-show-catalogs>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 m-auto col-12">
                 <div class="card o-hidden mb-4">
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                      <app-component-list-catalogs [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)">
-                      </app-component-list-catalogs>
+                      <swtvap-component-list-catalogs [data]="data" (showed)="handleTableShowed($event)" (deleted)="handleTableDeleted($event)" (updated)="handleTableUpdated($event)">
+                      </swtvap-component-list-catalogs>
                     </div>
                 </div>
             </div>

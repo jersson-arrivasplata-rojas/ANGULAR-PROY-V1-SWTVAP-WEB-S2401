@@ -6,7 +6,7 @@ import { Loader, LoaderOptions } from 'google-maps';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 declare var self: any;
 @Component({
-    selector: 'app-google-default',
+    selector: 'swtvap-google-default',
     templateUrl: './google-default.component.html',
     styleUrls: ['./google-default.component.css']
 })

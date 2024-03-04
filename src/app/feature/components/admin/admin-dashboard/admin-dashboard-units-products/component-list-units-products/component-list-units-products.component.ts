@@ -6,7 +6,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 import { UnitHttp } from 'src/app/shared/http/units.http';
 
 @Component({
-  selector: 'app-component-list-units-products',
+  selector: 'swtvap-component-list-units-products',
   templateUrl: './component-list-units-products.component.html',
   styleUrls: ['./component-list-units-products.component.scss'],
 })

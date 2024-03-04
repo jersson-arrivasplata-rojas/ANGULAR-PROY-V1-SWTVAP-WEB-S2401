@@ -4,7 +4,7 @@ import { CategoryHttp } from 'src/app/shared/http/categories.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-categories',
+  selector: 'swtvap-component-list-categories',
   templateUrl: './component-list-categories.component.html',
   styleUrls: ['./component-list-categories.component.scss'],
 })

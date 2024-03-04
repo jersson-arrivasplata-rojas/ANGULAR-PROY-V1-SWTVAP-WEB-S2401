@@ -5,7 +5,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { AdminDashboardOrdersDispatchesPresenter } from '../admin-dashboard-orders-dispatches.presenter';
 
 @Component({
-  selector: 'app-component-add-orders-dispatches',
+  selector: 'swtvap-component-add-orders-dispatches',
   templateUrl: './component-add-orders-dispatches.component.html',
   styleUrls: ['./component-add-orders-dispatches.component.scss'],
   providers: [AdminDashboardOrdersDispatchesPresenter]

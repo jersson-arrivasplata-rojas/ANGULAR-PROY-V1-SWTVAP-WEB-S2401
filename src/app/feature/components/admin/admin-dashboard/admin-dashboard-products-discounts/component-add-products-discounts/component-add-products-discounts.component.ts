@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-add-products-discounts',
+  selector: 'swtvap-component-add-products-discounts',
   templateUrl: './component-add-products-discounts.component.html',
   styleUrls: ['./component-add-products-discounts.component.scss'],
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-search-ui',
+  selector: 'swtvap-search-ui',
   templateUrl: './search-ui.component.html',
   styleUrls: ['./search-ui.component.scss']
 })

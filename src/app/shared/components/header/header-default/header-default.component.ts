@@ -9,7 +9,7 @@ import { NodeStoreService } from 'src/app/shared/services/node-store.service';
 declare var dynamics: any;
 
 @Component({
-  selector: 'app-header-default',
+  selector: 'swtvap-header-default',
   templateUrl: './header-default.component.html',
   styleUrls: ['./header-default.component.css']
 })

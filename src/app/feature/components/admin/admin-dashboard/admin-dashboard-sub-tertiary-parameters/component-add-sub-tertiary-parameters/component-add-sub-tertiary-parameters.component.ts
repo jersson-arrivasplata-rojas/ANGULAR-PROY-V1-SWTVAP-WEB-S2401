@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-sub-tertiary-parameters',
+  selector: 'swtvap-component-add-sub-tertiary-parameters',
   templateUrl: './component-add-sub-tertiary-parameters.component.html',
   styleUrls: ['./component-add-sub-tertiary-parameters.component.scss'],
 })

@@ -10,7 +10,7 @@ import { CountryInterface as Country } from 'src/app/shared/interfaces/country.i
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-sign-up-default',
+  selector: 'swtvap-sign-up-default',
   templateUrl: './sign-up-default.component.html',
   styleUrls: ['./sign-up-default.component.scss']
 })

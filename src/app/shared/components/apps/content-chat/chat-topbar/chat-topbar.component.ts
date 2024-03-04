@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-topbar',
+  selector: 'swtvap-chat-topbar',
   templateUrl: './chat-topbar.component.html',
   styleUrls: ['./chat-topbar.component.scss']
 })

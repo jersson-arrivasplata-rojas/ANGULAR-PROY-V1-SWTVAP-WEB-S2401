@@ -1,43 +1,70 @@
-
-<footer>
-  <div class="contenedor pie-pag">
-    <div class="p-col">
-      <h3 class="lt-mayus">Sobre Niceshoes</h3>
-      <a href="#">Sobre Niceshoes</a>
-      <a href="#">Contactos</a>
-      <a href="#">Políticas</a>
-      <a href="#">Trabaja con nosotros</a>
-      <a href="#">Phasellus varius, erat et tincidunt</a>
-    </div>
-     <div class="p-col">
-      <h3 class="lt-mayus">Encuentranos Aquí</h3>
-      <p><i class="m-r fas fa-map-marker-alt"></i><span>Lorem ipsum dolor sit amet, consectetur
-adipiscing elit</span></p>
-       <p><i class="m-r far fa-envelope"></i><span>correo@niceshoes.com</span></p>
-       <p><i class="m-r fas fa-phone"></i><span>(01) 763 3343 <br>(01) 763 3343</span></p>
-
-       <h3 class="lt-mayus m-t30">Síguenos</h3>
-       <div class="rs ">
-         <a href="#"><i class="fab fa-facebook-f"></i></a>
-         <a href="#"><i class="fab fa-twitter"></i></a>
-         <a href="#"><i class="fab fa-instagram"></i></a>
-         <a href="#"><i class="fab fa-youtube"></i></a>
-       </div>
-    </div>
-    <div class="p-col scbte">
-      <p>Recibe nuestras novedades.
-Suscribete a nuestro boletín.</p>
-      <form action="">
-        <div class="input-grupo">
-          <input class="input-text" type="text" placeholder="Ingresa tu correo electrónico">
-          <input class="btn" type="submit" value="SUSCRIBETE">
+<footer class="footer-section ">
+  <div class="container">
+      <div class="footer-cta pt-5 pb-5">
+          <div class="row">
+              <div class="col-xl-4 col-md-4 mb-30" *ngFor="let item of top">
+                  <div class="single-cta">
+                      <i [class]="item?.value"></i>
+                      <div class="cta-text">
+                          <h4 class="text-white">{{item?.description}}</h4>
+                          <span class="text-white">{{item?.value1}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-content pt-5 pb-5 text-white">
+        <div class="container">
+            <div class="row">
+                <ng-container *ngFor="let data of footer;">
+                  <div class="col-xl-4 col-lg-4 mb-50">
+                      <div class="footer-widget">
+                          <div class="footer-text">
+                              <h4 class="text-uppercase">{{data.title}}</h4>
+                              <p>{{data.value}}</p>
+                          </div>
+                          <div class="footer-menu">
+                              <ul class="list-unstyled">
+                                  <li *ngFor="let item of data?.children">
+                                      <a *ngIf="item?.code !== homeEnum.FOOTER_CONTACTUS_MESSAGE" href="#" class="text-white" title="Link">{{item?.value}}</a>
+                                      <span *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE" class="text-white">{{item?.value}}</span>
+                                      <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE" class="subscribe-form mt-2">
+                                        <form action="#">
+                                          <label for="inputField" class="d-none">Enter Value:</label>
+                                          <input type="text" id="inputField" [placeholder]="item?.value1" title="Enter a value">
+                                          <button type="button" title="Send Message">
+                                            <i class="fab fa-telegram-plane"></i>
+                                          </button>
+                                      </form>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                </ng-container>
+            </div>
         </div>
-        <input type="checkbox" id="checkbox">
-        <label for="checkbox">Acepto los términos y condiciones</label>
-      </form>
     </div>
   </div>
-  <div class="der-autor">
-    <p><span class="lt-mayus">Niceshoes</span> | Todos los derechos reservados</p>
+  <div class="copyright-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                  <div class="copyright-text text-white">
+                      <p>{{copyright?.value}}</p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                  <div class="footer-menu">
+                      <ul>
+                          <li *ngFor="let data of menu;">
+                            <a class="text-white" href="#">{{data?.value}}</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 </footer>

@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { UnitHttp } from 'src/app/shared/http/units.http';
 
 @Component({
-  selector: 'app-component-update-units',
+  selector: 'swtvap-component-update-units',
   templateUrl: './component-update-units.component.html',
   styleUrls: ['./component-update-units.component.scss'],
 })

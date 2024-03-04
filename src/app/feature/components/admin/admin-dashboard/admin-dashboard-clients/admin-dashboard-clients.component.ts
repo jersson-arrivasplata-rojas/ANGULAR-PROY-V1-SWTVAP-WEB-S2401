@@ -3,7 +3,7 @@ import { ClientHttp } from 'src/app/shared/http/clients.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-clients',
+  selector: 'swtvap-admin-dashboard-clients',
   templateUrl: './admin-dashboard-clients.component.html',
   styleUrls: ['./admin-dashboard-clients.component.css']
 })

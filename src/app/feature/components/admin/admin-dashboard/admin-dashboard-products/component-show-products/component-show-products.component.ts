@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-show-products',
+  selector: 'swtvap-component-show-products',
   templateUrl: './component-show-products.component.html',
   styleUrls: ['./component-show-products.component.scss'],
 })

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-button-outline-hex',
+  selector: 'swtvap-button-outline-hex',
   templateUrl: './button-outline-hex.component.html',
   styleUrls: ['./button-outline-hex.component.scss']
 })

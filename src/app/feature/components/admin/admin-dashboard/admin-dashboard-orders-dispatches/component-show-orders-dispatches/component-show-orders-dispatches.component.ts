@@ -3,7 +3,7 @@ import { StatusProviderEnum } from 'src/app/shared/config/status-provider.enum';
 import { ProviderHttp } from 'src/app/shared/http/providers.http';
 
 @Component({
-  selector: 'app-component-show-orders-dispatches',
+  selector: 'swtvap-component-show-orders-dispatches',
   templateUrl: './component-show-orders-dispatches.component.html',
   styleUrls: ['./component-show-orders-dispatches.component.scss'],
 })

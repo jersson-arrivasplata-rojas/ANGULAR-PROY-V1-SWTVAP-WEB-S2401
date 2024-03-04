@@ -3,7 +3,7 @@ import { UnitHttp } from 'src/app/shared/http/units.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-units',
+  selector: 'swtvap-admin-dashboard-units',
   templateUrl: './admin-dashboard-units.component.html',
   styleUrls: ['./admin-dashboard-units.component.css']
 })

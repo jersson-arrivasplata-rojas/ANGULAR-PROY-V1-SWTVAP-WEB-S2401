@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-component-list-orders-details-products',
+  selector: 'swtvap-component-list-orders-details-products',
   templateUrl: './component-list-orders-details-products.component.html',
   styleUrls: ['./component-list-orders-details-products.component.scss'],
 })

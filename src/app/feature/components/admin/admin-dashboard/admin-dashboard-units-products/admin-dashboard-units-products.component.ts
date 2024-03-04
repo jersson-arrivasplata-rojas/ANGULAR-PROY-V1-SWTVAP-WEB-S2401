@@ -8,7 +8,7 @@ import { UnitHttp } from 'src/app/shared/http/units.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-units-products',
+  selector: 'swtvap-admin-dashboard-units-products',
   templateUrl: './admin-dashboard-units-products.component.html',
   styleUrls: ['./admin-dashboard-units-products.component.css']
 })

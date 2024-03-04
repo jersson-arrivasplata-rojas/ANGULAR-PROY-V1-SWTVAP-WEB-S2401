@@ -4,6 +4,9 @@ import { BaseComponent } from './base/base.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { BillingComponent } from './billing/billing.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {
@@ -22,18 +25,18 @@ const routes: Routes = [
         path: 'cart',
         component: CartComponent
       },
-      /*{
-        path: ':catalog/:category/:name',
-        component: CatalogComponent
+      {
+        path: 'checkout',
+        component: CheckoutComponent
       },
       {
-        path: ':category/:name',
-        component: CategoryComponent
+        path: 'checkout/billing',
+        component: BillingComponent
       },
       {
         path: ':name',
         component: ProductComponent
-      },*/
+      }
     ]
   }
 ];

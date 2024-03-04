@@ -4,7 +4,7 @@ import { ContactHttp } from 'src/app/shared/http/contacts.http';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-update-contacts',
+  selector: 'swtvap-component-update-contacts',
   templateUrl: './component-update-contacts.component.html',
   styleUrls: ['./component-update-contacts.component.scss'],
 })

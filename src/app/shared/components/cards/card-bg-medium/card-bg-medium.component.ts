@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-bg-medium',
+  selector: 'swtvap-card-bg-medium',
   templateUrl: './card-bg-medium.component.html',
   styleUrls: ['./card-bg-medium.component.scss']
 })

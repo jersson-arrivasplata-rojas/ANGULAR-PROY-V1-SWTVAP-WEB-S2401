@@ -3,7 +3,7 @@ import { UnitHttp } from 'src/app/shared/http/units.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-units',
+  selector: 'swtvap-component-list-units',
   templateUrl: './component-list-units.component.html',
   styleUrls: ['./component-list-units.component.scss'],
 })

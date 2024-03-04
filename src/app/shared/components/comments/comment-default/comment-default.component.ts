@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-comment-default',
+  selector: 'swtvap-comment-default',
   templateUrl: './comment-default.component.html',
   styleUrls: ['./comment-default.component.css']
 })

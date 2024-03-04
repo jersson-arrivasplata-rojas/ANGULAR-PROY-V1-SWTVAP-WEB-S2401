@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-culqui-default',
+  selector: 'swtvap-culqui-default',
   templateUrl: './culqui-default.component.html',
   styleUrls: ['./culqui-default.component.scss']
 })

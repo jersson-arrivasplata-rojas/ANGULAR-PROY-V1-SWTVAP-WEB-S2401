@@ -6,7 +6,7 @@ import { ProviderHttp } from 'src/app/shared/http/providers.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 @Component({
-  selector: 'app-component-list-orders-dispatches-providers',
+  selector: 'swtvap-component-list-orders-dispatches-providers',
   templateUrl: './component-list-orders-dispatches-providers.component.html',
   styleUrls: ['./component-list-orders-dispatches-providers.component.scss'],
 })

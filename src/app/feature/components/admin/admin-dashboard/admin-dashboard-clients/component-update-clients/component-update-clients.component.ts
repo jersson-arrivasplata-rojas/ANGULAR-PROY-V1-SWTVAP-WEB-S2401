@@ -5,7 +5,7 @@ import { ClientHttp } from 'src/app/shared/http/clients.http';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-update-clients',
+  selector: 'swtvap-component-update-clients',
   templateUrl: './component-update-clients.component.html',
   styleUrls: ['./component-update-clients.component.scss'],
 })

@@ -3,7 +3,7 @@ import { ContactHttp } from 'src/app/shared/http/contacts.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-contacts',
+  selector: 'swtvap-component-list-contacts',
   templateUrl: './component-list-contacts.component.html',
   styleUrls: ['./component-list-contacts.component.scss'],
 })

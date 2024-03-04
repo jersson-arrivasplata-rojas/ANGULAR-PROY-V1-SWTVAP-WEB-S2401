@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-share-default',
+  selector: 'swtvap-share-default',
   templateUrl: './share-default.component.html',
   styleUrls: ['./share-default.component.css']
 })

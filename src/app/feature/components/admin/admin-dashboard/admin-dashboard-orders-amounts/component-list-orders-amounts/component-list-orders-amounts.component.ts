@@ -3,7 +3,7 @@ import { OrderAmountsHttp } from 'src/app/shared/http/order-amounts.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-orders-amounts',
+  selector: 'swtvap-component-list-orders-amounts',
   templateUrl: './component-list-orders-amounts.component.html',
   styleUrls: ['./component-list-orders-amounts.component.scss'],
 })

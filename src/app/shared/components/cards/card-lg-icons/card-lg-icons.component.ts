@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-lg-icons',
+  selector: 'swtvap-card-lg-icons',
   templateUrl: './card-lg-icons.component.html',
   styleUrls: ['./card-lg-icons.component.scss']
 })

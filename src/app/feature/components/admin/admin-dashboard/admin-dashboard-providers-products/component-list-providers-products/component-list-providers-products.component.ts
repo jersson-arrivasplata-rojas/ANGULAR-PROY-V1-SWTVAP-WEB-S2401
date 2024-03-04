@@ -6,7 +6,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 import { ProviderHttp } from 'src/app/shared/http/providers.http';
 
 @Component({
-  selector: 'app-component-list-providers-products',
+  selector: 'swtvap-component-list-providers-products',
   templateUrl: './component-list-providers-products.component.html',
   styleUrls: ['./component-list-providers-products.component.scss'],
 })

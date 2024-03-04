@@ -6,7 +6,7 @@ import { ProductCategoriesHttp } from 'src/app/shared/http/product-categories.ht
 
 
 @Component({
-  selector: 'app-admin-dashboard-categories',
+  selector: 'swtvap-admin-dashboard-categories',
   templateUrl: './admin-dashboard-categories.component.html',
   styleUrls: ['./admin-dashboard-categories.component.css']
 })

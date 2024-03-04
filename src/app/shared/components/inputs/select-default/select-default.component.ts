@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-select-default',
+  selector: 'swtvap-select-default',
   templateUrl: './select-default.component.html',
   styleUrls: ['./select-default.component.scss']
 })

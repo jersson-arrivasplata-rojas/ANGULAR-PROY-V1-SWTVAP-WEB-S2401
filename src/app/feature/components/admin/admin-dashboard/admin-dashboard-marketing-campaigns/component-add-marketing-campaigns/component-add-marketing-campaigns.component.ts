@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-add-marketing-campaigns',
+  selector: 'swtvap-component-add-marketing-campaigns',
   templateUrl: './component-add-marketing-campaigns.component.html',
   styleUrls: ['./component-add-marketing-campaigns.component.scss'],
 })

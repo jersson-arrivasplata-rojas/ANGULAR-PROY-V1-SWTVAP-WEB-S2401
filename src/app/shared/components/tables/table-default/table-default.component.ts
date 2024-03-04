@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-table-default',
+  selector: 'swtvap-table-default',
   templateUrl: './table-default.component.html',
   styleUrls: ['./table-default.component.scss']
 })

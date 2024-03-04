@@ -1,0 +1,18 @@
+<menu></menu><br />
+<h2 class="text-center font-italic mb-3">Carrito de compra</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 order-md-1">
+      <div class="card">
+        <h5 class="card-header bg-info bg-light">Informacion de Pago</h5>
+        <div class="card-body">
+          <swtvap-checkout-info [checkoutFields]="checkout" (onBuy)="buy($event)" (onContinue)="continue($event)"></swtvap-checkout-info>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 order-md-2 mb-4">
+      <swtvap-checkout-cart *ngIf="cartflag"></swtvap-checkout-cart>
+    </div>
+  </div>
+</div>

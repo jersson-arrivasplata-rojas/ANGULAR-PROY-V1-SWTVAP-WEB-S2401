@@ -4,7 +4,7 @@ import { ProductParametersHttp } from 'src/app/shared/http/product-parameters.ht
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-products-parameters',
+  selector: 'swtvap-component-list-products-parameters',
   templateUrl: './component-list-products-parameters.component.html',
   styleUrls: ['./component-list-products-parameters.component.scss'],
 })

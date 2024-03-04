@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-pricing-table',
+  selector: 'swtvap-card-pricing-table',
   templateUrl: './card-pricing-table.component.html',
   styleUrls: ['./card-pricing-table.component.scss']
 })

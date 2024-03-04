@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-alert-card',
+  selector: 'swtvap-alert-card',
   templateUrl: './alert-card.component.html',
   styleUrls: ['./alert-card.component.scss']
 })

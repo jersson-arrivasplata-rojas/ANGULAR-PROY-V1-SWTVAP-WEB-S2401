@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { ProductHttp } from 'src/app/shared/http/products.http';
 
 @Component({
-  selector: 'app-component-show-orders-details',
+  selector: 'swtvap-component-show-orders-details',
   templateUrl: './component-show-orders-details.component.html',
   styleUrls: ['./component-show-orders-details.component.scss'],
 })

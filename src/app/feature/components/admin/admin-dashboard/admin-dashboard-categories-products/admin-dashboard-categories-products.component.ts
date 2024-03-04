@@ -8,7 +8,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-categories-products',
+  selector: 'swtvap-admin-dashboard-categories-products',
   templateUrl: './admin-dashboard-categories-products.component.html',
   styleUrls: ['./admin-dashboard-categories-products.component.css']
 })

@@ -5,7 +5,7 @@ import { DispatcheHttp } from 'src/app/shared/http/dispatches.http';
 import { AdminDashboardOrdersDispatchesPresenter } from '../admin-dashboard-orders-dispatches.presenter';
 
 @Component({
-  selector: 'app-component-update-orders-dispatches',
+  selector: 'swtvap-component-update-orders-dispatches',
   templateUrl: './component-update-orders-dispatches.component.html',
   styleUrls: ['./component-update-orders-dispatches.component.scss'],
   providers: [AdminDashboardOrdersDispatchesPresenter]

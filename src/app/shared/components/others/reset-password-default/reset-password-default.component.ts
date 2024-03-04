@@ -7,7 +7,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-reset-password-default',
+  selector: 'swtvap-reset-password-default',
   templateUrl: './reset-password-default.component.html',
   styleUrls: ['./reset-password-default.component.css']
 })

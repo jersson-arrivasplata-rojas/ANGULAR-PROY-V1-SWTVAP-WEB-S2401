@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { AdminDashboardOrdersAmountsPresenter } from '../admin-dashboard-orders-amounts.presenter';
 
 @Component({
-  selector: 'app-component-add-orders-amounts',
+  selector: 'swtvap-component-add-orders-amounts',
   templateUrl: './component-add-orders-amounts.component.html',
   styleUrls: ['./component-add-orders-amounts.component.scss'],
   providers: [AdminDashboardOrdersAmountsPresenter],

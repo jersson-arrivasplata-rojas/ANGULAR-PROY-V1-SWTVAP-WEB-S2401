@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 
 @Component({
-  selector: 'app-component-update-catalogs',
+  selector: 'swtvap-component-update-catalogs',
   templateUrl: './component-update-catalogs.component.html',
   styleUrls: ['./component-update-catalogs.component.scss'],
 })

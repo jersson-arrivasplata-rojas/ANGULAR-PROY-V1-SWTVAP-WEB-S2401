@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-button-raised',
+  selector: 'swtvap-button-raised',
   templateUrl: './button-raised.component.html',
   styleUrls: ['./button-raised.component.scss']
 })

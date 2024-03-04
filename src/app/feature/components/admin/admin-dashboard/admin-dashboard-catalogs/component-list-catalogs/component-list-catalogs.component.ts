@@ -5,7 +5,7 @@ import { CatalogHttp } from 'src/app/shared/http/catalogs.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-catalogs',
+  selector: 'swtvap-component-list-catalogs',
   templateUrl: './component-list-catalogs.component.html',
   styleUrls: ['./component-list-catalogs.component.scss'],
 })

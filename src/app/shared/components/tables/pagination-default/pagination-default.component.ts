@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 //import * as _ from 'underscore';
 
 @Component({
-  selector: 'app-pagination-default',
+  selector: 'swtvap-pagination-default',
   templateUrl: './pagination-default.component.html',
   styleUrls: ['./pagination-default.component.scss']
 })

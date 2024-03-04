@@ -6,7 +6,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-products-sub-tertiary-parameters',
+  selector: 'swtvap-admin-dashboard-products-sub-tertiary-parameters',
   templateUrl: './admin-dashboard-products-sub-tertiary-parameters.component.html',
   styleUrls: ['./admin-dashboard-products-sub-tertiary-parameters.component.css']
 })

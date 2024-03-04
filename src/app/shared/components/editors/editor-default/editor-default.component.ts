@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-editor-default',
+  selector: 'swtvap-editor-default',
   templateUrl: './editor-default.component.html',
   styleUrls: ['./editor-default.component.scss']
 })

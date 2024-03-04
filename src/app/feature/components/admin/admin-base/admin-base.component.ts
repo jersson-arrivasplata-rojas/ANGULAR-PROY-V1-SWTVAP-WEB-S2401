@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import 'reflect-metadata';
 
 @Component({
-  selector: 'app-admin-base',
+  selector: 'swtvap-admin-base',
   templateUrl: './admin-base.component.html',
   styleUrls: ['./admin-base.component.scss'],
   providers: [],

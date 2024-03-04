@@ -1,0 +1,78 @@
+<div class="card text-center">
+  <div class="card-header">
+    Your Cart Items
+    <button type="button" class="btn btn-sm btn-warning float-right">
+      Total items
+      <span class="badge badge-light">{{ cart.cartItemsList.length }}</span>
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm btn-danger mr-2 float-right"
+      (click)="emptyCart()"
+      *ngIf="cart.cartItemsList && cart.cartTotal"
+    >
+      Carrito Vacio
+    </button>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <caption class="d-none">Description of the table</caption>
+      <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr></tr>
+        <ng-container *ngIf="cart && cart.cartItemsList">
+          <tr *ngFor="let item of cart.cartItemsList">
+            <td class="text-left">{{ item?.name }}</td>
+            <td class="w30">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-info"
+                    type="button"
+                    (click)="changeQty(item?.pid, 1, '')"
+                  >
+                    +
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control text-center"
+                  value="{{ item?.qty }}"
+                  #qtyRef
+                  (keyup)="changeQty(item?.pid, qtyRef.value, 'replace')"
+                  title="Quantity"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-danger"
+                    type="button"
+                    (click)="changeQty(item?.pid, -1, '')"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td>{{ item?.price }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <a
+      href="#"
+      class="btn btn-sm btn-primary"
+      *ngIf="cart.cartItemsList && cart.cartTotal"
+      (click)="checkOut(); $event.preventDefault()"
+      >Checkout</a
+    >
+  </div>
+  <div class="card-footer text-muted font-weight-bold">
+    Total : Bs. {{ cart.cartTotal }}
+  </div>
+</div>

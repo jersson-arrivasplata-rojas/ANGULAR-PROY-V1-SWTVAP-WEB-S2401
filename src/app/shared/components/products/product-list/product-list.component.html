@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let item of __allprdts | filter : __searchedProduct | sortBy : sortByOption  ">
+    <div class="card">
+      <div>
+        <img class="rounded mx-auto d-block img-responsive mt-3" src="{{item.product_image}}" alt="Card image cap">
+      </div>
+      <div class="card-body">
+          <a href="#" [title]="item?.product_name" (click)="goToProduct(item);$event.preventDefault()">
+            <h6 class="card-title font-weight-bold">
+              {{item?.product_name}}
+            </h6>
+          </a>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="card-text"> <small> {{item.product_weight}} </small></p>
+          </div>
+          <div class="col-md-6">
+            <p class="text-right"> <small> Rs {{item.product_price}} </small> </p>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-primary" (click)="addToCart(item.p_id,1,'')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

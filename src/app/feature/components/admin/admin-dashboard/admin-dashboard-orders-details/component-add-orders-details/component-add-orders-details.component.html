@@ -7,8 +7,8 @@
             <div class="form-group">
                 <label>Asignar Producto:</label><br/>
                 <button type="button" class="btn btn-first btn-sm mb-3" (click)="show()">{{!showProduct?'Ver': 'Ocultar'}} Producto(s)</button><br/>
-                <app-component-list-orders-details-products (selected)="addProduct($event)" *ngIf="showProduct && products.length" [data]="products">
-                </app-component-list-orders-details-products>
+                <swtvap-component-list-orders-details-products (selected)="addProduct($event)" *ngIf="showProduct && products.length" [data]="products">
+                </swtvap-component-list-orders-details-products>
                 <hr class="dropdown-divider">
             </div>
         </div>

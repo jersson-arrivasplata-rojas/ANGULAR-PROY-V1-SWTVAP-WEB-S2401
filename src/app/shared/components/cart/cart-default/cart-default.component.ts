@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart-default',
+  selector: 'swtvap-cart-default',
   templateUrl: './cart-default.component.html',
   styleUrls: ['./cart-default.component.css']
 })

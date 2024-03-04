@@ -5,7 +5,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { AdminDashboardOrdersTransactionsPresenter } from '../admin-dashboard-orders-transactions.presenter';
 
 @Component({
-  selector: 'app-component-add-orders-transactions',
+  selector: 'swtvap-component-add-orders-transactions',
   templateUrl: './component-add-orders-transactions.component.html',
   styleUrls: ['./component-add-orders-transactions.component.scss'],
   providers: [AdminDashboardOrdersTransactionsPresenter]

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
-  selector: 'app-component-add-contacts',
+  selector: 'swtvap-component-add-contacts',
   templateUrl: './component-add-contacts.component.html',
   styleUrls: ['./component-add-contacts.component.scss'],
 })

@@ -1,5 +1,6 @@
 <div>
-  <app-header></app-header>
+  <swtvap-newsletter></swtvap-newsletter>
+  <swtvap-nav (onCart)="cart($event)"></swtvap-nav>
   <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <swtvap-footer [footer]="footer" [lang]="lang"></swtvap-footer>
 </div>

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryHttp } from 'src/app/shared/http/categories.http';
 
 @Component({
-  selector: 'app-component-update-categories',
+  selector: 'swtvap-component-update-categories',
   templateUrl: './component-update-categories.component.html',
   styleUrls: ['./component-update-categories.component.scss'],
 })

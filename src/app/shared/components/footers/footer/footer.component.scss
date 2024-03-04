@@ -1,0 +1,236 @@
+// Color palette
+$color-footer-background: #151414;
+$color-border: #373636;
+$color-cta-icon: #ff5e14;
+$color-cta-title: #fff;
+$color-cta-text: #757575;
+$color-footer-text: #7e7e7e;
+$color-social-icon: #fff;
+$color-widget-title: #fff;
+$color-link: #878787;
+$color-subscribe-form-bg: #2e2e2e;
+$color-subscribe-button-bg: #ff5e14;
+$color-copyright-bg: #202020;
+$color-subscribe-form-border: #2e2e2e;
+$color-subscribe-form-text: #fff;
+
+// Font sizing
+$font-size-icon: 30px;
+$font-size-cta-title: 20px;
+$font-size-cta-text: 15px;
+$font-size-footer-text: 14px;
+$font-size-social-icon-title: 20px;
+$font-size-social-link: 16px;
+$font-size-widget-title: 20px;
+$font-size-menu-link: 14px;
+
+// Spacing and sizing
+$spacing-cta-icon-top: 8px;
+$spacing-cta-title-bottom: 2px;
+$spacing-footer-logo-bottom: 30px;
+$spacing-footer-text-bottom: 14px;
+$spacing-social-title-bottom: 20px;
+$spacing-widget-title-bottom: 40px;
+$spacing-widget-item-bottom: 12px;
+$spacing-subscribe-button: 13px 20px;
+$padding-subscribe-input: 14px 28px;
+$size-social-icon: 40px;
+$width-widget-border: 50px;
+$height-widget-border: 2px;
+
+// Base styles
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// Footer styles
+.footer-section {
+  background: $color-footer-background;
+  position: relative;
+}
+
+.footer-cta {
+  border-bottom: 1px solid $color-border;
+}
+
+// CTA styles
+.single-cta {
+  i {
+    color: $color-cta-icon;
+    font-size: $font-size-icon;
+    float: left;
+    margin-top: $spacing-cta-icon-top;
+  }
+}
+
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+
+  h4 {
+    color: $color-cta-title;
+    font-size: $font-size-cta-title;
+    font-weight: 600;
+    margin-bottom: $spacing-cta-title-bottom;
+  }
+
+  span {
+    color: $color-cta-text;
+    font-size: $font-size-cta-text;
+  }
+}
+
+// Footer content and patterns
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+// Footer logos and texts
+.footer-logo {
+  margin-bottom: $spacing-footer-logo-bottom;
+
+  img {
+    max-width: 200px;
+  }
+}
+
+.footer-text {
+  p {
+    margin-bottom: $spacing-footer-text-bottom;
+    font-size: $font-size-footer-text;
+    color: $color-footer-text;
+    line-height: 28px;
+  }
+}
+
+// Social icons and backgrounds
+.footer-social-icon {
+  span {
+    color: $color-social-icon;
+    display: block;
+    font-size: $font-size-social-icon-title;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: $spacing-social-title-bottom;
+  }
+
+  a {
+    color: $color-social-icon;
+    font-size: $font-size-social-link;
+    margin-right: 15px;
+  }
+
+  i {
+    height: $size-social-icon;
+    width: $size-social-icon;
+    text-align: center;
+    line-height: 38px; // Adjusted for alignment
+    border-radius: 50%;
+  }
+}
+
+// Footer widget styling
+.footer-widget-heading {
+  h3 {
+    color: $color-widget-title;
+    font-size: $font-size-widget-title;
+    font-weight: 600;
+    margin-bottom: $spacing-widget-title-bottom;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      height: $height-widget-border;
+      width: $width-widget-border;
+      background: $color-cta-icon;
+    }
+  }
+}
+
+.footer-widget {
+  ul {
+    li {
+      display: inline-block;
+      float: left;
+      width: 50%;
+      margin-bottom: $spacing-widget-item-bottom;
+
+      a {
+        text-transform: capitalize;
+        color: var(--white)!important;
+      }
+    }
+  }
+}
+
+// Subscription form styling
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+
+  input {
+    width: 100%;
+    padding: $padding-subscribe-input;
+    background: $color-subscribe-form-bg;
+    border: 1px solid $color-subscribe-form-border;
+    color: $color-subscribe-form-text;
+  }
+  input::placeholder {
+    color: $color-subscribe-form-text!important;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    background: $color-subscribe-button-bg;
+    padding: $spacing-subscribe-button;
+    border: 1px solid $color-subscribe-button-bg;
+    top: 0;
+
+    i {
+      color: $color-subscribe-form-text;
+      font-size: 22px; // Fixed font size
+      transform: rotate(-6deg);
+    }
+  }
+}
+
+// Copyright area and menu
+.copyright-area {
+  background: $color-copyright-bg;
+  padding: 25px 0;
+
+  p {
+    margin: 0;
+    font-size: $font-size-footer-text;
+
+    a {
+      color: $color-cta-icon;
+    }
+  }
+}
+
+.footer-menu {
+  li {
+    display: inline-block;
+    margin-left: 20px;
+
+    a {
+      font-size: $font-size-menu-link;
+    }
+  }
+}

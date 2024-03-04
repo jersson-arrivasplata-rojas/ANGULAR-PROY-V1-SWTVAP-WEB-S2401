@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { TypesEnum } from 'src/app/shared/config/types.enum';
 
 @Component({
-  selector: 'app-component-show-units',
+  selector: 'swtvap-component-show-units',
   templateUrl: './component-show-units.component.html',
   styleUrls: ['./component-show-units.component.scss'],
 })

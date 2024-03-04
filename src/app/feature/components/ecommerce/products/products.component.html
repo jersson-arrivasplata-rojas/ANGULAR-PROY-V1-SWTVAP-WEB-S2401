@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="form-row align-items-center">
+    <div class="col-md-9">
+      <div class="input-group mb-4 mt-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Busqueda de productos</div>
+        </div>
+        <input
+          [(ngModel)]="searchText"
+          class="form-control"
+          placeholder="Busca tu producto favorito! "
+        />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class=" mb-4 mt-2">
+        <select class="form-control" [(ngModel)]="sortOption" title="Sort Options">
+          <option value="product_name|asc"
+            >Ordenar por nombre (A a Z)</option
+          >
+          <option value="product_name|desc"
+            >Ordenar por nombre (Z a A)</option
+          >
+          <option value="product_price|lth"
+            >Ordenar por precio (Bajo a Alto)</option
+          >
+          <option value="product_price|htl"
+            >Ordenar por precio (Alto a Bajo)</option
+          >
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <swtvap-product-list
+        (refresh)="ref($event)"
+        (onProduct)="goToProduct($event)"
+        [allProductList]="products"
+        [searchedText]="searchText"
+        [sortingBy]="sortOption"
+      ></swtvap-product-list>
+    </div>
+    <div class="col-md-5">
+      <swtvap-cart-add *ngIf="cartflag" (onCheckOut)="checkout($event)"></swtvap-cart-add>
+    </div>
+  </div>
+</div>

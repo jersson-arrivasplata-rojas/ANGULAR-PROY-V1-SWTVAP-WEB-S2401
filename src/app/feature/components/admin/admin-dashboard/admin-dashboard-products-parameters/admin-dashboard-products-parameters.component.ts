@@ -8,7 +8,7 @@ import { AdminDashboardProductsParametersPresenter } from './admin-dashboard-pro
 
 
 @Component({
-  selector: 'app-admin-dashboard-products-parameters',
+  selector: 'swtvap-admin-dashboard-products-parameters',
   templateUrl: './admin-dashboard-products-parameters.component.html',
   styleUrls: ['./admin-dashboard-products-parameters.component.css'],
   providers: [AdminDashboardProductsParametersPresenter]

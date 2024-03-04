@@ -3,7 +3,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { ResourcesUtils } from 'src/app/shared/utils/resources.utils';
 
 @Component({
-  selector: 'app-carousel-default',
+  selector: 'swtvap-carousel-default',
   templateUrl: './carousel-default.component.html',
   styleUrls: ['./carousel-default.component.scss']
 })

@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-icon-small',
+  selector: 'swtvap-card-icon-small',
   templateUrl: './card-icon-small.component.html',
   styleUrls: ['./card-icon-small.component.scss']
 })

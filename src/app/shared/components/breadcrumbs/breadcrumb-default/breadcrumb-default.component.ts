@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-breadcrumb-default',
+  selector: 'swtvap-breadcrumb-default',
   templateUrl: './breadcrumb-default.component.html',
   styleUrls: ['./breadcrumb-default.component.scss']
 })

@@ -4,7 +4,7 @@ import { PatternEnum } from 'src/app/shared/constants/patterns.const';
 import { AnalyticHttp } from 'src/app/shared/http/analytics.http';
 
 @Component({
-  selector: 'app-component-update-analytics',
+  selector: 'swtvap-component-update-analytics',
   templateUrl: './component-update-analytics.component.html',
   styleUrls: ['./component-update-analytics.component.scss'],
 })

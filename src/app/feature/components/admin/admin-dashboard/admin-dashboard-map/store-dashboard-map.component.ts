@@ -4,7 +4,7 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 import { NodeStoreService } from 'src/app/services/node-store.service';
 let stores_uri = '';
 @Component({
-  selector: 'app-admin-dashboard-map',
+  selector: 'swtvap-admin-dashboard-map',
   templateUrl: './admin-dashboard-map.component.html',
   styleUrls: ['./admin-dashboard-map.component.css']
 })

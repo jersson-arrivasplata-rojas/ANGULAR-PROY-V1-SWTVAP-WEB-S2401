@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-editor-bubble',
+  selector: 'swtvap-editor-bubble',
   templateUrl: './editor-bubble.component.html',
   styleUrls: ['./editor-bubble.component.scss']
 })

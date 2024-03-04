@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tooltip-default',
+  selector: 'swtvap-tooltip-default',
   templateUrl: './tooltip-default.component.html',
   styleUrls: ['./tooltip-default.component.scss']
 })

@@ -3,7 +3,7 @@ import { ProviderHttp } from 'src/app/shared/http/providers.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-providers',
+  selector: 'swtvap-component-list-providers',
   templateUrl: './component-list-providers.component.html',
   styleUrls: ['./component-list-providers.component.scss'],
 })

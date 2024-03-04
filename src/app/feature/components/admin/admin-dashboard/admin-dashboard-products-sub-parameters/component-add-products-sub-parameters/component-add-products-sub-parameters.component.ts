@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-component-add-products-sub-parameters',
+  selector: 'swtvap-component-add-products-sub-parameters',
   templateUrl: './component-add-products-sub-parameters.component.html',
   styleUrls: ['./component-add-products-sub-parameters.component.scss'],
 })

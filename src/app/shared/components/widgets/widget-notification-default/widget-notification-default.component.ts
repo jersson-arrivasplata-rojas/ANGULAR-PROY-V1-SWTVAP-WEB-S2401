@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-notification-default',
+  selector: 'swtvap-widget-notification-default',
   templateUrl: './widget-notification-default.component.html',
   styleUrls: ['./widget-notification-default.component.scss']
 })

@@ -3,7 +3,7 @@ import { ClientHttp } from 'src/app/shared/http/clients.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-clients',
+  selector: 'swtvap-component-list-clients',
   templateUrl: './component-list-clients.component.html',
   styleUrls: ['./component-list-clients.component.scss'],
 })

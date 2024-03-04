@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 @Component({
-  selector: 'app-component-update-products-sub-parameters',
+  selector: 'swtvap-component-update-products-sub-parameters',
   templateUrl: './component-update-products-sub-parameters.component.html',
   styleUrls: ['./component-update-products-sub-parameters.component.scss'],
 })

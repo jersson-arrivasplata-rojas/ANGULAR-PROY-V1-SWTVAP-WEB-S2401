@@ -149,7 +149,7 @@ export class NgbdModal2Content implements OnInit {
 
 
 @Component({
-  selector: 'app-login-default',
+  selector: 'swtvap-login-default',
   templateUrl: './login-default.component.html',
   styleUrls: ['./login-default.component.scss']
 })

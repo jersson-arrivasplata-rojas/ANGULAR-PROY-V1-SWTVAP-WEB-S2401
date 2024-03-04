@@ -4,7 +4,7 @@ import { ProductDiscountsHttp } from 'src/app/shared/http/product-discounts.http
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-products-discounts',
+  selector: 'swtvap-component-list-products-discounts',
   templateUrl: './component-list-products-discounts.component.html',
   styleUrls: ['./component-list-products-discounts.component.scss'],
 })

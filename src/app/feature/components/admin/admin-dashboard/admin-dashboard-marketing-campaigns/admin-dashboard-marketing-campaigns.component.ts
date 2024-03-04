@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MarketingCampaignHttp } from 'src/app/shared/http/marketing-campaigns.http';
 
 @Component({
-  selector: 'app-admin-dashboard-marketing-campaigns',
+  selector: 'swtvap-admin-dashboard-marketing-campaigns',
   templateUrl: './admin-dashboard-marketing-campaigns.component.html',
   styleUrls: ['./admin-dashboard-marketing-campaigns.component.css']
 })

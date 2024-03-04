@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-contact-list-default',
+  selector: 'swtvap-contact-list-default',
   templateUrl: './contact-list-default.component.html',
   styleUrls: ['./contact-list-default.component.scss']
 })

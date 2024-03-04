@@ -25,6 +25,7 @@ import { ProviderHttp } from './providers.http';
 import { ReviewHttp } from './reviews.http';
 import { SubscriptionHttp } from './subscriptions.http';
 import { UnitHttp } from './units.http';
+import { WParameterHttp } from './w-parameters.http';
 @NgModule({
   imports: [],
   providers: [
@@ -54,6 +55,7 @@ import { UnitHttp } from './units.http';
     OrderDetailsHttp,
     OrderTransactionsHttp,
     ProductCatalogsHttp,
+    WParameterHttp,
   ],
 })
 export class HttpModule {}

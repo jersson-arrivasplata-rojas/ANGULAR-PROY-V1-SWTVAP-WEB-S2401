@@ -3,7 +3,7 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-sub-parameters',
+  selector: 'swtvap-component-list-sub-parameters',
   templateUrl: './component-list-sub-parameters.component.html',
   styleUrls: ['./component-list-sub-parameters.component.scss'],
 })

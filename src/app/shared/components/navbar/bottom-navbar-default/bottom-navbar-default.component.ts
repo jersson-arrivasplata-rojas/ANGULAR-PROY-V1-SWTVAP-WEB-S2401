@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 declare var dynamics: any;
 
 @Component({
-  selector: 'app-bottom-navbar-default',
+  selector: 'swtvap-bottom-navbar-default',
   templateUrl: './bottom-navbar-default.component.html',
   styleUrls: ['./bottom-navbar-default.component.css']
 })

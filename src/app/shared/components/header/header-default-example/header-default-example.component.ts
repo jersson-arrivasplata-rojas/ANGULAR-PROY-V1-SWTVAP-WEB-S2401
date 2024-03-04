@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-header-default-example',
+  selector: 'swtvap-header-default-example',
   templateUrl: './header-default-example.component.html',
   styleUrls: ['./header-default-example.component.css']
 })

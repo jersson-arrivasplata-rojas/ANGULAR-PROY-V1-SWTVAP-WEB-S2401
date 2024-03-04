@@ -10,7 +10,7 @@ declare var self: any;
 declare var $: any;
 
 @Component({
-    selector: 'app-google-second-default',
+    selector: 'swtvap-google-second-default',
     templateUrl: './google-second-default.component.html',
     styleUrls: ['./google-second-default.component.css']
 })

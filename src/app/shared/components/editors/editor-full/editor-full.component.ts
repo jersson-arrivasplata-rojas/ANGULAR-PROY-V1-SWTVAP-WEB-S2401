@@ -3,7 +3,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 //import { editorQuill } from './editor';
 
 @Component({
-  selector: 'app-editor-full',
+  selector: 'swtvap-editor-full',
   templateUrl: './editor-full.component.html',
   styleUrls: ['./editor-full.component.scss']
 })

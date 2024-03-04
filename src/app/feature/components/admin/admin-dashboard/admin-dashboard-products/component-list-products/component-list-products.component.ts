@@ -5,7 +5,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-list-products',
+  selector: 'swtvap-component-list-products',
   templateUrl: './component-list-products.component.html',
   styleUrls: ['./component-list-products.component.scss'],
 })

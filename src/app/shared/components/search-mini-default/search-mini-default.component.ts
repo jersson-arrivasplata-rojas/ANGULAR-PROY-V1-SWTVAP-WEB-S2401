@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Router, CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-search-mini-default',
+  selector: 'swtvap-search-mini-default',
   templateUrl: './search-mini-default.component.html',
   styleUrls: ['./search-mini-default.component.css']
 })

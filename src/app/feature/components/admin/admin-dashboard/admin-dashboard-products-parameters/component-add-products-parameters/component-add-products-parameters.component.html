@@ -9,8 +9,8 @@
             <select (change)="show($event)" class="form-control mb-3" id="parameter" formControlName="parameter" title="Select Parameter">
                 <option *ngFor="let parameter of selectAllParameters[0]?.details" [value]="parameter.id">{{parameter.value}}</option>
             </select>
-            <app-component-list-product-parameters-products (selected)="addParameter($event)" *ngIf="selectAllParametersFilter.length" [data]="selectAllParametersFilter">
-            </app-component-list-product-parameters-products>
+            <swtvap-component-list-product-parameters-products (selected)="addParameter($event)" *ngIf="selectAllParametersFilter.length" [data]="selectAllParametersFilter">
+            </swtvap-component-list-product-parameters-products>
             <hr class="dropdown-divider">
         </div>
       </div>

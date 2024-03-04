@@ -8,7 +8,7 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 
 @Component({
-  selector: 'app-admin-dashboard-orders-dispatches-providers',
+  selector: 'swtvap-admin-dashboard-orders-dispatches-providers',
   templateUrl: './admin-dashboard-orders-dispatches-providers.component.html',
   styleUrls: ['./admin-dashboard-orders-dispatches-providers.component.css']
 })

@@ -6,7 +6,7 @@ import { ProductHttp } from 'src/app/shared/http/products.http';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-admin-dashboard-home',
+  selector: 'swtvap-admin-dashboard-home',
   templateUrl: './admin-dashboard-home.component.html',
   styleUrls: [
     './admin-dashboard-home.component.css'

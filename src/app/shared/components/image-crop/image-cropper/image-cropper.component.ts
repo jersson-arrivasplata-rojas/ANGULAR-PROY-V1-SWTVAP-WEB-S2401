@@ -3,7 +3,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-image-cropper',
+  selector: 'swtvap-image-cropper',
   templateUrl: './image-cropper.component.html',
   styleUrls: ['./image-cropper.component.scss']
 })

@@ -16,14 +16,14 @@
         <div class="card-img-overlay">
             <div class="p-1 text-left  font-weight-light d-flex">
                 <p *ngIf="products_unavailable==0" class="product-card-ecommerce-agotado">Agotado</p>
-                <app-heart-default [heart]="heart" [content_id]='"hover-icon-heart-"+direction+"-"+claseBtn' [product_id]='id'></app-heart-default>
-                <app-share-default [link]='facebook' [content_id]='"toggle-"+direction+"-"+claseBtn'></app-share-default>
+                <swtvap-heart-default [heart]="heart" [content_id]='"hover-icon-heart-"+direction+"-"+claseBtn' [product_id]='id'></swtvap-heart-default>
+                <swtvap-share-default [link]='facebook' [content_id]='"toggle-"+direction+"-"+claseBtn'></swtvap-share-default>
             </div>
             <div class="d-flex position-absolute w-100 p-0 add-cart-card-ecommerce-image justify-content-end">
 
-                <app-cart-inicio-ecommerce-image class="" (emitEvent)="eventEmitCart($event)" [products_images_tag_visible]='products_images_tag_visible' [product_images]='imageArray' [products_tag_name]='tag_name' [splitTags]='splitTags' [content]='direction' [products_id]='id'
+                <swtvap-cart-inicio-ecommerce-image class="" (emitEvent)="eventEmitCart($event)" [products_images_tag_visible]='products_images_tag_visible' [product_images]='imageArray' [products_tag_name]='tag_name' [splitTags]='splitTags' [content]='direction' [products_id]='id'
                     [type]='1' [subcategories_description]="subcategories_description" [products_unavailable]="products_unavailable" [product_type_sale_discount]="product_type_sale_discount" [product_type_sale_price]="product_type_sale_price" [product_type_sale_type]="product_type_sale_type"
-                    [product_type_sale_stock]="product_type_sale_stock"></app-cart-inicio-ecommerce-image>
+                    [product_type_sale_stock]="product_type_sale_stock"></swtvap-cart-inicio-ecommerce-image>
             </div>
         </div>
     </div>

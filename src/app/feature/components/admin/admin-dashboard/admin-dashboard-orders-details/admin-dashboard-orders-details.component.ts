@@ -8,7 +8,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 
 @Component({
-  selector: 'app-admin-dashboard-orders-details',
+  selector: 'swtvap-admin-dashboard-orders-details',
   templateUrl: './admin-dashboard-orders-details.component.html',
   styleUrls: ['./admin-dashboard-orders-details.component.css']
 })

@@ -5,7 +5,7 @@ import { ParameterHttp } from 'src/app/shared/http/parameters.http';
 
 
 @Component({
-  selector: 'app-admin-dashboard-sub-parameters',
+  selector: 'swtvap-admin-dashboard-sub-parameters',
   templateUrl: './admin-dashboard-sub-parameters.component.html',
   styleUrls: ['./admin-dashboard-sub-parameters.component.css']
 })

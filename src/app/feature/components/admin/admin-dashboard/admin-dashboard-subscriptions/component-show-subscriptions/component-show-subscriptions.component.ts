@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-component-show-subscriptions',
+  selector: 'swtvap-component-show-subscriptions',
   templateUrl: './component-show-subscriptions.component.html',
   styleUrls: ['./component-show-subscriptions.component.scss'],
 })

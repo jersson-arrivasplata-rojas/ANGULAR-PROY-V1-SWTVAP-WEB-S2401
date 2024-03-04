@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 
 @Component({
-  selector: 'app-button-ladda',
+  selector: 'swtvap-button-ladda',
   templateUrl: './button-ladda.component.html',
   styleUrls: ['./button-ladda.component.scss']
 })

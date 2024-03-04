@@ -5,7 +5,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { ResourcesUtils } from 'src/app/shared/utils/resources.utils';
 
 @Component({
-  selector: 'app-card-echart-one',
+  selector: 'swtvap-card-echart-one',
   templateUrl: './card-echart-one.component.html',
   styleUrls: ['./card-echart-one.component.scss']
 })

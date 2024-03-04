@@ -4,7 +4,7 @@ import { CommentHttp } from 'src/app/shared/http/comments.http';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 @Component({
-  selector: 'app-component-list-comments',
+  selector: 'swtvap-component-list-comments',
   templateUrl: './component-list-comments.component.html',
   styleUrls: ['./component-list-comments.component.scss'],
 })
