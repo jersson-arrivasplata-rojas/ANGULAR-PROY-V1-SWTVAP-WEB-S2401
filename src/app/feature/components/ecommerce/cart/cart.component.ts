@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'swtvap-cart',
+  selector: 'swtvap-ecommerce-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './base/base.component';
+import { BillingComponent } from './billing/billing.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { BillingComponent } from './billing/billing.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
@@ -34,8 +35,12 @@ const routes: Routes = [
         component: BillingComponent
       },
       {
-        path: ':name',
+        path: 'c/:name',
         component: ProductComponent
+      },
+      {
+        path: '**', // Esta es la ruta comodín para capturar todas las rutas no definidas
+        component: NotFoundComponent // Redirige a la página no encontrada o a cualquier otro componente
       }
     ]
   }

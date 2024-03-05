@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { productInitFN } from 'src/app/shared/functions/product.init.function';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -8,7 +8,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './billing.component.html',
   styleUrls: ['./billing.component.scss'],
 })
-export class BillingComponent {
+export class BillingComponent implements OnInit {
   public products = productInitFN();
   public cartflag = false;
   

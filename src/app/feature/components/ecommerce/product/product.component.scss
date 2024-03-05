@@ -1,31 +1,100 @@
 .product-container {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 300px;
+    width: 100%; // Ajuste para que se adapte al ancho del dispositivo
+    margin: 20px auto; // Centrar el contenedor
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Alineación central para todos los elementos
 
     .product-image img {
-        width: 100%;
+        width: 100%; // Imagenes responsivas
         height: auto;
+        max-width: 600px; // Máximo ancho del contenedor
+
     }
 
     .product-info {
         padding: 20px;
+        width: 90%; // Asegura que el contenido no toque los bordes en pantallas pequeñas
 
-        .product-name {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .product-weight, .product-price {
-            margin-bottom: 10px;
+        .product-name, .product-description, .product-material, .product-dimensions, .product-weight, .product-technique, .product-history, .product-customization, .product-price {
+            margin-bottom: 15px; // Espaciado uniforme
         }
 
         .product-price {
             color: green;
             font-size: 20px;
+        }
+
+        .product-quantity, .product-type, .product-color, .product-image-type {
+            margin-bottom: 10px;
+        }
+
+        select, input[type="number"] {
+            padding: 5px;
+            margin-left: 5px;
+            width: auto; // Autoajuste del ancho para controles de formulario
+            display: block; // Asegura que cada elemento se muestre en su propia línea en pantallas pequeñas
+        }
+
+        .product-add-to-cart button, .product-comments button {
+            background-color: #4CAF50; // Verde para agregar al carrito
+            color: white;
+            padding: 10px 24px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block; // Asegura que el botón se ajuste al contenedor
+            width: 100%; // Botones de ancho completo
+
+            &:hover {
+                background-color: darken(#4CAF50, 10%);
+            }
+        }
+
+        .product-comments {
+            width: 100%; // Asegura que los comentarios ocupen todo el ancho
+
+            textarea {
+                width: 100%; // Asegura que el área de texto ocupe todo el ancho
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ddd;
+                resize: vertical;
+            }
+        }
+    }
+}
+
+// Media queries para la responsividad
+@media (max-width: 768px) { // Tablets y dispositivos móviles
+    .product-info {
+        .product-name {
+            font-size: 18px; // Texto más pequeño para dispositivos más pequeños
+        }
+
+        .product-price {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 480px) { // Teléfonos móviles
+    .product-container {
+        margin: 10px; // Menor margen para más espacio
+    }
+
+    .product-info {
+        padding: 10px; // Menos relleno para más espacio
+
+        .product-add-to-cart button, .product-comments button {
+            padding: 8px 16px; // Botones más pequeños para pantallas más pequeñas
         }
     }
 }

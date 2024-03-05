@@ -5,7 +5,7 @@ import { WParameterHttp } from 'src/app/shared/http/w-parameters.http';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 
 @Component({
-  selector: 'swtvap-base',
+  selector: 'swtvap-ecommerce-base',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss'],
 })

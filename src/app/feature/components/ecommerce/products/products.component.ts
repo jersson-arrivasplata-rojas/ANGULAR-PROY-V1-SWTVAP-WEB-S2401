@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { productInitFN } from 'src/app/shared/functions/product.init.function';
 
 @Component({
-  selector: 'swtvap-products',
+  selector: 'swtvap-ecommerce-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
@@ -33,6 +33,6 @@ export class ProductsComponent implements OnInit {
 
   goToProduct($event){
     const { product_name } = $event;
-    this.router.navigate(['/'+product_name]);
+    this.router.navigate(['/c/'+product_name]);
   }
 }

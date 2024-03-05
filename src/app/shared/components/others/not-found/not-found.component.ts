@@ -1,12 +1,12 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'swtvap-not-found',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent {
   @Input() status: string = '404';
   @Input() title: string = 'Error!';
   @Input() message: string = '¡Lo siento! La p\u00E1gina que buscaba no existe.';
@@ -15,9 +15,6 @@ export class NotFoundComponent implements OnInit {
   @Input() buttonText: string = 'Regresar';
 
   constructor(private location: Location) { }
-
-  ngOnInit(): void {
-  }
 
   back(){
     this.location.back();

@@ -1,3 +1,17 @@
-<div>
-
+<div class="contact-form-container">
+    <form (submit)="submitContactForm()">
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="contactDetails.name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="contactDetails.email" required>
+        </div>
+        <div class="form-group">
+            <label for="details">Detalles:</label>
+            <textarea id="details" name="details" [(ngModel)]="contactDetails.details" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Enviar</button>
+    </form>
 </div>
