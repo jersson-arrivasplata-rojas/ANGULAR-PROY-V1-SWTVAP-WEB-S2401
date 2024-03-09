@@ -1,12 +1,24 @@
-<div class="not-found-wrap text-center text-{{color}}">
-  <h1 class="text-60 text-{{color}}">
-      {{status}}
-  </h1>
-  <p class="text-36 subheading mb-3 text-{{color}}">{{title}}</p>
-  <p class="mb-5  text-muted-2 text-18 text-{{color}}">{{message}}</p>
-  <swtvap-button-default [color]="buttonColor" [title]="buttonText" (click)="back()" [claseButton]="'m-1 btn-rounded btn-lg'" ></swtvap-button-default>
+<div class="not-found-wrap text-center text-{{color}} d-flex justify-content-center align-items-center">
+  <div class="boo-wrapper">
+    <div class="boo">
+      <div class="face"></div>
+    </div>
+    <div class="shadow"></div>
+
+    <h1 class="text-60 text-{{color}}">
+        {{status}}
+    </h1>
+    <p class="text-36 subheading mb-3 text-{{color}}">{{title}}</p>
+    <p class="mb-5  text-muted-2 text-18 text-{{color}}">{{message}}</p>
+
+  </div>
 </div>
 <!--
 <swtvap-not-found [status]="'304'" [title]="'Error!'" [message]="'¡Lo siento! La p&aacute;gina que buscaba no existe.'" [color]="'primary'" [buttonColor]="'primary'" ></swtvap-not-found>
-
+<h1>Whoops!</h1>
+    <p>
+      We couldn't find the page you
+      <br />
+      were looking for.
+    </p>
 -->

@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./ecommerce/ecommerce.module').then(x => x.EcommerceModule)
+    loadChildren: () => import('./ecommerce/ecommerce.module').then(x => x.EcommerceModule),
   }
 ];
 

@@ -1,3 +1,4 @@
-<div>
-  <swtvap-cart-add (onCheckOut)="checkout($event)"></swtvap-cart-add>
-</div>
+
+<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" [hideNotCart]="true"></swtvap-nav>
+<swtvap-cart-add class="mb-4" (onCheckOut)="checkout($event)"></swtvap-cart-add>
+<swtvap-header *ngIf="lang" [lang]="lang" [profile]="profile" [carrousel]="carrousel" [proposal]="proposal" [hideNotCarrousel]="true"></swtvap-header>

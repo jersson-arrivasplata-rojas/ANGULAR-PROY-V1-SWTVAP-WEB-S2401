@@ -1,78 +1,152 @@
-<div class="card text-center">
-  <div class="card-header">
-    Your Cart Items
-    <button type="button" class="btn btn-sm btn-warning float-right">
-      Total items
-      <span class="badge badge-light">{{ cart.cartItemsList.length }}</span>
-    </button>
-    <button
-      type="button"
-      class="btn btn-sm btn-danger mr-2 float-right"
-      (click)="emptyCart()"
-      *ngIf="cart.cartItemsList && cart.cartTotal"
-    >
-      Carrito Vacio
-    </button>
-  </div>
-  <div class="card-body">
-    <table class="table">
-      <caption class="d-none">Description of the table</caption>
-      <thead>
-        <tr>
-          <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr></tr>
-        <ng-container *ngIf="cart && cart.cartItemsList">
-          <tr *ngFor="let item of cart.cartItemsList">
-            <td class="text-left">{{ item?.name }}</td>
-            <td class="w30">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <button
-                    class="btn btn-info"
-                    type="button"
-                    (click)="changeQty(item?.pid, 1, '')"
-                  >
-                    +
-                  </button>
+
+<div class="{{showProduct?'': 'pt-4 pb-4 '}} container" [style]="{marginTop:showProduct?'':'2rem'}">
+  <h2 *ngIf="!showProduct; else elseTitleBlock" class="text-center mb-4 mt-4" >Carrito de Compras</h2>
+  <ng-template #elseTitleBlock>
+    <h3 class="text-center mb-2 mt-1" >Carrito de Compras</h3>
+  </ng-template>
+  <div class="row {{showProduct?'flex-column ': ' mb-4 '}}">
+    <div class="{{showProduct?'mb-3 ': 'col-lg-8 col-md-7'}}  col-12">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 *ngIf="!showProduct; else elseItemBlock" class="mt-2">
+            <span>Cart (</span>
+            <span>{{ cart.cartItemsList.length }}</span>
+            <span> items)</span>
+          </h4>
+          <ng-template #elseItemBlock>
+            <h5 class="mt-2">
+              <span>Cart (</span>
+              <span>{{ cart.cartItemsList.length }}</span>
+              <span> items)</span>
+            </h5>
+          </ng-template>
+          <button
+            type="button"
+            class="btn-list btn btn-xs btn-default"
+            (click)="emptyCart()"
+            *ngIf="cart.cartItemsList && cart.cartTotal"
+            >
+              <i class="fa fa-trash"></i>
+              <span class="ml-2">Remove All</span>
+          </button>
+        </div>
+        <div class="mb-2 pb-3 ">
+          <ng-container *ngIf="cart && cart.cartItemsList">
+            <div *ngFor="let item of cart.cartItemsList; let i = index" class="mb-2 store-item {{i===(cart.cartItemsList.length-1)?'':'bottom-line'}}">
+              <div class="row">
+                <div class="col-lg-3">
+                    <img
+                        class="image-store"
+                        [src]="item?.product?.productImage"
+                        [alt]="item?.product?.productName"
+                    >
                 </div>
-                <input
-                  type="text"
-                  class="form-control text-center"
-                  value="{{ item?.qty }}"
-                  #qtyRef
-                  (keyup)="changeQty(item?.pid, qtyRef.value, 'replace')"
-                  title="Quantity"
-                />
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-danger"
-                    type="button"
-                    (click)="changeQty(item?.pid, -1, '')"
-                  >
-                    -
-                  </button>
+                <div class="col-lg-9">
+                  <div class="d-flex justify-content-between flex-column h-100">
+                    <div class="mt-3 mt-lg-0 d-flex align-items-center justify-content-between">
+                      <h4 *ngIf="!showProduct; else elseNameBlock" >$ {{ item?.name }}</h4>
+                      <ng-template #elseNameBlock>
+                        <h5>$ {{ item?.name }}</h5>
+                      </ng-template>
+                      <div>
+                          <div
+                          class="btn-quantity-container d-flex align-items-center justify-content-center"
+                          style="gap:.5rem;">
+                            <button
+                              class="btn-quantity btn btn-default"
+                              type="button"
+                              (click)="changeQty(item?.pid, -1, '')"
+                            >
+                              -
+                            </button>
+                            <span class="p-quantiry">{{item?.qty}}</span>
+                            <button
+                              type="button"
+                              class="btn-quantity btn btn-default"
+                              (click)="changeQty(item?.pid, 1, '')"
+                            >
+                              +
+                            </button>
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control text-center d-none"
+                            value="{{ item?.qty }}"
+                            #qtyRef
+                            (keyup)="changeQty(item?.pid, qtyRef.value, 'replace')"
+                            title="Quantity"
+                            hidden
+                          />
+                      </div>
+                    </div>
+                    <!--
+                      <div class="list-store d-flex align-items-center justify-content-between">
+                        <p>Hodie-B</p>
+                        <p class="p-note">
+                            <span>(</span>
+                            <span>Note, 1 piece</span>
+                            <span>)</span>
+                        </p>
+                    </div>
+                    -->
+                    <div class="list-store d-flex align-items-center justify-content-between">
+                      <div class="d-flex gap-2">
+                          <button
+                              type="button"
+                              class="btn-list btn btn-xs btn-default"
+                              (click)="removeItem(item?.pid)"
+                          >
+                              <i class="fa fa-trash"></i>
+                              <span class="ml-2">Remove Item</span>
+                          </button>
+                      </div>
+                      <div class="d-flex">
+                        <h5 *ngIf="!showProduct; else elsePriceBlock" >$ {{ item?.price }}</h5>
+                        <ng-template #elsePriceBlock>
+                          <h6>$ {{ item?.price }}</h6>
+                        </ng-template>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </td>
-            <td>{{ item?.price }}</td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-    <a
-      href="#"
-      class="btn btn-sm btn-primary"
-      *ngIf="cart.cartItemsList && cart.cartTotal"
-      (click)="checkOut(); $event.preventDefault()"
-      >Checkout</a
-    >
-  </div>
-  <div class="card-footer text-muted font-weight-bold">
-    Total : Bs. {{ cart.cartTotal }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="{{showProduct?'': 'col-lg-4 col-md-5'}}  col-12">
+
+      <div class="card">
+        <h5 *ngIf="!showProduct; else elseTitleAmountBlock" >The total amount of</h5>
+        <ng-template #elseTitleAmountBlock>
+          <h6>The total amount of</h6>
+        </ng-template>
+        <div class="store-item mt-2">
+            <div class="row m-0 bottom-line align-items-center justify-content-between">
+              <p>Temporary amount</p>
+              <p>${{ cart.cartTotal }}</p>
+            </div>
+            <div class="mt-2 row m-0">
+                <div class="col-6 pl-0">
+                    <p class="p-total-label text-left"><strong>The total amount of <br/>(Not Including Mobility)</strong></p>
+                </div>
+                <div class="col-6 pr-0">
+                    <p class="p-total">${{ cart.cartTotal }}</p>
+                </div>
+            </div>
+            <div class="mt-1 row m-0">
+              <button
+                  type="button"
+                  class="w-100 btn btn-md btn-primary btn-block"
+                  *ngIf="cart.cartItemsList && cart.cartTotal"
+                  (click)="checkOut(); $event.preventDefault()"
+              >
+                  Go To Checkout
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

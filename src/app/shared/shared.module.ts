@@ -147,6 +147,7 @@ import { ModalComponentDirective } from './directives/modal.directive';
 import { PaginationDirective } from './directives/pagination.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
 import { ScrollOnClickDirective } from './directives/scroll-on-click.directive';
+import { SwitchButtonDirective } from './directives/switch-button.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
@@ -163,8 +164,10 @@ import { StatusLangPipe } from './pipes/status-lang.pipe';
 import { StatusProviderPipe } from './pipes/status-provider.pipe';
 import { StatusRelationshipPipe } from './pipes/status-relationship.pipe';
 import { StatusPipe } from './pipes/status.pipe';
+import { SticksPipe } from './pipes/sticks.pipe';
 import { TransformTextPipe } from './pipes/transform-text.pipe';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
+import { ResolveModule } from './resolve/resolve.module';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
@@ -328,6 +331,8 @@ import { ServicesModule } from './services/services.module';
     CheckoutCartComponent,
     CheckoutInfoComponent,
     BillingInfoComponent,
+    SwitchButtonDirective,
+    SticksPipe,
   ],
   exports: [
     GeneratorCssComponent,
@@ -494,6 +499,8 @@ import { ServicesModule } from './services/services.module';
     CheckoutCartComponent,
     CheckoutInfoComponent,
     BillingInfoComponent,
+    SwitchButtonDirective,
+    SticksPipe,
   ],
   imports: [
     CommonModule,
@@ -509,7 +516,8 @@ import { ServicesModule } from './services/services.module';
     RouterModule,
     LaddaModule,
     ServicesModule,
-    HttpModule
+    HttpModule,
+    ResolveModule
   ],
 })
 export class SharedModule { }

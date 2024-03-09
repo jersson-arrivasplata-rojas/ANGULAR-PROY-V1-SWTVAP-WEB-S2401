@@ -1,13 +1,15 @@
 <footer class="footer-section ">
   <div class="container">
       <div class="footer-cta pt-5 pb-5">
-          <div class="row">
+          <div class="row text-center align-items-center">
               <div class="col-xl-4 col-md-4 mb-30" *ngFor="let item of top">
-                  <div class="single-cta">
-                      <i [class]="item?.value"></i>
-                      <div class="cta-text">
-                          <h4 class="text-white">{{item?.description}}</h4>
-                          <span class="text-white">{{item?.value1}}</span>
+                  <div class="single-cta d-flex flex-column">
+                      <i [class]="item?.value" class="mb-2"></i>
+                      <div class="text">
+                          <h4 class="text-white mb-2">{{item?.description}}</h4>
+                          <span class="text-white">
+                            <ng-container *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
+                          </span>
                       </div>
                   </div>
               </div>
@@ -16,26 +18,29 @@
       <div class="footer-content pt-5 pb-5 text-white">
         <div class="container">
             <div class="row">
-                <ng-container *ngFor="let data of footer;">
+                <ng-container *ngFor="let data of footerStore;">
                   <div class="col-xl-4 col-lg-4 mb-50">
                       <div class="footer-widget">
                           <div class="footer-text">
-                              <h4 class="text-uppercase">{{data.title}}</h4>
-                              <p>{{data.value}}</p>
+                            <h4 class="text-uppercase">{{data.title}}</h4>
+                            <p>{{data.value}}</p>
                           </div>
                           <div class="footer-menu">
                               <ul class="list-unstyled">
                                   <li *ngFor="let item of data?.children">
-                                      <a *ngIf="item?.code !== homeEnum.FOOTER_CONTACTUS_MESSAGE" href="#" class="text-white" title="Link">{{item?.value}}</a>
-                                      <span *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE" class="text-white">{{item?.value}}</span>
-                                      <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE" class="subscribe-form mt-2">
-                                        <form action="#">
-                                          <label for="inputField" class="d-none">Enter Value:</label>
-                                          <input type="text" id="inputField" [placeholder]="item?.value1" title="Enter a value">
-                                          <button type="button" title="Send Message">
-                                            <i class="fab fa-telegram-plane"></i>
-                                          </button>
-                                      </form>
+                                        <a href="#" class="text-white" title="Link">
+                                            <ng-container *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
+                                            {{item?.value}}
+                                        </a>
+
+                                        <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE" class="subscribe-form mt-2">
+                                            <form action="#">
+                                            <label for="inputField" class="d-none">Enter Value:</label>
+                                            <input type="text" id="inputField" [placeholder]="item?.value1" title="Enter a value">
+                                            <button type="button" title="Send Message">
+                                                <i class="fab fa-telegram-plane"></i>
+                                            </button>
+                                        </form>
                                       </div>
                                   </li>
                               </ul>
@@ -68,3 +73,15 @@
       </div>
   </div>
 </footer>
+
+<ng-template #showNgTemplateContent let-item="item">
+    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_EMAIL || item?.code === homeEnum.FOOTER_TOP_MAIL_US">
+        {{profileStore?.email}}
+    </ng-container>
+    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_ADDRESS || item?.code === homeEnum.FOOTER_TOP_FIND_US">
+        {{profileStore?.address}}
+    </ng-container>
+    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_CELLPHONE || item?.code === homeEnum.FOOTER_TOP_CALL_US">
+        {{profileStore?.cellphone}}
+    </ng-container>
+</ng-template>

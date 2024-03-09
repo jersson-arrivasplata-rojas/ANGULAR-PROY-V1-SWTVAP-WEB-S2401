@@ -24,6 +24,16 @@ export class CartService {
     }
   }
 
+  removeItem(pid) {
+    if (this.cartData[pid]) {
+      this.cartData[pid] = 0;
+    }
+    if (this.cartData[pid] == 0) {
+      delete this.cartData[pid];
+    }
+    this.storeItems();
+  }
+
   addToCart(pid, qty, replace) {
 
     if (this.cartData[pid] == undefined) {
@@ -61,11 +71,15 @@ export class CartService {
           name: item.product_name,
           qty: cartDataItems[item.p_id],
           price: item.product_price * cartDataItems[item.p_id],
+          product: {
+            productId: item.p_id,
+            productName: item.product_name,
+            productImage: item.product_image
+          }
         });
         tempTotal += item.product_price * cartDataItems[item.p_id];
       }
     });
-
 
     this.cartItemsList = tempCart;
     this.cartTotal = tempTotal;
@@ -81,6 +95,7 @@ export class CartService {
       mycart: {}
     })
   }
+
   loadBillingInfo(name: string) {
     let userBillingInfo = {};
     if(this.storage.data && this.storage.data.customerInfo){

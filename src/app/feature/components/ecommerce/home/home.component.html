@@ -1,4 +1,3 @@
-<div>
-  <swtvap-header></swtvap-header>
-  <swtvap-ecommerce-products></swtvap-ecommerce-products>
-</div>
+<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" (onCart)="cart($event)"></swtvap-nav>
+<swtvap-header *ngIf="lang" [lang]="lang" [profile]="profile" [carrousel]="carrousel" [proposal]="proposal"></swtvap-header>
+<swtvap-ecommerce-products></swtvap-ecommerce-products>

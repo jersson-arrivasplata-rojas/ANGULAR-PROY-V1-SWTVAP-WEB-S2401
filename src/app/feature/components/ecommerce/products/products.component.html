@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-row align-items-center">
     <div class="col-md-9">
-      <div class="input-group mb-4 mt-2">
+      <div class="input-group mb-4 mt-4">
         <div class="input-group-prepend">
           <div class="input-group-text">Busqueda de productos</div>
         </div>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class=" mb-4 mt-2">
+      <div class=" mb-4 mt-4">
         <select class="form-control" [(ngModel)]="sortOption" title="Sort Options">
           <option value="product_name|asc"
             >Ordenar por nombre (A a Z)</option
@@ -42,7 +42,7 @@
       ></swtvap-product-list>
     </div>
     <div class="col-md-5">
-      <swtvap-cart-add *ngIf="cartflag" (onCheckOut)="checkout($event)"></swtvap-cart-add>
+      <swtvap-cart-add *ngIf="cartflag" [showProduct]="true" (onCheckOut)="checkout($event)"></swtvap-cart-add>
     </div>
   </div>
 </div>

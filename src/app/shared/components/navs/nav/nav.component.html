@@ -2,50 +2,60 @@
   <!-- contact content -->
   <div class="header-content-top">
     <div class="content">
-      <span><i class="fas fa-phone-square-alt"></i> (00)0000-0000</span>
-      <span><i class="fas fa-envelope-square"></i>email@email.com.br</span>
+      <span class="text-white"><i class="fas fa-phone-square-alt"></i> {{profileStore?.cellphone}}</span>
+      <span class="text-white"><i class="fas fa-envelope-square"></i>{{profileStore?.email}}</span>
     </div>
   </div>
   <!-- / contact content -->
-  <div class="container">
+  <div class="container pb-2 mt-4">
     <!-- logo -->
-    <strong class="logo"><i class="fas fa-heart"></i></strong>
+    <strong class="logo">
+      <img class="logo-img cursor-pointer" [routerLink]="['/']" [src]="assetUrl + '140x80'" alt="" />
+    </strong>
     <!-- open nav mobile -->
 
     <!--search -->
     <label class="open-search" for="open-search">
       <i class="fas fa-search"></i>
       <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
-      <div class="search">
+      <div class="search d-none">
         <button class="button-search"><i class="fas fa-search" title="Search"></i></button>
         <input type="text" placeholder="What are you looking for?" class="input-search" />
       </div>
     </label>
+    <nav class="nav-content account-amount" aria-label="Featured Content">
+      <div class="switch-button" swtvapSwitchButton>
+        <span class="active"></span>
+        <button class="switch-button-case left active-case" (click)="changeCurrency();">{{currencyStore.currencyUSD}}</button>
+        <button class="switch-button-case right" (click)="changeCurrency();">{{currencyStore.currencyPEN}}</button>
+      </div>
+    </nav>
     <!-- // search -->
     <nav class="nav-content" aria-label="Featured Content">
       <!-- nav -->
       <ul class="nav-content-list">
-        <li class="nav-content-item account-login">
-          <label class="open-menu-login-account" for="open-menu-login-account">
-            <input class="input-menu" id="open-menu-login-account" type="checkbox" name="menu" />
-            <i class="fas fa-user-circle"></i><span class="login-text">Hello, Sign in <strong>Create
-                Account</strong></span> <span class="item-arrow"></span>
-          </label>
-          <!-- submenu -->
-          <ul class="login-list">
-            <li class="login-list-item"><a href="#">My account</a></li>
-            <li class="login-list-item"><a href="#">Create account</a></li>
-            <li class="login-list-item"><a href="#">logout</a></li>
-          </ul>
-        </li>
         <li class="nav-content-item">
-          <a class="nav-content-link" href="#" title="Link Text">
-            <i class="fas fa-heart"></i>
-          </a>
+          <div class="nav-container-v2">
+            <nav class="all-lang-nav" aria-label="Featured Lang">
+              <label class="open-lang-all" for="open-lang-all">
+                <input class="input-lang-all" id="open-lang-all" type="checkbox" name="lang-open" />
+                <span class="all-navigator">
+                  <span class="text-white">{{getLang()}}</span>
+                </span>
+                <ul class="all-lang-list">
+                  <li class="all-lang-list-item">
+                    <a href="#" class="all-lang-list-link" (click)="changeLang();$event.preventDefault()">{{getLangComparate()}}</a>
+                  </li>
+                </ul>
+              </label>
+
+            </nav>
+          </div>
         </li>
         <li class="nav-content-item">
           <a class="nav-content-link" href="#" title="Link Text" (click)="cart();$event.preventDefault()">
             <i class="fas fa-shopping-cart"></i>
+            <span class="badge badge-secondary text-white">{{cartService.cartItemsList.length?cartService.cartItemsList.length:0 }}</span>
           </a>
         </li>
         <!-- call to action -->
@@ -53,12 +63,14 @@
     </nav>
   </div>
   <!-- nav navigation commerce -->
-  <div class="nav-container">
+  <div class="nav-container" *ngIf="!hideNotCart">
     <nav class="all-category-nav" aria-label="Featured Category">
       <label class="open-menu-all" for="open-menu-all">
         <input class="input-menu-all" id="open-menu-all" type="checkbox" name="menu-open" />
-        <span class="all-navigator"><i class="fas fa-bars"></i> <span>All category</span> <i
-            class="fas fa-angle-down"></i>
+        <span class="all-navigator text-white">
+          <i class="fas fa-bars"></i>
+          <span class="text-white">Todas las categor&iacute;as</span>
+          <i class="fas fa-angle-down"></i>
           <i class="fas fa-angle-up"></i>
         </span>
 
@@ -95,7 +107,7 @@
       </label>
 
     </nav>
-    <nav class="featured-category" aria-label="Featured Category">
+    <nav class="featured-category mb-2" aria-label="Featured Category">
       <ul class="nav-row">
         <li class="nav-row-list"><a href="#" class="nav-row-list-link">Smartphones</a></li>
         <li class="nav-row-list"><a href="#" class="nav-row-list-link">furniture</a></li>

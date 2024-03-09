@@ -1,9 +1,9 @@
 // Color palette
 $color-footer-background: #151414;
 $color-border: #373636;
-$color-cta-icon: #ff5e14;
-$color-cta-title: #fff;
-$color-cta-text: #757575;
+$color-icon: #ff5e14;
+$color-title: #fff;
+$color-text: #757575;
 $color-footer-text: #7e7e7e;
 $color-social-icon: #fff;
 $color-widget-title: #fff;
@@ -16,8 +16,8 @@ $color-subscribe-form-text: #fff;
 
 // Font sizing
 $font-size-icon: 30px;
-$font-size-cta-title: 20px;
-$font-size-cta-text: 15px;
+$font-size-title: 20px;
+$font-size-text: 15px;
 $font-size-footer-text: 14px;
 $font-size-social-icon-title: 20px;
 $font-size-social-link: 16px;
@@ -25,8 +25,8 @@ $font-size-widget-title: 20px;
 $font-size-menu-link: 14px;
 
 // Spacing and sizing
-$spacing-cta-icon-top: 8px;
-$spacing-cta-title-bottom: 2px;
+$spacing-icon-top: 8px;
+$spacing-title-bottom: 2px;
 $spacing-footer-logo-bottom: 30px;
 $spacing-footer-text-bottom: 14px;
 $spacing-social-title-bottom: 20px;
@@ -57,27 +57,27 @@ ul {
 // CTA styles
 .single-cta {
   i {
-    color: $color-cta-icon;
+    color: $color-icon;
     font-size: $font-size-icon;
     float: left;
-    margin-top: $spacing-cta-icon-top;
+    margin-top: $spacing-icon-top;
   }
 }
 
-.cta-text {
+.text {
   padding-left: 15px;
   display: inline-block;
 
   h4 {
-    color: $color-cta-title;
-    font-size: $font-size-cta-title;
+    color: $color-title;
+    font-size: $font-size-title;
     font-weight: 600;
-    margin-bottom: $spacing-cta-title-bottom;
+    margin-bottom: $spacing-title-bottom;
   }
 
   span {
-    color: $color-cta-text;
-    font-size: $font-size-cta-text;
+    color: $color-text;
+    font-size: $font-size-text;
   }
 }
 
@@ -156,7 +156,7 @@ ul {
       bottom: -15px;
       height: $height-widget-border;
       width: $width-widget-border;
-      background: $color-cta-icon;
+      background: $color-icon;
     }
   }
 }
@@ -219,7 +219,7 @@ ul {
     font-size: $font-size-footer-text;
 
     a {
-      color: $color-cta-icon;
+      color: $color-icon;
     }
   }
 }

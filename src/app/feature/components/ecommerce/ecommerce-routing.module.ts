@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EcommerceResolve } from 'src/app/shared/resolve/ecommerce.resolve';
 import { BaseComponent } from './base/base.component';
 import { BillingComponent } from './billing/billing.component';
 import { CartComponent } from './cart/cart.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
       },
       {
         path: 'checkout',
@@ -40,9 +41,12 @@ const routes: Routes = [
       },
       {
         path: '**', // Esta es la ruta comodín para capturar todas las rutas no definidas
-        component: NotFoundComponent // Redirige a la página no encontrada o a cualquier otro componente
+        component: NotFoundComponent, // Redirige a la página no encontrada o a cualquier otro componente
       }
-    ]
+    ],
+    resolve: {
+      process: EcommerceResolve
+    }
   }
 ];
 
