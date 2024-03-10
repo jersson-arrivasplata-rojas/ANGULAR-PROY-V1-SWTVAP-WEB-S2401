@@ -1,87 +1,107 @@
 <footer class="footer-section ">
-  <div class="container">
-      <div class="footer-cta pt-5 pb-5">
-          <div class="row text-center align-items-center">
-              <div class="col-xl-4 col-md-4 mb-30" *ngFor="let item of top">
-                  <div class="single-cta d-flex flex-column">
-                      <i [class]="item?.value" class="mb-2"></i>
-                      <div class="text">
-                          <h4 class="text-white mb-2">{{item?.description}}</h4>
-                          <span class="text-white">
-                            <ng-container *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="footer-content pt-5 pb-5 text-white">
-        <div class="container">
-            <div class="row">
-                <ng-container *ngFor="let data of footerStore;">
-                  <div class="col-xl-4 col-lg-4 mb-50">
-                      <div class="footer-widget">
-                          <div class="footer-text">
-                            <h4 class="text-uppercase">{{data.title}}</h4>
-                            <p>{{data.value}}</p>
-                          </div>
-                          <div class="footer-menu">
-                              <ul class="list-unstyled">
-                                  <li *ngFor="let item of data?.children">
-                                        <a href="#" class="text-white" title="Link">
-                                            <ng-container *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
-                                            {{item?.value}}
-                                        </a>
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row text-center align-items-center">
+                <div class="col-xl-4 col-md-4 mb-30" *ngFor="let item of common">
+                    <div class="single-cta d-flex flex-column">
+                        <i [class]="item?.class" class="mb-2"></i>
+                        <div class="text">
+                            <h4 class="text-white mb-2">{{'ecommerce.common.' + item.title | translate }}</h4>
+                            <a *ngIf="item.title === 'findUs'" [target]="item?.target" [href]="item?.value1()" class="text-white" [title]="item?.value()">
+                                {{item?.value()}}
+                            </a>
+                            <a *ngIf="item.title === 'contactUs'" [href]="'tel:'+item?.value()" class="text-white" [title]="item?.value()">
+                                {{item?.value()}}
+                            </a>
+                            <a *ngIf="item.title === 'sendUsAEmail'" [href]="'mailto:'+item?.value()" class="text-white" [title]="item?.value()">
+                                {{item?.value()}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5 text-white">
+            <div class="container">
+                <div class="row">
+                    <ng-container *ngFor="let data of footerStore;">
+                        <div class="col-xl-4 col-lg-4 mb-50">
+                            <div class="footer-widget">
+                                <div class="footer-text">
+                                    <h4 class="text-uppercase">{{data.title}}</h4>
+                                    <p>{{data.value}}</p>
+                                </div>
+                                <div class="footer-menu">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let item of data?.children">
+                                            <a href="#" class="text-white" title="Link">
+                                                <ng-container
+                                                    *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
+                                                {{item?.value}}
+                                            </a>
 
-                                        <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE" class="subscribe-form mt-2">
-                                            <form action="#">
-                                            <label for="inputField" class="d-none">Enter Value:</label>
-                                            <input type="text" id="inputField" [placeholder]="item?.value1" title="Enter a value">
-                                            <button type="button" title="Send Message">
-                                                <i class="fab fa-telegram-plane"></i>
-                                            </button>
-                                        </form>
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-                </ng-container>
+                                            <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE"
+                                                class="subscribe-form mt-2">
+                                                <form action="#">
+                                                    <label for="inputField" class="d-none">Enter Value:</label>
+                                                    <input type="text" id="inputField" [placeholder]="item?.value1"
+                                                        title="Enter a value">
+                                                    <button type="button" title="Send Message">
+                                                        <i class="fab fa-telegram-plane"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
             </div>
         </div>
     </div>
-  </div>
-  <div class="copyright-area">
-      <div class="container">
-          <div class="row">
-              <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                  <div class="copyright-text text-white">
-                      <p>{{copyright?.value}}</p>
-                  </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                  <div class="footer-menu">
-                      <ul>
-                          <li *ngFor="let data of menu;">
-                            <a class="text-white" href="#">{{data?.value}}</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                    <div class="copyright-text text-white">
+                        <p>{{ 'ecommerce.copyright' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                    <div class="footer-menu">
+                        <ul>
+                            <li *ngFor="let item of menuBottom;">
+                                <a *ngIf="item?.title === 'home'" class="text-white" [routerLink]="item?.link" >
+                                    {{ 'ecommerce.menu.home.title' | translate }}
+                                </a>
+                                <a *ngIf="item?.title === 'guideAndHelp'" class="text-white" [routerLink]="item?.link" >
+                                    {{ 'ecommerce.menu.guideAndHelp.items.item2' | translate }}
+                                </a>
+                                <a *ngIf="item?.title === 'contactus'" class="text-white" [routerLink]="item?.link" >
+                                    {{ 'ecommerce.menu.contactus.title' | translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <ng-template #showNgTemplateContent let-item="item">
-    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_EMAIL || item?.code === homeEnum.FOOTER_TOP_MAIL_US">
+    <ng-container
+        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_EMAIL || item?.code === homeEnum.FOOTER_TOP_MAIL_US">
         {{profileStore?.email}}
     </ng-container>
-    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_ADDRESS || item?.code === homeEnum.FOOTER_TOP_FIND_US">
+    <ng-container
+        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_ADDRESS || item?.code === homeEnum.FOOTER_TOP_FIND_US">
         {{profileStore?.address}}
     </ng-container>
-    <ng-container *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_CELLPHONE || item?.code === homeEnum.FOOTER_TOP_CALL_US">
+    <ng-container
+        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_CELLPHONE || item?.code === homeEnum.FOOTER_TOP_CALL_US">
         {{profileStore?.cellphone}}
     </ng-container>
 </ng-template>

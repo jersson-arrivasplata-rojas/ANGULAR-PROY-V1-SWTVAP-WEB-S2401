@@ -2,8 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, LOCALE_ID, NgModule } from '@angu
 import { BrowserModule } from '@angular/platform-browser';
 
 import { registerLocaleData } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import localeEs from '@angular/common/locales/es';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -11,6 +13,11 @@ import { BaseComponent } from './feature/components/base/base.component';
 import { FeatureModule } from './feature/feature.module';
 import { ErrorHandlerService } from './shared/errors/error-handler.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+
+// Function for loading translation files
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 registerLocaleData(localeEs);
 @NgModule({
@@ -24,6 +31,13 @@ registerLocaleData(localeEs);
     FeatureModule,
     CoreModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es' },

@@ -129,6 +129,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
+import { TranslateModule } from '@ngx-translate/core';
 import { BillingInfoComponent } from './components/billings/billing-info/billing-info.component';
 import { CartAddComponent } from './components/cart/cart-add/cart-add.component';
 import { CheckoutCartComponent } from './components/checkouts/checkout-cart/checkout-cart.component';
@@ -517,7 +518,8 @@ import { ServicesModule } from './services/services.module';
     LaddaModule,
     ServicesModule,
     HttpModule,
-    ResolveModule
+    ResolveModule,
+    TranslateModule
   ],
 })
 export class SharedModule { }

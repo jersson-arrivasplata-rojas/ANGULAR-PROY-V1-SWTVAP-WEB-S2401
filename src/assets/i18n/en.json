@@ -1,0 +1,199 @@
+{
+    "ecommerce": {
+        "pages": {
+            "notFound": {
+                "title": "Page Not Found",
+                "description": "Sorry, the page you are looking for is not available.",
+                "goToHome": "Go to Home Page",
+                "status": "404"
+            },
+            "contact": {
+                "title": "Contact Us",
+                "description": "If you have any questions, do not hesitate to contact us. Our team will be happy to help.",
+                "form": {
+                    "title": "Contact Form",
+                    "name": "Name",
+                    "email": "Email",
+                    "message": "Message",
+                    "send": "Send",
+                    "success": "Thank you for contacting us!",
+                    "error": "Oops! Something went wrong. Please try again."
+                }
+            },
+            "cart": {
+                "title": "Shopping Cart",
+                "empty": "Your cart is empty",
+                "emptyDescription": "It seems that you have not added any products to your cart yet.",
+                "removeAll": "Remove all products",
+                "items": {
+                    "item1": "Product",
+                    "item2": "Price",
+                    "item3": "Quantity",
+                    "item4": "Subtotal",
+                    "item5": "Remove",
+                    "item6": "Cart ({{text}} products)",
+                    "item7": "Remove product",
+                    "item8": "Are you sure you want to remove this product?",
+                    "item9": "Cancel"
+                },
+                "total": "Total",
+                "checkout": "Checkout",
+                "continueShopping": "Continue Shopping",
+                "addToCart": "Add to Cart",
+                "totalAmountOf": "The total amount of",
+                "temporaryAmount": "Temporary Amount",
+                "totalAmount": "The total amount of",
+                "notIncludingMobility": "(Does not include mobility)",
+                "goToCart": "Go to Cart",
+                "goToCheckout": "Go to Checkout"
+            },
+            "checkout": {
+                "title": "Checkout",
+                "form": {
+                    "title": "Payment Form",
+                    "caption": "Payment Information",
+                    "name": "Name",
+                    "email": "Email",
+                    "phone": "Phone",
+                    "address": "Address",
+                    "address2": "Address 2",
+                    "reference": "Reference",
+                    "country": "Country",
+                    "postalCode": "Postal Code",
+                    "paymentMethod": "Payment Method",
+                    "creditCard": "Credit Card",
+                    "debitCard": "Debit Card",
+                    "cardNumber": "Card Number",
+                    "expirationDate": "Expiration Date",
+                    "cvv": "CVV",
+                    "pay": "Pay",
+                    "success": "Thank you for your purchase!",
+                    "error": "Oops! Something went wrong. Please try again.",
+                    "loading": "Loading...",
+                    "confirmBuy": "Confirm Purchase",
+                    "yourCart": "Your Cart",
+                    "total": "Total"
+                }
+            },
+            "order": {
+                "description": "Thank you for your purchase. Your order has been confirmed and will be shipped shortly.",
+                "date": "Date",
+                "shippingAddress": "Shipping Address",
+                "paymentMethod": "Payment Method",
+                "shippingMethod": "Shipping Method",
+                "shippingCost": "Shipping Cost",
+                "total": "Total",
+                "items": {
+                    "item1": "Product",
+                    "item2": "Price",
+                    "item3": "Quantity",
+                    "item4": "Subtotal"
+                },
+                "title": "Billing",
+                "success": "Thank you for your purchase! {{name}}. Your order has been placed successfully and we will validate the payment information.",
+                "orderDate": "Order Date: {{date}}",
+                "orderNumber": "Order Number: {{number}}",
+                "orderTotal": "Order Total: {{total}}",
+                "orderDetails": "Order Details",
+                "orderItems": "Products",
+                "orderSubtotal": "Subtotal",
+                "orderShipping": "Shipping",
+                "from": "From",
+                "to": "To",
+                "status": {
+                    "title": "Order Status",
+                    "processing": "Processing",
+                    "shipped": "Shipped",
+                    "delivered": "Delivered",
+                    "canceled": "Canceled"
+                },
+                "printReceipt": "Print Receipt",
+                "newOrder": "Place a New Order"
+            }
+        },
+        "common": {
+            "sendUsAEmail": "Send Us an Email",
+            "callUs": "Call Us",
+            "chatWithUs": "Chat With Us",
+            "contactUs": "Contact Us",
+            "findUs": "Find Us",
+            "orderByName (A to Z)": "Order by Name (A to Z)",
+            "orderByName (Z to A)": "Order by Name (Z to A)",
+            "orderByPrice (Low to High)": "Order by Price (Low to High)",
+            "orderByPrice (High to Low)": "Order by Price (High to Low)",
+            "searchByProductName": "Search by Product Name",
+            "productSearch": "Product Search",
+            "allCategories": "All Categories"
+        },
+        "lang": {
+            "es": "Spanish",
+            "en": "English"
+        },
+        "currency": {
+            "pen": "Soles (PEN)",
+            "usd": "Dollars (USD)"
+        },
+        "copyright": "Copyright © 2024, All rights reserved Sumac Chasca Perú S.A.C.",
+        "menu": {
+            "home": {
+                "title": "Home"
+            },
+            "services": {
+                "title": "Services",
+                "items": {
+                    "item1": "Site Map",
+                    "item2": "Product Return",
+                    "item3": "Customer Support",
+                    "item4": "Contact Us"
+                }
+            },
+            "contactus": {
+                "title": "Contact Us"
+            },
+            "subscribe": {
+                "title": "Subscribe to the Newsletter",
+                "items": {
+                    "item1": "Enter Your Email Address To Be Part of Our Mailing List And Stay Updated.",
+                    "item2": "Email"
+                }
+            },
+            "guideAndHelp": {
+                "title": "Guide & Help",
+                "items": {
+                    "item1": "Frequently Asked Questions",
+                    "item2": "Privacy Policy",
+                    "item3": "Terms And Conditions"
+                }
+            },
+            "aboutUs": {
+                "title": "About Sumac Chasca Perú S.A.C.",
+                "items": {
+                    "item1": "Privacy Policies",
+                    "item2": "About Us",
+                    "item3": "Shipping Methods"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Benefits",
+            "items": {
+                "item1": {
+                    "title": "USER EXPERIENCE",
+                    "description": "We manage a better user experience to display the products."
+                },
+                "item2": {
+                    "title": "RETURNS",
+                    "description": "Easy exchanges and returns."
+                },
+                "item3": {
+                    "title": "PAYMENT OPTIONS",
+                    "description": "Credit cards: Visa, Master Card Deposits: Scotiabank"
+                },
+                "item4": {
+                    "title": "SAFE SITE",
+                    "description": "We protect your data, shop with peace from the comfort of your home."
+                }
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BaseComponent } from './base/base.component';
 import { BillingComponent } from './billing/billing.component';
@@ -11,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PoliticsAndPrivacyComponent } from './politics-and-privacy/politics-and-privacy.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
 
@@ -26,6 +28,7 @@ import { ProductsComponent } from './products/products.component';
     CheckoutComponent,
     ProductComponent,
     NotFoundComponent,
+    PoliticsAndPrivacyComponent,
   ],
   imports: [
     EcommerceRoutingModule,
@@ -34,6 +37,7 @@ import { ProductsComponent } from './products/products.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

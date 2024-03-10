@@ -2,16 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'swtvap-ecommerce-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  selector: 'swtvap-ecommerce-politics-and-privacy',
+  templateUrl: './politics-and-privacy.component.html',
+  styleUrls: ['./politics-and-privacy.component.scss'],
 })
-export class ContactComponent implements OnInit {
-  contactDetails = {
-    name: '',
-    email: '',
-    details: ''
-  };
+export class PoliticsAndPrivacyComponent implements OnInit {
 
   lang: string;
   footer: any;
@@ -19,7 +14,6 @@ export class ContactComponent implements OnInit {
   currency: any;
   carrousel: any;
   proposal: any;
-
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -33,9 +27,7 @@ export class ContactComponent implements OnInit {
     this.lang = lang;
   }
 
-  submitContactForm() {
-    // Aquí iría la lógica para enviar la información de contacto, por ejemplo:
-    console.log(this.contactDetails);
-    // Podrías añadir aquí la lógica para enviar estos datos a un servidor o API
+  cart($event) {
+    this.router.navigate(['/cart']);
   }
 }

@@ -11,6 +11,7 @@ import { SeoService } from './seo.service';
 import { SlowComponentResolverService } from './slow-component-resolver.service';
 import { StorageService } from './storage.service';
 import { TokenService } from './token.service';
+import { TranslateService } from './translate.service';
 import { WindowService } from './window.service';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { WindowService } from './window.service';
     TokenService,
     CartService,
     StorageService,
+    TranslateService,
   ]
 })
 export class ServicesModule { }

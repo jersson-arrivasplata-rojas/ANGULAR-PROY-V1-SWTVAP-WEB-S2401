@@ -8,6 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PoliticsAndPrivacyComponent } from './politics-and-privacy/politics-and-privacy.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'c/:name',
         component: ProductComponent
+      },
+      {
+        path: 'politicsAndPrivacy',
+        component: PoliticsAndPrivacyComponent
       },
       {
         path: '**', // Esta es la ruta comodín para capturar todas las rutas no definidas

@@ -40,7 +40,7 @@ header {
     height: 30px;
     justify-content: flex-end;
     margin: 0 auto;
-    max-width: 1300px;
+    /*max-width: 1300px;*/
     width: 100%;
 
     span {
@@ -58,10 +58,10 @@ header {
 .container {
   align-items: center;
   display: flex;
-  height: 100px;
+  height: 65px;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1300px;
+  /*max-width: 1300px;*/
   padding: 0 15px;
   position: relative;
   width: 100%;
@@ -262,7 +262,7 @@ header {
   align-items: center;
   display: flex;
   margin: 0 auto;
-  max-width: 1300px;
+  /*max-width: 1300px;*/
   width: 100%;
 
   // ul list category featured
@@ -344,6 +344,7 @@ header {
       cursor: pointer;
       display: flex;
       position: relative;
+      margin-bottom: 0px;
     }
     // input menu all
     .input-menu-all {
@@ -451,7 +452,7 @@ header {
   align-items: center;
   display: flex;
   margin: 0 auto;
-  max-width: 1300px;
+  /*max-width: 1300px;*/
   width: 100%;
 
   // ul list category featured

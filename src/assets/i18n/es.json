@@ -1,0 +1,200 @@
+{
+    "ecommerce": {
+        "pages": {
+            "notFound": {
+                "title": "Página no encontrada",
+                "description": "Lo sentimos, la página que buscas no se encuentra disponible.",
+                "goToHome": "Ir a la página de inicio",
+                "status": "404"
+            },
+            "contact": {
+                "title": "Contáctanos",
+                "description": "Si tienes alguna pregunta, no dudes en contactarnos. Nuestro equipo estará encantado de ayudarte.",
+                "form": {
+                    "title": "Formulario de contacto",
+                    "name": "Nombre",
+                    "email": "Correo electrónico",
+                    "message": "Mensaje",
+                    "send": "Enviar",
+                    "success": "¡Gracias por contactarnos!",
+                    "error": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo."
+                }
+            },
+            "cart": {
+                "title": "Carrito de Compras",
+                "empty": "Tu carrito está vacío",
+                "emptyDescription": "Parece que aún no tienes productos en tu carrito.",
+                "removeAll": "Eliminar todos los productos",
+                "items": {
+                    "item1": "Producto",
+                    "item2": "Precio",
+                    "item3": "Cantidad",
+                    "item4": "Subtotal",
+                    "item5": "Eliminar",
+                    "item6": "Carrito ({{text}} productos)",
+                    "item7": "Eliminar producto",
+                    "item8": "¿Estás seguro de que quieres eliminar este producto?",
+                    "item9": "Cancelar"
+                },
+                "total": "Total",
+                "checkout": "Pagar",
+                "continueShopping": "Seguir comprando",
+                "addToCart": "Agregar al carrito",
+                "totalAmountOf": "El monto total de",
+                "temporaryAmount": "Monto temporal",
+                "totalAmount": "El monto total de",
+                "notIncludingMobility": "(No incluye movilidad)",
+                "goToCart": "Ir al carrito",
+                "goToCheckout": "Ir a pagar"
+            },
+            "checkout": {
+                "title": "Pagar",
+                "form": {
+                    "title": "Formulario de pago",
+                    "caption": "Información de pago",
+                    "name": "Nombre",
+                    "email": "Correo electrónico",
+                    "phone": "Teléfono",
+                    "address": "Dirección",
+                    "address2": "Dirección 2",
+                    "reference": "Referencia",
+                    "country": "País",
+                    "postalCode": "Código postal",
+                    "paymentMethod": "Método de pago",
+                    "creditCard": "Tarjeta de crédito",
+                    "debitCard": "Tarjeta de débito",
+                    "cardNumber": "Número de tarjeta",
+                    "expirationDate": "Fecha de expiración",
+                    "cvv": "CVV",
+                    "pay": "Pagar",
+                    "success": "¡Gracias por tu compra!",
+                    "error": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.",
+                    "loading": "Cargando...",
+                    "confirmBuy": "Confirmar compra",
+                    "yourCart": "Tu carrito",
+                    "total": "Total"
+                }
+            },
+            "order": {
+                "description": "Gracias por tu compra. Tu pedido ha sido confirmado y será enviado en breve.",
+                "date": "Fecha",
+                "shippingAddress": "Dirección de envío",
+                "paymentMethod": "Método de pago",
+                "shippingMethod": "Método de envío",
+                "shippingCost": "Costo de envío",
+                "total": "Total",
+                "items": {
+                    "item1": "Producto",
+                    "item2": "Precio",
+                    "item3": "Cantidad",
+                    "item4": "Subtotal"
+                },
+                "title": "Facturación",
+                "success": "¡Gracias por su compra! {{name}}. Su orden fue realizada correctamente y será validará la información de pago.",
+                "orderDate": "Día del pedido: {{date}}",
+                "orderNumber": "Número de pedido: {{number}}",
+                "orderTotal": "Total del pedido: {{total}}",
+                "orderDetails": "Detalles del pedido",
+                "orderItems": "Productos",
+                "orderSubtotal": "Subtotal",
+                "orderShipping": "Envío",
+                "from": "De",
+                "to": "Para",
+                "status": {
+                    "title": "Estado del pedido",
+                    "processing": "Procesando",
+                    "shipped": "Enviado",
+                    "delivered": "Entregado",
+                    "canceled": "Cancelado"
+                },
+                "printReceipt": "Imprimir comprobante",
+                "newOrder": "Realizar un nuevo pedido"
+            }
+        },
+        "common": {
+            "sendUsAEmail": "Envíanos un correo",
+            "callUs": "Llámanos",
+            "chatWithUs": "Chatea con nosotros",
+            "contactUs": "Contáctanos",
+            "findUs": "Encuéntranos",
+            "orderByName (A a Z)": "Ordenar por nombre (A a Z)",
+            "orderByName (Z a A)": "Ordenar por nombre (Z a A)",
+            "orderByPrice (Low to High)": "Ordenar por precio (Menor a Mayor)",
+            "orderByPrice (High to Low)": "Ordenar por precio (Mayor a Menor)",
+            "searchByProductName": "Buscar por nombre de producto",
+            "productSearchs": "Búsqueda de producto",
+            "allCategories": "Todas las categorías",
+            "goToLogin": "Ir a iniciar sesión"
+        },
+        "lang": {
+            "es": "Español",
+            "en": "Inglés"
+        },
+        "currency": {
+            "pen": "Soles (PEN)",
+            "usd": "Dólares (USD)"
+        },
+        "copyright": "Copyright © 2024, Todos los derechos reservados Sumac Chasca Perú S.A.C.",
+        "menu": {
+            "home": {
+                "title": "Inicio"
+            },
+            "services": {
+                "title": "Servicios",
+                "items": {
+                    "item1": "Mapa Del Sitio",
+                    "item2": "Devolución De Producto",
+                    "item3": "Atención Al Cliente",
+                    "item4": "Contáctanos"
+                }
+            },
+            "contactus": {
+                "title": "Contáctenos"
+            },
+            "subscribe": {
+                "title": "Suscríbirte Al Boletín Informátivo",
+                "items": {
+                    "item1": "Ingrese Su Dirección De Correo Electrónico Para Ser Parte De Nuestra Lista De Correos Y Manténgase Actualizado.",
+                    "item2": "Correo electrónico"
+                }
+            },
+            "guideAndHelp": {
+                "title": "Guía & Ayuda",
+                "items": {
+                    "item1": "Preguntas Frecuentes",
+                    "item2": "Política De Privacidad",
+                    "item3": "Términos Y Condiciones"
+                }
+            },
+            "aboutUs": {
+                "title": "Acerca De Sumac Chasca Perú S.A.C.",
+                "items": {
+                    "item1": "Políticas De Privacidad",
+                    "item2": "Acerca De Nosotros",
+                    "item3": "Formas De Envío"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Beneficios",
+            "items": {
+                "item1": {
+                    "title": "EXPERIENCIA DE USUARIO",
+                    "description": "Manejamos una mejor experiencia de usuario para mostrar los productos."
+                },
+                "item2": {
+                    "title": "DEVOLUCIONES",
+                    "description": "Cambios y devoluciones fáciles."
+                },
+                "item3": {
+                    "title": "OPCIONES DE PAGO",
+                    "description": "Tarjetas de crédito: Visa, Master Card Depósitos: Scotiabank"
+                },
+                "item4": {
+                    "title": "SITIO SEGURO",
+                    "description": "Protegemos tus datos, comprá tranquila desde la comodidad de tu casa."
+                }
+            }
+        }
+    }
+}

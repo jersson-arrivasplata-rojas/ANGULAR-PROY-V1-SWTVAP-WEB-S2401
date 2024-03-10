@@ -21,6 +21,41 @@ export class FooterComponent implements OnInit, OnChanges {
   profileStore: StoreProfile;
   footerStore: any = {};
 
+  common = [
+    {
+      title: 'findUs',
+      class: 'fa-map-marker-alt fas',
+      target: '_blank',
+      value1: () => this.profileStore?.addressMap,
+      value: () => this.profileStore?.address
+    },
+    {
+      title: 'contactUs',
+      class: 'fa-phone fas',
+      value: () => this.profileStore?.cellphone
+    },
+    {
+      title: 'sendUsAEmail',
+      class: 'fa-envelope-open far',
+      value: () => this.profileStore?.email
+    },
+  ];
+
+  menuBottom = [
+    {
+      title: 'home',
+      link: '/'
+    },
+    {
+      title: 'guideAndHelp',
+      link: '/politicsAndPrivacy',
+    },
+    {
+      title: 'contactus',
+      link: '/contact',
+    },
+  ]
+
   constructor(private shareDataService: ShareDataService) { }
 
   ngOnInit(): void {

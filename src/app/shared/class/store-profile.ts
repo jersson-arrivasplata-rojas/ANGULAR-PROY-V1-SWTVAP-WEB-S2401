@@ -18,6 +18,9 @@ export class StoreProfile {
     @ConfigValue('ADDRESS')
     address: string;
 
+    @ConfigValue('ADDRESS_MAP')
+    addressMap: string;
+
     constructor(config: any) {
         this.data = config;
     }

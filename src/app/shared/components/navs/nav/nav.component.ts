@@ -7,6 +7,7 @@ import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interfac
 import { CartService } from 'src/app/shared/services/cart.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -22,6 +23,7 @@ export class NavComponent implements OnChanges {
   @Input() currency: ParameterInterface | any = {};
   @Input() lang: string;
   @Input() hideNotCart: boolean = false;
+  @Input() hideCurrency: boolean = false;
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;
@@ -29,7 +31,7 @@ export class NavComponent implements OnChanges {
   currencyStore: StoreCurrency;
 
   constructor(private localStorageService: LocalStorageService, private shareDataService: ShareDataService,
-    public cartService: CartService) { }
+    public cartService: CartService, private translateService: TranslateService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['profile'] && changes['profile'].currentValue) {
@@ -43,8 +45,9 @@ export class NavComponent implements OnChanges {
   }
 
   changeLang() {
-    this.localStorageService.setItem('lang', this.lang);
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
+    this.localStorageService.setItem('lang', this.lang);
+    this.translateService.switchLanguage(this.lang);
     this.changeCurrency();
     this.shareDataService.add(this.lang);
   }
