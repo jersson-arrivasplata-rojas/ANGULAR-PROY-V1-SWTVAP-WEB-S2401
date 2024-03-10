@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
@@ -8,7 +8,7 @@ import { StorageService } from 'src/app/shared/services/storage.service';
   templateUrl: './checkout-info.component.html',
   styleUrls: ['./checkout-info.component.scss'],
 })
-export class CheckoutInfoComponent {
+export class CheckoutInfoComponent implements OnInit {
   public checkoutForm: any = {};
   public errorsInfo: any = {};
   @Input('checkoutFields') __checkout: any = {};

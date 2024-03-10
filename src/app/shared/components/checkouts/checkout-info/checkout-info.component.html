@@ -2,7 +2,7 @@
   <div class="form-row">
     <div class="form-group col-md-6" *ngFor="let formFields of __checkout">
       <label for="inputEmail4">{{ formFields.label }}</label>
-      <div *ngIf="formFields.type == 'text'">
+      <div *ngIf="formFields.type === 'text'">
         <input
           type="text"
           class="form-control"
@@ -13,14 +13,29 @@
         <small
           class="form-text text-danger"
           *ngIf="
-            checkoutForm.controls[formFields.uid].status == 'INVALID' &&
+            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
             checkoutForm.controls[formFields.uid].touched
           "
           >{{ formFields.errorMsg }}</small
         >
       </div>
+      <div *ngIf="formFields.type === 'textArea'">
+        <textarea
+          class="form-control"
+          formControlName="{{ formFields.uid }}"
+          placeholder="{{ formFields.placeholder }}"
+        ></textarea>
 
-      <div *ngIf="formFields.type == 'select'">
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
+            checkoutForm.controls[formFields.uid].touched
+          "
+          >{{ formFields.errorMsg }}</small
+        >
+      </div>
+      <div *ngIf="formFields.type === 'select'">
         <select
           id="inputState"
           class="form-control"
@@ -37,7 +52,7 @@
         <small
           class="form-text text-danger"
           *ngIf="
-            checkoutForm.controls[formFields.uid].status == 'INVALID' &&
+            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
             checkoutForm.controls[formFields.uid].touched
           "
           >{{ formFields.errorMsg }}</small
@@ -45,15 +60,15 @@
       </div>
     </div>
   </div>
+  <a href="#" class="btn btn-outline-primary "  (click)="continue();$event.preventDefault()">
+    {{ 'ecommerce.pages.checkout.form.continueShopping' | translate }}
+  </a>
   <button
     type="submit"
-    class="btn btn-sm btn-primary"
+    class="btn btn-success float-right "
     [disabled]="checkoutForm.invalid"
     *ngIf="cart.cartItemsList && cart.cartTotal"
   >
-    Confirmar compra
+    {{ 'ecommerce.pages.checkout.form.confirmBuy' | translate }}
   </button>
-  <a href="#" class="btn btn-sm btn-info float-right"  (click)="continue();$event.preventDefault()">
-    Seguir comprando
-    </a>
 </form>

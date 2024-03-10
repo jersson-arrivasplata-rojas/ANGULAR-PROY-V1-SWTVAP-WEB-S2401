@@ -1,5 +1,4 @@
-
-<div>
-    <swtvap-checkout (onBuy)="buy($event)" (onContinue)="continue($event)"></swtvap-checkout>
-  </div>
-  
+<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" [hideNotCart]="true" [hideCurrency]="true"></swtvap-nav>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="true"></swtvap-header>
+<swtvap-checkout (onBuy)="buy($event)" (onContinue)="continue($event)"></swtvap-checkout>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

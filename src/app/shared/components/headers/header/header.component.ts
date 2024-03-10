@@ -12,15 +12,14 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
-  @Input() profile: ParameterInterface | any = {};
   @Input() carrousel: ParameterInterface | any = {};
-  @Input() proposal: ParameterInterface | any = {};
   @Input() lang: string;
   @Input() hideNotCarrousel: boolean = false;
+  @Input() hideNotBenefit: boolean = false;
 
+  proposal = [ 'item1', 'item2', 'item3', 'item4' ];
   homeEnum = HomeEnum;
   carrouselStore: any = [];
-  proposalStore: any = [];
 
   constructor(private shareDataService: ShareDataService, private activatedRoute: ActivatedRoute) { }
 
@@ -28,20 +27,15 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.shareDataService.getData().pipe(skip(1)).subscribe((data: any) => {
       this.lang = data;
       this.changeCarrousel();
-      this.changeProposal();
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.changeCarrousel();
-    this.changeProposal();
   }
 
   changeCarrousel() {
     this.carrouselStore = this.carrousel?.children.filter((item: any) => item.value2 === this.lang);
   }
 
-  changeProposal() {
-    this.proposalStore = this.proposal?.children.filter((item: any) => item.value2 === this.lang);
-  }
 }

@@ -8,14 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BaseComponent implements OnInit {
   lang: string;
-  footer: any;
   profile: any;
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const { footer, profile, lang } = this.activatedRoute.snapshot.data.process;
+    const { profile, lang } = this.activatedRoute.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
-    this.footer = footer?.[0] ?? {};
     this.lang = lang;
   }
 }

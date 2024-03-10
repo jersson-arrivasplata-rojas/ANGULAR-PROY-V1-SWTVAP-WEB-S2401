@@ -27,15 +27,15 @@
     </a>
   </div>
 
-  <div class="benefits" [ngStyle]="{paddingTop:hideNotCarrousel?'3rem':'auto', paddingBottom:hideNotCarrousel?'3rem':'auto'}">
+  <div class="benefits"  *ngIf="!hideNotBenefit" [ngStyle]="{paddingTop:hideNotCarrousel?'3rem':'auto', paddingBottom:hideNotCarrousel?'3rem':'auto'}">
     <div class="container content">
-      <div *ngFor="let item of proposalStore;" class="content-item" >
+      <div *ngFor="let item of proposal;" class="content-item" >
         <div class="icon">
-          <i class="{{item?.value1}}"></i>
+          <i class="{{ 'ecommerce.benefits.items.'+item+'.icon' | translate }}"></i>
         </div>
         <div class="text">
-          <h2>{{item?.description}}</h2>
-          <p>{{item?.value}}</p>
+          <h2>{{ 'ecommerce.benefits.items.'+item+'.title' | translate }}</h2>
+          <p>{{ 'ecommerce.benefits.items.'+item+'.description' | translate }}</p>
         </div>
       </div>
     </div>

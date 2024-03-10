@@ -2,22 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'swtvap-ecommerce-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  selector: 'swtvap-ecommerce-product-return',
+  templateUrl: './product-return.component.html',
+  styleUrls: ['./product-return.component.scss'],
 })
-export class ContactComponent implements OnInit {
-  contactDetails = {
-    name: '',
-    email: '',
-    details: ''
-  };
+export class ProductReturnComponent implements OnInit {
 
   lang: string;
   profile: any;
   currency: any;
   carrousel: any;
-
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -29,9 +23,7 @@ export class ContactComponent implements OnInit {
     this.lang = lang;
   }
 
-  submitContactForm() {
-    // Aquí iría la lógica para enviar la información de contacto, por ejemplo:
-    console.log(this.contactDetails);
-    // Podrías añadir aquí la lógica para enviar estos datos a un servidor o API
+  cart($event) {
+    this.router.navigate(['/cart']);
   }
 }

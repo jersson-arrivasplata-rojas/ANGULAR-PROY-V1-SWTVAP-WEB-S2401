@@ -1,25 +1,21 @@
 <div
+ [ngStyle]="{marginTop:'3rem', marginBottom:'3rem'}"
 *ngIf="customerDetails && customerDetails.firstName; else emptyBilling"
 >
-<div class="alert alert-success d-print-none" role="alert">
-  Gracias por su compra!
-  <strong
-    >{{ customerDetails.firstName }}
-    {{ customerDetails.lastName }}</strong
-  >. Su orden fue realizada correctamente y sera entregada en
-  <strong>3 dias.</strong>
-  <button class="btn btn-sm btn-info ml-2 mr-1" (click)="print()">
-    Imprimir comprobante</button
-  ><button class="btn btn-sm btn-info ml-1" (click)="clearCart()">
-    Realizar una nueva orden
+<div class="alert alert-success d-print-none" role="alert" [ngStyle]="{borderBottom:'8px',borderRadius:'8px', borderStyle:'none'}">
+  {{ 'ecommerce.pages.order.success' | translate:{name: customerDetails.firstName + ' ' + customerDetails.lastName} }}
+  <button class="btn btn-sm btn-primary ml-2 mr-1" (click)="print()">
+    {{ 'ecommerce.pages.order.printReceipt' | translate }}</button
+  ><button class="btn btn-sm btn-primary ml-2" (click)="clearCart()">
+    {{ 'ecommerce.pages.order.newOrder' | translate }}
   </button>
 </div>
 
 <div class="card">
-  <div class="card-header">
-    Dia del pedido:
+  <div class="card-header" [ngStyle]="{borderBottom:'8px',borderRadius:'8px'}">
+    {{ 'ecommerce.pages.order.orderDate' | translate }}
     <strong>{{ invoiceDate | date: 'd-MMM-yyyy' }}</strong>
-    <span class="float-right"> <strong>Estado:</strong> Pendiente</span>
+    <span class="float-right"> <strong>{{ 'ecommerce.pages.order.status.title' | translate }}:</strong> {{ 'ecommerce.pages.order.status.pending' | translate }}</span>
   </div>
   <div class="card-body">
     <div class="row">
@@ -30,23 +26,23 @@
         />
       </div>
       <div class="col-md-6 text-right">
-        <h4># Factura #{{ invoiceNo }}</h4>
+        <h4># {{ 'ecommerce.pages.order.orderNumber' | translate:{number:invoiceNo} }}</h4>
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-sm-6">
-        <h6 class="mb-3">From:</h6>
+        <h6 class="mb-3">{{ 'ecommerce.pages.order.from' | translate }}:</h6>
         <div>
           <strong>{{ companyDetails.name }}</strong>
         </div>
         <div>{{ companyDetails.address }}</div>
         <div>{{ companyDetails.city }},{{ companyDetails.pincode }}</div>
-        <div>Email: {{ companyDetails.email }}</div>
-        <div>Telefono: {{ companyDetails.phone }}</div>
+        <div>{{ 'ecommerce.pages.checkout.form.email' | translate }}: {{ companyDetails.email }}</div>
+        <div>{{ 'ecommerce.pages.checkout.form.phone' | translate }}: {{ companyDetails.phone }}</div>
       </div>
 
       <div class="col-sm-6">
-        <h6 class="mb-3">To:</h6>
+        <h6 class="mb-3">{{ 'ecommerce.pages.order.to' | translate }}:</h6>
         <div>
           <strong
             >{{ customerDetails.firstName }}
@@ -62,8 +58,8 @@
             customerDetails.zip
           }}
         </div>
-        <div>Email: {{ customerDetails.email }}</div>
-        <div>Telefono: {{ customerDetails.mobile }}</div>
+        <div>{{ 'ecommerce.pages.checkout.form.email' | translate }}: {{ customerDetails.email }}</div>
+        <div>{{ 'ecommerce.pages.checkout.form.phone' | translate }}: {{ customerDetails.mobile }}</div>
       </div>
     </div>
 
@@ -72,8 +68,8 @@
         <thead>
           <tr>
             <th class="center">#</th>
-            <th>Item</th>
-            <th class="right">Costo Unitario</th>
+            <th>{{ 'ecommerce.pages.order.items.item1' | translate }}</th>
+            <th class="right">{{ 'ecommerce.pages.order.items.item3' | translate }}</th>
             <th class="right">Total</th>
           </tr>
         </thead>
@@ -116,19 +112,19 @@
 </div>
 </div>
 <ng-template #emptyBilling>
-<div class="card alert alert-primary">
+<div class="card alert alert-primary mt-4">
   <div class="card-body">
-    Antes de Terminar la compra debe elegir algunos productos!
-    <a href="#" class="btn btn-sm btn-info float-right ml-2" (click)="continue();$event.preventDefault()">Seguir Comprando</a>
+    {{ 'ecommerce.pages.checkout.form.beforeToEndBuyProducts' | translate}}
+    <a href="#" class="btn btn-outline-primary float-right  ml-2" (click)="continue();$event.preventDefault()">{{ 'ecommerce.pages.checkout.form.continueShopping' | translate }}</a>
     &nbsp; &nbsp;
     <a
-      href="#" 
-      class="btn btn-sm btn-info float-right"
+      href="#"
+      class="btn btn-outline-primary float-right text-white"
       (click)="billing();$event.preventDefault()"
       *ngIf="cart.cartItemsList && cart.cartTotal"
     >
-      Terminar la compra</a
-    >
+      {{ 'ecommerce.pages.order.endOrder' | translate }}
+    </a>
   </div>
 </div>
 </ng-template>

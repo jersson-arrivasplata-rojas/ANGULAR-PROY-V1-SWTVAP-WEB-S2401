@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { companyDetailFN } from 'src/app/shared/functions/company-detail.function';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
@@ -8,14 +8,14 @@ import { StorageService } from 'src/app/shared/services/storage.service';
   templateUrl: './billing-info.component.html',
   styleUrls: ['./billing-info.component.scss'],
 })
-export class BillingInfoComponent {
+export class BillingInfoComponent implements OnInit {
   @Output() onContinue: EventEmitter<any> = new EventEmitter();
   @Output() onBilling: EventEmitter<any> = new EventEmitter();
 
   public companyDetails: any = companyDetailFN();
   public customerDetails: any = {};
   public invoiceDate: any = new Date();
-  public billingFlag: any = {};
+  public billingFlag: any = [];
   public invoiceNo: any = Math.floor(Math.random() * 10000);
 
   @Input('allProductList') __allprdts: any = {};
@@ -26,7 +26,8 @@ export class BillingInfoComponent {
     this.customerDetails = this.cart.loadBillingInfo('customerInfo');
     this.cart.allItems = this.__allprdts;
     this.cart.listCartItems();
-    this.billingFlag = JSON.parse(this.storage.get('mycart'));
+    const cart = this.storage.get('mycart');
+    this.billingFlag = JSON.stringify(cart);
   }
   clearCart() {
     let temp = {};

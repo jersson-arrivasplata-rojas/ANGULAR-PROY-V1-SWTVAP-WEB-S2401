@@ -58,7 +58,7 @@
           </div>
         </li>
         <li class="nav-content-item">
-          <a class="nav-content-link" href="#" title="Link Text" (click)="cart();$event.preventDefault()">
+          <a class="nav-content-link" routerLink="/cart" title="Link Text" (click)="cart();$event.preventDefault()">
             <i class="fas fa-shopping-cart"></i>
             <span class="badge badge-secondary text-white">{{cartService.cartItemsList.length?cartService.cartItemsList.length:0 }}</span>
           </a>

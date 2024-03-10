@@ -24,39 +24,126 @@
         <div class="footer-content pt-5 pb-5 text-white">
             <div class="container">
                 <div class="row">
-                    <ng-container *ngFor="let data of footerStore;">
-                        <div class="col-xl-4 col-lg-4 mb-50">
-                            <div class="footer-widget">
-                                <div class="footer-text">
-                                    <h4 class="text-uppercase">{{data.title}}</h4>
-                                    <p>{{data.value}}</p>
-                                </div>
-                                <div class="footer-menu">
-                                    <ul class="list-unstyled">
-                                        <li *ngFor="let item of data?.children">
-                                            <a href="#" class="text-white" title="Link">
-                                                <ng-container
-                                                    *ngTemplateOutlet="showNgTemplateContent; context: { item: item }"></ng-container>
-                                                {{item?.value}}
-                                            </a>
-
-                                            <div *ngIf="item?.code === homeEnum.FOOTER_NEWSLETTER_MESSAGE"
-                                                class="subscribe-form mt-2">
-                                                <form action="#">
-                                                    <label for="inputField" class="d-none">Enter Value:</label>
-                                                    <input type="text" id="inputField" [placeholder]="item?.value1"
-                                                        title="Enter a value">
-                                                    <button type="button" title="Send Message">
-                                                        <i class="fab fa-telegram-plane"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <h4 class="text-uppercase"></h4>
+                                <p>{{ 'ecommerce.menu.contactus.title' | translate }}</p>
+                            </div>
+                            <div class="footer-menu">
+                                <ul class="list-unstyled">
+                                    <li *ngFor="let item of common">
+                                        <a *ngIf="item.title === 'findUs'" [target]="item?.target" [href]="item?.value1()" class="text-white" [title]="item?.value()">
+                                            {{item?.value()}}
+                                        </a>
+                                        <a *ngIf="item.title === 'contactUs'" [href]="'tel:'+item?.value()" class="text-white" [title]="item?.value()">
+                                            {{item?.value()}}
+                                        </a>
+                                        <a *ngIf="item.title === 'sendUsAEmail'" [href]="'mailto:'+item?.value()" class="text-white" [title]="item?.value()">
+                                            {{item?.value()}}
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </ng-container>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <h4 class="text-uppercase"></h4>
+                                <p>{{ 'ecommerce.menu.aboutUs.title' | translate }}</p>
+                            </div>
+                            <div class="footer-menu">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a routerLink="/politics-and-privacy" class="text-white" [title]="'ecommerce.menu.aboutUs.items.item1' | translate">
+                                            {{ 'ecommerce.menu.aboutUs.items.item1' | translate }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/about-us" class="text-white" [title]="'ecommerce.menu.aboutUs.items.item2' | translate">
+                                            {{ 'ecommerce.menu.aboutUs.items.item2' | translate }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/shipping-methods" class="text-white" [title]="'ecommerce.menu.aboutUs.items.item3' | translate">
+                                            {{ 'ecommerce.menu.aboutUs.items.item3' | translate }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <h4 class="text-uppercase"></h4>
+                                <p>{{ 'ecommerce.menu.subscribe.title' | translate }}</p>
+                            </div>
+                            <div class="footer-menu">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <span class="text-white">{{ 'ecommerce.menu.subscribe.items.item1' | translate }}</span>
+                                        <div class="subscribe-form mt-2">
+                                            <form action="#">
+                                                <label for="inputField" class="d-none">Enter Value:</label>
+                                                <input type="text" id="inputField" [placeholder]="'ecommerce.menu.subscribe.items.item2' | translate"
+                                                    title="Enter a value">
+                                                <button type="submit" title="Send Message">
+                                                    <i class="fab fa-telegram-plane"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <h4 class="text-uppercase"></h4>
+                                <p>{{ 'ecommerce.menu.guideAndHelp.title' | translate }}</p>
+                            </div>
+                            <div class="footer-menu">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a routerLink="/frequently-asked-questions" class="text-white" [title]="'ecommerce.menu.guideAndHelp.items.item1' | translate">
+                                            {{ 'ecommerce.menu.guideAndHelp.items.item1' | translate }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <h4 class="text-uppercase"></h4>
+                                <p>{{ 'ecommerce.menu.services.title' | translate }}</p>
+                            </div>
+                            <div class="footer-menu">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a routerLink="/product-return" class="text-white" [title]="'ecommerce.menu.services.items.item1' | translate">
+                                            {{ 'ecommerce.menu.services.items.item1' | translate }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/customer-support" class="text-white" [title]="'ecommerce.menu.services.items.item2' | translate">
+                                            {{ 'ecommerce.menu.services.items.item2' | translate }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/contact-us" class="text-white" [title]="'ecommerce.menu.services.items.item3' | translate">
+                                            {{ 'ecommerce.menu.services.items.item3' | translate }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,18 +177,3 @@
         </div>
     </div>
 </footer>
-
-<ng-template #showNgTemplateContent let-item="item">
-    <ng-container
-        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_EMAIL || item?.code === homeEnum.FOOTER_TOP_MAIL_US">
-        {{profileStore?.email}}
-    </ng-container>
-    <ng-container
-        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_ADDRESS || item?.code === homeEnum.FOOTER_TOP_FIND_US">
-        {{profileStore?.address}}
-    </ng-container>
-    <ng-container
-        *ngIf="item?.code === homeEnum.FOOTER_CONTACTUS_MESSAGE_CELLPHONE || item?.code === homeEnum.FOOTER_TOP_CALL_US">
-        {{profileStore?.cellphone}}
-    </ng-container>
-</ng-template>

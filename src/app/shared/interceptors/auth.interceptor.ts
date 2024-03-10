@@ -16,8 +16,8 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private authHttp: AuthHttp,
     private localService: LocalService,
-    private tokenService: TokenService
-  ) { }
+    private tokenService: TokenService) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (Object.values(ServiceWhiteEnum).some(route => req.url.includes(route))) {

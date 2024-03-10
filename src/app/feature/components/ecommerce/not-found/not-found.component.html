@@ -1,3 +1,4 @@
-<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" [hideNotCart]="true"></swtvap-nav>
-<swtvap-header *ngIf="lang" [lang]="lang" [profile]="profile" [carrousel]="carrousel" [proposal]="proposal"></swtvap-header>
-<swtvap-not-found *ngIf="notFoundStore && notFoundStore.length>0" [status]="status" [title]="title" [message]="message"></swtvap-not-found>
+<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" [hideNotCart]="true" [hideCurrency]="true"></swtvap-nav>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="true"></swtvap-header>
+<swtvap-not-found [status]="status" [title]="title" [message]="message"></swtvap-not-found>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

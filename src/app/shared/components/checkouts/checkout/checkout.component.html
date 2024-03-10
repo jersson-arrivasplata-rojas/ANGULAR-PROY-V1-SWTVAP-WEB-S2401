@@ -1,18 +1,21 @@
-<menu></menu><br />
-<h2 class="text-center font-italic mb-3">Carrito de compra</h2>
-<br />
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 order-md-1">
-      <div class="card">
-        <h5 class="card-header bg-info bg-light">Informacion de Pago</h5>
-        <div class="card-body">
-          <swtvap-checkout-info [checkoutFields]="checkout" (onBuy)="buy($event)" (onContinue)="continue($event)"></swtvap-checkout-info>
+<div [ngStyle]="{marginTop:'3rem', marginBottom:'4rem'}">
+  <h2 class="text-center ">{{ 'ecommerce.pages.cart.title' | translate }}</h2>
+  <br />
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-md-8 order-md-1">
+        <div class="card">
+          <div class="card-header" [ngStyle]="{borderStyle:'none', borderRadius:'8px'}">
+            <h5 class=" mb-0">{{ 'ecommerce.pages.checkout.form.caption' | translate }}</h5>
+          </div>
+          <div class="card-body">
+            <swtvap-checkout-info [checkoutFields]="checkout" (onBuy)="buy($event)" (onContinue)="continue($event)"></swtvap-checkout-info>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 order-md-2 mb-4">
-      <swtvap-checkout-cart *ngIf="cartflag"></swtvap-checkout-cart>
+      <div class="col-md-4 order-md-2 mb-4">
+        <swtvap-checkout-cart *ngIf="cartflag"></swtvap-checkout-cart>
+      </div>
     </div>
   </div>
 </div>

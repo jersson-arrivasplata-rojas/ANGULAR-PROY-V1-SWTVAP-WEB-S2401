@@ -12,4 +12,13 @@ export class TranslateService {
     switchLanguage(language: string) {
         this.translate.use(language);
     }
+
+    getTranslate(text: string) {
+        return this.translate.get(text);
+    }
+
+    getOnLangChange() {
+        return this.translate.onLangChange;
+    }
+    
 }

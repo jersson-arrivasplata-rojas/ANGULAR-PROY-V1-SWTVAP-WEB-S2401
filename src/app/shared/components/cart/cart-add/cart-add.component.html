@@ -1,33 +1,29 @@
 
 <div class="{{showProduct?'': 'pt-4 pb-4 '}} container" [style]="{marginTop:showProduct?'':'2rem'}">
-  <h2 *ngIf="!showProduct; else elseTitleBlock" class="text-center mb-4 mt-4" >Carrito de Compras</h2>
+  <h2 *ngIf="!showProduct; else elseTitleBlock" class="text-center mb-4 mt-4" >{{ 'ecommerce.pages.cart.title' | translate }}</h2>
   <ng-template #elseTitleBlock>
-    <h3 class="text-center mb-2 mt-1" >Carrito de Compras</h3>
+    <h3 class="text-center mb-2 mt-1" >{{ 'ecommerce.pages.cart.title' | translate }}</h3>
   </ng-template>
   <div class="row {{showProduct?'flex-column ': ' mb-4 '}}">
     <div class="{{showProduct?'mb-3 ': 'col-lg-8 col-md-7'}}  col-12">
       <div class="card">
         <div class="d-flex justify-content-between align-items-center">
           <h4 *ngIf="!showProduct; else elseItemBlock" class="mt-2">
-            <span>Cart (</span>
-            <span>{{ cart.cartItemsList.length }}</span>
-            <span> items)</span>
+            <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cart.cartItemsList.length} }}</span>
           </h4>
           <ng-template #elseItemBlock>
             <h5 class="mt-2">
-              <span>Cart (</span>
-              <span>{{ cart.cartItemsList.length }}</span>
-              <span> items)</span>
+              <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cart.cartItemsList.length} }}</span>
             </h5>
           </ng-template>
           <button
             type="button"
-            class="btn-list btn btn-xs btn-default"
+            class="btn-list btn btn-xs btn-default btn-card-removeAll"
             (click)="emptyCart()"
             *ngIf="cart.cartItemsList && cart.cartTotal"
             >
               <i class="fa fa-trash"></i>
-              <span class="ml-2">Remove All</span>
+              <span class="ml-2">{{ 'ecommerce.pages.cart.removeAll' | translate }}</span>
           </button>
         </div>
         <div class="mb-2 pb-3 ">
@@ -97,7 +93,7 @@
                               (click)="removeItem(item?.pid)"
                           >
                               <i class="fa fa-trash"></i>
-                              <span class="ml-2">Remove Item</span>
+                              <span class="ml-2">{{ 'ecommerce.pages.cart.items.item7' | translate }}</span>
                           </button>
                       </div>
                       <div class="d-flex">
@@ -118,18 +114,18 @@
     <div class="{{showProduct?'': 'col-lg-4 col-md-5'}}  col-12">
 
       <div class="card">
-        <h5 *ngIf="!showProduct; else elseTitleAmountBlock" >The total amount of</h5>
+        <h5 *ngIf="!showProduct; else elseTitleAmountBlock" >{{ 'ecommerce.pages.cart.totalAmountOf' | translate }}</h5>
         <ng-template #elseTitleAmountBlock>
-          <h6>The total amount of</h6>
+          <h6>{{ 'ecommerce.pages.cart.totalAmountOf' | translate }}</h6>
         </ng-template>
         <div class="store-item mt-2">
             <div class="row m-0 bottom-line align-items-center justify-content-between">
-              <p>Temporary amount</p>
+              <p>{{ 'ecommerce.pages.cart.temporaryAmount' | translate }}</p>
               <p>${{ cart.cartTotal }}</p>
             </div>
             <div class="mt-2 row m-0">
                 <div class="col-6 pl-0">
-                    <p class="p-total-label text-left"><strong>The total amount of <br/>(Not Including Mobility)</strong></p>
+                    <p class="p-total-label text-left"><strong>{{ 'ecommerce.pages.cart.totalAmountOf' | translate }} <br/>{{ 'ecommerce.pages.cart.notIncludingMobility' | translate }}</strong></p>
                 </div>
                 <div class="col-6 pr-0">
                     <p class="p-total">${{ cart.cartTotal }}</p>
@@ -142,7 +138,7 @@
                   *ngIf="cart.cartItemsList && cart.cartTotal"
                   (click)="checkOut(); $event.preventDefault()"
               >
-                  Go To Checkout
+                {{ 'ecommerce.pages.cart.goToCheckout' | translate }}
               </button>
             </div>
         </div>

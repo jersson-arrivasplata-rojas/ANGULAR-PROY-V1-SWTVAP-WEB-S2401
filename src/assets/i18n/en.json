@@ -53,6 +53,7 @@
                     "title": "Payment Form",
                     "caption": "Payment Information",
                     "name": "Name",
+                    "lastName": "Last Name",
                     "email": "Email",
                     "phone": "Phone",
                     "address": "Address",
@@ -71,8 +72,11 @@
                     "error": "Oops! Something went wrong. Please try again.",
                     "loading": "Loading...",
                     "confirmBuy": "Confirm Purchase",
+                    "continueShopping": "Continue Shopping",
+                    "beforeToEndBuyProducts": "Before to end the buy, you must add products to the cart.",
                     "yourCart": "Your Cart",
-                    "total": "Total"
+                    "total": "Total",
+                    "required": "This field is required"
                 }
             },
             "order": {
@@ -91,7 +95,7 @@
                 },
                 "title": "Billing",
                 "success": "Thank you for your purchase! {{name}}. Your order has been placed successfully and we will validate the payment information.",
-                "orderDate": "Order Date: {{date}}",
+                "orderDate": "Order Date:",
                 "orderNumber": "Order Number: {{number}}",
                 "orderTotal": "Order Total: {{total}}",
                 "orderDetails": "Order Details",
@@ -102,13 +106,15 @@
                 "to": "To",
                 "status": {
                     "title": "Order Status",
+                    "pending": "Pending",
                     "processing": "Processing",
                     "shipped": "Shipped",
                     "delivered": "Delivered",
                     "canceled": "Canceled"
                 },
                 "printReceipt": "Print Receipt",
-                "newOrder": "Place a New Order"
+                "newOrder": "Place a New Order",
+                "endOrder": "End Order"
             }
         },
         "common": {
@@ -117,13 +123,14 @@
             "chatWithUs": "Chat With Us",
             "contactUs": "Contact Us",
             "findUs": "Find Us",
-            "orderByName (A to Z)": "Order by Name (A to Z)",
-            "orderByName (Z to A)": "Order by Name (Z to A)",
-            "orderByPrice (Low to High)": "Order by Price (Low to High)",
-            "orderByPrice (High to Low)": "Order by Price (High to Low)",
+            "orderByNameAZ": "Order by Name (A to Z)",
+            "orderByNameZA": "Order by Name (Z to A)",
+            "orderByPriceLH": "Order by Price (Low to High)",
+            "orderByPriceHL": "Order by Price (High to Low)",
             "searchByProductName": "Search by Product Name",
             "productSearch": "Product Search",
-            "allCategories": "All Categories"
+            "allCategories": "All Categories",
+            "goToLogin": "Go to login"
         },
         "lang": {
             "es": "Spanish",
@@ -141,10 +148,9 @@
             "services": {
                 "title": "Services",
                 "items": {
-                    "item1": "Site Map",
-                    "item2": "Product Return",
-                    "item3": "Customer Support",
-                    "item4": "Contact Us"
+                    "item1": "Product Return",
+                    "item2": "Customer Support",
+                    "item3": "Contact Us"
                 }
             },
             "contactus": {
@@ -168,7 +174,7 @@
             "aboutUs": {
                 "title": "About Sumac Chasca Perú S.A.C.",
                 "items": {
-                    "item1": "Privacy Policies",
+                    "item1": "Privacy & Policies",
                     "item2": "About Us",
                     "item3": "Shipping Methods"
                 }
@@ -179,19 +185,23 @@
             "items": {
                 "item1": {
                     "title": "USER EXPERIENCE",
-                    "description": "We manage a better user experience to display the products."
+                    "description": "We manage a better user experience to display the products.",
+                    "icon": "fas fa-user"
                 },
                 "item2": {
                     "title": "RETURNS",
-                    "description": "Easy exchanges and returns."
+                    "description": "Easy exchanges and returns.",
+                    "icon": "fas fa-sync"
                 },
                 "item3": {
                     "title": "PAYMENT OPTIONS",
-                    "description": "Credit cards: Visa, Master Card Deposits: Scotiabank"
+                    "description": "Credit cards: Visa, Master Card Deposits: Scotiabank",
+                    "icon": "fas fa-credit-card"
                 },
                 "item4": {
                     "title": "SAFE SITE",
-                    "description": "We protect your data, shop with peace from the comfort of your home."
+                    "description": "We protect your data, shop with peace from the comfort of your home.",
+                    "icon": "fas fa-lock"
                 }
             }
         }

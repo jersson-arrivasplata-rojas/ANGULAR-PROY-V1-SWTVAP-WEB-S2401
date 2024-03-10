@@ -12,14 +12,9 @@ import { ShareDataService } from 'src/app/shared/services/share-data.service';
 })
 export class FooterComponent implements OnInit, OnChanges {
   @Input() profile: ParameterInterface | any = {};
-  @Input() footer: ParameterInterface | any = {};
   @Input() lang: string;
   homeEnum = HomeEnum;
-  copyright: any = {};
-  menu: any = [];
-  top: any = [];
   profileStore: StoreProfile;
-  footerStore: any = {};
 
   common = [
     {
@@ -48,13 +43,13 @@ export class FooterComponent implements OnInit, OnChanges {
     },
     {
       title: 'guideAndHelp',
-      link: '/politicsAndPrivacy',
+      link: '/politics-and-privacy',
     },
     {
       title: 'contactus',
-      link: '/contact',
+      link: '/contact-us',
     },
-  ]
+  ];
 
   constructor(private shareDataService: ShareDataService) { }
 
@@ -66,16 +61,12 @@ export class FooterComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['footer'] && changes['footer'].currentValue) {
+    if (changes['profile'] && changes['profile'].currentValue) {
       this.changeByLang();
     }
   }
 
   changeByLang() {
-    this.footerStore = this.footer?.children.filter((item: any) => item.value2 === this.lang && item.code !== HomeEnum.FOOTER_COPYRIGHT && item.code !== HomeEnum.FOOTER_MENU);
-    this.copyright = this.footer?.children.find((item: any) => item.code === HomeEnum.FOOTER_COPYRIGHT).children.find((item: any) => item.value2 === this.lang);
-    this.menu = this.footer?.children.find((item: any) => item.code === HomeEnum.FOOTER_MENU).children.filter((item: any) => item.value2 === this.lang);
-    this.top = this.footer?.children.find((item: any) => item.code === HomeEnum.FOOTER_TOP).children.filter((item: any) => item.value2 === this.lang);
     this.profileStore = new StoreProfile(this.profile);
   }
 }

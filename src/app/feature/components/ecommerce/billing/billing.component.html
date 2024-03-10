@@ -1,3 +1,6 @@
+
+<swtvap-nav *ngIf="lang" [lang]="lang" [profile]="profile" [currency]="currency" [hideNotCart]="true" [hideCurrency]="true"></swtvap-nav>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="true"></swtvap-header>
 <div class="container">
   <swtvap-billing-info
   (onBilling)="billing($event)"
@@ -5,3 +8,4 @@
   [allProductList]="products"
   ></swtvap-billing-info>
 </div>
+<swtvap-header *ngIf="lang" [lang]="lang" [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

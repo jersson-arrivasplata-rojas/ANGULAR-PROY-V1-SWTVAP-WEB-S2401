@@ -3,12 +3,12 @@
     <div class="col-md-9">
       <div class="input-group mb-4 mt-4">
         <div class="input-group-prepend">
-          <div class="input-group-text">Busqueda de productos</div>
+          <div class="input-group-text">{{ 'ecommerce.common.productSearch' | translate }}</div>
         </div>
         <input
           [(ngModel)]="searchText"
           class="form-control"
-          placeholder="Busca tu producto favorito! "
+          [placeholder]="'ecommerce.common.searchByProductName' | translate"
         />
       </div>
     </div>
@@ -16,16 +16,16 @@
       <div class=" mb-4 mt-4">
         <select class="form-control" [(ngModel)]="sortOption" title="Sort Options">
           <option value="product_name|asc"
-            >Ordenar por nombre (A a Z)</option
+            >{{ 'ecommerce.common.orderByNameAZ' | translate }}</option
           >
           <option value="product_name|desc"
-            >Ordenar por nombre (Z a A)</option
+            >{{ 'ecommerce.common.orderByNameZA' | translate }}</option
           >
           <option value="product_price|lth"
-            >Ordenar por precio (Bajo a Alto)</option
+            >{{ 'ecommerce.common.orderByPriceLH' | translate }}</option
           >
           <option value="product_price|htl"
-            >Ordenar por precio (Alto a Bajo)</option
+            >{{ 'ecommerce.common.orderByPriceHL' | translate }}</option
           >
         </select>
       </div>

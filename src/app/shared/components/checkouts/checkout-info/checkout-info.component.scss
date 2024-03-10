@@ -1,3 +1,7 @@
 form .ng-invalid.ng-touched {
   border-color: #dc3545;
 }
+
+.btn-outline-primary:hover {
+  color: var(--white)!important;
+}

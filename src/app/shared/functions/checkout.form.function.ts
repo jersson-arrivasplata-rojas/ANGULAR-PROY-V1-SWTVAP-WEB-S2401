@@ -43,7 +43,7 @@ export function checkoutFormFN() {
       label: 'Direccion 1',
       placeholder: 'Direccion 1',
       uid: 'addressOne',
-      type: 'text',
+      type: 'textArea',
       value: '',
       validation: [Validators.required],
       errorMsg: 'El campo es requerido'
@@ -52,29 +52,9 @@ export function checkoutFormFN() {
       label: 'Direccion 2',
       placeholder: 'Direccion 2',
       uid: 'addressTwo',
-      type: 'text',
+      type: 'textArea',
       value: '',
       validation: [Validators.required],
-      errorMsg: 'El campo es requerido'
-    },
-    {
-      label: 'Departamento',
-      placeholder: 'Departamento',
-      uid: 'state',
-      type: 'select',
-      value: '',
-      validation: [Validators.required],
-      options: [
-        'La Paz',
-        'Santa Cruz',
-        'Cochabamba',
-        'Chuquisaca',
-        'Oruro',
-        'Potosi',
-        'Tarija',
-        'Beni',
-        'Pando'
-      ],
       errorMsg: 'El campo es requerido'
     },
     {

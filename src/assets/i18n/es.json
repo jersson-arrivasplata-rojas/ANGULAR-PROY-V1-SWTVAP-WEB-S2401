@@ -53,6 +53,7 @@
                     "title": "Formulario de pago",
                     "caption": "Información de pago",
                     "name": "Nombre",
+                    "lastName": "Apellido",
                     "email": "Correo electrónico",
                     "phone": "Teléfono",
                     "address": "Dirección",
@@ -71,8 +72,11 @@
                     "error": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.",
                     "loading": "Cargando...",
                     "confirmBuy": "Confirmar compra",
+                    "continueShopping": "Seguir comprando",
+                    "beforeToEndBuyProducts": "Antes de finalizar la compra, debes agregar productos a tu carrito.",
                     "yourCart": "Tu carrito",
-                    "total": "Total"
+                    "total": "Total",
+                    "required": "El campo es requerido"
                 }
             },
             "order": {
@@ -91,7 +95,7 @@
                 },
                 "title": "Facturación",
                 "success": "¡Gracias por su compra! {{name}}. Su orden fue realizada correctamente y será validará la información de pago.",
-                "orderDate": "Día del pedido: {{date}}",
+                "orderDate": "Día del pedido:",
                 "orderNumber": "Número de pedido: {{number}}",
                 "orderTotal": "Total del pedido: {{total}}",
                 "orderDetails": "Detalles del pedido",
@@ -102,13 +106,15 @@
                 "to": "Para",
                 "status": {
                     "title": "Estado del pedido",
+                    "pending": "Pendiente",
                     "processing": "Procesando",
                     "shipped": "Enviado",
                     "delivered": "Entregado",
                     "canceled": "Cancelado"
                 },
                 "printReceipt": "Imprimir comprobante",
-                "newOrder": "Realizar un nuevo pedido"
+                "newOrder": "Realizar un nuevo pedido",
+                "endOrder": "Finalizar pedido"
             }
         },
         "common": {
@@ -117,12 +123,12 @@
             "chatWithUs": "Chatea con nosotros",
             "contactUs": "Contáctanos",
             "findUs": "Encuéntranos",
-            "orderByName (A a Z)": "Ordenar por nombre (A a Z)",
-            "orderByName (Z a A)": "Ordenar por nombre (Z a A)",
-            "orderByPrice (Low to High)": "Ordenar por precio (Menor a Mayor)",
-            "orderByPrice (High to Low)": "Ordenar por precio (Mayor a Menor)",
+            "orderByNameAZ": "Ordenar por nombre (A a Z)",
+            "orderByNameZA": "Ordenar por nombre (Z a A)",
+            "orderByPriceLH": "Ordenar por precio (Menor a Mayor)",
+            "orderByPriceHL": "Ordenar por precio (Mayor a Menor)",
             "searchByProductName": "Buscar por nombre de producto",
-            "productSearchs": "Búsqueda de producto",
+            "productSearch": "Búsqueda de producto",
             "allCategories": "Todas las categorías",
             "goToLogin": "Ir a iniciar sesión"
         },
@@ -142,10 +148,9 @@
             "services": {
                 "title": "Servicios",
                 "items": {
-                    "item1": "Mapa Del Sitio",
-                    "item2": "Devolución De Producto",
-                    "item3": "Atención Al Cliente",
-                    "item4": "Contáctanos"
+                    "item1": "Devolución De Producto",
+                    "item2": "Atención Al Cliente",
+                    "item3": "Contáctanos"
                 }
             },
             "contactus": {
@@ -162,14 +167,14 @@
                 "title": "Guía & Ayuda",
                 "items": {
                     "item1": "Preguntas Frecuentes",
-                    "item2": "Política De Privacidad",
-                    "item3": "Términos Y Condiciones"
+                    "item2": "Políticas & Privacidad",
+                    "item3": "Terminos & Condiciones"
                 }
             },
             "aboutUs": {
                 "title": "Acerca De Sumac Chasca Perú S.A.C.",
                 "items": {
-                    "item1": "Políticas De Privacidad",
+                    "item1": "Políticas & Privacidad",
                     "item2": "Acerca De Nosotros",
                     "item3": "Formas De Envío"
                 }
@@ -180,19 +185,23 @@
             "items": {
                 "item1": {
                     "title": "EXPERIENCIA DE USUARIO",
-                    "description": "Manejamos una mejor experiencia de usuario para mostrar los productos."
+                    "description": "Manejamos una mejor experiencia de usuario para mostrar los productos.",
+                    "icon": "fas fa-user"
                 },
                 "item2": {
                     "title": "DEVOLUCIONES",
-                    "description": "Cambios y devoluciones fáciles."
+                    "description": "Cambios y devoluciones fáciles.",
+                    "icon": "fas fa-sync"
                 },
                 "item3": {
                     "title": "OPCIONES DE PAGO",
-                    "description": "Tarjetas de crédito: Visa, Master Card Depósitos: Scotiabank"
+                    "description": "Tarjetas de crédito: Visa, Master Card Depósitos: Scotiabank",
+                    "icon": "fas fa-credit-card"
                 },
                 "item4": {
                     "title": "SITIO SEGURO",
-                    "description": "Protegemos tus datos, comprá tranquila desde la comodidad de tu casa."
+                    "description": "Protegemos tus datos, comprá tranquila desde la comodidad de tu casa.",
+                    "icon": "fas fa-lock"
                 }
             }
         }
