@@ -1,5 +1,9 @@
 
-<div class="product-container">
+
+<swtvap-nav [profile]="profile"  [hideNotCart]="true" [hideCurrency]="false"></swtvap-nav>
+<swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="false"></swtvap-header>
+
+<div class="card product-container d-flex flex-column align-items-center mt-4 mb-4">
     <div class="d-flex ">
         <div class="product-image">
             <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Fjallraven - Foldsack No. 1 Backpack">
@@ -59,16 +63,17 @@
     
         </div>
     </div>
-    <!-- Sección de comentarios -->
-    <div class="product-comments">
-        <h3>Comentarios del producto</h3>
-        <ul id="comments-list">
-            <!-- Los comentarios se agregarán aquí -->
-        </ul>
-        <h4>Agregar un comentario:</h4>
-        <textarea id="new-comment" rows="4" placeholder="Escribe tu comentario aquí..."></textarea>
-        <button type="button" onclick="addComment()">Enviar comentario</button>
-    </div>
+</div>
+
+<!-- Sección de comentarios -->
+<div class="product-comments">
+    <h3>Comentarios del producto</h3>
+    <ul id="comments-list">
+        <!-- Los comentarios se agregarán aquí -->
+    </ul>
+    <h4>Agregar un comentario:</h4>
+    <textarea id="new-comment" rows="4" placeholder="Escribe tu comentario aquí..."></textarea>
+    <button type="button" onclick="addComment()">Enviar comentario</button>
 </div>
 <script>
     function addComment() {
@@ -80,3 +85,4 @@
         commentBox.value = ''; // Limpiar el área de texto después de enviar
     }
 </script>
+<swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

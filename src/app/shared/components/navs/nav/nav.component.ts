@@ -35,6 +35,7 @@ export class NavComponent implements OnInit, OnDestroy {
 
   private translationsSubscription: Subscription;
   private languageSubscription: Subscription;
+  private currencySubscription: Subscription;
 
   constructor(private localService: LocalStorageService, public cartService: CartService,
     private translateService: TranslateService, private currencyService: CurrencyService) { }
@@ -51,6 +52,7 @@ export class NavComponent implements OnInit, OnDestroy {
     // Asegúrate de desuscribirte de todas las suscripciones
     this.translationsSubscription?.unsubscribe();
     this.languageSubscription?.unsubscribe();
+    this.currencySubscription?.unsubscribe();
   }
 
   subscribeToLanguageChange(): void {
@@ -73,21 +75,24 @@ export class NavComponent implements OnInit, OnDestroy {
   changeCurrency(currency: string) {
     this.localService.setItem('currency', currency);
     this.currencyService.changeCurrency(currency);
+
+
+    //this.cartService.allItems = this.products;
+    this.cartService.loadCart();
+    this.cartService.listCartItems();
   }
 
   changeLang() {
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
     this.translateService.switchLanguage(this.lang);
     this.localService.saveData('lang', this.lang);
-
   }
 
   subscribeToCurrency() {
-    this.currencyService.getCurrenCurrency()
+    this.currencySubscription = this.currencyService.getCurrenCurrency()
       .subscribe((currency: string) => {
         this.currencyActive = CurrencySymbolEnum.PEN == currency ? CurrencyEnum.PEN : CurrencyEnum.USD;
       });
-
   }
 
   cart() {

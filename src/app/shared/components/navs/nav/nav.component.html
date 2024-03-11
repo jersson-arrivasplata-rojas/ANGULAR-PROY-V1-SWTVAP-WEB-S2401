@@ -6,8 +6,13 @@
         <span class="text-white ml-0"> {{ 'ecommerce.common.goToLogin' | translate }}</span>
       </a>
       <div>
-        <span class="text-white"><i class="fas fa-phone-square-alt text-white"></i> {{profileStore?.cellphone}}</span>
-        <span class="text-white"><i class="fas fa-envelope-square text-white"></i> {{profileStore?.email}}</span>
+        
+        <a [href]="'tel:'+profileStore?.cellphone" class="text-white" [title]="profileStore?.cellphone">
+          <span class="text-white"><i class="fas fa-phone-square-alt text-white"></i> {{profileStore?.cellphone}}</span>
+        </a>
+        <a [href]="'mailto:'+profileStore?.email" class="text-white" [title]="profileStore?.email">
+          <span class="text-white"><i class="fas fa-envelope-square text-white"></i> {{profileStore?.email}}</span>
+        </a>
       </div>
     </div>
   </div>

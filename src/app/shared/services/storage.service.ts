@@ -10,6 +10,7 @@ export class StorageService {
   constructor() {
     this.loadStorage();
   }
+  
   loadStorage() {
     let temp = localStorage.getItem(this.storageName);
     if (temp === undefined || temp === null || temp === '') {
@@ -26,6 +27,7 @@ export class StorageService {
     });
     this.store();
   }
+
   store() {
     localStorage.setItem(this.storageName, JSON.stringify(this.data));
   }
@@ -37,10 +39,12 @@ export class StorageService {
       return this.data;
     }
   }
+
   delete(key) {
     delete this.data[key];
     this.store();
   }
+
   deleteAll() {
     this.data = {};
     this.store();

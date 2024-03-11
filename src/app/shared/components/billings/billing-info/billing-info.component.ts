@@ -36,7 +36,7 @@ export class BillingInfoComponent implements OnInit {
     this.__allprdts = this.cartService.allItems;
 
     this.customerDetails = this.cartService.loadBillingInfo('customerInfo');
-    const cart = this.storage.get('mycart');
+    const cart = this.cartService.getStorageCart();
     this.billingFlag = JSON.stringify(cart);
   }
 

@@ -26,7 +26,7 @@
               <span class="ml-2">{{ 'ecommerce.pages.cart.removeAll' | translate }}</span>
           </button>
         </div>
-        <div class="mb-2 pb-3 ">
+        <div class="">
           <ng-container *ngIf="cartService && cartService.cartItemsList">
             <div *ngFor="let item of cartService.cartItemsList; let i = index" class="mb-2 store-item {{i===(cartService.cartItemsList.length-1)?'':'bottom-line'}}">
               <div class="row">

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { CartEnum } from '../config/cart.enum';
+import { CurrencySymbolEnum } from '../config/currency-symbol.enum';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -9,12 +11,14 @@ export class CartService {
   public cartData: any = [];
   public cartItemsList: any = [];
   public cartTotal: any = 0;
-  public cartItemsStorageName = 'mycart';
+  public cartItemsStorageName = '';
 
-  constructor(public storage: StorageService) { }
+  constructor(public storage: StorageService) {
+    this.cartItemsStorageName = this.getCartItemsStorageName();
+  }
 
   loadCart() {
-    let temp = this.storage.get('mycart');
+    let temp = this.getStorageCart();
     if (temp === undefined || temp === '' || temp === null) {
       this.cartData = {};
     } else {
@@ -50,9 +54,11 @@ export class CartService {
   }
 
   storeItems() {
+    const name = this.getCartItemsStorageName();
     this.storage.set({
-      'mycart': this.cartData
+      [name]: this.cartData
     });
+
     this.listCartItems();
   }
 
@@ -89,17 +95,31 @@ export class CartService {
   }
 
   emptyCart() {
+    const name = this.getCartItemsStorageName();
     this.storage.set({
-      mycart: {}
-    })
+      [name]: {}
+    });
   }
 
   loadBillingInfo(name: string) {
     let userBillingInfo = {};
-    if(this.storage.data && this.storage.data.customerInfo){
-      userBillingInfo=this.storage.data.customerInfo;
+    if (this.storage.data && this.storage.data.customerInfo) {
+      userBillingInfo = this.storage.data.customerInfo;
     }
     // Devuelve la información de facturación del usuario
     return userBillingInfo;
   }
+
+  getStorageCart() {
+    const name = this.getCartItemsStorageName();
+    return this.storage.get(name);
+  }
+
+  getCartItemsStorageName() {
+    if (localStorage.getItem('currency') === CurrencySymbolEnum.PEN) {
+      return CartEnum.PEN;
+    }
+    return CartEnum.USD;
+  }
+
 }

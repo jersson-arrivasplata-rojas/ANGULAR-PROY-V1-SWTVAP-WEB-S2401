@@ -1,14 +1,21 @@
+/* Card Component */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #edebeb;
+    transition: box-shadow 0.25s;
+    -webkit-transition: -webkit-box-shadow 0.25s, box-shadow 0.25s;
+}
+
 .product-container {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 100%; // Ajuste para que se adapte al ancho del dispositivo
-    margin: 20px auto; // Centrar el contenedor
-    background-color: white;
+    width: 98%;
     border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center; // Alineación central para todos los elementos
+    margin: auto;
 
     .product-image img {
         width: 100%; // Imagenes responsivas
@@ -21,7 +28,15 @@
         padding: 20px;
         width: 90%; // Asegura que el contenido no toque los bordes en pantallas pequeñas
 
-        .product-name, .product-description, .product-material, .product-dimensions, .product-weight, .product-technique, .product-history, .product-customization, .product-price {
+        .product-name,
+        .product-description,
+        .product-material,
+        .product-dimensions,
+        .product-weight,
+        .product-technique,
+        .product-history,
+        .product-customization,
+        .product-price {
             margin-bottom: 15px; // Espaciado uniforme
         }
 
@@ -30,18 +45,23 @@
             font-size: 20px;
         }
 
-        .product-quantity, .product-type, .product-color, .product-image-type {
+        .product-quantity,
+        .product-type,
+        .product-color,
+        .product-image-type {
             margin-bottom: 10px;
         }
 
-        select, input[type="number"] {
+        select,
+        input[type="number"] {
             padding: 5px;
             margin-left: 5px;
             width: auto; // Autoajuste del ancho para controles de formulario
             display: block; // Asegura que cada elemento se muestre en su propia línea en pantallas pequeñas
         }
 
-        .product-add-to-cart button, .product-comments button {
+        .product-add-to-cart button,
+        .product-comments button {
             background-color: #4CAF50; // Verde para agregar al carrito
             color: white;
             padding: 10px 24px;
@@ -73,7 +93,9 @@
 }
 
 // Media queries para la responsividad
-@media (max-width: 768px) { // Tablets y dispositivos móviles
+@media (max-width: 768px) {
+
+    // Tablets y dispositivos móviles
     .product-info {
         .product-name {
             font-size: 18px; // Texto más pequeño para dispositivos más pequeños
@@ -85,7 +107,9 @@
     }
 }
 
-@media (max-width: 480px) { // Teléfonos móviles
+@media (max-width: 480px) {
+
+    // Teléfonos móviles
     .product-container {
         margin: 10px; // Menor margen para más espacio
     }
@@ -93,7 +117,8 @@
     .product-info {
         padding: 10px; // Menos relleno para más espacio
 
-        .product-add-to-cart button, .product-comments button {
+        .product-add-to-cart button,
+        .product-comments button {
             padding: 8px 16px; // Botones más pequeños para pantallas más pequeñas
         }
     }
