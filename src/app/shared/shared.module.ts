@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -153,6 +153,7 @@ import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
 import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { AddZerosPipe } from './pipes/add-zeros.pipe';
+import { CurrencyCustomPipe } from './pipes/currency.pipe';
 import { EmptyTextPipe } from './pipes/empty-text.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { InitialsPipe } from './pipes/initials.pipe';
@@ -334,6 +335,7 @@ import { ServicesModule } from './services/services.module';
     BillingInfoComponent,
     SwitchButtonDirective,
     SticksPipe,
+    CurrencyCustomPipe,
   ],
   exports: [
     GeneratorCssComponent,
@@ -502,6 +504,7 @@ import { ServicesModule } from './services/services.module';
     BillingInfoComponent,
     SwitchButtonDirective,
     SticksPipe,
+    CurrencyCustomPipe
   ],
   imports: [
     CommonModule,
@@ -519,8 +522,11 @@ import { ServicesModule } from './services/services.module';
     ServicesModule,
     HttpModule,
     ResolveModule,
-    TranslateModule
+    TranslateModule,
   ],
+  providers: [
+    CurrencyPipe
+  ]
 })
 export class SharedModule { }
 //https://swimlane.github.io/ngx-charts/#/ngx-charts/bar-vertical

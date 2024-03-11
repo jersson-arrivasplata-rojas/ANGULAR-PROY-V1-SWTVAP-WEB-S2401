@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription, tap } from 'rxjs';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
+import { CurrencySymbolEnum } from 'src/app/shared/config/currency-symbol.enum';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
 import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { LocalService } from 'src/app/shared/services/local.service';
-import { ShareDataService } from 'src/app/shared/services/share-data.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 import { environment } from 'src/environments/environment';
 
@@ -24,6 +25,7 @@ export class NavComponent implements OnInit, OnDestroy {
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;
+  currencySymbol = CurrencySymbolEnum;
   profileStore: StoreProfile;
   lang = '';
 
@@ -32,8 +34,8 @@ export class NavComponent implements OnInit, OnDestroy {
   private translationsSubscription: Subscription;
   private languageSubscription: Subscription;
 
-  constructor(private localService: LocalService, private shareDataService: ShareDataService,
-    public cartService: CartService, private translateService: TranslateService) { }
+  constructor(private localService: LocalService, public cartService: CartService,
+    private translateService: TranslateService, private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.lang = this.translateService.getCurrentLang();
@@ -64,6 +66,10 @@ export class NavComponent implements OnInit, OnDestroy {
       });
   }
 
+  changeCurrency(currency: string) {
+    this.currencyService.changeCurrency(currency);
+  }
+
   changeLang() {
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
     this.translateService.switchLanguage(this.lang);
@@ -74,9 +80,4 @@ export class NavComponent implements OnInit, OnDestroy {
   cart() {
     this.onCart.emit();
   }
-
-  changeCurrency() {
-
-  }
-
 }

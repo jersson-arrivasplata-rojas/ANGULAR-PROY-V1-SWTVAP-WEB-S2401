@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
@@ -6,26 +6,23 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './cart-add.component.html',
   styleUrls: ['./cart-add.component.scss'],
 })
-export class CartAddComponent implements OnInit {
+export class CartAddComponent  {
   @Output() onCheckOut: EventEmitter<any> = new EventEmitter();
   @Input() showProduct = false;
 
-  constructor(public cart: CartService) {}
+  constructor(public cartService: CartService) {}
 
-  ngOnInit(): void {
-    console.log(this.cart.cartItemsList);
-  }
 
   removeItem(pid){
-    this.cart.removeItem(pid);
+    this.cartService.removeItem(pid);
   }
 
   changeQty(pid, qty, replace) {
     if (qty !== '') {
       qty = parseInt(qty) || 1;
-      this.cart.addToCart(pid, qty, replace);
+      this.cartService.addToCart(pid, qty, replace);
     } else {
-      this.cart.addToCart(pid, 1, replace);
+      this.cartService.addToCart(pid, 1, replace);
     }
   }
 
@@ -34,7 +31,7 @@ export class CartAddComponent implements OnInit {
     //let text = '¡Presiona el bot\xf3n para limpiar todo el carrito!';
 
     if (await confirm(text) === true) {
-      this.cart.emptyCart();
+      this.cartService.emptyCart();
       (window as any).success('¡Limpiado!');
     }
   }

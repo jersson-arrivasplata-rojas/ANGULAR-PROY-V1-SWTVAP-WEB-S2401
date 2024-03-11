@@ -9,26 +9,26 @@
       <div class="card">
         <div class="d-flex justify-content-between align-items-center">
           <h4 *ngIf="!showProduct; else elseItemBlock" class="mt-2">
-            <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cart.cartItemsList.length} }}</span>
+            <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cartService.cartItemsList.length} }}</span>
           </h4>
           <ng-template #elseItemBlock>
             <h5 class="mt-2">
-              <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cart.cartItemsList.length} }}</span>
+              <span>{{ 'ecommerce.pages.cart.items.item6' | translate:{text:cartService.cartItemsList.length} }}</span>
             </h5>
           </ng-template>
           <button
             type="button"
             class="btn-list btn btn-xs btn-default btn-card-removeAll"
             (click)="emptyCart()"
-            *ngIf="cart.cartItemsList && cart.cartTotal"
+            *ngIf="cartService.cartItemsList && cartService.cartTotal"
             >
               <i class="fa fa-trash"></i>
               <span class="ml-2">{{ 'ecommerce.pages.cart.removeAll' | translate }}</span>
           </button>
         </div>
         <div class="mb-2 pb-3 ">
-          <ng-container *ngIf="cart && cart.cartItemsList">
-            <div *ngFor="let item of cart.cartItemsList; let i = index" class="mb-2 store-item {{i===(cart.cartItemsList.length-1)?'':'bottom-line'}}">
+          <ng-container *ngIf="cartService && cartService.cartItemsList">
+            <div *ngFor="let item of cartService.cartItemsList; let i = index" class="mb-2 store-item {{i===(cartService.cartItemsList.length-1)?'':'bottom-line'}}">
               <div class="row">
                 <div class="col-lg-3">
                     <img
@@ -40,9 +40,9 @@
                 <div class="col-lg-9">
                   <div class="d-flex justify-content-between flex-column h-100">
                     <div class="mt-3 mt-lg-0 d-flex align-items-center justify-content-between">
-                      <h4 *ngIf="!showProduct; else elseNameBlock" >$ {{ item?.name }}</h4>
+                      <h4 *ngIf="!showProduct; else elseNameBlock" >{{ item?.name }}</h4>
                       <ng-template #elseNameBlock>
-                        <h5>$ {{ item?.name }}</h5>
+                        <h5>{{ item?.name }}</h5>
                       </ng-template>
                       <div>
                           <div
@@ -97,9 +97,9 @@
                           </button>
                       </div>
                       <div class="d-flex">
-                        <h5 *ngIf="!showProduct; else elsePriceBlock" >$ {{ item?.price }}</h5>
+                        <h5 *ngIf="!showProduct; else elsePriceBlock" >{{ item?.price | currencyCustom }}</h5>
                         <ng-template #elsePriceBlock>
-                          <h6>$ {{ item?.price }}</h6>
+                          <h6> {{ item?.price | currencyCustom  }}</h6>
                         </ng-template>
                       </div>
                     </div>
@@ -121,21 +121,21 @@
         <div class="store-item mt-2">
             <div class="row m-0 bottom-line align-items-center justify-content-between">
               <p>{{ 'ecommerce.pages.cart.temporaryAmount' | translate }}</p>
-              <p>${{ cart.cartTotal }}</p>
+              <p>{{ cartService.cartTotal | currencyCustom }}</p>
             </div>
             <div class="mt-2 row m-0">
                 <div class="col-6 pl-0">
                     <p class="p-total-label text-left"><strong>{{ 'ecommerce.pages.cart.totalAmountOf' | translate }} <br/>{{ 'ecommerce.pages.cart.notIncludingMobility' | translate }}</strong></p>
                 </div>
                 <div class="col-6 pr-0">
-                    <p class="p-total">${{ cart.cartTotal }}</p>
+                    <p class="p-total">{{ cartService.cartTotal | currencyCustom }}</p>
                 </div>
             </div>
             <div class="mt-1 row m-0">
               <button
                   type="button"
                   class="w-100 btn btn-md btn-primary btn-block"
-                  *ngIf="cart.cartItemsList && cart.cartTotal"
+                  *ngIf="cartService.cartItemsList && cartService.cartTotal"
                   (click)="checkOut(); $event.preventDefault()"
               >
                 {{ 'ecommerce.pages.cart.goToCheckout' | translate }}

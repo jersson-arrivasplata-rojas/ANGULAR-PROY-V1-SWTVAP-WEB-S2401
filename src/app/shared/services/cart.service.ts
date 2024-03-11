@@ -11,9 +11,7 @@ export class CartService {
   public cartTotal: any = 0;
   public cartItemsStorageName = 'mycart';
 
-  constructor(public storage: StorageService) {
-    this.loadCart();
-  }
+  constructor(public storage: StorageService) { }
 
   loadCart() {
     let temp = this.storage.get('mycart');

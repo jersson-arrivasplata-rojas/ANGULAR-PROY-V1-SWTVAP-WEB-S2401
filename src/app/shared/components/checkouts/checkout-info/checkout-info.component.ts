@@ -18,7 +18,7 @@ export class CheckoutInfoComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public storage: StorageService,
-    public cart: CartService
+    public cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class CheckoutInfoComponent implements OnInit {
 
   loadForm() {
     let temp = {};
-    let checkoutInfo = this.cart.loadCheckoutInfo('customerInfo');
+    let checkoutInfo = this.cartService.loadCheckoutInfo('customerInfo');
     if (
       checkoutInfo === undefined ||
       checkoutInfo === '' ||

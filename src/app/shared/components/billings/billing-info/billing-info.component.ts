@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { companyDetailFN } from 'src/app/shared/functions/company-detail.function';
+import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
@@ -12,23 +12,45 @@ export class BillingInfoComponent implements OnInit {
   @Output() onContinue: EventEmitter<any> = new EventEmitter();
   @Output() onBilling: EventEmitter<any> = new EventEmitter();
 
-  public companyDetails: any = companyDetailFN();
+  @Input() profile: any;
+
+  public companyDetails: any = {
+    name: '',
+    address: '',
+    city: '',
+    pincode: '',
+    email: '',
+    phone: ''
+  };
   public customerDetails: any = {};
   public invoiceDate: any = new Date();
   public billingFlag: any = [];
   public invoiceNo: any = Math.floor(Math.random() * 10000);
 
-  @Input('allProductList') __allprdts: any = {};
+  __allprdts: any = [];
 
-  constructor(public cart: CartService, public storage: StorageService) {}
+  constructor(public cartService: CartService, public storage: StorageService) { }
 
   ngOnInit() {
-    this.customerDetails = this.cart.loadBillingInfo('customerInfo');
-    this.cart.allItems = this.__allprdts;
-    this.cart.listCartItems();
+    this.changeProfile();
+    this.__allprdts = this.cartService.allItems;
+
+    this.customerDetails = this.cartService.loadBillingInfo('customerInfo');
     const cart = this.storage.get('mycart');
     this.billingFlag = JSON.stringify(cart);
   }
+
+  changeProfile() {
+    const storeProfile = new StoreProfile(this.profile);
+    this.companyDetails = {
+      name: storeProfile.companyName,
+      address: storeProfile.address,
+      city: storeProfile.address,
+      email: storeProfile.email,
+      cellphone: storeProfile.cellphone,
+    };
+  }
+
   clearCart() {
     let temp = {};
     localStorage.setItem(this.storage.storageName, JSON.stringify(temp));
@@ -43,10 +65,15 @@ export class BillingInfoComponent implements OnInit {
     window.print();
   }
 
-  continue(){
+  continue() {
     this.onContinue.emit();
   }
-  billing(){
+  billing() {
     this.onBilling.emit();
+  }
+
+  getTotal() {
+    const total = this.cartService.cartItemsList.reduce((acc, item) => acc + (item.price * item.qty), 0);
+    return total;
   }
 }

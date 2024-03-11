@@ -8,5 +8,10 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class CheckoutCartComponent {
 
-  constructor(public cart: CartService) {}
+  constructor(public cartService: CartService) {}
+
+  getTotal(){
+    const total = this.cartService.cartItemsList.reduce((acc, item) => acc + (item.price * item.qty), 0);
+    return total;
+  }
 }

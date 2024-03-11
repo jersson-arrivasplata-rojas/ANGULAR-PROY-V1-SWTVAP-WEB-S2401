@@ -89,8 +89,8 @@
                 "total": "Total",
                 "items": {
                     "item1": "Product",
-                    "item2": "Price",
-                    "item3": "Quantity",
+                    "item2": "Quantity",
+                    "item3": "Price",
                     "item4": "Subtotal"
                 },
                 "title": "Billing",
@@ -139,6 +139,10 @@
         "currency": {
             "pen": "Soles (PEN)",
             "usd": "Dollars (USD)"
+        },
+        "currencySymbol": {
+            "pen": "S/",
+            "usd": "$"
         },
         "copyright": "Copyright © 2024, All rights reserved Sumac Chasca Perú S.A.C.",
         "menu": {

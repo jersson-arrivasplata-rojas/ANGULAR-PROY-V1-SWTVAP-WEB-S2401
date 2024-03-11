@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
@@ -6,22 +6,25 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent {
-  constructor(public cart: CartService) {}
+export class ProductListComponent implements OnInit {
 
-  @Input('allProductList') __allprdts: any = {};
   @Input('searchedText') __searchedProduct: string = '';
   @Input('sortingBy') sortByOption: string = '';
 
   @Output() refresh: EventEmitter<any> = new EventEmitter();
   @Output() onProduct: EventEmitter<any> = new EventEmitter();
 
+  __allprdts:any = [];
+
+  constructor(public cartService: CartService) {}
+
   ngOnInit() {
+    this.__allprdts = this.cartService.allItems;
     this.sortByOption = 'product_name';
   }
+
   addToCart(productId, productQty, productSize?) {
-    this.cart.allItems = this.__allprdts;
-    this.cart.addToCart(productId, productQty, '');
+    this.cartService.addToCart(productId, productQty, '');
     this.refresh.emit(true);
   }
 

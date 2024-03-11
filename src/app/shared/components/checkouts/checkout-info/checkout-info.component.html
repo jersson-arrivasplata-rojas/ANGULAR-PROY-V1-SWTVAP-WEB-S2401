@@ -67,7 +67,7 @@
     type="submit"
     class="btn btn-success float-right "
     [disabled]="checkoutForm.invalid"
-    *ngIf="cart.cartItemsList && cart.cartTotal"
+    *ngIf="cartService.cartItemsList && cartService.cartTotal"
   >
     {{ 'ecommerce.pages.checkout.form.confirmBuy' | translate }}
   </button>

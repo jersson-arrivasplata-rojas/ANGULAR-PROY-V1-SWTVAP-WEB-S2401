@@ -3,9 +3,9 @@
 <swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="true"></swtvap-header>
 <div class="container">
   <swtvap-billing-info
+  [profile]="profile"
   (onBilling)="billing($event)"
   (onContinue)="continue($event)"
-  [allProductList]="products"
   ></swtvap-billing-info>
 </div>
 <swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

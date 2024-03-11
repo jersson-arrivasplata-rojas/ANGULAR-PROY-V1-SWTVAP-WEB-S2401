@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import localeEs from '@angular/common/locales/es';
+import localeEn from '@angular/common/locales/en';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-registerLocaleData(localeEs);
+registerLocaleData(localeEn);
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,7 @@ registerLocaleData(localeEs);
     }),
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es' },
+    { provide: LOCALE_ID, useValue: 'en-US' },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: ErrorHandlerService },
   ],

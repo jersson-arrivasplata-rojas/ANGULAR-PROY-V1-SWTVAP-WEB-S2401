@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { productInitFN } from 'src/app/shared/functions/product.init.function';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'swtvap-ecommerce-products',
@@ -12,9 +12,9 @@ export class ProductsComponent implements OnInit {
   public sortBy: string = '';
   public sortOption: string = 'product_name|asc';
   public searchText: string = '';
-  public products = productInitFN();
+  public products = [];
 
-  constructor(private router:Router){ }
+  constructor(public cartService: CartService, private router:Router){ }
 
   ngOnInit() {
     this.ref({ target: { value: '' }});
