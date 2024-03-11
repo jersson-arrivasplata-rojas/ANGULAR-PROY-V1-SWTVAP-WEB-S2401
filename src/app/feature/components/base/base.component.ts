@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
 @Component({
   selector: 'swtvap-base',
   templateUrl: './base.component.html',
@@ -8,4 +7,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class BaseComponent {}
+export class BaseComponent {
+
+
+  constructor() { }
+
+}

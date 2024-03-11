@@ -29,10 +29,10 @@
       </div>
     </label>
     <nav class="nav-content account-amount {{hideCurrency?'d-none':''}} " aria-label="Featured Content">
-      <div class="switch-button" swtvapSwitchButton>
+      <div class="switch-button" swtvapSwitchButton [currencyActive]="currencyActive">
         <span class="active"></span>
-        <button class="switch-button-case left active-case" (click)="changeCurrency(currencySymbol.USD);">{{ 'ecommerce.currency.usd' | translate }}</button>
-        <button class="switch-button-case right" (click)="changeCurrency(currencySymbol.PEN);">{{ 'ecommerce.currency.pen' | translate }}</button>
+        <button class="switch-button-case left " (click)="changeCurrency(currencySymbolEnum.USD);">{{ 'ecommerce.currency.usd' | translate }}</button>
+        <button class="switch-button-case right " (click)="changeCurrency(currencySymbolEnum.PEN);">{{ 'ecommerce.currency.pen' | translate }}</button>
       </div>
     </nav>
     <!-- // search -->

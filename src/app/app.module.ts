@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import localeEn from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { BaseComponent } from './feature/components/base/base.component';
 import { FeatureModule } from './feature/feature.module';
 import { ErrorHandlerService } from './shared/errors/error-handler.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 // Function for loading translation files
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,6 +32,7 @@ registerLocaleData(localeEn);
     BrowserModule,
     FeatureModule,
     CoreModule,
+    SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -38,6 +41,7 @@ registerLocaleData(localeEn);
         deps: [HttpClient]
       }
     }),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'en-US' },

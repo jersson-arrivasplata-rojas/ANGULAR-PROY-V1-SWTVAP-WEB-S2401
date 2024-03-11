@@ -9,6 +9,7 @@ import { WParameterHttp } from '../http/w-parameters.http';
 import { ParameterInterface } from '../interfaces/parameter.interface';
 import { CartService } from '../services/cart.service';
 import { CurrencyService } from '../services/currency.service';
+import { LocalService } from '../services/local.service';
 
 @Injectable()
 export class EcommerceResolve implements Resolve<Observable<any>> {
@@ -18,16 +19,18 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
   carrousel: ParameterInterface[];
   public products = productInitFN();
 
-  constructor(private wParameterHttp: WParameterHttp, public cartService: CartService, private currencyService: CurrencyService) { }
+  constructor(private wParameterHttp: WParameterHttp, public cartService: CartService,
+    private currencyService: CurrencyService, private localService: LocalService) { }
 
   resolve(): Observable<any> {
 
     this.cartService.allItems = this.products;
-
     this.cartService.loadCart();
     this.cartService.listCartItems();
 
-    this.currencyService.changeCurrency(CurrencySymbolEnum.USD);
+    const currency = this.localService.getData('currency') ?? CurrencySymbolEnum.USD;
+    this.currencyService.changeCurrency(currency);
+    this.localService.saveData('currency', currency);
 
     return this.wParameterHttp.getWParametersByCode('STORE')
       .pipe(map((data: any) => {

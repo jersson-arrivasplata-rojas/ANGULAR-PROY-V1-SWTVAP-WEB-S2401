@@ -2,12 +2,13 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { Subscription, tap } from 'rxjs';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { CurrencySymbolEnum } from 'src/app/shared/config/currency-symbol.enum';
+import { CurrencyEnum } from 'src/app/shared/config/currency.enum';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
 import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
-import { LocalService } from 'src/app/shared/services/local.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 import { environment } from 'src/environments/environment';
 
@@ -25,16 +26,17 @@ export class NavComponent implements OnInit, OnDestroy {
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;
-  currencySymbol = CurrencySymbolEnum;
+  currencySymbolEnum = CurrencySymbolEnum;
+  currencyEnum = CurrencyEnum;
   profileStore: StoreProfile;
   lang = '';
-
+  currencyActive = '';
   data: any = {};
 
   private translationsSubscription: Subscription;
   private languageSubscription: Subscription;
 
-  constructor(private localService: LocalService, public cartService: CartService,
+  constructor(private localService: LocalStorageService, public cartService: CartService,
     private translateService: TranslateService, private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class NavComponent implements OnInit, OnDestroy {
     this.profileStore = new StoreProfile(this.profile);
     this.subscribeToLanguageChange();
     this.fetchTranslations();
+    this.subscribeToCurrency();
   }
 
   ngOnDestroy(): void {
@@ -64,9 +67,11 @@ export class NavComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         this.data = data;
       });
+
   }
 
   changeCurrency(currency: string) {
+    this.localService.setItem('currency', currency);
     this.currencyService.changeCurrency(currency);
   }
 
@@ -74,6 +79,14 @@ export class NavComponent implements OnInit, OnDestroy {
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
     this.translateService.switchLanguage(this.lang);
     this.localService.saveData('lang', this.lang);
+
+  }
+
+  subscribeToCurrency() {
+    this.currencyService.getCurrenCurrency()
+      .subscribe((currency: string) => {
+        this.currencyActive = CurrencySymbolEnum.PEN == currency ? CurrencyEnum.PEN : CurrencyEnum.USD;
+      });
 
   }
 

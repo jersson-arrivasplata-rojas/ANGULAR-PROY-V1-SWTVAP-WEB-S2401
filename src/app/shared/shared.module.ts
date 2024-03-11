@@ -138,6 +138,7 @@ import { CheckoutComponent } from './components/checkouts/checkout/checkout.comp
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { FooterComponent } from './components/footers/footer/footer.component';
 import { HeaderComponent } from './components/headers/header/header.component';
+import { LoadingComponent } from './components/loadings/loading/loading.component';
 import { NavComponent } from './components/navs/nav/nav.component';
 import { NewsletterComponent } from './components/newsletters/newsletter/newsletter.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
@@ -336,6 +337,7 @@ import { ServicesModule } from './services/services.module';
     SwitchButtonDirective,
     SticksPipe,
     CurrencyCustomPipe,
+    LoadingComponent,
   ],
   exports: [
     GeneratorCssComponent,
@@ -504,7 +506,8 @@ import { ServicesModule } from './services/services.module';
     BillingInfoComponent,
     SwitchButtonDirective,
     SticksPipe,
-    CurrencyCustomPipe
+    CurrencyCustomPipe,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

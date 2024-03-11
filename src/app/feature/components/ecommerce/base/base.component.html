@@ -1,5 +1,8 @@
+<!--<swtvap-loading *ngIf="loading"></swtvap-loading>-->
 <div>
   <swtvap-newsletter></swtvap-newsletter>
-  <router-outlet></router-outlet>
-  <swtvap-footer [profile]="profile"></swtvap-footer>
+  <div [@routeAnimations]="o.isActivated ? o.activatedRoute : ''" (@routeAnimations.start)="animationStart()" (@routeAnimations.done)="animationDone()">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+  <swtvap-footer [class.hide-footer]="hideFooter" [profile]="profile"></swtvap-footer>
 </div>

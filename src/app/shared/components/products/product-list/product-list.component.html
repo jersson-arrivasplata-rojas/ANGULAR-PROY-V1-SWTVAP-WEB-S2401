@@ -12,10 +12,10 @@
           </a>
         <div class="row">
           <div class="col-md-6">
-            <p class="card-text"> <small> {{item.product_weight}} </small></p>
+            <p class="card-text invisible"> <small> {{item.product_weight}} </small></p>
           </div>
           <div class="col-md-6">
-            <p class="text-right"> <small> Rs {{item.product_price}} </small> </p>
+            <p class="text-right"> <small> {{item.product_price | currencyCustom }} </small> </p>
           </div>
         </div>
         <button class="btn btn-sm btn-primary" (click)="addToCart(item.p_id,1,'')">{{ 'ecommerce.pages.cart.addToCart' | translate}}</button>

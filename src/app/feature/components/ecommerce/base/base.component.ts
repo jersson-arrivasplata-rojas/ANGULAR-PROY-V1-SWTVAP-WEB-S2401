@@ -1,17 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { slideInAnimation } from 'src/app/shared/animations/slide-in.animation';
 
 @Component({
   selector: 'swtvap-ecommerce-base',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss'],
+  animations: [slideInAnimation]
 })
 export class BaseComponent implements OnInit {
   profile: any;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  hideFooter = false;
 
-  ngOnInit() {
-    const { profile} = this.activatedRoute.snapshot.data.process;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const { profile } = this.activatedRoute.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
+
+    console.log('AppComponent ngOnInit');
+  }
+
+  animationStart(){
+    this.hideFooter = true;
+  }
+  
+  animationDone() {
+    this.hideFooter = false;
   }
 }

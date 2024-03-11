@@ -1,0 +1,25 @@
+import { animate, group, query, sequence, style, transition, trigger } from '@angular/animations';
+
+export const slideInAnimation =
+  trigger('routeAnimations', [
+    transition('* <=> *', [
+      sequence([
+        query(':enter, :leave',
+          style({ position: 'fixed', width: '100%' }),
+          { optional: true }),
+        group([
+          query(':enter', [
+            style({ transform: 'translateX(100%)' }),
+            animate('0.5s ease-in-out',
+              style({ transform: 'translateX(0%)' }))
+          ], { optional: true }),
+          query(':leave', [
+            style({ transform: 'translateX(0%)' }),
+            animate('0.5s ease-in-out',
+              style({ transform: 'translateX(-100%)' }))
+          ], { optional: true })
+        ]),
+        animate('1ms') // Este paso desencadenará el evento `done` cuando se complete la animación - No acepta 0
+      ])
+    ])
+  ]);

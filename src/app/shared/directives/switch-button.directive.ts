@@ -1,9 +1,12 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { CurrencyEnum } from '../config/currency.enum';
 
 @Directive({
     selector: '[swtvapSwitchButton]' // Usa este selector para aplicar la directiva
 })
 export class SwitchButtonDirective {
+
+    @Input() currencyActive;
 
     // Definir elementos de botón
     switchBtnRight: HTMLElement;
@@ -18,7 +21,12 @@ export class SwitchButtonDirective {
             this.activeSwitch = this.el.nativeElement.querySelector('.active');
 
             // Configuración inicial
-            this.switchLeft(); // O switchRight(), dependiendo de la posición inicial deseada
+            if (this.currencyActive === CurrencyEnum.USD) {
+                this.switchLeft(); // O switchRight(), dependiendo de la posición inicial deseada
+            } else {
+                this.switchRight(); // O switchLeft(), dependiendo de la posición inicial deseada
+            }
+
         });
     }
 

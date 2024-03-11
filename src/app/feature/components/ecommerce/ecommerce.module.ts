@@ -47,7 +47,7 @@ import { ShippingMethodsComponent } from './shipping-methods/shipping-methods.co
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
   ],
   exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
