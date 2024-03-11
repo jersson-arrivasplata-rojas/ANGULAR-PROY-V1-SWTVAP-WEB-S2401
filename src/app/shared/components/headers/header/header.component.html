@@ -11,9 +11,9 @@
             [src]="item?.description"
             alt="First slide">
         <div class="carousel-caption d-md-block mb-4" *ngIf="item?.value">
-          <h5>{{item?.value | sticks:0 }}</h5>
+          <h3 class="text-white">{{item?.value | sticks:0 }}</h3>
           <p>{{item?.value | sticks:1 }}</p>
-          <a href="#" class="btn btn-primary">{{item?.value | sticks:2 }}</a>
+          <a href="#" class="btn btn-primary text-white">{{item?.value | sticks:2 }}</a>
         </div>
       </div>
     </div>

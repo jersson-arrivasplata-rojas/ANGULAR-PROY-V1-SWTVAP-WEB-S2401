@@ -92,15 +92,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       });
   }
 
-  /*
-      label: 'Nombre',
-      placeholder: 'Nombre',
-      uid: 'firstName',
-      type: 'text',
-      value: '',
-      validation: [Validators.required],
-      errorMsg: 'El campo es requerido'
-  */
 
   ref() {
     this.cartflag = false;

@@ -31,8 +31,8 @@
     <nav class="nav-content account-amount {{hideCurrency?'d-none':''}} " aria-label="Featured Content">
       <div class="switch-button" swtvapSwitchButton>
         <span class="active"></span>
-        <button class="switch-button-case left active-case" (click)="changeCurrency();">{{currencyStore.currencyUSD}}</button>
-        <button class="switch-button-case right" (click)="changeCurrency();">{{currencyStore.currencyPEN}}</button>
+        <button class="switch-button-case left active-case" (click)="changeCurrency();">{{ 'ecommerce.currency.usd' | translate }}</button>
+        <button class="switch-button-case right" (click)="changeCurrency();">{{ 'ecommerce.currency.pen' | translate }}</button>
       </div>
     </nav>
     <!-- // search -->
@@ -45,11 +45,21 @@
               <label class="open-lang-all" for="open-lang-all">
                 <input class="input-lang-all" id="open-lang-all" type="checkbox" name="lang-open" />
                 <span class="all-navigator">
-                  <span class="text-white">{{getLang()}}</span>
+                  <span class="text-white" *ngIf="lang === 'en'">
+                    {{ 'ecommerce.lang.en' | translate }}
+                  </span>
+                  <span class="text-white" *ngIf="lang === 'es'">
+                    {{ 'ecommerce.lang.es' | translate }}
+                  </span>
                 </span>
                 <ul class="all-lang-list">
                   <li class="all-lang-list-item">
-                    <a href="#" class="all-lang-list-link" (click)="changeLang();$event.preventDefault()">{{getLangComparate()}}</a>
+                    <a href="#" *ngIf="lang === 'en'" class="all-lang-list-link" (click)="changeLang();$event.preventDefault()">
+                      {{ 'ecommerce.lang.es' | translate }}
+                    </a>
+                    <a href="#" *ngIf="lang === 'es'" class="all-lang-list-link" (click)="changeLang();$event.preventDefault()">
+                      {{ 'ecommerce.lang.en' | translate }}
+                    </a>
                   </li>
                 </ul>
               </label>

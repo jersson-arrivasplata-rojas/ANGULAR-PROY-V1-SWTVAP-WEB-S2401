@@ -12,5 +12,6 @@ export class AppComponent {
   constructor(private translate: TranslateService, private localService:LocalService) {
     const lang = this.localService.getData('lang') || 'es';
     translate.switchLanguage(lang);
+    this.localService.saveData('lang', lang);
   }
 }

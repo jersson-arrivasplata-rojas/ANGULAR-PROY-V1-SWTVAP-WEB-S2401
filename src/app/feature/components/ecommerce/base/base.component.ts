@@ -7,13 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./base.component.scss'],
 })
 export class BaseComponent implements OnInit {
-  lang: string;
   profile: any;
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const { profile, lang } = this.activatedRoute.snapshot.data.process;
+    const { profile} = this.activatedRoute.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
-    this.lang = lang;
   }
 }

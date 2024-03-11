@@ -15,9 +15,7 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   title: string = 'Error!';
   message: string = '¡Lo siento! La p\u00E1gina que buscaba no existe.';
 
-  lang: string;
   profile: any;
-  currency: any;
   carrousel: any;
   homeEnum = HomeEnum;
 
@@ -28,11 +26,9 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private translateService: TranslateService) { }
 
   ngOnInit() {
-    const { profile, currency, carrousel, lang } = this.activatedRoute.parent.snapshot.data.process;
+    const { profile, carrousel } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
-    this.currency = currency?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
-    this.lang = lang;
     this.subscribeToLanguageChange();
     this.fetchTranslations();
   }

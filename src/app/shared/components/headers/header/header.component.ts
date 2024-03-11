@@ -1,19 +1,18 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { skip } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
-import { ShareDataService } from 'src/app/shared/services/share-data.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
   selector: 'swtvap-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() carrousel: ParameterInterface | any = {};
-  @Input() lang: string;
   @Input() hideNotCarrousel: boolean = false;
   @Input() hideNotBenefit: boolean = false;
 
@@ -21,21 +20,44 @@ export class HeaderComponent implements OnInit, OnChanges {
   homeEnum = HomeEnum;
   carrouselStore: any = [];
 
-  constructor(private shareDataService: ShareDataService, private activatedRoute: ActivatedRoute) { }
+  private translationsSubscription: Subscription;
+  private languageSubscription: Subscription;
+  constructor(private activatedRoute: ActivatedRoute, private translateService: TranslateService) { }
 
   ngOnInit(): void {
-    this.shareDataService.getData().pipe(skip(1)).subscribe((data: any) => {
-      this.lang = data;
-      this.changeCarrousel();
-    });
+    this.subscribeToLanguageChange();
+    this.fetchTranslations();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.changeCarrousel();
   }
 
+  ngOnDestroy(): void {
+    // Asegúrate de desuscribirte de todas las suscripciones
+    this.translationsSubscription?.unsubscribe();
+    this.languageSubscription?.unsubscribe();
+  }
+
+  subscribeToLanguageChange(): void {
+
+
+    this.languageSubscription = this.translateService.getOnLangChange()
+    .pipe(tap(() => this.fetchTranslations()))
+    .subscribe();
+  }
+
+  fetchTranslations(): void {
+    // Cancela la suscripción anterior para evitar fugas de memoria
+    this.translationsSubscription?.unsubscribe();
+
+    this.translationsSubscription = this.translateService.getTranslate('ecommerce')
+      .subscribe((data: any) => {
+        this.changeCarrousel();
+      });
+  }
   changeCarrousel() {
-    this.carrouselStore = this.carrousel?.children.filter((item: any) => item.value2 === this.lang);
+    this.carrouselStore = this.carrousel?.children.filter((item: any) => item.value2 === this.translateService.getCurrentLang());
   }
 
 }

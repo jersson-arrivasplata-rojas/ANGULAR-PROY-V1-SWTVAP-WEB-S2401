@@ -10,9 +10,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
   styleUrls: ['./billing.component.scss'],
 })
 export class BillingComponent implements OnInit {
-  lang: string;
   profile: any;
-  currency: any;
   carrousel: any;
   homeEnum = HomeEnum;
 
@@ -22,11 +20,9 @@ export class BillingComponent implements OnInit {
   constructor(public cart: CartService, private router:Router, private activatedRoute: ActivatedRoute){ }
 
   ngOnInit(){
-    const { profile, currency, carrousel, lang } = this.activatedRoute.parent.snapshot.data.process;
+    const { profile, carrousel, lang } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
-    this.currency = currency?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
-    this.lang = lang;
     this.ref();
   }
 

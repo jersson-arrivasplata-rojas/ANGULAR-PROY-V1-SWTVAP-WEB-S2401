@@ -20,5 +20,9 @@ export class TranslateService {
     getOnLangChange() {
         return this.translate.onLangChange;
     }
+
+    getCurrentLang(){
+        return this.translate.currentLang || this.translate.getDefaultLang() || localStorage.getItem('lang');
+    }
     
 }

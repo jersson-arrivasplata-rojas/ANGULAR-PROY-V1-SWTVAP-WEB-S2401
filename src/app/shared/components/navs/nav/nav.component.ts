@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { StoreCurrency } from 'src/app/shared/class/store-currency';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription, tap } from 'rxjs';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
 import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
-import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { LocalService } from 'src/app/shared/services/local.service';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 import { environment } from 'src/environments/environment';
@@ -15,67 +15,68 @@ import { environment } from 'src/environments/environment';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnChanges {
+export class NavComponent implements OnInit, OnDestroy {
 
   @Output() onCart: EventEmitter<any> = new EventEmitter();
-
   @Input() profile: ParameterInterface | any = {};
-  @Input() currency: ParameterInterface | any = {};
-  @Input() lang: string;
   @Input() hideNotCart: boolean = false;
   @Input() hideCurrency: boolean = false;
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;
   profileStore: StoreProfile;
-  currencyStore: StoreCurrency;
+  lang = '';
 
-  constructor(private localStorageService: LocalStorageService, private shareDataService: ShareDataService,
+  data: any = {};
+
+  private translationsSubscription: Subscription;
+  private languageSubscription: Subscription;
+
+  constructor(private localService: LocalService, private shareDataService: ShareDataService,
     public cartService: CartService, private translateService: TranslateService) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['profile'] && changes['profile'].currentValue) {
-      this.profileStore = new StoreProfile(this.profile);
-      this.changeCurrency();
-    }
+  ngOnInit(): void {
+    this.lang = this.translateService.getCurrentLang();
+    this.profileStore = new StoreProfile(this.profile);
+    this.subscribeToLanguageChange();
+    this.fetchTranslations();
+  }
+
+  ngOnDestroy(): void {
+    // Asegúrate de desuscribirte de todas las suscripciones
+    this.translationsSubscription?.unsubscribe();
+    this.languageSubscription?.unsubscribe();
+  }
+
+  subscribeToLanguageChange(): void {
+    this.languageSubscription = this.translateService.getOnLangChange()
+      .pipe(tap(() => this.fetchTranslations()))
+      .subscribe();
+  }
+
+  fetchTranslations(): void {
+    // Cancela la suscripción anterior para evitar fugas de memoria
+    this.translationsSubscription?.unsubscribe();
+
+    this.translationsSubscription = this.translateService.getTranslate('ecommerce.lang')
+      .subscribe((data: any) => {
+        this.data = data;
+      });
+  }
+
+  changeLang() {
+    this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
+    this.translateService.switchLanguage(this.lang);
+    this.localService.saveData('lang', this.lang);
+
   }
 
   cart() {
     this.onCart.emit();
   }
 
-  changeLang() {
-    this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
-    this.localStorageService.setItem('lang', this.lang);
-    this.translateService.switchLanguage(this.lang);
-    this.changeCurrency();
-    this.shareDataService.add(this.lang);
-  }
-
-  getLang() {
-    let text = '';
-    if (this.lang == LangEnum.ES) {
-      text = this.lang == LangEnum.ES ? 'Espa\u00F1ol' : 'Ingl\u00E9s';
-    } else {
-      text = this.lang == LangEnum.EN ? 'English' : 'Spanish';
-    }
-
-    return text;
-  }
-
-  getLangComparate() {
-    let text = '';
-    if (this.lang == LangEnum.ES) {
-      text = this.lang == LangEnum.ES ? 'Ingl\u00E9s' : 'Espa\u00F1ol';
-    } else {
-      text = this.lang == LangEnum.EN ? 'Spanish' : 'English';
-    }
-
-    return text;
-  }
-
   changeCurrency() {
-    const currency = this.currency?.children.filter((item: any) => item.value2 === this.lang);
-    this.currencyStore = new StoreCurrency({ children: currency });
+
   }
+
 }
