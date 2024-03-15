@@ -1,13 +1,16 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subject, Subscription, skip } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { AnimationType } from '../components/carousels/carousel/carousel.animations';
 import { CartEnum } from '../config/cart.enum';
 import { CurrencySymbolEnum } from '../config/currency-symbol.enum';
+import { ProductImageInInterface } from '../interfaces/product-in.interface';
 import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService implements OnDestroy {
+  public index = 0;
   public allItems: any = [];
   public cartData: any = [];
   public cartItemsList: any = [];
@@ -19,9 +22,14 @@ export class CartService implements OnDestroy {
 
   constructor(public storage: StorageService) {
     this.cartItemsStorageName = this.getCartItemsStorageName();
-    this.subscription = this.product$.pipe(skip(1)).subscribe(data => {
+    this.subscription = this.getProducts().subscribe(data => {//.pipe(skip(1))
       console.log(data);
-      this.allItems = data;
+      this.allItems = this.getAllProducts(data);
+      if (this.index === 0) {
+        this.loadCart();
+        this.listCartItems();
+        this.index++;
+      }
     });
   }
 
@@ -90,19 +98,15 @@ export class CartService implements OnDestroy {
       let tempTotal = 0;
 
       var onlyChoosenItems = (this.allItems).filter(function (item) {
-        if (getActualItems.indexOf(item.p_id) !== -1) {
+        if (getActualItems.indexOf(item.productId) !== -1) {
           tempCart.push({
-            pid: item.p_id,
-            name: item.product_name,
-            qty: cartDataItems[item.p_id],
-            price: item.product_price * cartDataItems[item.p_id],
-            product: {
-              productId: item.p_id,
-              productName: item.product_name,
-              productImage: item.product_image
-            }
+            pid: item.productId,
+            name: item.name,
+            qty: cartDataItems[item.productId],
+            price: item.price * cartDataItems[item.productId],
+            product: { ...item }
           });
-          tempTotal += item.product_price * cartDataItems[item.p_id];
+          tempTotal += item.price * cartDataItems[item.productId];
         }
       });
 
@@ -143,4 +147,65 @@ export class CartService implements OnDestroy {
     return CartEnum.USD;
   }
 
+  getAllProducts(products: any[]) {
+    const array = [
+      "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80",
+      "https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
+    ];
+
+    for (let index = 0; index < products.length; index++) {
+      const element = products[index];
+      let sliders = [];
+      element.currentSlide = 0;
+      element.animationType = AnimationType.Scale;
+      element.productImages.forEach((data: ProductImageInInterface) => {
+        sliders.push({
+          currentSlide: 0,
+          name: "Scale",
+          value: AnimationType.Scale,
+          headline: element.name,
+          src: array[Math.floor(Math.random() * array.length)]
+        });
+      });
+      element.sliders = sliders;
+    }
+
+    return products;
+  }
+
+  findAllProductsByCatalogs(catalogs: any[]) {
+    let products = [];
+    let productFlag = false;
+    for (let index = 0; index < catalogs.length; index++) {
+      const element = catalogs[index];
+
+
+      if (productFlag) break;
+
+      if (element.categories.length > 0) {
+        for (let indexj = 0; index < element.categories.length; indexj++) {
+          const item = element.categories[indexj];
+
+          if (productFlag) break;
+
+          if (item.products.length > 0) {
+            products = [...item.products];
+            productFlag = true;
+            break;
+          }
+
+        }
+      }
+
+      if (element.products.length > 0) {
+        products = [...element.products];
+        productFlag = true;
+        break;
+      }
+    }
+
+    return products;
+  }
 }

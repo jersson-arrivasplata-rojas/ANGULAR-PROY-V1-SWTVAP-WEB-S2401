@@ -102,14 +102,14 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   showProductsByCatalog(catalog: any) {
-    if(catalog.products && catalog.products.length > 0) {
+    if(catalog.products) {
       const products = catalog.products;
       this.cartService.addProducts(products);
     }
   }
 
   showProductsByCategory(catalog:any, category: any) {
-    if(category.products && category.products.length > 0) {
+    if(category.products) {
       const products = category.products;
       this.cartService.addProducts(products);
     }

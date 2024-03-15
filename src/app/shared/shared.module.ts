@@ -148,6 +148,7 @@ import { ProductListComponent } from './components/products/product-list/product
 import { AmountValidatorDirective } from './directives/amount-validator.directive';
 import { DateFormatDirective } from './directives/date-format.directive';
 import { HighlightDirective } from './directives/highlight.directive';
+import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { ModalComponentDirective } from './directives/modal.directive';
 import { PaginationDirective } from './directives/pagination.directive';
 import { PrefixValueDirective } from './directives/prefix-value.directive';
@@ -344,6 +345,7 @@ import { ServicesModule } from './services/services.module';
     CommentReplyComponent,
     CommentInComponent,
     CarouselComponent,
+    LazyLoadDirective,
   ],
   exports: [
     GeneratorCssComponent,
@@ -517,6 +519,7 @@ import { ServicesModule } from './services/services.module';
     CommentReplyComponent,
     CommentInComponent,
     CarouselComponent,
+    LazyLoadDirective,
   ],
   imports: [
     CommonModule,

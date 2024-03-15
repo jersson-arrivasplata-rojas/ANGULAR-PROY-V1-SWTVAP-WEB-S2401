@@ -1,10 +1,55 @@
 input {
   margin: 5px;
 }
+
 img {
   height: 120px;
   width: auto;
 }
+
 .col-md-4 {
   margin-bottom: 20px;
+}
+
+
+.card {
+  border-radius: 10px;
+
+  .swtvap-carousel-slider {
+    .modal {
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    .animition-type-selector {
+      display: flex;
+    }
+    button{
+      background: transparent;
+    }
+  }
+}
+
+.btn-load-more {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+  outline: none;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  &:hover {
+    color: white;
+  }
 }

@@ -112,7 +112,7 @@ export class CardEcommerceImageComponent implements OnInit {
   @Input() product_type_sale_price: any;
   @Input() product_type_sale_type: any;
   @Input() product_type_sale_stock: any;
-  @Input() product_name: any;
+  @Input() name: any;
   @Input() products_url: any;
   @Input() products_unavailable: number;
   @Input() user: User = null;

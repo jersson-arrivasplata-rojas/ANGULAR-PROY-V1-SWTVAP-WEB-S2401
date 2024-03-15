@@ -34,13 +34,13 @@
                     <img
                         class="image-store"
                         [src]="item?.product?.productImage"
-                        [alt]="item?.product?.productName"
+                        [alt]="item?.product?.name"
                     >
                 </div>
                 <div class="col-lg-9">
                   <div class="d-flex justify-content-between flex-column h-100">
                     <div class="mt-3 mt-lg-0 d-flex align-items-center justify-content-between">
-                      <a href="#" [title]="item?.product_name" (click)="goToProduct(item);$event.preventDefault()">
+                      <a href="#" [title]="item?.name" (click)="goToProduct(item);$event.preventDefault()">
                         <h4 *ngIf="!showProduct; else elseNameBlock" >{{ item?.name }}</h4>
                         <ng-template #elseNameBlock>
                           <h5>{{ item?.name }}</h5>

@@ -1,25 +1,66 @@
 <div class="row">
-  <div class="col-md-4" *ngFor="let item of __allprdts | filter : __searchedProduct | sortBy : sortByOption  ">
+  <div class="col-md-4" *ngFor="let item of displayedProducts | filter : __searchedProduct | sortBy : sortByOption  ">
     <div class="card">
-      <div>
-        <img class="rounded mx-auto d-block img-responsive mt-3" src="{{item.product_image}}" alt="Card image cap">
+      <div class="swtvap-carousel-slider">
+        <swtvap-carousel [slides]="item?.sliders" [currentSlide]="item.currentSlide" [animationType]="item.animationType" (currentSlideIndex)="setCurrentSlide($event, item)"></swtvap-carousel>
+        <div class="animition-type-selector mt-1">
+            <div *ngFor="let slider of item?.sliders; let i = index" [class.active]="item.currentSlide === i" >
+                <div class="small-img ml-1 d-flex flex-column text-center">
+                    <img [ngStyle]="{height:'50px', width: '50px'}" [appLazyLoad]="slider?.src" [alt]="slider?.name" (click)="setCurrentSlide(i, item)">
+                    <!-- Modal -->
+                    <div data-toggle="modal" [attr.data-target]="'#imageModal'+i" >
+                        <i class="fas fa-search-plus" ></i>
+                    </div>
+                </div>
+
+                <div class="modal fade" [id]="'imageModal'+i" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <img [appLazyLoad]="slider?.src" [alt]="item?.name" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-      <div class="card-body">
-          <a href="#" [title]="item?.product_name" (click)="goToProduct(item);$event.preventDefault()">
+      <div class="card-body pr-3 pl-3 pb-3">
+          <a href="#" [title]="item?.name" (click)="goToProduct(item);$event.preventDefault()">
             <h6 class="card-title font-weight-bold">
-              {{item?.product_name}}
+              {{item?.name}}
             </h6>
           </a>
         <div class="row">
           <div class="col-md-6">
-            <p class="card-text invisible"> <small> {{item.product_weight}} </small></p>
+            <p class="card-text invisible">
+              <small>
+                <!--item.product_weight-->
+              </small>
+            </p>
           </div>
           <div class="col-md-6">
-            <p class="text-right"> <small> {{item.product_price | currencyCustom }} </small> </p>
+            <p class="text-right">
+                <small>
+                  <!--item.product_weight-->
+              </small>
+            </p>
           </div>
         </div>
-        <button class="btn btn-sm btn-primary" (click)="addToCart(item.p_id,1,'')">{{ 'ecommerce.pages.cart.addToCart' | translate}}</button>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-sm btn-primary" (click)="addToCart(item.productId,1,'')">
+              {{ 'ecommerce.pages.cart.addToCart' | translate}}
+            </button>
+          </div>
+          <div class="col-md-6">
+            <p class="text-right font-weight-bolder"> {{item.price | currencyCustom }} </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="(currentPage + 1) * 10 < __allprdts.length">
+  <button  class="btn-load-more" (click)="loadMoreProducts()">Cargar más productos</button>
 </div>

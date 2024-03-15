@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   }
 
   goToProduct($event){
-    const { product_name } = $event;
-    this.router.navigate(['/c/'+product_name]);
+    const { name } = $event;
+    this.router.navigate(['/c/'+name]);
   }
 }

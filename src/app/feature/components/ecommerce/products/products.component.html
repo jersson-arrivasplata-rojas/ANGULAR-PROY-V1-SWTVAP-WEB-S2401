@@ -15,16 +15,16 @@
     <div class="col-md-3">
       <div class=" mb-4 mt-4">
         <select class="form-control" [(ngModel)]="sortOption" title="Sort Options">
-          <option value="product_name|asc"
+          <option value="name|asc"
             >{{ 'ecommerce.common.orderByNameAZ' | translate }}</option
           >
-          <option value="product_name|desc"
+          <option value="name|desc"
             >{{ 'ecommerce.common.orderByNameZA' | translate }}</option
           >
-          <option value="product_price|lth"
+          <option value="price|lth"
             >{{ 'ecommerce.common.orderByPriceLH' | translate }}</option
           >
-          <option value="product_price|htl"
+          <option value="price|htl"
             >{{ 'ecommerce.common.orderByPriceHL' | translate }}</option
           >
         </select>

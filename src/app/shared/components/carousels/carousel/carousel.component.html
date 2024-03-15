@@ -3,9 +3,10 @@
   <ng-container *ngFor="let slide of slides; let i = index">
     <img
       *ngIf="i === currentSlide"
-      [src]="slide.src"
+      [appLazyLoad]="slide.src"
       class="slide"
       [@slideAnimation]="animationType"
+      alt="slide"
     />
   </ng-container>
 

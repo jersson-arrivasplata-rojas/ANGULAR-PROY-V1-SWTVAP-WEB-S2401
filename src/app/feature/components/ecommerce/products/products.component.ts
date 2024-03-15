@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
 
   public cartflag: boolean = false;
   public sortBy: string = '';
-  public sortOption: string = 'product_name|asc';
+  public sortOption: string = 'name|asc';
   public searchText: string = '';
 
   constructor(public cartService: CartService, private router: Router) { }
@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
   }
 
   goToProduct($event) {
-    const { product_name } = $event;
-    this.router.navigate(['/c/' + product_name]);
+    const { name } = $event;
+    this.router.navigate(['/c/' + name]);
   }
 }

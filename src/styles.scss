@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/css2?family=Lato");
+
 html,
 body {
   font-family: "Lato", sans-serif, Arial, Helvetica, sans-serif !important;
 }
+
 :root {
   --theme_color_first: #0b09a5;
   --theme_color_first_text: #ffffff;
@@ -37,7 +39,7 @@ body {
   --wrapper-width: 185px;
 }
 
-span.badge.badge-danger{
+span.badge.badge-danger {
   width: 100%;
   max-width: 180px;
   height: 35px;
@@ -49,7 +51,31 @@ span.badge.badge-danger{
   border-style: solid;
   background: white;
 }
+
 input.app-pagination-input-search {
   max-width: 450px;
   float: right;
+}
+
+swtvap-ecommerce-products .swtvap-carousel-slider {
+  .small-img{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bfbfbf;
+  }
+  .carousel {
+    height: 300px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+
+    img {
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+
+    .arrow {
+      width: 0.25em !important;
+      height: 0.25em !important;
+    }
+  }
 }
