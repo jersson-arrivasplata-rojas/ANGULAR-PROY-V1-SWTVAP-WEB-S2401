@@ -23,6 +23,7 @@ export class NavComponent implements OnInit, OnDestroy {
   @Input() profile: ParameterInterface | any = {};
   @Input() hideNotCart: boolean = false;
   @Input() hideCurrency: boolean = false;
+  @Input() sticky: boolean = true;
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;

@@ -26,7 +26,7 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private translateService: TranslateService) { }
 
   ngOnInit() {
-    const { profile, carrousel } = this.activatedRoute.parent.snapshot.data.process;
+    const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
     this.subscribeToLanguageChange();

@@ -14,12 +14,17 @@ export class CartComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const { profile, carrousel } = this.activatedRoute.parent.snapshot.data.process;
+    const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
   }
 
   checkout($event) {
     this.router.navigate(['/checkout']);
+  }
+
+  goToProduct($event){
+    const { product_name } = $event;
+    this.router.navigate(['/c/'+product_name]);
   }
 }

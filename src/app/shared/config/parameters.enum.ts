@@ -1,3 +1,4 @@
 export enum ParametersEnum {
-  SELECT = 'SELECT'
+  SELECT = 'SELECT',
+  STORE = 'STORE'
 }

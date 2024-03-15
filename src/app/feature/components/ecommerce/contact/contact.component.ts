@@ -20,7 +20,7 @@ export class ContactComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const { profile, carrousel } = this.activatedRoute.parent.snapshot.data.process;
+    const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
   }

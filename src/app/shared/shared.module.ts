@@ -131,10 +131,13 @@ import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { BillingInfoComponent } from './components/billings/billing-info/billing-info.component';
+import { CarouselComponent } from './components/carousels/carousel/carousel.component';
 import { CartAddComponent } from './components/cart/cart-add/cart-add.component';
 import { CheckoutCartComponent } from './components/checkouts/checkout-cart/checkout-cart.component';
 import { CheckoutInfoComponent } from './components/checkouts/checkout-info/checkout-info.component';
 import { CheckoutComponent } from './components/checkouts/checkout/checkout.component';
+import { CommentInComponent } from './components/comments/comment-in/comment-in.component';
+import { CommentReplyComponent } from './components/comments/comment-reply/comment-reply.component';
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { FooterComponent } from './components/footers/footer/footer.component';
 import { HeaderComponent } from './components/headers/header/header.component';
@@ -338,6 +341,9 @@ import { ServicesModule } from './services/services.module';
     SticksPipe,
     CurrencyCustomPipe,
     LoadingComponent,
+    CommentReplyComponent,
+    CommentInComponent,
+    CarouselComponent,
   ],
   exports: [
     GeneratorCssComponent,
@@ -508,6 +514,9 @@ import { ServicesModule } from './services/services.module';
     SticksPipe,
     CurrencyCustomPipe,
     LoadingComponent,
+    CommentReplyComponent,
+    CommentInComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,

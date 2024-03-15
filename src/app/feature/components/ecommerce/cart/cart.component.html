@@ -1,5 +1,5 @@
 
 <swtvap-nav [profile]="profile"  [hideNotCart]="true" [hideCurrency]="false"></swtvap-nav>
 <swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="false" [hideNotBenefit]="true"></swtvap-header>
-<swtvap-cart-add class="mb-4" (onCheckOut)="checkout($event)"></swtvap-cart-add>
+<swtvap-cart-add class="mb-4" (onCheckOut)="checkout($event)" (onProduct)="goToProduct($event)"></swtvap-cart-add>
 <swtvap-header [carrousel]="carrousel" [hideNotCarrousel]="true"></swtvap-header>

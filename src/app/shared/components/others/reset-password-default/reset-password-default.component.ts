@@ -1,5 +1,5 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthUserInterface as AuthUser } from 'src/app/shared/interfaces/auth-user.interface';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './reset-password-default.component.html',
   styleUrls: ['./reset-password-default.component.css']
 })
-export class ResetPasswordDefaultComponent implements OnInit, AfterViewInit {
+export class ResetPasswordDefaultComponent implements OnInit {
   public APP_URL = environment.apiUrl;
   public isBrowser: boolean;
   public isServer: boolean;
@@ -75,9 +75,6 @@ export class ResetPasswordDefaultComponent implements OnInit, AfterViewInit {
           this.user.token= this.token;
       });
     }
-  }
-  ngAfterViewInit(){
-
   }
 
   passwordFocus(event: any){

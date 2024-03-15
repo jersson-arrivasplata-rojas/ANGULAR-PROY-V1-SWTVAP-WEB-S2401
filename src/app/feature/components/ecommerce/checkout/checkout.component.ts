@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
-import { ShareDataService } from 'src/app/shared/services/share-data.service';
 
 @Component({
   selector: 'swtvap-ecommerce-ecommerce-checkout',
@@ -18,7 +17,7 @@ export class CheckoutComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const { profile, carrousel } = this.activatedRoute.parent.snapshot.data.process;
+    const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
   }

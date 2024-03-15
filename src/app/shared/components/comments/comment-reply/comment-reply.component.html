@@ -1,0 +1,26 @@
+<div class="box_result d-flex ">
+    <div class="avatar_comment ">
+        <img [src]="comment.avatarUrl" alt="avatar" />
+    </div>
+    <div class="result_comment ">
+        <div class="d-flex justify-content-between flex-column" >
+            <div>
+                <h4>{{ comment.author }}</h4>
+                <p>{{ comment.text }}</p>
+            </div>
+            <div class="tools_comment">
+                <!-- Botón de 'Me gusta' y otros controles -->
+                <a class="reply btn btn-primary text-white rounded" (click)="replyToComment()">Reply</a>
+            </div>
+            <div *ngIf="showReplyForm">
+                <textarea class="comment-reply" [(ngModel)]="newReplyText" placeholder="Add a reply..."></textarea>
+                <button class="btn btn-sm " (click)="submitReply()">Post Reply</button>
+            </div>
+        </div>
+        <ul class="child_replay pt-4  mb-0">
+            <li class="" *ngFor="let reply of comment.replies">
+                <swtvap-comment-reply  [comment]="reply"></swtvap-comment-reply>
+            </li>
+        </ul>
+    </div>
+</div>

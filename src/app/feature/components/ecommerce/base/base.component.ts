@@ -15,16 +15,16 @@ export class BaseComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const { profile } = this.activatedRoute.snapshot.data.process;
+    const { wParameters: { profile } } = this.activatedRoute.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
 
     console.log('AppComponent ngOnInit');
   }
 
-  animationStart(){
+  animationStart() {
     this.hideFooter = true;
   }
-  
+
   animationDone() {
     this.hideFooter = false;
   }

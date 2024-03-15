@@ -1,11 +1,11 @@
 <!-- app-comment.component.html -->
-<div *ngIf="comment.status==1" class="comment {{!comment.replyCommentId?'on-init':'on-continue'}}" [ngStyle]="{paddingBottom:'0px'}">
+<div *ngIf="comment.status===1" class="comment {{!comment.replyCommentId?'on-init':'on-continue'}}" [ngStyle]="{paddingBottom:'0px'}">
   <div class="position-absolute" style="right: 20px;">
     <button *ngIf="!product?.deletedAt" class=" btn btn-danger-2 btn-sm btn-block font-16px" (click)="delete(comment)">Eliminar</button>
     <p><strong>Fecha:</strong> {{ comment.commentAt | date }}</p>
   </div>
   <p><strong>Nombre:</strong> {{ comment.name }}</p>
-  <p><strong>{{comment.type!='REPLY'?'Comentario:':'Respuesta:'}}</strong> {{ comment.comment }}</p>
+  <p><strong>{{comment.type!=='REPLY'?'Comentario:':'Respuesta:'}}</strong> {{ comment.comment }}</p>
   <p *ngIf="comment.deletedAt"><strong>Eliminaci&oacute;n Fecha:</strong> {{ comment.deletedAt | date }}</p>
 
   <!--

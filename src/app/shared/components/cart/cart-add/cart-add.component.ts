@@ -6,14 +6,15 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './cart-add.component.html',
   styleUrls: ['./cart-add.component.scss'],
 })
-export class CartAddComponent  {
+export class CartAddComponent {
   @Output() onCheckOut: EventEmitter<any> = new EventEmitter();
+  @Output() onProduct: EventEmitter<any> = new EventEmitter();
   @Input() showProduct = false;
 
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService) { }
 
 
-  removeItem(pid){
+  removeItem(pid) {
     this.cartService.removeItem(pid);
   }
 
@@ -38,5 +39,9 @@ export class CartAddComponent  {
 
   checkOut() {
     this.onCheckOut.emit();
+  }
+
+  goToProduct(item: any) {
+    this.onProduct.emit(item);
   }
 }
