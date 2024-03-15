@@ -22,7 +22,6 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
   parameters: ParameterInterface[];
   profile: ParameterInterface[];
   carrousel: ParameterInterface[];
-  public products = productInitFN();
 
   constructor(private wParameterHttp: WParameterHttp, private wCatalogsHttp: WCatalogsHttp,
     public cartService: CartService, private currencyService: CurrencyService,
@@ -30,7 +29,7 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
 
   resolve(): Observable<any> {
 
-    this.cartService.allItems = this.products;
+    this.cartService.addProducts(productInitFN());
     this.cartService.loadCart();
     this.cartService.listCartItems();
 
@@ -40,7 +39,7 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
 
     const lang = this.translateService.getCurrentLang();
 
-    return this.wCatalogsHttp.getWCatalogsByLang(lang).pipe(
+    return this.wCatalogsHttp.getWCatalogs().pipe(
       mergeMap(catalogs => {
         this.wCatalogs = catalogs;
 

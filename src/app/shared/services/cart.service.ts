@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subject, Subscription, skip } from 'rxjs';
 import { CartEnum } from '../config/cart.enum';
 import { CurrencySymbolEnum } from '../config/currency-symbol.enum';
 import { StorageService } from './storage.service';
@@ -6,15 +7,34 @@ import { StorageService } from './storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
-  public allItems: any = {};
+export class CartService implements OnDestroy {
+  public allItems: any = [];
   public cartData: any = [];
   public cartItemsList: any = [];
   public cartTotal: any = 0;
   public cartItemsStorageName = '';
 
+  private subscription: Subscription;
+  private product$ = new Subject<any>();
+
   constructor(public storage: StorageService) {
     this.cartItemsStorageName = this.getCartItemsStorageName();
+    this.subscription = this.product$.pipe(skip(1)).subscribe(data => {
+      console.log(data);
+      this.allItems = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  addProducts(value: any) {
+    this.product$.next(value);
+  }
+
+  getProducts() {
+    return this.product$.asObservable();
   }
 
   loadCart() {
@@ -63,31 +83,32 @@ export class CartService {
   }
 
   listCartItems() {
-    let tempCart = [];
-    let getActualItems = Object.keys(this.cartData);
-    let cartDataItems = this.cartData;
-    let tempTotal = 0;
+    if (this.allItems.length > 0) {
+      let tempCart = [];
+      let getActualItems = Object.keys(this.cartData);
+      let cartDataItems = this.cartData;
+      let tempTotal = 0;
 
-    var onlyChoosenItems = (this.allItems).filter(function (item) {
-      if (getActualItems.indexOf(item.p_id) !== -1) {
-        tempCart.push({
-          pid: item.p_id,
-          name: item.product_name,
-          qty: cartDataItems[item.p_id],
-          price: item.product_price * cartDataItems[item.p_id],
-          product: {
-            productId: item.p_id,
-            productName: item.product_name,
-            productImage: item.product_image
-          }
-        });
-        tempTotal += item.product_price * cartDataItems[item.p_id];
-      }
-    });
+      var onlyChoosenItems = (this.allItems).filter(function (item) {
+        if (getActualItems.indexOf(item.p_id) !== -1) {
+          tempCart.push({
+            pid: item.p_id,
+            name: item.product_name,
+            qty: cartDataItems[item.p_id],
+            price: item.product_price * cartDataItems[item.p_id],
+            product: {
+              productId: item.p_id,
+              productName: item.product_name,
+              productImage: item.product_image
+            }
+          });
+          tempTotal += item.product_price * cartDataItems[item.p_id];
+        }
+      });
 
-    this.cartItemsList = tempCart;
-    this.cartTotal = tempTotal;
-
+      this.cartItemsList = tempCart;
+      this.cartTotal = tempTotal;
+    }
   }
 
   loadCheckoutInfo(storageKey: string) {

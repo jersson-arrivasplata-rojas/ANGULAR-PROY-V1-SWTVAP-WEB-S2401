@@ -7,12 +7,14 @@
             <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
               <th>C&oacute;digo</th>
               <th>Nombre</th>
+              <th>Nombre (en)</th>
               <th>Precio</th>
               <th>Stock</th>
               <th>Stock M&iacute;nimo</th>
             </ng-container>
             <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
               <th>Nombre</th>
+              <th>Nombre (en)</th>
             </ng-container>
             <th>Estado</th>
             <th>Acciones</th>
@@ -26,6 +28,7 @@
                 <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.name }}</td>
+                  <td>{{ item.name_en }}</td>
                   <td class="text-left">
                     <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
                     <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
@@ -36,6 +39,7 @@
                 </ng-container>
                 <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
                   <td>{{ item.name }}</td>
+                  <td>{{ item.name_en }}</td>
                 </ng-container>
                 <td>{{ item.status | status }}</td>
                 <td>
@@ -55,7 +59,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td  [attr.colspan]="(properties.type === typesEnum.PRODUCTS)?5:9">
+    <td  [attr.colspan]="(properties.type === typesEnum.PRODUCTS)?6:10">
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

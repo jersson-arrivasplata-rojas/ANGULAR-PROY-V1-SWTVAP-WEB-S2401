@@ -19,7 +19,10 @@ export class ProductListComponent implements OnInit {
   constructor(public cartService: CartService) {}
 
   ngOnInit() {
-    this.__allprdts = this.cartService.allItems;
+    this.cartService.getProducts().subscribe(data => {
+      this.__allprdts = data;
+
+    });
     this.sortByOption = 'product_name';
   }
 

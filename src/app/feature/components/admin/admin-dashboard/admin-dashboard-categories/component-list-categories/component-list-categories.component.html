@@ -5,6 +5,7 @@
           <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Nombre (en)</th>
               <th>Catalogos Asignados</th>
               <th>Productos Asignados</th>
               <th>Estado</th>
@@ -16,6 +17,7 @@
               <tr>
                   <td>{{ (i + 1 )}}</td>
                   <td>{{ item.name }}</td>
+                  <td>{{ item.name_en }}</td>
                   <td>
                     <button type="button" class=" btn btn-outline-first btn-sm font-14px" (click)="addCategoryCatalogs(item)">
                       <span class="mr-2">({{ item.catalogs?item.catalogs.length:0 }} Cat&aacute;logos)</span>Agregar
@@ -45,7 +47,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr>
-    <td colspan=6>
+    <td colspan=7>
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

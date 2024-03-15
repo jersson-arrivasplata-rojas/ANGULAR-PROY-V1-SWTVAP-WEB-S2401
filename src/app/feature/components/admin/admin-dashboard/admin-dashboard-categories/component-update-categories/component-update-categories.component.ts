@@ -20,7 +20,9 @@ export class ComponentUpdateCategoriesComponent implements OnInit, OnChanges {
   ) {
     this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(200)]],
+      name_en: [''],
       description: [null],
+      description_en: [null],
       status: [false, [Validators.required]]
     });
   }

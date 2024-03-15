@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -8,16 +8,17 @@ import { CartService } from 'src/app/shared/services/cart.service';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  @Input() catalogs: any = [];
+
   public cartflag: boolean = false;
   public sortBy: string = '';
   public sortOption: string = 'product_name|asc';
   public searchText: string = '';
-  public products = [];
 
-  constructor(public cartService: CartService, private router:Router){ }
+  constructor(public cartService: CartService, private router: Router) { }
 
   ngOnInit() {
-    this.ref({ target: { value: '' }});
+    this.ref({ target: { value: '' } });
   }
 
   ref($event: any) {
@@ -27,12 +28,12 @@ export class ProductsComponent implements OnInit {
     }, 10);
   }
 
-  checkout($event){
+  checkout($event) {
     this.router.navigate(['/checkout']);
   }
 
-  goToProduct($event){
+  goToProduct($event) {
     const { product_name } = $event;
-    this.router.navigate(['/c/'+product_name]);
+    this.router.navigate(['/c/' + product_name]);
   }
 }

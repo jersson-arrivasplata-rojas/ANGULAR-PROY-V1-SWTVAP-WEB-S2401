@@ -11,6 +11,7 @@ export class ComponentShowOrdersDetailsComponent implements OnChanges {
   @Input() item: any = {};
 
   productName: string = '';
+  productNameEn: string = '';
 
   constructor(private productHttp: ProductHttp){}
 
@@ -24,6 +25,7 @@ export class ComponentShowOrdersDetailsComponent implements OnChanges {
   getProductName(id: number){
     this.productHttp.getById(id).subscribe((res) => {
       this.productName = res.name;
+      this.productNameEn = res.name_en;
     });
   }
 }

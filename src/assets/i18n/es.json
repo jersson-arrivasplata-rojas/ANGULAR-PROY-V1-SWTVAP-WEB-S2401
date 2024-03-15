@@ -1,6 +1,9 @@
 {
     "ecommerce": {
         "pages": {
+            "products":{
+                "noProducts": "No hay productos disponibles"
+            },
             "notFound": {
                 "title": "Página no encontrada",
                 "description": "Lo sentimos, la página que buscas no se encuentra disponible.",

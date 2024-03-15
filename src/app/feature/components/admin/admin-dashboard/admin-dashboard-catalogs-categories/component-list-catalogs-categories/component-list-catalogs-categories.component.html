@@ -6,6 +6,7 @@
             <th>Asociado</th>
             <th *ngIf="!(properties.type === typesEnum.CATALOGS)">C&oacute;digo</th>
             <th>Nombre</th>
+            <th>Nombre (en)</th>
             <th>Estado</th>
             <th>Acciones</th>
         </tr>
@@ -17,6 +18,7 @@
             <td>{{ item.relationship | statusRelationship }}</td>
             <td *ngIf="item.code">{{ item.code | uppercase }}</td>
             <td>{{ item.name }}</td>
+            <td>{{ item.name_en }}</td>
             <td>{{ item.status | status }}</td>
             <td>
               <div class="d-flex flex-column align-items-center">
@@ -35,7 +37,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="(!data.length)">
-    <td [attr.colspan]="(properties.type === typesEnum.CATALOGS)?5:6">
+    <td [attr.colspan]="(properties.type === typesEnum.CATALOGS)?6:7">
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

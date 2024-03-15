@@ -2,9 +2,11 @@
     <div class="card-body">
         <h2>Id: {{ item.catalogId }}</h2>
         <p *ngIf="item.name">Nombre: {{ item.name }}</p>
+        <p *ngIf="item.name_en">Nombre (en): {{ item.name_en }}</p>
         <p *ngIf="item.code">C&oacute;digo: {{ item.code | uppercase }}</p>
         <p *ngIf="item.description">Descripci&oacute;n: {{ item.description }}</p>
-        <p>Idioma: {{ item.lang | statusLang }}</p>
+        <p *ngIf="item.description_en">Descripci&oacute;n (en): {{ item.description_en }}</p>
+        <p class="d-none">Idioma: {{ item.lang | statusLang }}</p>
         <p>Estado: {{ item.status | statusCommon }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>

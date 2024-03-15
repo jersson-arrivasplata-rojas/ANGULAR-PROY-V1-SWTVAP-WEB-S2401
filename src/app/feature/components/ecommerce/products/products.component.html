@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container "  *ngIf="cartService.allItems.length>0">
   <div class="form-row align-items-center">
     <div class="col-md-9">
       <div class="input-group mb-4 mt-4">
@@ -44,4 +44,12 @@
       <swtvap-cart-add *ngIf="cartflag" [showProduct]="true" (onCheckOut)="checkout($event)"></swtvap-cart-add>
     </div>
   </div>
+</div>
+<div class="container" *ngIf="cartService.allItems.length<=0">
+  <div class="row">
+    <div class="col-md-12 mt-4 mb-4 text-center" [ngStyle]="{borderStyle:'none', borderRadius:'10px',fontSize:'1.2rem'}">
+      <div class="alert alert-warning" role="alert">
+        {{ 'ecommerce.pages.products.noProducts' | translate }}
+      </div>
+    </div>
 </div>

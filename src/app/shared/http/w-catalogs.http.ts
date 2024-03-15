@@ -13,16 +13,16 @@ export class WCatalogsHttp {
 
     constructor(private http: HttpClient) { }
 
-    public getWCatalogsByLang(lang: string) {
-        if (this.wCatalogsCache.has(lang)) {
+    public getWCatalogs() {
+        if (this.wCatalogsCache.has('lang')) {
             // Si los datos ya están en la caché, devuélvelos
-            return of(this.wCatalogsCache.get(lang));
+            return of(this.wCatalogsCache.get('lang'));
         }
 
-        return this.http.get(this.apiUrl + `/${lang}`).pipe(
+        return this.http.get(this.apiUrl).pipe(
             tap(data => {
                 // Almacena los datos en la caché para futuras solicitudes
-                this.wCatalogsCache.set(lang, data);
+                this.wCatalogsCache.set('lang', data);
             }),
             catchError((error) => {
                 console.error('Ocurri\u00F3 un error: ', error);

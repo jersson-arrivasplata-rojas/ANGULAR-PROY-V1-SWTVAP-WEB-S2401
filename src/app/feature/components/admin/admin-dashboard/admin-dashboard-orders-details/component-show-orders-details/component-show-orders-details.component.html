@@ -2,6 +2,7 @@
     <div class="card-body">
         <h2>Id: {{ item.orderDetailId }}</h2>
         <p>Producto: {{ productName }}</p>
+        <p>Producto (en): {{ productNameEn }}</p>
         <p>Cantidad: {{ item.quantity }}</p>
         <p>Precio x Unidad en Soles: S/{{ item.unitPrice | addZeros }}</p>
         <p *ngIf="item.unitPriceUSD">Precio x Unidad en D&oacute;lares: $/{{ item.unitPriceUSD | addZeros }}</p>

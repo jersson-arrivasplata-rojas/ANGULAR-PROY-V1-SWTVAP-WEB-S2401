@@ -1,4 +1,10 @@
-export function productInitFN() {
+export function productInitFN(): {
+    p_id: string;
+    product_name: string;
+    product_weight: string;
+    product_price: string;
+    product_image: string;
+  }[] {
   return [
     {
       p_id: '1',

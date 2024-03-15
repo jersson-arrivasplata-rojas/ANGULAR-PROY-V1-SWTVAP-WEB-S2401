@@ -24,6 +24,7 @@ export class NavComponent implements OnInit, OnDestroy {
   @Input() hideNotCart: boolean = false;
   @Input() hideCurrency: boolean = false;
   @Input() sticky: boolean = true;
+  @Input() catalogs: any = [];
 
   assetUrl = environment.assetUrl;
   homeEnum = HomeEnum;
@@ -98,5 +99,27 @@ export class NavComponent implements OnInit, OnDestroy {
 
   cart() {
     this.onCart.emit();
+  }
+
+  showProductsByCatalog(catalog: any) {
+    if(catalog.products && catalog.products.length > 0) {
+      const products = catalog.products;
+      this.cartService.addProducts(products);
+    }
+  }
+
+  showProductsByCategory(catalog:any, category: any) {
+    if(category.products && category.products.length > 0) {
+      const products = category.products;
+      this.cartService.addProducts(products);
+    }
+  }
+
+  getFilteredCatalogs() {
+    let data =  this.catalogs.filter(catalog =>
+      catalog.products && catalog.products.length > 0 &&
+      catalog.categories && catalog.categories.length == 0
+    );
+    return data.slice(0, 6);
   }
 }

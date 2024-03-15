@@ -6,6 +6,7 @@
               <th>#</th>
               <th>C&oacute;digo</th>
               <th>Nombre</th>
+              <th>Nombre (en)</th>
               <th>Precio</th>
               <th>Stock</th>
               <th>Stock M&iacute;nimo</th>
@@ -21,6 +22,7 @@
                   <td>{{ (i + 1 )}}</td>
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.name }}</td>
+                  <td>{{ item.name_en }}</td>
                   <td class="text-left">
                     <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
                     <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
@@ -80,7 +82,7 @@
 </div>
 <ng-template #showNgTemplateContent>
   <tr *ngIf="!data.length">
-    <td colspan=12>
+    <td colspan=13>
         A&uacute;n no se ha agregado ning&uacute;n registro
     </td>
   </tr>

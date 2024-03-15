@@ -3,13 +3,16 @@
         <h2>Id: {{ item.productId }}</h2>
         <p>C&oacute;digo: {{ item.code | uppercase }}</p>
         <p>Nombre: {{ item.name }}</p>
+        <p>Nombre (en): {{ item.name_en }}</p>
         <p>Descripci&oacute;n: {{ item.description }}</p>
+        <p>Descripci&oacute;n (en): {{ item.description_en }}</p>
         <p *ngIf="item.price">Precio Soles: S/{{ item.price | addZeros }}</p>
         <p *ngIf="item.priceUSD">Precio D&oacute;lares: $/{{ item.priceUSD | addZeros }}</p>
         <p *ngIf="item.priceEUR">Precio Euros: €/{{ item.priceEUR | addZeros }}</p>
         <p>Stock: {{ item.stock }}</p>
         <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
         <p>Otros Detalles: {{ item.otherDetails }}</p>
+        <p>Otros Detalles (en): {{ item.otherDetails_en }}</p>
         <p>Estado: {{ item.status | status }}</p>
         <p>
           <button type="button" class="btn btn-danger-2" (click)="revoke.emit()">Cancelar</button>

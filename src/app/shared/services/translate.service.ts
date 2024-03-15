@@ -22,7 +22,7 @@ export class TranslateService {
     }
 
     getCurrentLang(){
-        return this.translate.currentLang || this.translate.getDefaultLang() || localStorage.getItem('lang');
+        return localStorage.getItem('lang') || this.translate.currentLang || this.translate.getDefaultLang();
     }
     
 }

@@ -93,50 +93,34 @@
           <i class="fas fa-angle-down"></i>
           <i class="fas fa-angle-up"></i>
         </span>
-
         <ul class="all-category-list">
-          <li class="all-category-list-item">
-            <a href="#" class="all-category-list-link">Smartphones<i class="fas fa-angle-right"></i></a>
-            <div class="category-second-list">
-              <ul class="category-second-list-ul">
-                <li class="category-second-item"><a href="#">Iphone 10</a></li>
-                <li class="category-second-item"><a href="#">Galaxy Note 10</a></li>
-                <li class="category-second-item"><a href="#">Motorola One </a></li>
-                <li class="category-second-item"><a href="#">Galaxy A80 </a></li>
-                <li class="category-second-item"><a href="#">Galaxy M </a></li>
-                <li class="category-second-item"><a href="#">Huaway P30 </a></li>
-              </ul>
-
-              <div class="img-product-menu">
-                <img alt="" src="https://i.ibb.co/Vvndkmy/banner.jpg">
-              </div>
-            </div>
-          </li>
-          <li class="all-category-list-item"><a href="#" class="all-category-list-link">Furniture <i
-                class="fas fa-angle-right"></i></a></li>
-          <li class="all-category-list-item"><a href="#" class="all-category-list-link">Toys<i
-                class="fas fa-angle-right"></i></a></li>
-          <li class="all-category-list-item"><a href="#" class="all-category-list-link">Computing<i
-                class="fas fa-angle-right"></i></a></li>
-          <li class="all-category-list-item"><a href="#" class="all-category-list-link">Games<i
-                class="fas fa-angle-right"></i></a></li>
-          <li class="all-category-list-item"><a href="" class="all-category-list-link">Automotive<i
-                class="fas fa-angle-right"></i></a></li>
-
+          <ng-container *ngFor="let item of catalogs">
+            <li class="all-category-list-item" >
+              <a href="#" class="all-category-list-link" (click)="showProductsByCatalog(item);$event.preventDefault()">
+                <span>{{item?.name}}</span>
+                <i *ngIf="item?.categories && item?.categories.length>0" class="fas fa-angle-right"></i>
+                <div *ngIf="item?.categories && item?.categories.length>0" class="category-second-list style-scroll">
+                  <ul class="category-second-list-ul">
+                    <li *ngFor="let category of item?.categories" class="category-second-item">
+                      <a href="#" (click)="showProductsByCategory(item, category);$event.preventDefault()">{{category?.name}}</a>
+                    </li>
+                  </ul>
+                  <div class="img-product-menu">
+                    <img alt="" src="assets/img/bg.jpg">
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ng-container>
         </ul>
       </label>
 
     </nav>
     <nav class="featured-category" aria-label="Featured Category">
-      <ul class="nav-row">
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Smartphones</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">furniture</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Toys</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Computing</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Games</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Automotive</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Games</a></li>
-        <li class="nav-row-list"><a href="#" class="nav-row-list-link">Automotive</a></li>
+      <ul class="nav-row"><!-- -->
+        <li *ngFor="let item of getFilteredCatalogs()" class="nav-row-list">
+          <a href="#" class="nav-row-list-link">{{item.name}}</a>
+        </li>
       </ul>
     </nav>
   </div>

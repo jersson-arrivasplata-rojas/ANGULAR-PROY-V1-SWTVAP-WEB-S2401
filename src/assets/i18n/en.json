@@ -1,6 +1,9 @@
 {
     "ecommerce": {
         "pages": {
+            "products":{
+                "noProducts": "No products available"
+            },
             "notFound": {
                 "title": "Page Not Found",
                 "description": "Sorry, the page you are looking for is not available.",
