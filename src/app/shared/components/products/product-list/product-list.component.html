@@ -6,7 +6,7 @@
         <div class="animition-type-selector mt-1">
             <div *ngFor="let slider of item?.sliders; let i = index" [class.active]="item.currentSlide === i" >
                 <div class="small-img ml-1 d-flex flex-column text-center">
-                    <img [ngStyle]="{height:'50px', width: '50px'}" [appLazyLoad]="slider?.src" [alt]="slider?.name" (click)="setCurrentSlide(i, item)">
+                    <img [ngStyle]="{height:'50px', width: '50px'}" [appLazyLoad]="slider?.src" alt="" (click)="setCurrentSlide(i, item)">
                     <!-- Modal -->
                     <div data-toggle="modal" [attr.data-target]="'#imageModal'+i" >
                         <i class="fas fa-search-plus" ></i>
@@ -17,7 +17,7 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <img [appLazyLoad]="slider?.src" [alt]="item?.name" class="img-fluid">
+                                <img [appLazyLoad]="slider?.src" [alt]="showEnglishName ? item?.name_en : item?.name" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -26,11 +26,11 @@
         </div>
       </div>
       <div class="card-body pr-3 pl-3 pb-3">
-          <a href="#" [title]="item?.name" (click)="goToProduct(item);$event.preventDefault()">
-            <h6 class="card-title font-weight-bold">
-              {{item?.name}}
-            </h6>
-          </a>
+        <a href="#" [title]="item?.name" (click)="goToProduct(item);$event.preventDefault()">
+          <h6 class="card-title font-weight-bold">
+            {{ showEnglishName ? item?.name_en : item?.name }}
+          </h6>
+        </a>
         <div class="row">
           <div class="col-md-6">
             <p class="card-text invisible">
@@ -62,5 +62,7 @@
   </div>
 </div>
 <div *ngIf="(currentPage + 1) * 10 < __allprdts.length">
-  <button  class="btn-load-more" (click)="loadMoreProducts()">Cargar más productos</button>
+  <button  class="btn-load-more" (click)="loadMoreProducts()">
+    {{ 'ecommerce.pages.products.showMoreProducts' | translate}}
+  </button>
 </div>

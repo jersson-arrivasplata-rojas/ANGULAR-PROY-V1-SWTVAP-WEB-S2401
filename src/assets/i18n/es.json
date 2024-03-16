@@ -2,7 +2,8 @@
     "ecommerce": {
         "pages": {
             "products":{
-                "noProducts": "No hay productos disponibles"
+                "noProducts": "No hay productos disponibles",
+                "showMoreProducts": "Mostrar más productos"
             },
             "notFound": {
                 "title": "Página no encontrada",

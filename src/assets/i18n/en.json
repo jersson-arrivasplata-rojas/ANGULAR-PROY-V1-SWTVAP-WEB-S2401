@@ -2,7 +2,8 @@
     "ecommerce": {
         "pages": {
             "products":{
-                "noProducts": "No products available"
+                "noProducts": "No products available",
+                "showMoreProducts": "Show more products"
             },
             "notFound": {
                 "title": "Page Not Found",

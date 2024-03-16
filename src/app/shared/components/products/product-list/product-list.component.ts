@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
   selector: 'swtvap-product-list',
@@ -7,6 +8,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  showEnglishName = false;
 
   @Input('searchedText') __searchedProduct: string = '';
   @Input('sortingBy') sortByOption: string = '';
@@ -18,9 +20,13 @@ export class ProductListComponent implements OnInit {
   currentPage = 0;
   displayedProducts = [];
 
-  constructor(public cartService: CartService) { }
+  constructor(public cartService: CartService, private translateService:TranslateService) { }
 
   ngOnInit() {
+    this.translateService.getTranslate('ecommerce.lang').subscribe(newTranslation => {
+      this.showEnglishName = newTranslation === 'en';
+    });
+    
     this.cartService.getProducts().subscribe(data => {
       this.__allprdts = this.cartService.getAllProducts(data);
       this.loadProducts();
