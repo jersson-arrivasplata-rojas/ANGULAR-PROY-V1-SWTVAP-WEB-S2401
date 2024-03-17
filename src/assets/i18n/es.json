@@ -9,13 +9,15 @@
                 "title": "Página no encontrada",
                 "description": "Lo sentimos, la página que buscas no se encuentra disponible.",
                 "goToHome": "Ir a la página de inicio",
-                "status": "404"
+                "status": "404",
+                "returnToHome": "Regresar a la página de inicio"
             },
             "contact": {
                 "title": "Contáctanos",
                 "description": "Si tienes alguna pregunta, no dudes en contactarnos. Nuestro equipo estará encantado de ayudarte.",
                 "form": {
                     "title": "Formulario de contacto",
+                    "contact": "Número de contacto",
                     "name": "Nombre",
                     "email": "Correo electrónico",
                     "message": "Mensaje",

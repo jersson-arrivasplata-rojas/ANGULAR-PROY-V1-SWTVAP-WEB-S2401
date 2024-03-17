@@ -28,7 +28,7 @@
       <div class="card-body pr-3 pl-3 pb-3">
         <a href="#" [title]="item?.name" (click)="goToProduct(item);$event.preventDefault()">
           <h6 class="card-title font-weight-bold">
-            {{ showEnglishName ? item?.name_en : item?.name }}
+            {{ showEnglishName ? item?.nameEn : item?.name }}
           </h6>
         </a>
         <div class="row">
@@ -54,7 +54,9 @@
             </button>
           </div>
           <div class="col-md-6">
-            <p class="text-right font-weight-bolder"> {{item.price | currencyCustom }} </p>
+            <p class="text-right font-weight-bolder">
+              {{ (showCurrencyName ? item?.priceUSD : item?.price) | currencyCustom}}
+            </p>
           </div>
         </div>
       </div>

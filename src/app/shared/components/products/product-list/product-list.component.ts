@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LangChangeEvent } from '@ngx-translate/core';
+import { CurrencySymbolEnum } from 'src/app/shared/config/currency-symbol.enum';
+import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
@@ -8,7 +12,7 @@ import { TranslateService } from 'src/app/shared/services/translate.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  showEnglishName = false;
+  @Input() showEnglishName = false;
 
   @Input('searchedText') __searchedProduct: string = '';
   @Input('sortingBy') sortByOption: string = '';
@@ -19,14 +23,19 @@ export class ProductListComponent implements OnInit {
   __allprdts: any = [];
   currentPage = 0;
   displayedProducts = [];
+  showCurrencyName = false;
 
-  constructor(public cartService: CartService, private translateService:TranslateService) { }
+  constructor(public cartService: CartService, private translateService: TranslateService,
+    private currencyService: CurrencyService) {
+    this.translateService.getOnLangChange().subscribe((event: LangChangeEvent) => {
+      this.showEnglishName = event.lang === LangEnum.EN;
+    });
+    this.currencyService.getCurrenCurrency().subscribe((currency: string) => {
+      this.showCurrencyName = currency === CurrencySymbolEnum.PEN;
+    });
+  }
 
   ngOnInit() {
-    this.translateService.getTranslate('ecommerce.lang').subscribe(newTranslation => {
-      this.showEnglishName = newTranslation === 'en';
-    });
-    
     this.cartService.getProducts().subscribe(data => {
       this.__allprdts = this.cartService.getAllProducts(data);
       this.loadProducts();
@@ -34,6 +43,7 @@ export class ProductListComponent implements OnInit {
     this.__allprdts = this.cartService.allItems;
     this.sortByOption = 'name';
     this.loadProducts();
+    this.init();
   }
 
   addToCart(productId, productQty, productSize?) {
@@ -59,6 +69,10 @@ export class ProductListComponent implements OnInit {
   loadMoreProducts() {
     this.currentPage++;
     this.loadProducts();
+  }
+  init(){
+    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
+    this.showCurrencyName = this.currencyService.getCurrentCurrencyValue() === CurrencySymbolEnum.PEN;
   }
 }
 /*

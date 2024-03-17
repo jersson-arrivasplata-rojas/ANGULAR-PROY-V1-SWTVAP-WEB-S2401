@@ -3,18 +3,23 @@
 <div class="contact-form-container ">
     <h1 class="text-center">{{ 'ecommerce.pages.contact.title' | translate }}</h1>
     <p class="text-center">{{ 'ecommerce.pages.contact.description' | translate }}</p>
-    <form class=" mb-4" (submit)="submitContactForm()">
+    <form class=" mb-4" [formGroup]="itemForm" (ngSubmit)="add()">
         <div class="form-group">
             <label for="name">{{ 'ecommerce.pages.contact.form.name' | translate }}:</label>
-            <input type="text" id="name" name="name" [(ngModel)]="contactDetails.name" required>
+            <input type="text" class="form-control" id="name" formControlName="name" maxlength="50">
+        </div>
+        <div class="form-group">
+            <label for="contact">{{ 'ecommerce.pages.contact.form.contact' | translate }}:</label>
+            <input type="text" class="form-control" id="contact" formControlName="contact" maxlength="30" >
         </div>
         <div class="form-group">
             <label for="email">{{ 'ecommerce.pages.contact.form.email' | translate }}:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="contactDetails.email" required>
+            <input type="text" class="form-control" id="email" formControlName="email" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}">
         </div>
         <div class="form-group">
             <label for="details">{{ 'ecommerce.pages.contact.form.message' | translate }}:</label>
-            <textarea id="details" name="details" [(ngModel)]="contactDetails.details" rows="5" required></textarea>
+            <textarea rows="5" class="form-control" id="details" formControlName="details">
+            </textarea>
         </div>
         <button type="submit" class="submit-button">{{ 'ecommerce.pages.contact.form.send' | translate }}</button>
     </form>

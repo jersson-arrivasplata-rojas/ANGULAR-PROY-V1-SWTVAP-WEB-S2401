@@ -97,12 +97,16 @@
           <ng-container *ngFor="let item of catalogs">
             <li class="all-category-list-item" >
               <a href="#" class="all-category-list-link" (click)="showProductsByCatalog(item);$event.stopPropagation();$event.preventDefault()">
-                <span>{{item?.name}}</span>
+                <span>
+                  {{ showEnglishName ? item?.nameEn : item?.name }}
+                </span>
                 <i *ngIf="item?.categories && item?.categories.length>0" class="fas fa-angle-right"></i>
                 <div *ngIf="item?.categories && item?.categories.length>0" class="category-second-list style-scroll">
                   <ul class="category-second-list-ul">
                     <li *ngFor="let category of item?.categories" class="category-second-item">
-                      <a href="#" (click)="showProductsByCategory(item, category);$event.stopPropagation();$event.preventDefault()">{{category?.name}}</a>
+                      <a href="#" (click)="showProductsByCategory(item, category);$event.stopPropagation();$event.preventDefault()">
+                        {{ showEnglishName ? category?.nameEn : category?.name }}
+                      </a>
                     </li>
                   </ul>
                   <div class="img-product-menu">
@@ -119,7 +123,9 @@
     <nav class="featured-category" aria-label="Featured Category">
       <ul class="nav-row"><!-- -->
         <li *ngFor="let item of getFilteredCatalogs()" class="nav-row-list">
-          <a href="#" (click)="showProductsByCatalog(item);$event.preventDefault()" class="nav-row-list-link">{{item.name}}</a>
+          <a href="#" (click)="showProductsByCatalog(item);$event.preventDefault()" class="nav-row-list-link">
+            {{ showEnglishName ? item?.nameEn : item?.name }}
+          </a>
         </li>
       </ul>
     </nav>

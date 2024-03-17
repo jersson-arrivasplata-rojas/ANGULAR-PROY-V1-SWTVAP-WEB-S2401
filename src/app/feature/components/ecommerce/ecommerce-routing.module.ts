@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EcommerceProductResolve } from 'src/app/shared/resolve/ecommerce-product.resolve';
 import { EcommerceResolve } from 'src/app/shared/resolve/ecommerce.resolve';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BaseComponent } from './base/base.component';
@@ -39,7 +40,10 @@ const routes: Routes = [
       },
       {
         path: 'c/:name',
-        component: ProductComponent
+        component: ProductComponent,
+        resolve: {
+          process: EcommerceProductResolve
+        }
       },
       {
         path: 'politics-and-privacy',

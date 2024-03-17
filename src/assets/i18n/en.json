@@ -9,13 +9,15 @@
                 "title": "Page Not Found",
                 "description": "Sorry, the page you are looking for is not available.",
                 "goToHome": "Go to Home Page",
-                "status": "404"
+                "status": "404",
+                "returnToHome": "Return to Home"
             },
             "contact": {
                 "title": "Contact Us",
                 "description": "If you have any questions, do not hesitate to contact us. Our team will be happy to help.",
                 "form": {
                     "title": "Contact Form",
+                    "contact": "Number of contact",
                     "name": "Name",
                     "email": "Email",
                     "message": "Message",

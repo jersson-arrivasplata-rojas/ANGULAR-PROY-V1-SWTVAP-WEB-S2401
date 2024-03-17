@@ -1,4 +1,4 @@
-<footer class="footer-section ">
+<footer class="footer-section">
     <div class="container">
         <div class="footer-cta pt-5 pb-5">
             <div class="row text-center align-items-center">
@@ -85,13 +85,16 @@
                                     <li>
                                         <span class="text-white">{{ 'ecommerce.menu.subscribe.items.item1' | translate }}</span>
                                         <div class="subscribe-form mt-2">
-                                            <form action="#">
+                                            <form [formGroup]="itemForm" (ngSubmit)="add()">
                                                 <label for="inputField" class="d-none">Enter Value:</label>
-                                                <input type="text" id="inputField" [placeholder]="'ecommerce.menu.subscribe.items.item2' | translate"
-                                                    title="Enter a value">
+                                                <input type="text" [placeholder]="'ecommerce.menu.subscribe.items.item2' | translate" id="email" formControlName="email" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}">
                                                 <button type="submit" title="Send Message">
                                                     <i class="fab fa-telegram-plane"></i>
                                                 </button>
+                                                <!--
+                                                <input type="text" id="inputField" [placeholder]="'ecommerce.menu.subscribe.items.item2' | translate"
+                                                    title="Enter a value">
+                                                -->
                                             </form>
                                         </div>
                                     </li>

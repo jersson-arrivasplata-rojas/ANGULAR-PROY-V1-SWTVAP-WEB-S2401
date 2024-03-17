@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { AnimationType } from '../components/carousels/carousel/carousel.animations';
 import { CartEnum } from '../config/cart.enum';
 import { CurrencySymbolEnum } from '../config/currency-symbol.enum';
+import { LangEnum } from '../config/lang.enum';
 import { ProductImageInInterface } from '../interfaces/product-in.interface';
 import { StorageService } from './storage.service';
 
@@ -11,26 +12,29 @@ import { StorageService } from './storage.service';
 })
 export class CartService implements OnDestroy {
   public index = 0;
+  public allProducts: any = [];
   public allItems: any = [];
   public cartData: any = [];
   public cartItemsList: any = [];
   public cartTotal: any = 0;
   public cartItemsStorageName = '';
 
-  private subscription: Subscription;
+  private subscription: Subscription = new Subscription();
   private product$ = new Subject<any>();
+  private allProduct$ = new Subject<any>();
 
   constructor(public storage: StorageService) {
     this.cartItemsStorageName = this.getCartItemsStorageName();
-    this.subscription = this.getProducts().subscribe(data => {//.pipe(skip(1))
-      console.log(data);
+    this.subscription.add(this.getProducts().subscribe(data => {//.pipe(skip(1))
       this.allItems = this.getAllProducts(data);
-      if (this.index === 0) {
-        this.loadCart();
-        this.listCartItems();
-        this.index++;
-      }
-    });
+    }));
+
+    this.subscription.add(this.getAllProduct().subscribe(data => {
+      this.allProducts = data;
+      this.loadCart();
+      this.listCartItems();
+    }));
+
   }
 
   ngOnDestroy() {
@@ -43,6 +47,15 @@ export class CartService implements OnDestroy {
 
   getProducts() {
     return this.product$.asObservable();
+  }
+
+
+  addAllProduct(value: any) {
+    this.allProduct$.next(value);
+  }
+
+  getAllProduct() {
+    return this.allProduct$.asObservable();
   }
 
   loadCart() {
@@ -91,22 +104,24 @@ export class CartService implements OnDestroy {
   }
 
   listCartItems() {
-    if (this.allItems.length > 0) {
+    if (this.allProducts.length > 0) {
       let tempCart = [];
-      let getActualItems = Object.keys(this.cartData);
+      let getActualItems = Object.keys(this.cartData).map(Number);;
       let cartDataItems = this.cartData;
       let tempTotal = 0;
 
-      var onlyChoosenItems = (this.allItems).filter(function (item) {
+      var onlyChoosenItems = (this.allProducts).filter(function (item) {
+        const name = localStorage.getItem('lang') === LangEnum.EN ? item.nameEn : item.name;
+        const price = localStorage.getItem('currency') === CurrencySymbolEnum.PEN ? item.price : item.priceUSD;
         if (getActualItems.indexOf(item.productId) !== -1) {
           tempCart.push({
             pid: item.productId,
-            name: item.name,
+            name: name,
             qty: cartDataItems[item.productId],
-            price: item.price * cartDataItems[item.productId],
+            price: price * cartDataItems[item.productId],
             product: { ...item }
           });
-          tempTotal += item.price * cartDataItems[item.productId];
+          tempTotal += price * cartDataItems[item.productId];
         }
       });
 
@@ -141,10 +156,12 @@ export class CartService implements OnDestroy {
   }
 
   getCartItemsStorageName() {
-    if (localStorage.getItem('currency') === CurrencySymbolEnum.PEN) {
+    /*if (localStorage.getItem('currency') === CurrencySymbolEnum.PEN) {
       return CartEnum.PEN;
-    }
-    return CartEnum.USD;
+    }else if (localStorage.getItem('currency') === CurrencySymbolEnum.USD) {
+      return CartEnum.USD;
+    }*/
+    return CartEnum.DEFAULT;
   }
 
   getAllProducts(products: any[]) {
@@ -175,7 +192,7 @@ export class CartService implements OnDestroy {
     return products;
   }
 
-  findAllProductsByCatalogs(catalogs: any[]) {
+  findOneArrayOfproducts(catalogs: any[]) {
     let products = [];
     let productFlag = false;
     for (let index = 0; index < catalogs.length; index++) {
@@ -207,5 +224,35 @@ export class CartService implements OnDestroy {
     }
 
     return products;
+  }
+
+  extractProducts(data) {
+    let allProducts = [];
+
+    // Iterate through each catalog
+    data.forEach(catalog => {
+      // Check if catalog has products directly
+      if (catalog.products && catalog.products.length > 0) {
+        allProducts = allProducts.concat(catalog.products);
+      }
+
+      // Check if catalog has categories with products
+      if (catalog.categories && catalog.categories.length > 0) {
+        catalog.categories.forEach(category => {
+          if (category.products && category.products.length > 0) {
+            allProducts = allProducts.concat(category.products);
+          }
+        });
+      }
+    });
+
+    // Convert allProducts to a Set to remove duplicates, then convert it back to an array
+    allProducts = Array.from(new Set(allProducts));
+    allProducts = allProducts.filter((product, index, self) =>
+      index === self.findIndex((t) => (
+        t.productId === product.productId
+      ))
+    );
+    return allProducts;
   }
 }

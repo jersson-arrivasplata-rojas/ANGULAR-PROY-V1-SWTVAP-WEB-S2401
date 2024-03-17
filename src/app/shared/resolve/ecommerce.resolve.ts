@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
@@ -23,9 +24,10 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
 
   constructor(private wParameterHttp: WParameterHttp, private wCatalogsHttp: WCatalogsHttp,
     public cartService: CartService, private currencyService: CurrencyService,
-    private localService: LocalService) { }
+    private localService: LocalService, @Inject(DOCUMENT) private document: Document) { }
 
   resolve(): Observable<any> {
+    console.log('La ruta actual es', this.document.location.hash.substring(1));
 
     const currency = this.localService.getData('currency') ?? CurrencySymbolEnum.USD;
     this.currencyService.changeCurrency(currency);
@@ -36,8 +38,11 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
       mergeMap(catalogs => {
         this.wCatalogs = catalogs;
 
-        const products = this.cartService.findAllProductsByCatalogs(catalogs);
-        this.cartService.addProducts(products);
+        const findOneArrayOfproducts = this.cartService.findOneArrayOfproducts(catalogs);
+        this.cartService.addProducts(findOneArrayOfproducts);
+
+        const allProducts = this.cartService.extractProducts(catalogs);
+        this.cartService.addAllProduct(allProducts);
 
         return this.wParameterHttp.getWParametersByCode(ParametersEnum.STORE)
           .pipe(map((data: any) => {

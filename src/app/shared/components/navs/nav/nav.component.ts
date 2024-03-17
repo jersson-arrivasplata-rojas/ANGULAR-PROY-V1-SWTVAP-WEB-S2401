@@ -8,7 +8,7 @@ import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
-import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { LocalService } from 'src/app/shared/services/local.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 import { environment } from 'src/environments/environment';
 
@@ -34,12 +34,14 @@ export class NavComponent implements OnInit, OnDestroy {
   lang = '';
   currencyActive = '';
   data: any = {};
+  showEnglishName = false;
+  showCurrencyName = false;
 
   private translationsSubscription: Subscription;
   private languageSubscription: Subscription;
   private currencySubscription: Subscription;
 
-  constructor(private localService: LocalStorageService, public cartService: CartService,
+  constructor(private localService: LocalService, public cartService: CartService,
     private translateService: TranslateService, private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
@@ -48,6 +50,7 @@ export class NavComponent implements OnInit, OnDestroy {
     this.subscribeToLanguageChange();
     this.fetchTranslations();
     this.subscribeToCurrency();
+    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
   }
 
   ngOnDestroy(): void {
@@ -75,19 +78,22 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   changeCurrency(currency: string) {
-    this.localService.setItem('currency', currency);
+    this.localService.saveData('currency', currency);
     this.currencyService.changeCurrency(currency);
 
 
     //this.cartService.allItems = this.products;
     this.cartService.loadCart();
     this.cartService.listCartItems();
+
+    this.showCurrencyName = CurrencySymbolEnum.USD == currency;
   }
 
   changeLang() {
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
     this.translateService.switchLanguage(this.lang);
     this.localService.saveData('lang', this.lang);
+    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
   }
 
   subscribeToCurrency() {
@@ -122,4 +128,5 @@ export class NavComponent implements OnInit, OnDestroy {
     );
     return data.slice(0, 6);
   }
+
 }

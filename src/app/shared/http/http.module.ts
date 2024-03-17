@@ -25,8 +25,14 @@ import { ProviderHttp } from './providers.http';
 import { ReviewHttp } from './reviews.http';
 import { SubscriptionHttp } from './subscriptions.http';
 import { UnitHttp } from './units.http';
+import { WAnalyticsHttp } from './w-analytics.http';
 import { WCatalogsHttp } from './w-catalogs.http';
+import { WCommentsHttp } from './w-comments.http';
+import { WContactsHttp } from './w-contacts.http';
+import { WNewsletterSubscriptionsHttp } from './w-newsletter-subscriptions.http';
 import { WParameterHttp } from './w-parameters.http';
+import { WProductsHttp } from './w-products.http';
+import { WReviewsHttp } from './w-reviews.http';
 @NgModule({
   imports: [],
   providers: [
@@ -58,6 +64,12 @@ import { WParameterHttp } from './w-parameters.http';
     ProductCatalogsHttp,
     WParameterHttp,
     WCatalogsHttp,
+    WProductsHttp,
+    WContactsHttp,
+    WNewsletterSubscriptionsHttp,
+    WAnalyticsHttp,
+    WReviewsHttp,
+    WCommentsHttp,
   ],
 })
 export class HttpModule {}

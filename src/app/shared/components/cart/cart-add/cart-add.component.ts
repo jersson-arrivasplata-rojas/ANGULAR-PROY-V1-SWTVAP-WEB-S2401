@@ -1,17 +1,30 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LangChangeEvent } from '@ngx-translate/core';
+import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
   selector: 'swtvap-cart-add',
   templateUrl: './cart-add.component.html',
   styleUrls: ['./cart-add.component.scss'],
 })
-export class CartAddComponent {
+export class CartAddComponent implements OnInit {
   @Output() onCheckOut: EventEmitter<any> = new EventEmitter();
   @Output() onProduct: EventEmitter<any> = new EventEmitter();
   @Input() showProduct = false;
 
-  constructor(public cartService: CartService) { }
+  showEnglishName = false;
+
+  constructor(public cartService: CartService, private translateService: TranslateService) {
+    this.translateService.getOnLangChange().subscribe((event: LangChangeEvent) => {
+      this.showEnglishName = event.lang === LangEnum.EN;
+    });
+  }
+
+  ngOnInit(): void {
+    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
+  }
 
 
   removeItem(pid) {

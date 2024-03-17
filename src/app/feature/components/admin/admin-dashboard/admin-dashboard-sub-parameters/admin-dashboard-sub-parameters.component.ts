@@ -19,6 +19,7 @@ export class AdminDashboardSubParametersComponent implements OnInit {
   updateItem = false;
   showItem = false;
   id;
+  
   constructor(private parameterHttp: ParameterHttp, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

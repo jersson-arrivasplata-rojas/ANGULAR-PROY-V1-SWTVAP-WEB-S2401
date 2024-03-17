@@ -12,6 +12,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactComponent } from './contact/contact.component';
 import { CustomerSupportComponent } from './customer-support/customer-support.component';
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
+import { EcommerceComponent } from './ecommerce.component';
 import { FrequentlyAskedQuestionsComponent } from './frequently-asked-questions/frequently-asked-questions.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -24,6 +25,7 @@ import { ShippingMethodsComponent } from './shipping-methods/shipping-methods.co
 
 @NgModule({
   declarations: [
+    EcommerceComponent,
     BaseComponent,
     HomeComponent,
     ContactComponent,

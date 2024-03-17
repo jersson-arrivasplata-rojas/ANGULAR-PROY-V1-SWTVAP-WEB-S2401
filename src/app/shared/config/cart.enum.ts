@@ -1,4 +1,5 @@
 export enum CartEnum {
     PEN = 'mycartPEN',
-    USD = 'mycartUSD'
+    USD = 'mycartUSD',
+    DEFAULT = 'mycart'
 }

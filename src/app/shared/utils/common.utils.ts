@@ -1864,6 +1864,12 @@ export class CommonUtils {
     return base;
   }
 
+  public static getBaseUrlHash(): string {
+    const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}/#`;
+    const url = window.location.href.replace(baseUrl, '');
+    return url;
+  }
+
   public static isMobile(): {
     Android: () => RegExpMatchArray;
     BlackBerry: () => RegExpMatchArray;

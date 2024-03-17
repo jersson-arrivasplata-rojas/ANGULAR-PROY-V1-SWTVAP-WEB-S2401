@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AnalyticsService } from './analytics.service';
 import { CartService } from './cart.service';
 import { CurrencyService } from './currency.service';
 import { ExampleService } from './example.service';
@@ -32,6 +33,7 @@ import { WindowService } from './window.service';
     StorageService,
     TranslateService,
     CurrencyService,
+    AnalyticsService,
   ]
 })
 export class ServicesModule { }

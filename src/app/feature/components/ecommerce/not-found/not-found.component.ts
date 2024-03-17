@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, tap } from 'rxjs';
+import { EcommerceWhiteEnum } from 'src/app/shared/config/ecommerce-routes-white.enum';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
+import { NotFoundTypeEnum } from 'src/app/shared/config/not-found-type.enum';
+import { AnalyticsService } from 'src/app/shared/services/analytics.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
@@ -22,8 +25,8 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   private translationsSubscription: Subscription;
   private languageSubscription: Subscription;
 
-
-  constructor(private activatedRoute: ActivatedRoute, private translateService: TranslateService) { }
+  constructor(private activatedRoute: ActivatedRoute, private translateService: TranslateService,
+    private analyticsService: AnalyticsService) { }
 
   ngOnInit() {
     const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
@@ -31,6 +34,7 @@ export class NotFoundComponent implements OnInit, OnDestroy {
     this.carrousel = carrousel?.[0] ?? {};
     this.subscribeToLanguageChange();
     this.fetchTranslations();
+    this.sendAnalytics();
   }
 
   ngOnDestroy(): void {
@@ -43,8 +47,8 @@ export class NotFoundComponent implements OnInit, OnDestroy {
 
 
     this.languageSubscription = this.translateService.getOnLangChange()
-    .pipe(tap(() => this.fetchTranslations()))
-    .subscribe();
+      .pipe(tap(() => this.fetchTranslations()))
+      .subscribe();
   }
 
   fetchTranslations(): void {
@@ -57,6 +61,25 @@ export class NotFoundComponent implements OnInit, OnDestroy {
         this.title = data.title;
         this.message = data.description;
       });
+  }
+
+  sendAnalytics() {
+
+    // Obtiene los parámetros de la consulta
+    const type = this.activatedRoute.snapshot.queryParamMap.get('type');
+    const name = this.activatedRoute.snapshot.queryParamMap.get('name');
+    const lang = this.activatedRoute.snapshot.queryParamMap.get('lang');
+    if (name && lang && NotFoundTypeEnum.PRODUCT === type) {
+      const params = new URLSearchParams();
+      params.set('name', name);
+      params.set('lang', lang);
+      params.set('type', type);
+      const queryString = params.toString();
+      this.analyticsService.sendForAnalytics(EcommerceWhiteEnum.NOT_FOUND, queryString);
+    } else {
+      this.analyticsService.sendForAnalytics(EcommerceWhiteEnum.NOT_FOUND);
+    }
+
   }
 
 }

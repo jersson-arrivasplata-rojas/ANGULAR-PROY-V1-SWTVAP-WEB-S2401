@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AnimationType } from 'src/app/shared/components/carousels/carousel/carousel.animations';
 import { CarouselComponent } from 'src/app/shared/components/carousels/carousel/carousel.component';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
+import { ProductInInterface } from 'src/app/shared/interfaces/product-in.interface';
 
 @Component({
   selector: 'swtvap-ecommerce-product',
@@ -12,6 +13,7 @@ import { HomeEnum } from 'src/app/shared/config/home.enum';
 export class ProductComponent implements OnInit {
   @ViewChild(CarouselComponent, { static: true }) carousel: CarouselComponent;
 
+  product: ProductInInterface;
   profile: any;
   carrousel: any;
   homeEnum = HomeEnum;
@@ -25,28 +27,28 @@ export class ProductComponent implements OnInit {
       name: "Scale",
       value: AnimationType.Scale,
       headline: "For Your Current Mood",
-      src:"https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+      src: "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
     },
     {
       currentSlide: 1,
       name: "Fade",
       value: AnimationType.Fade,
       headline: "Miouw",
-      src:"https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
+      src: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
     },
     {
       currentSlide: 2,
       name: "Flip",
       value: AnimationType.Flip,
       headline: "In The Wilderness",
-      src:"https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80"
+      src: "https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80"
     },
     {
       currentSlide: 3,
       name: "Jack In The Box",
       value: AnimationType.JackInTheBox,
       headline: "Focus On The Writing",
-      src:"https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
+      src: "https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
     }
   ];
 
@@ -56,6 +58,8 @@ export class ProductComponent implements OnInit {
     const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
+
+    this.product = this.activatedRoute.snapshot.data.process;
   }
 
   checkout($event) {

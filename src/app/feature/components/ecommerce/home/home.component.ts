@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
   selector: 'swtvap-ecommerce-home',
@@ -7,12 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  showEnglishName = false;
 
   profile: any;
   carrousel: any;
   catalogs: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+    private translateService:TranslateService) {
+  }
 
   ngOnInit() {
     const { wParameters: { profile, carrousel }, wCatalogs: catalogs } = this.activatedRoute.parent.snapshot.data.process;
