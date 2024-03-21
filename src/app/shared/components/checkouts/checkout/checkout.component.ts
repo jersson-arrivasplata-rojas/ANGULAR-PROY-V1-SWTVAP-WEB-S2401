@@ -43,7 +43,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     // Cancela la suscripción anterior para evitar fugas de memoria
     this.translationsSubscription?.unsubscribe();
 
-    this.translationsSubscription = this.translateService.getTranslate('ecommerce.pages.checkout')
+    /*this.translationsSubscription = this.translateService.getTranslate('ecommerce.pages.checkout')
       .subscribe((data: any) => {
         this.checkout.forEach((item: any) => {
           switch (item.uid) {
@@ -89,7 +89,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
               break;
           }
         });
-      });
+      });*/
   }
 
 

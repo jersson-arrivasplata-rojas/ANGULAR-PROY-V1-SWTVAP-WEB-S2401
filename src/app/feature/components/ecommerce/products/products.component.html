@@ -1,5 +1,13 @@
 <div class="container mb-4"  *ngIf="cartService.allItems.length>0">
   <div class="form-row align-items-center">
+    <div class="col-md-12 mt-3">
+      <h2 *ngIf="additionalData.catalog">
+        {{ showEnglishName ? additionalData.catalog?.nameEn : additionalData.catalog?.name }}
+      </h2>
+      <h2 *ngIf="additionalData.category">
+        {{ showEnglishName ? additionalData.category?.nameEn : additionalData.category?.name }}
+      </h2>
+    </div>
     <div class="col-md-9">
       <div class="input-group mb-4 mt-4">
         <div class="input-group-prepend">

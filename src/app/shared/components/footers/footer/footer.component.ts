@@ -5,9 +5,11 @@ import { skip, tap } from 'rxjs';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
 import { PatternEnum } from 'src/app/shared/constants/patterns.const';
+import { translateFN } from 'src/app/shared/functions/translate.function';
 import { WNewsletterSubscriptionsHttp } from 'src/app/shared/http/w-newsletter-subscriptions.http';
 import { ParameterInterface } from 'src/app/shared/interfaces/parameter.interface';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
@@ -58,7 +60,7 @@ export class FooterComponent implements OnInit, OnChanges {
   ];
   itemForm: FormGroup;
 
-  constructor(private router: Router, private shareDataService: ShareDataService,
+  constructor(private router: Router, private shareDataService: ShareDataService, private translateService:TranslateService,
     private formBuilder: FormBuilder, private wNewsletterSubscriptionsHttp:WNewsletterSubscriptionsHttp) {
     this.itemForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.maxLength(50), emailDomainValidator()]],
@@ -86,9 +88,10 @@ export class FooterComponent implements OnInit, OnChanges {
 
   add() {
     if (this.itemForm.valid) {
+      const success = translateFN()[this.translateService.getCurrentLang()].alert.successSubscribed;
       const item = { ...this.init(), ...this.itemForm.value };
       this.wNewsletterSubscriptionsHttp.addWNewsletterSubscriptions(item).pipe(
-        tap((data) => (window as any).success("¡Se subscribi\u00F3 con \u00E9xito!")))
+        tap((data) => (window as any).success(success)))
         .subscribe(response => {
           this.itemForm.reset();
         });

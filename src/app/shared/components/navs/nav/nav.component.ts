@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Subscription, tap } from 'rxjs';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { CurrencySymbolEnum } from 'src/app/shared/config/currency-symbol.enum';
@@ -18,11 +25,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit, OnDestroy {
-
   @Output() onCart: EventEmitter<any> = new EventEmitter();
+  @Output() onAdditionalData: EventEmitter<any> = new EventEmitter();
   @Input() profile: ParameterInterface | any = {};
   @Input() hideNotCart: boolean = false;
   @Input() hideCurrency: boolean = false;
+  @Input() cartEmpty: boolean = false;
   @Input() sticky: boolean = true;
   @Input() catalogs: any = [];
 
@@ -41,8 +49,12 @@ export class NavComponent implements OnInit, OnDestroy {
   private languageSubscription: Subscription;
   private currencySubscription: Subscription;
 
-  constructor(private localService: LocalService, public cartService: CartService,
-    private translateService: TranslateService, private currencyService: CurrencyService) { }
+  constructor(
+    private localService: LocalService,
+    public cartService: CartService,
+    private translateService: TranslateService,
+    private currencyService: CurrencyService
+  ) {}
 
   ngOnInit(): void {
     this.lang = this.translateService.getCurrentLang();
@@ -50,7 +62,8 @@ export class NavComponent implements OnInit, OnDestroy {
     this.subscribeToLanguageChange();
     this.fetchTranslations();
     this.subscribeToCurrency();
-    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
+    this.showEnglishName =
+      this.translateService.getCurrentLang() === LangEnum.EN;
   }
 
   ngOnDestroy(): void {
@@ -61,7 +74,8 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   subscribeToLanguageChange(): void {
-    this.languageSubscription = this.translateService.getOnLangChange()
+    this.languageSubscription = this.translateService
+      .getOnLangChange()
       .pipe(tap(() => this.fetchTranslations()))
       .subscribe();
   }
@@ -70,17 +84,16 @@ export class NavComponent implements OnInit, OnDestroy {
     // Cancela la suscripción anterior para evitar fugas de memoria
     this.translationsSubscription?.unsubscribe();
 
-    this.translationsSubscription = this.translateService.getTranslate('ecommerce.lang')
+    this.translationsSubscription = this.translateService
+      .getTranslate('ecommerce.lang')
       .subscribe((data: any) => {
         this.data = data;
       });
-
   }
 
   changeCurrency(currency: string) {
     this.localService.saveData('currency', currency);
     this.currencyService.changeCurrency(currency);
-
 
     //this.cartService.allItems = this.products;
     this.cartService.loadCart();
@@ -93,13 +106,18 @@ export class NavComponent implements OnInit, OnDestroy {
     this.lang = LangEnum.EN == this.lang ? LangEnum.ES : LangEnum.EN;
     this.translateService.switchLanguage(this.lang);
     this.localService.saveData('lang', this.lang);
-    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
+    this.showEnglishName =
+      this.translateService.getCurrentLang() === LangEnum.EN;
   }
 
   subscribeToCurrency() {
-    this.currencySubscription = this.currencyService.getCurrenCurrency()
+    this.currencySubscription = this.currencyService
+      .getCurrenCurrency()
       .subscribe((currency: string) => {
-        this.currencyActive = CurrencySymbolEnum.PEN == currency ? CurrencyEnum.PEN : CurrencyEnum.USD;
+        this.currencyActive =
+          CurrencySymbolEnum.PEN == currency
+            ? CurrencyEnum.PEN
+            : CurrencyEnum.USD;
       });
   }
 
@@ -108,25 +126,29 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   showProductsByCatalog(catalog: any) {
-    if(catalog.products) {
+    if (catalog.products) {
       const products = catalog.products;
       this.cartService.addProducts(products);
+      this.cartService.addAdditionalData({ catalog: catalog, category: null });
     }
   }
 
-  showProductsByCategory(catalog:any, category: any) {
-    if(category.products) {
+  showProductsByCategory(catalog: any, category: any) {
+    if (category.products) {
       const products = category.products;
       this.cartService.addProducts(products);
+      this.cartService.addAdditionalData({ catalog: null, category: category });
     }
   }
 
   getFilteredCatalogs() {
-    let data =  this.catalogs.filter(catalog =>
-      catalog.products && catalog.products.length > 0 &&
-      catalog.categories && catalog.categories.length == 0
+    let data = this.catalogs.filter(
+      (catalog) =>
+        catalog.products &&
+        catalog.products.length > 0 &&
+        catalog.categories &&
+        catalog.categories.length == 0
     );
     return data.slice(0, 6);
   }
-
 }

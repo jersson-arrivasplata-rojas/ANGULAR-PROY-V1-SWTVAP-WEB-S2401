@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StoreProfile } from 'src/app/shared/class/store-profile';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-billing-info',
@@ -14,6 +15,8 @@ export class BillingInfoComponent implements OnInit {
 
   @Input() profile: any;
 
+  public assetUrl = environment.assetUrl;
+
   public companyDetails: any = {
     name: '',
     address: '',
@@ -25,7 +28,7 @@ export class BillingInfoComponent implements OnInit {
   public customerDetails: any = {};
   public invoiceDate: any = new Date();
   public billingFlag: any = [];
-  public invoiceNo: any = Math.floor(Math.random() * 10000);
+  public invoiceNo: any = '';
 
   __allprdts: any = [];
 
@@ -33,11 +36,13 @@ export class BillingInfoComponent implements OnInit {
 
   ngOnInit() {
     this.changeProfile();
-    this.__allprdts = this.cartService.allItems;
+    this.__allprdts = this.cartService.allProducts;
 
     this.customerDetails = this.cartService.loadBillingInfo('customerInfo');
+    this.invoiceNo = this.cartService.loadInvoiceNumber('invoiceNo');
     const cart = this.cartService.getStorageCart();
     this.billingFlag = JSON.stringify(cart);
+
   }
 
   changeProfile() {
@@ -54,8 +59,6 @@ export class BillingInfoComponent implements OnInit {
   clearCart() {
     let temp = {};
     localStorage.setItem(this.storage.storageName, JSON.stringify(temp));
-
-    this.continue();
   }
 
   print() {

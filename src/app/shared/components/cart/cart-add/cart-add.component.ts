@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LangChangeEvent } from '@ngx-translate/core';
 import { LangEnum } from 'src/app/shared/config/lang.enum';
+import { translateFN } from 'src/app/shared/functions/translate.function';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 
@@ -41,12 +42,14 @@ export class CartAddComponent implements OnInit {
   }
 
   async emptyCart() {
-    let text = 'Are you sure you want to clear the cart ?';
+    const warning = translateFN()[this.translateService.getCurrentLang()].alert.warningClearCart;
+    const cleaned = translateFN()[this.translateService.getCurrentLang()].alert.cleaned;
+
     //let text = '¡Presiona el bot\xf3n para limpiar todo el carrito!';
 
-    if (await confirm(text) === true) {
+    if (await confirm(warning) === true) {
       this.cartService.emptyCart();
-      (window as any).success('¡Limpiado!');
+      (window as any).success(cleaned);
     }
   }
 

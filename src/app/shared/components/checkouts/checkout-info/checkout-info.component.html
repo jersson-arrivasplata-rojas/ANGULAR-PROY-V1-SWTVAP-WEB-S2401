@@ -1,63 +1,47 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="send()">
+<form [formGroup]="itemForm" (ngSubmit)="add()">
   <div class="form-row">
-    <div class="form-group col-md-6" *ngFor="let formFields of __checkout">
-      <label for="inputEmail4">{{ formFields.label }}</label>
-      <div *ngIf="formFields.type === 'text'">
-        <input
-          type="text"
-          class="form-control"
-          formControlName="{{ formFields.uid }}"
-          placeholder="{{ formFields.placeholder }}"
-        />
-
-        <small
-          class="form-text text-danger"
-          *ngIf="
-            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
-            checkoutForm.controls[formFields.uid].touched
-          "
-          >{{ formFields.errorMsg }}</small
-        >
-      </div>
-      <div *ngIf="formFields.type === 'textArea'">
-        <textarea
-          class="form-control"
-          formControlName="{{ formFields.uid }}"
-          placeholder="{{ formFields.placeholder }}"
-        ></textarea>
-
-        <small
-          class="form-text text-danger"
-          *ngIf="
-            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
-            checkoutForm.controls[formFields.uid].touched
-          "
-          >{{ formFields.errorMsg }}</small
-        >
-      </div>
-      <div *ngIf="formFields.type === 'select'">
-        <select
-          id="inputState"
-          class="form-control"
-          formControlName="{{ formFields.uid }}"
-          title="Select an option"
-        >
-          <option>Select</option>
-          <option
-            *ngFor="let optionName of formFields.options"
-            value="{{ optionName }}"
-            >{{ optionName }}</option
-          >
-        </select>
-        <small
-          class="form-text text-danger"
-          *ngIf="
-            checkoutForm.controls[formFields.uid].status === 'INVALID' &&
-            checkoutForm.controls[formFields.uid].touched
-          "
-          >{{ formFields.errorMsg }}</small
-        >
-      </div>
+    <div class="form-group col-md-6">
+        <label for="name">{{'ecommerce.pages.checkout.form.fullName' | translate}}</label>
+        <input type="text" class="form-control" id="name" formControlName="name" maxlength="50" [placeholder]="'ecommerce.pages.checkout.form.name' | translate">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="phone">{{'ecommerce.pages.checkout.form.phone' | translate}}</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" maxlength="20" appOnlyNumbersInput [OnlyNumber]="true" [placeholder]="'ecommerce.pages.checkout.form.phone' | translate">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="cellphone">{{'ecommerce.pages.checkout.form.cellphone' | translate}}</label>
+        <input type="text" class="form-control" id="cellphone" formControlName="cellphone" maxlength="20" [placeholder]="'ecommerce.pages.checkout.form.cellphone' | translate">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="email">{{'ecommerce.pages.checkout.form.email' | translate}}</label>
+        <input type="text" class="form-control" id="email" formControlName="email" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}" [placeholder]="'ecommerce.pages.checkout.form.email' | translate">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="countryCode">{{'ecommerce.pages.checkout.form.country' | translate}}</label>
+      <select id="countryCode" class="form-control" formControlName="countryCode" [title]="'ecommerce.pages.checkout.form.country' | translate">
+        <option value="" disabled selected>{{'ecommerce.pages.checkout.form.selectCountry' | translate}}</option>
+        <option *ngFor="let item of arrayCountries" [value]="item?.phone_code">
+          {{showEnglishName ?item?.name_en: item?.name_es}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-12">
+        <label for="address">{{'ecommerce.pages.checkout.form.address' | translate}}</label>
+        <textarea class="form-control" id="address" formControlName="address" [placeholder]="'ecommerce.pages.checkout.form.address' | translate"></textarea>
+    </div>
+    <div class="form-group col-md-12 d-none">
+      <label for="details">{{'ecommerce.pages.checkout.form.comments' | translate}}</label>
+      <textarea rows="3" class="form-control" id="details" formControlName="details" maxlength="250">
+      </textarea>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="otherDetails">{{'ecommerce.pages.checkout.form.comments' | translate}}</label>
+      <textarea rows="3" class="form-control" id="otherDetails" formControlName="otherDetails" >
+      </textarea>
+    </div>
+    <div class="form-group col-md-12 text-right">
+        <label class="mb-0 mr-2" for="whatsapp">{{'ecommerce.pages.checkout.form.WhatsApp' | translate}}</label>
+        <input type="checkbox" class="form-control float-right" id="whatsapp" formControlName="whatsapp" [ngStyle]="{width:'20px'}">
     </div>
   </div>
   <a href="#" class="btn btn-outline-primary "  (click)="continue();$event.preventDefault()">
@@ -65,10 +49,29 @@
   </a>
   <button
     type="submit"
-    class="btn btn-success float-right "
-    [disabled]="checkoutForm.invalid"
+    class="btn btn-success float-right"
+    [disabled]="itemForm.invalid"
     *ngIf="cartService.cartItemsList && cartService.cartTotal"
   >
     {{ 'ecommerce.pages.checkout.form.confirmBuy' | translate }}
   </button>
 </form>
+
+<!--
+<div class="form-group col-md-6">
+  <label for="paymentMethod">{{'ecommerce.pages.checkout.form.paymentMethod' | translate}}</label>
+  <select class="form-control" id="paymentMethod" formControlName="paymentMethod" [title]="'ecommerce.pages.checkout.form.paymentMethod' | translate">
+      <option value="Cash">Efectivo</option>
+      <option value="Credit Card">Tarjeta de Cr&eacute;dito</option>
+      <option value="Debit Card">Tarjeta de D&eacute;bito</option>
+      <option value="Transfer">Transferencia</option>
+      <option value="Deposit">Dep&oacute;sito</option>
+      <option value="Check">Cheque</option>
+      <option value="PayPal">PayPal</option>
+      <option value="Bitcoin">Bitcoin</option>
+      <option value="Apple Pay">Apple Pay</option>
+      <option value="Google Pay">Google Pay</option>
+      <option value="Otro">Otro</option>
+  </select>
+</div>
+-->

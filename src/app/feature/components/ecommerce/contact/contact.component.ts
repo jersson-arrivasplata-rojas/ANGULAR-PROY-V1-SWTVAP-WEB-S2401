@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay, of, switchMap, tap } from 'rxjs';
+import { translateFN } from 'src/app/shared/functions/translate.function';
 import { WContactsHttp } from 'src/app/shared/http/w-contacts.http';
+import { TranslateService } from 'src/app/shared/services/translate.service';
 import { emailDomainValidator } from 'src/app/shared/validators/email-domain.validators';
 
 @Component({
@@ -17,7 +19,7 @@ export class ContactComponent implements OnInit {
   itemForm: FormGroup;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder, private wContactsHttp:WContactsHttp) {
+    private formBuilder: FormBuilder, private wContactsHttp:WContactsHttp, private translateService:TranslateService) {
     this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
       contact: ['', [Validators.required, Validators.maxLength(30)]],
@@ -35,9 +37,10 @@ export class ContactComponent implements OnInit {
 
   add() {
     if (this.itemForm.valid) {
+      const success = translateFN()[this.translateService.getCurrentLang()].alert.successMessage;
       const item = { ...this.init(), ...this.itemForm.value };
       this.wContactsHttp.addWContacts(item).pipe(
-        tap((data) => (window as any).success("¡Su mensaje se envio con \u00E9xito!")),
+        tap((data) => (window as any).success(success)),
         switchMap(() => of(null).pipe(
           delay(2000),
           tap(() => this.router.navigate(['/']))

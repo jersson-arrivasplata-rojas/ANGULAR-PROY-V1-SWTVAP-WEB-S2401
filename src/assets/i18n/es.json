@@ -51,20 +51,27 @@
                 "totalAmount": "El monto total de",
                 "notIncludingMobility": "(No incluye movilidad)",
                 "goToCart": "Ir al carrito",
-                "goToCheckout": "Ir a pagar"
+                "goToCheckout": "Ir a pagar",
+                "informationOnlyWorksSomeDays": "La información registrada en el carrito de compras sólo estará disponible durante 7 días"
             },
             "checkout": {
                 "title": "Pagar",
                 "form": {
                     "title": "Formulario de pago",
                     "caption": "Información de pago",
+                    "fullName": "Nombre completo",
                     "name": "Nombre",
                     "lastName": "Apellido",
                     "email": "Correo electrónico",
                     "phone": "Teléfono",
+                    "selectCountry": "Seleccione un país",
+                    "WhatsApp": "¿Tienes Whatsapp?",
+                    "cellphone": "Celular",
                     "address": "Dirección",
                     "address2": "Dirección 2",
                     "reference": "Referencia",
+                    "comments": "Comentarios",
+                    "otherComments": "Otro comentario",
                     "country": "País",
                     "postalCode": "Código postal",
                     "paymentMethod": "Método de pago",
@@ -119,7 +126,7 @@
                     "canceled": "Cancelado"
                 },
                 "printReceipt": "Imprimir comprobante",
-                "newOrder": "Realizar un nuevo pedido",
+                "newOrder": "Retornar y Realizar un nuevo pedido",
                 "endOrder": "Finalizar pedido"
             }
         },
@@ -136,7 +143,14 @@
             "searchByProductName": "Buscar por nombre de producto",
             "productSearch": "Búsqueda de producto",
             "allCategories": "Todas las categorías",
-            "goToLogin": "Ir a iniciar sesión"
+            "goToLogin": "Ir a iniciar sesión",
+            "alert": {
+                "success": "Success",
+                "error": "Error",
+                "warning": "Warning",
+                "info": "Info",
+                "successSubscribed": "¡Se suscribió con éxito!"
+            }
         },
         "lang": {
             "es": "Español",
@@ -168,9 +182,12 @@
             },
             "subscribe": {
                 "title": "Suscríbirte Al Boletín Informátivo",
+                "subtitle": "Boletín Informativo",
                 "items": {
                     "item1": "Ingrese Su Dirección De Correo Electrónico Para Ser Parte De Nuestra Lista De Correos Y Manténgase Actualizado.",
-                    "item2": "Correo electrónico"
+                    "item2": "Correo electrónico",
+                    "item3": "Suscribirse",
+                    "item4": "Cancelar"
                 }
             },
             "guideAndHelp": {

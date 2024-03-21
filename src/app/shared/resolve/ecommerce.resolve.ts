@@ -39,7 +39,7 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
         this.wCatalogs = catalogs;
 
         const findOneArrayOfproducts = this.cartService.findOneArrayOfproducts(catalogs);
-        this.cartService.addProducts(findOneArrayOfproducts);
+        this.cartService.addProducts(findOneArrayOfproducts.products);
 
         const allProducts = this.cartService.extractProducts(catalogs);
         this.cartService.addAllProduct(allProducts);
@@ -54,6 +54,10 @@ export class EcommerceResolve implements Resolve<Observable<any>> {
               wParameters: {
                 ...{ profile: this.profile },
                 ...{ carrousel: this.carrousel },
+              },
+              additionalData: {
+                ...{ catalog: findOneArrayOfproducts.catalog },
+                ...{ category: findOneArrayOfproducts.category}
               }
             };
           }));

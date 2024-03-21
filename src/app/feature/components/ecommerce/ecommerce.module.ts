@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { appInitializerFactory } from '../../initializers';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BaseComponent } from './base/base.component';
 import { BillingComponent } from './billing/billing.component';
@@ -52,6 +53,13 @@ import { ShippingMethodsComponent } from './shipping-methods/shipping-methods.co
     TranslateModule,
   ],
   exports: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      multi: true
+    },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EcommerceModule { }

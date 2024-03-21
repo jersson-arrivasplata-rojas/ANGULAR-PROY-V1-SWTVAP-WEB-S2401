@@ -11,6 +11,7 @@ export enum ServiceWhiteEnum {
   W_REVIEWS = 'api/w-reviews',
   W_COMMENTS = 'api/w-comments',
   W_ANALYTICS = 'api/w-analytics',
+  W_ORDERS = 'api/w-orders',
   W_NEWSLETTER_SUBSCRIPTIONS = 'api/w-newsletter-subscriptions',
   ASSETS_I18N_ES = 'assets/i18n/es.json',
   ASSETS_I18N_EB = 'assets/i18n/en.json',

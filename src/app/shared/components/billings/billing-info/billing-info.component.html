@@ -1,12 +1,12 @@
 <div
  [ngStyle]="{marginTop:'3rem', marginBottom:'3rem'}"
-*ngIf="customerDetails && customerDetails.firstName; else emptyBilling"
+*ngIf="customerDetails && customerDetails.name; else emptyBilling"
   >
   <div class="alert alert-success d-print-none" role="alert" [ngStyle]="{borderBottom:'8px',borderRadius:'8px', borderStyle:'none'}">
-    {{ 'ecommerce.pages.order.success' | translate:{name: customerDetails.firstName + ' ' + customerDetails.lastName} }}
+    {{ 'ecommerce.pages.order.success' | translate:{name: customerDetails.name } }}
     <button class="btn btn-sm btn-primary ml-2 mr-1" (click)="print()">
       {{ 'ecommerce.pages.order.printReceipt' | translate }}</button
-    ><button class="btn btn-sm btn-primary ml-2" (click)="clearCart()">
+    ><button class="btn btn-sm btn-primary ml-2" (click)="clearCart();continue();">
       {{ 'ecommerce.pages.order.newOrder' | translate }}
     </button>
   </div>
@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-6 text-left">
           <img
-            src="https://i.pinimg.com/originals/15/aa/cd/15aacda7b47201403e2b2f58acf72067.png"
+            [src]="assetUrl + '150x150'"
             alt="Logo"
             class="logo mr-2 mb-4 float-left"
           />
@@ -44,26 +44,13 @@
         <div class="col-sm-6">
           <h6 class="mb-3">{{ 'ecommerce.pages.order.to' | translate }}:</h6>
           <div>
-            <strong
-              >{{ customerDetails.firstName }}
-              {{ customerDetails.lastName }}</strong
-            >
+            <strong>{{ customerDetails.name }}</strong>
           </div>
           <div>
-            {{ customerDetails.addressOne }}
+            {{ customerDetails.address }}
           </div>
-          <div>
-            {{ customerDetails.addressTwo }}
-          </div>
-          <!--
-          <div>
-            {{ customerDetails.city }},{{ customerDetails.state }},{{
-              customerDetails.zip
-            }}
-          </div>
-          -->
           <div>{{ 'ecommerce.pages.checkout.form.email' | translate }}: {{ customerDetails.email }}</div>
-          <div>{{ 'ecommerce.pages.checkout.form.phone' | translate }}: {{ customerDetails.mobile }}</div>
+          <div>{{ 'ecommerce.pages.checkout.form.phone' | translate }}: {{ customerDetails.cellphone }}</div>
         </div>
       </div>
 
@@ -125,7 +112,7 @@
       &nbsp; &nbsp;
       <a
         href="#"
-        class="btn btn-outline-primary float-right text-white"
+        class="btn btn-outline-primary float-right text-dark "
         (click)="billing();$event.preventDefault()"
         *ngIf="cartService.cartItemsList && cartService.cartTotal"
       >

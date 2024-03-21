@@ -24,6 +24,8 @@ export class ProductListComponent implements OnInit {
   currentPage = 0;
   displayedProducts = [];
   showCurrencyName = false;
+  category: any;
+  catalog: any;
 
   constructor(public cartService: CartService, private translateService: TranslateService,
     private currencyService: CurrencyService) {

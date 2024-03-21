@@ -51,20 +51,27 @@
                 "totalAmount": "The total amount of",
                 "notIncludingMobility": "(Does not include mobility)",
                 "goToCart": "Go to Cart",
-                "goToCheckout": "Go to Checkout"
+                "goToCheckout": "Go to Checkout",
+                "informationOnlyWorksSomeDays": "The information registered in the shopping cart will only be available for 7 days"
             },
             "checkout": {
                 "title": "Checkout",
                 "form": {
                     "title": "Payment Form",
                     "caption": "Payment Information",
+                    "fullName": "Full Name",
                     "name": "Name",
                     "lastName": "Last Name",
                     "email": "Email",
                     "phone": "Phone",
+                    "selectCountry": "Select Country",
+                    "WhatsApp": "You have WhatsApp?",
+                    "cellphone": "Cellphone",
                     "address": "Address",
                     "address2": "Address 2",
                     "reference": "Reference",
+                    "comments": "Comments",
+                    "otherComments": "Other Comments",
                     "country": "Country",
                     "postalCode": "Postal Code",
                     "paymentMethod": "Payment Method",
@@ -119,7 +126,7 @@
                     "canceled": "Canceled"
                 },
                 "printReceipt": "Print Receipt",
-                "newOrder": "Place a New Order",
+                "newOrder": "Return and Place a New Order",
                 "endOrder": "End Order"
             }
         },
@@ -136,7 +143,14 @@
             "searchByProductName": "Search by Product Name",
             "productSearch": "Product Search",
             "allCategories": "All Categories",
-            "goToLogin": "Go to login"
+            "goToLogin": "Go to login",
+            "alert": {
+                "success": "Success",
+                "error": "Error",
+                "warning": "Warning",
+                "info": "Info",
+                "successSubscribed": "You have successfully subscribed!"
+            }
         },
         "lang": {
             "es": "Spanish",
@@ -168,9 +182,12 @@
             },
             "subscribe": {
                 "title": "Subscribe to the Newsletter",
+                "subtitle": "Newsletter",
                 "items": {
                     "item1": "Enter Your Email Address To Be Part of Our Mailing List And Stay Updated.",
-                    "item2": "Email"
+                    "item2": "Email",
+                    "item3": "Subscribe",
+                    "item4": "Close"
                 }
             },
             "guideAndHelp": {

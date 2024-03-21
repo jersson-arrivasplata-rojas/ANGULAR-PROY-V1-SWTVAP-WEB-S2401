@@ -30,6 +30,7 @@ import { WCatalogsHttp } from './w-catalogs.http';
 import { WCommentsHttp } from './w-comments.http';
 import { WContactsHttp } from './w-contacts.http';
 import { WNewsletterSubscriptionsHttp } from './w-newsletter-subscriptions.http';
+import { WOrderHttp } from './w-orders.http';
 import { WParameterHttp } from './w-parameters.http';
 import { WProductsHttp } from './w-products.http';
 import { WReviewsHttp } from './w-reviews.http';
@@ -70,6 +71,7 @@ import { WReviewsHttp } from './w-reviews.http';
     WAnalyticsHttp,
     WReviewsHttp,
     WCommentsHttp,
+    WOrderHttp,
   ],
 })
 export class HttpModule {}

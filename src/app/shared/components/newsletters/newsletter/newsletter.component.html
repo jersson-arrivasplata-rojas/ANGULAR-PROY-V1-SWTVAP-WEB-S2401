@@ -1,32 +1,32 @@
 <div>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary d-none" #newsletterBtnModal  data-toggle="modal" data-target="#newsletterModal">
-    Suscríbete al boletín
+    {{ 'ecommerce.menu.subscribe.title' | translate }}
   </button>
 
   <!-- Modal -->
   <div class="modal fade" id="newsletterModal" role="dialog" aria-labelledby="newsletterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newsletterModalLabel">Boletín</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Suscríbase a la lista de correos para recibir actualizaciones sobre nuevos productos, ofertas especiales e información de descuentos.
-          <form>
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" #newsletterBtnCloseModal class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" (click)="add()">Suscribirse</button>
-        </div>
+        <form [formGroup]="itemForm" (ngSubmit)="add()">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newsletterModalLabel">{{ 'ecommerce.menu.subscribe.subtitle' | translate }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{ 'ecommerce.menu.subscribe.items.item1' | translate }}
+              <div class="form-group">
+                <label for="email" class="d-none">{{ 'ecommerce.menu.subscribe.items.item2' | translate }}</label>
+                <input type="text" class="form-control mt-2" [placeholder]="'ecommerce.menu.subscribe.items.item2' | translate" id="email" formControlName="email" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" #newsletterBtnCloseModal class="btn btn-secondary" data-dismiss="modal">{{ 'ecommerce.menu.subscribe.items.item4' | translate }}</button>
+            <button type="submit" class="btn btn-primary" >{{ 'ecommerce.menu.subscribe.items.item3' | translate }}</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
