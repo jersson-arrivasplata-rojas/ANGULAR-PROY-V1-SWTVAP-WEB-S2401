@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LaddaModule } from 'angular2-ladda';
 import * as echarts from 'echarts';
-import { ColorPickerModule } from 'ngx-color-picker';
-import { NgxEchartsModule } from 'ngx-echarts';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 
 //import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 //import { DataService } from './services/data.service';
@@ -42,7 +39,6 @@ import { CardBgMediumComponent } from './components/cards/card-bg-medium/card-bg
 import { CardEchartOneComponent } from './components/cards/card-echart-one/card-echart-one.component';
 import { CardEcommerceDefaultComponent } from './components/cards/card-ecommerce-default/card-ecommerce-default.component';
 import { CardEcommerceHorizontalComponent } from './components/cards/card-ecommerce-horizontal/card-ecommerce-horizontal.component';
-import { CardEcommerceImageComponent, CardProductComment, NgbdModalContent } from './components/cards/card-ecommerce-image/card-ecommerce-image.component';
 import { CardEcommerceListComponent } from './components/cards/card-ecommerce-list/card-ecommerce-list.component';
 import { CardEcommerceOneComponent } from './components/cards/card-ecommerce-one/card-ecommerce-one.component';
 import { CardEcommerceVerticalComponent } from './components/cards/card-ecommerce-vertical/card-ecommerce-vertical.component';
@@ -94,7 +90,6 @@ import { TopNavbarDefaultComponent } from './components/navbar/top-navbar-defaul
 import { FooterDefaultComponent } from './components/others/footer-default/footer-default.component';
 import { FooterStoreDefaultComponent } from './components/others/footer-store-default/footer-store-default.component';
 import { ForgotPasswordDefaultComponent } from './components/others/forgot-password-default/forgot-password-default.component';
-import { LoginDefaultComponent, NgbdModal2Content } from './components/others/login-default/login-default.component';
 import { NotFoundComponent } from './components/others/not-found/not-found.component';
 import { PricingComponent } from './components/others/pricing/pricing.component';
 import { ResetPasswordDefaultComponent } from './components/others/reset-password-default/reset-password-default.component';
@@ -156,7 +151,6 @@ import { ScrollOnClickDirective } from './directives/scroll-on-click.directive';
 import { SwitchButtonDirective } from './directives/switch-button.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
 import { HttpModule } from './http/http.module';
-import { ColorSketchModule } from './lib/components/sketch/sketch.component';
 import { AddZerosPipe } from './pipes/add-zeros.pipe';
 import { CurrencyCustomPipe } from './pipes/currency.pipe';
 import { EmptyTextPipe } from './pipes/empty-text.pipe';
@@ -259,10 +253,6 @@ import { ServicesModule } from './services/services.module';
     UserProfileComponent,
     TableListComponent,
     CardEcommerceListComponent,
-    CardEcommerceImageComponent,
-    CardProductComment,
-    NgbdModalContent,
-    LoginDefaultComponent,
     SignUpDefaultComponent,
     MainHeaderComponent,
     CardLgIconsComponent,
@@ -279,7 +269,6 @@ import { ServicesModule } from './services/services.module';
     SuccessPasswordRecoverDefaultComponent,
     ForbiddenValidatorDirective,
     ResetPasswordDefaultComponent,
-    NgbdModal2Content,
 
     FooterStoreDefaultComponent,
     BottomNavbarDefaultComponent,
@@ -428,10 +417,6 @@ import { ServicesModule } from './services/services.module';
     UserProfileComponent,
     TableListComponent,
     CardEcommerceListComponent,
-    CardEcommerceImageComponent,
-    CardProductComment,
-    NgbdModalContent,
-    LoginDefaultComponent,
     SignUpDefaultComponent,
     MainHeaderComponent,
     CardLgIconsComponent,
@@ -451,7 +436,6 @@ import { ServicesModule } from './services/services.module';
 
     ForbiddenValidatorDirective,
     ResetPasswordDefaultComponent,
-    NgbdModal2Content,
 
     FooterStoreDefaultComponent,
 
@@ -523,15 +507,9 @@ import { ServicesModule } from './services/services.module';
   ],
   imports: [
     CommonModule,
-    ColorPickerModule,
     NgbModule,
-    CarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxEchartsModule.forRoot({
-      echarts,//: () => import('echarts')
-    }),
-    ColorSketchModule,
     RouterModule,
     LaddaModule,
     ServicesModule,

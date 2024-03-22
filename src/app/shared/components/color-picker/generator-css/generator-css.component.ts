@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorEvent } from 'ngx-color';
 
 @Component({
   selector: 'swtvap-generator-css',
@@ -19,7 +18,7 @@ export class GeneratorCssComponent implements OnInit {
     a: 1,
   };
 
-  changeComplete($event: ColorEvent): void {
+  changeComplete($event: any): void {
     this.state = $event.color.hsl;
     this.primaryColor = $event.color.hex;
   }

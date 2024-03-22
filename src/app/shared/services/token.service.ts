@@ -14,7 +14,7 @@ export class TokenService {
     return authData ? JSON.parse(authData) : null;
   }
 
-  public tokenLocal(data: AuthResponseInterface | null): AuthResponseInterface | null {
+  public tokenLocal(data: AuthResponseInterface | null | any): AuthResponseInterface | null {
     return (data && data.access_token && data.refresh_token) ? data : null;
   }
 
