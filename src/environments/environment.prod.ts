@@ -1,8 +1,8 @@
 export const environment = {
-  production: true,
-  appUrl: '',
-  apiUrl: '',
+  production: false,
+  appUrl: 'http://0.0.0.0:4200',
+  apiUrl: 'http://localhost:7002/',
   apiStorage: '',
-  assetUrl: '',
+  assetUrl: 'https://via.placeholder.com/',
   type: 'prod'
 };

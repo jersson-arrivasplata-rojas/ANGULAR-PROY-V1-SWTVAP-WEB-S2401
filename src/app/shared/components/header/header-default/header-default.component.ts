@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,7 @@ declare var dynamics: any;
   templateUrl: './header-default.component.html',
   styleUrls: ['./header-default.component.css']
 })
-export class HeaderDefaultComponent implements OnInit {
+export class HeaderDefaultComponent {
 
   public APP_URL = environment.apiUrl;
 
@@ -55,16 +55,6 @@ export class HeaderDefaultComponent implements OnInit {
     nodeStoreService.getStore().subscribe(data=>{
       this.store = data.store;
     });
-  }
-
-  ngOnInit(): void {
-    //document.getElementById('dripIconsChevRonLeftStore').dataset.type='0';
-
-    /*var btnOpen = document.getElementById('js-open');
-    var btnClose = document.getElementById('js-close');
-    var modal = document.getElementById('js-modal');*/
-
-
   }
 
 

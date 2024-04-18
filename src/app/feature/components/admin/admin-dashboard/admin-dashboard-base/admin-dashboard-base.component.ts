@@ -40,7 +40,7 @@ export class AdminDashboardBaseComponent {
   }
 
   getType() {
-    return this.localService.getData('token');
+    return this.localService.getData('auth');
   }
 
   getImagePrincipal() {

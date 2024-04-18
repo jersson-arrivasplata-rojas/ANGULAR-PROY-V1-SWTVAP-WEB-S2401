@@ -20,6 +20,7 @@
       ],
       "rules": {
         "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/template/eqeqeq": "off",
         "@angular-eslint/no-output-on-prefix": "off",
         "@angular-eslint/no-input-rename": "off",
         "@typescript-eslint/consistent-type-definitions": "error",

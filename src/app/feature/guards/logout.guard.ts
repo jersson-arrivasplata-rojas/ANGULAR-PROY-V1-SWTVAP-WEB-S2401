@@ -15,7 +15,7 @@ export class LogoutGuard implements CanActivate {
   canActivate() {
     const auth = this.tokenService.authLocal();
     const data = this.tokenService.tokenLocal(auth);
-    return this.authHttp.logout(data.id_token).pipe(
+    return this.authHttp.logout(data.id_token, data.access_token).pipe(
       map(_ => {
         this.tokenService.removeTokenLocal();
         this.router.navigate(['/auth/login']);

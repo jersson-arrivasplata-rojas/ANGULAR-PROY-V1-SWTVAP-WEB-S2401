@@ -19,8 +19,8 @@ export class AuthHttp {
     );
   }
 
-  logout(idToken: any): Observable<any> {
-    const params = `?redirectUri=${this.appUrl}?logout=true&idToken=${idToken}`;
+  logout(idToken: any, accessToken: any): Observable<any> {
+    const params = `?redirectUri=${this.appUrl}?logout=true&idToken=${idToken}&accessToken=${accessToken}`;
     return this.accessServices.get<any>(this.apiUrl + ServicesEnum.LOGOUT + params).pipe(
       take(1)
     );

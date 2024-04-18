@@ -10,13 +10,13 @@
         <span class="text-first ml-2">Inicio</span>
     </a>
     <div class="navbar-brand navbar-nav-scroll w-100">
-        <div *ngIf="getType()" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdownActive==true}'>
+        <div *ngIf="getType()" class="drop-down float-right" [ngClass]='{" drop-down--active":dropdownActive===true}'>
             <button type="button" class="navbar-brand mr-0 mr-md-2 btn-outline-first btn-first-menu-toggle cursor-pointer" (click)="logout()" style="width: 110px;font-size: 16px;">
               <i class="mdi mdi-logout-variant mr-1"></i> Salir
             </button>
         </div>
 
-        <div *ngIf="!getType()" class="drop-down drop-down-auth-dashboard-bar" [ngClass]='{"drop-down--active":dropdownActive==true}'>
+        <div *ngIf="!getType()" class="drop-down drop-down-auth-dashboard-bar" [ngClass]='{"drop-down--active":dropdownActive===true}'>
             <div class="drop-down__button btn btn-outline-first text-center border-input">
                 <a class="d-block w-100" [routerLink]="['/auth/login']" style="    font-size: 18px;">
                     <i class="mdi mdi-login-variant "></i>
