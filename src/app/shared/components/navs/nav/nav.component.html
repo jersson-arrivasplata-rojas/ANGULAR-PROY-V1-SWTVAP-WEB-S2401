@@ -6,7 +6,7 @@
         <span class="text-white ml-0"> {{ 'ecommerce.common.goToLogin' | translate }}</span>
       </a>
       <div>
-        
+
         <a [href]="'tel:'+profileStore?.cellphone" class="text-white" [title]="profileStore?.cellphone">
           <span class="text-white"><i class="fas fa-phone-square-alt text-white"></i> {{profileStore?.cellphone}}</span>
         </a>
@@ -25,7 +25,7 @@
     <!-- open nav mobile -->
 
     <!--search -->
-    <label class="open-search" for="open-search">
+    <label class="open-search d-none" for="open-search">
       <i class="fas fa-search"></i>
       <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
       <div class="search d-none">

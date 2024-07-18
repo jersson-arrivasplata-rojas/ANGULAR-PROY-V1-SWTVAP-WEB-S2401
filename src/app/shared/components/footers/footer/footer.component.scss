@@ -48,6 +48,17 @@ ul {
 .footer-section {
   background: $color-footer-background;
   position: relative;
+
+  @media (max-width: 560px) {
+    li {
+      width: 100%!important;
+      margin-left: 0px!important;
+      text-align: center;
+    }
+    .footer-widget{
+      text-align: center;
+    }
+  }
 }
 
 .footer-cta {

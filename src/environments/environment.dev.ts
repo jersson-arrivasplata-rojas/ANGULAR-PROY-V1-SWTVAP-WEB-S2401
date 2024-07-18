@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
-  appUrl: '',
-  apiUrl: '',
+  appUrl: 'https://chascaperuart.com',
+  apiUrl: 'https://admin.chascaperuart.com/',
   apiStorage: '',
-  assetUrl: '',
+  assetUrl: 'https://via.placeholder.com/',
   type: 'dev'
 };

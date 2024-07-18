@@ -153,7 +153,8 @@
               "host": "0.0.0.0"
             },
             "dev": {
-              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:dev"
+              "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:dev",
+              "host": "0.0.0.0"
             },
             "cert": {
               "browserTarget": "ANGULAR-PROY-V1-SWTVAP-WEB-ADMINISTRATOR-S2401:build:cert"

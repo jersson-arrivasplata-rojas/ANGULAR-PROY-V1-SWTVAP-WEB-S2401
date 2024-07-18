@@ -49,6 +49,10 @@
           color: #262E3A;
         }
       }
+
+      @media (max-width: 560px) {
+        width: 50%;
+      }
     }
   }
 }

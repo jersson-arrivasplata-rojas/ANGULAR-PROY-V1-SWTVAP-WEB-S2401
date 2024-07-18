@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 109.0.5412.0 (Windows 10)" package="" timestamp="2024-05-20T21:18:36" id="0" hostname="LAPSTFPE623" tests="109" errors="0" failures="0" time="0.097">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/109.0.5412.0 Safari/537.36"/>
+  </properties>
+  <testcase name="ComponentAddAnalyticsComponent should create" time="0.088" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ComponentAddAnalyticsComponent"/>
+  <testcase name="ComponentAddAnalyticsComponent should emit added event when form is valid and add is called" time="0.004" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ComponentAddAnalyticsComponent"/>
+  <testcase name="ComponentAddAnalyticsComponent should not emit added event when form is invalid and add is called" time="0.005" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ComponentAddAnalyticsComponent"/>
+  <testcase name="CardEcommerceVerticalComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEcommerceVerticalComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonDefaultHexComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonDefaultHexComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonOutlineHexComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonOutlineHexComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardIconSmallComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardIconSmallComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="NotFoundComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).NotFoundComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="NavItemComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).NavItemComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetPaymentFormDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetPaymentFormDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardIconMediumComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardIconMediumComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="IconIconsmindDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).IconIconsmindDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="FooterStoreDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).FooterStoreDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TableListComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TableListComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardLgIconsComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardLgIconsComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetSupportTicketsDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetSupportTicketsDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardProfileVerticalComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardProfileVerticalComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ShareDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ShareDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonOutlineComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonOutlineComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardBgLargeComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardBgLargeComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="PricingComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).PricingComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardIconWidgetComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardIconWidgetComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonLaddaComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonLaddaComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TopNavbarDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TopNavbarDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="PaginationDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).PaginationDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HeaderTopDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).HeaderTopDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AuthLoginDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).AuthLoginDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetNotificationDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetNotificationDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardMtSellerComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardMtSellerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ForgotPasswordDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ForgotPasswordDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TooltipDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TooltipDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HeartDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).HeartDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="DropdownNotificationComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).DropdownNotificationComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetMenuComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetMenuComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonRaisedHexComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonRaisedHexComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CarouselDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CarouselDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="InputDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).InputDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatWindowComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatWindowComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="InvoiceDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).InvoiceDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="DropdownMenuComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).DropdownMenuComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HeaderDefaultExampleComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).HeaderDefaultExampleComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="BreadcrumbDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).BreadcrumbDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SearchUiComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SearchUiComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="@NavbarComponent #should be created" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).@NavbarComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ImageCropperComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ImageCropperComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HeaderDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).HeaderDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CartInicioComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CartInicioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ContactDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ContactDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="DescriptionDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).DescriptionDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardEcommerceHorizontalComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEcommerceHorizontalComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="@ExampleService when getData #should return a json when is consult" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).@ExampleService when getData">
+    <skipped/>
+  </testcase>
+  <testcase name="FooterDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).FooterDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TableDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TableDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatTopbarLeftComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatTopbarLeftComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardPricingTableComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardPricingTableComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="DashboardInicioFooterComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).DashboardInicioFooterComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardEcommerceDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEcommerceDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardEchartOneComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEchartOneComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CulquiDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CulquiDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatMessageRightComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatMessageRightComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatTopbarComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatTopbarComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="GoogleDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).GoogleDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardBgMediumComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardBgMediumComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="MainHeaderComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).MainHeaderComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatSidebarComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatSidebarComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ButtonRaisedComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ButtonRaisedComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="GeneratorCssComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).GeneratorCssComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatWindowAuthComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatWindowAuthComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="GoogleSecondDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).GoogleSecondDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EcommerceProductsDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EcommerceProductsDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SidebarLeftComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SidebarLeftComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="MegaMenuComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).MegaMenuComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SearchMiniDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SearchMiniDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatContentComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatContentComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AlertCardComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).AlertCardComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EditorFullComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EditorFullComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SearchDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SearchDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SelectDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SelectDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CartInicioEcommerceImageComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CartInicioEcommerceImageComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EcommerceCheckoutDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EcommerceCheckoutDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="FormInputDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).FormInputDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AlertDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).AlertDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardEcommerceOneComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEcommerceOneComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetBestSellersDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetBestSellersDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatMessageLeftComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatMessageLeftComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="UserProfileComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).UserProfileComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CartDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CartDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TextareaDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TextareaDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SearchBarComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SearchBarComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EcommerceCartDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EcommerceCartDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardEcommerceListComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardEcommerceListComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ContactListDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ContactListDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EditorBubbleComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EditorBubbleComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="WidgetDownloadFilesDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).WidgetDownloadFilesDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SuccessPasswordRecoverDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SuccessPasswordRecoverDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CardIconLargeComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CardIconLargeComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ProgressBarStripesComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ProgressBarStripesComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="BottomNavbarDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).BottomNavbarDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ChatContactComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ChatContactComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SignUpDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).SignUpDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="TopBarDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).TopBarDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EcommerceProductDetailDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EcommerceProductDetailDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CustomizerComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CustomizerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ResetPasswordDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).ResetPasswordDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CommentDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).CommentDefaultComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="MenuToggleComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).MenuToggleComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="EditorDefaultComponent should create" time="0" classname="Chrome_Headless_109_0_5412_0_(Windows_10).EditorDefaultComponent">
+    <skipped/>
+  </testcase>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
