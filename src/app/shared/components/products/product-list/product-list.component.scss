@@ -13,7 +13,7 @@ img {
 
 
 .card {
-  border-radius: 10px;
+  border-radius: 0px;
 
   .swtvap-carousel-slider {
     .modal {
@@ -33,7 +33,7 @@ img {
 }
 
 .btn-load-more {
-  background-color: #007bff;
+  background-color: #43100c;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -52,4 +52,10 @@ img {
   &:hover {
     color: white;
   }
+}
+
+
+.btn-close{
+  position: absolute;
+  right: 16px;
 }

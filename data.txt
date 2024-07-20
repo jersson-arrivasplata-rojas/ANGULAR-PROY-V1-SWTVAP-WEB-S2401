@@ -1,2 +1,147 @@
 npm i
 npm install -g @angular/cli@14.3.0
+
+
+COLORES:
+#151414
+
+
+
+#3E350E
+#794515
+#79792E
+
+
+#DAAD29
+
+-------------
+#65652d
+#35351d
+------------
+
+#eae9e7
+https://encycolorpedia.es/35351d
+39352a
+
+
+#3b480d
+-----------------------------------------------------
+Español:
+
+    Armarios
+
+    Armarios de Madera
+    Armarios Clásicos
+    Armarios Modernos
+    Aparadores
+
+    Aparadores de Madera
+    Aparadores Clásicos
+    Aparadores Modernos
+    Buffets
+
+    Buffets de Madera
+    Buffets Clásicos
+    Buffets Modernos
+    Gabinetes
+
+    Gabinetes de Madera
+    Gabinetes Clásicos
+    Gabinetes Modernos
+    Mesas Consola
+
+    Mesas Consola de Madera
+    Mesas Consola Clásicas
+    Mesas Consola Modernas
+    Cómodas
+
+    Cómodas de Madera
+    Cómodas Clásicas
+    Cómodas Modernas
+    Bonnetières
+
+    Bonnetières de Madera
+    Bonnetières Clásicas
+    Bonnetières Modernas
+    Baúles
+
+    Baúles de Madera
+    Baúles Clásicos
+    Baúles Modernos
+    Estanterías
+
+    Estanterías de Madera
+    Estanterías Clásicas
+    Estanterías Modernas
+    Mesas de Centro
+
+    Mesas de Centro de Madera
+    Mesas de Centro Clásicas
+    Mesas de Centro Modernas
+
+
+English:
+
+    Wardrobes
+
+    Wooden Wardrobes
+    Classic Wardrobes
+    Modern Wardrobes
+    Sideboards
+
+    Wooden Sideboards
+    Classic Sideboards
+    Modern Sideboards
+    Buffets
+
+    Wooden Buffets
+    Classic Buffets
+    Modern Buffets
+    Cabinets
+
+    Wooden Cabinets
+    Classic Cabinets
+    Modern Cabinets
+    Console Tables
+
+    Wooden Console Tables
+    Classic Console Tables
+    Modern Console Tables
+    Dressers
+
+    Wooden Dressers
+    Classic Dressers
+    Modern Dressers
+    Bonnetières
+
+    Wooden Bonnetières
+    Classic Bonnetières
+    Modern Bonnetières
+    Trunks
+
+    Wooden Trunks
+    Classic Trunks
+    Modern Trunks
+    Bookcases
+
+    Wooden Bookcases
+    Classic Bookcases
+    Modern Bookcases
+    Coffee Tables
+
+    Wooden Coffee Tables
+    Classic Coffee Tables
+    Modern Coffee Tables
+
+    Bonnetières de Madera / Wooden Bonnetières
+    Bonnetières Modernas / Modern Bonnetières
+    Bonnetières Clásicas / Classic Bonnetières
+    Bonnetières con Estantes / Bonnetières with Shelves
+    Bonnetières con Puertas / Bonnetières with Doors
+    Baúles / Trunks
+
+    Baúles de Madera / Wooden Trunks
+    Baúles Modernos / Modern Trunks
+    Baúles Clásicos / Classic Trunks
+    Baúles con Cerradura / Trunks with Lock
+    Baúles Decorativos / Decorative Trunks

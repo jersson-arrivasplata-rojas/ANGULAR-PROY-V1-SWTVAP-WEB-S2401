@@ -30,4 +30,14 @@ export class WProductsHttp {
       })
     );
   }
+
+  public getWProductByPath(path: string) {
+    return this.http.get(`${this.apiUrl}/path/${path}`).pipe(
+      catchError(error => {
+        console.error('Ocurri\u00F3 un error: ', error);
+        // lanza el error para que ErrorHandlerService lo maneje
+        return throwError(() => error as unknown);
+      })
+    );
+  }
 }

@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
   }
 
   goToProduct($event) {
-    const { name } = $event;
-    this.router.navigate(['/c/' + name]);
+    const { path } = $event;
+    this.router.navigate(['/c/' + path]);
   }
 }

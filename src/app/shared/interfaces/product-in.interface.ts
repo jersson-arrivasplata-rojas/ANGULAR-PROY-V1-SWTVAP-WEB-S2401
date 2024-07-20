@@ -25,6 +25,7 @@ export interface ProductInInterface {
     currentSlide: number;
     animationType: AnimationType;
     sliders: SliderInInterface[];
+    images?: ProductImageInInterface[];
 }
 
 export interface ParameterInInterface {

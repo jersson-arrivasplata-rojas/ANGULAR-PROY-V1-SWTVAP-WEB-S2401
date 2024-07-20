@@ -1,3 +1,5 @@
+$danger:#8b005d;
+
 .dropdown-left {
   font-size: 3rem;
   height: 60px;
@@ -852,7 +854,7 @@ input::placeholder {
 
 /* Add a red text color and an "x" when the requirements are wrong */
 .invalid {
-  color: var(--danger);
+  color: $danger;
 }
 
 .invalid:before {
@@ -863,7 +865,7 @@ input::placeholder {
 }
 
 .cross-validation-error input {
-  border-left: 5px solid var(--danger);
+  border-left: 5px solid $danger;
 }
 
 .ng-valid[required],
@@ -873,7 +875,7 @@ input::placeholder {
 }
 
 .ng-invalid:not(form) {
-  border-left: 5px solid var(--danger);
+  border-left: 5px solid $danger;
   /* red */
 }
 

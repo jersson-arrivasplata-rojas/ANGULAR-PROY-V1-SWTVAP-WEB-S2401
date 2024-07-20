@@ -21,7 +21,7 @@ export class ComponentUpdateProductsImagesComponent implements OnInit, OnChanges
   ) {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
-      path: ['', Validators.required]
+      files: [],
     });
   }
 
@@ -44,5 +44,10 @@ export class ComponentUpdateProductsImagesComponent implements OnInit, OnChanges
         (window as any).success("¡Actualizado!");
       });
     }
+  }
+
+  handleFileInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.itemForm.patchValue({ files: inputElement.files });
   }
 }

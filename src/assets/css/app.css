@@ -7,7 +7,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-  --blue: #007bff;
+  --blue: #43100c;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -2225,7 +2225,7 @@ fieldset:disabled a.btn {
 .btn-primary:hover {
   color: #fff;
   background-color: #020075;
-  border-color: #010068;
+  border-color: #43100c;
 }
 .btn-primary:focus, .btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(2, 0, 155, 0.5);
@@ -2237,8 +2237,8 @@ fieldset:disabled a.btn {
 }
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #010068;
-  border-color: #01005b;
+  background-color: #43100c;
+  border-color: #43100c;
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(2, 0, 155, 0.5);
@@ -4297,17 +4297,17 @@ input[type=button].btn-block {
 .badge-primary[href]:hover, .badge-primary[href]:focus {
   color: #fff;
   text-decoration: none;
-  background-color: #010068;
+  background-color: #202020;
 }
 
 .badge-secondary {
   color: #fff;
-  background-color: #fb3366;
+  background-color: #202020;
 }
 .badge-secondary[href]:hover, .badge-secondary[href]:focus {
   color: #fff;
   text-decoration: none;
-  background-color: #f60542;
+  background-color: #292929;
 }
 
 .badge-success {
@@ -4467,6 +4467,7 @@ input[type=button].btn-block {
   color: #846915;
   background-color: #fff4d4;
   border-color: #fff0c3;
+  border-radius: 0px;
 }
 .alert-warning hr {
   border-top-color: #ffeaaa;
@@ -5411,7 +5412,7 @@ button.close {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #010068 !important;
+  background-color: #43100c !important;
 }
 
 .bg-secondary {
@@ -9623,11 +9624,11 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: var(--primary) !important;
+  color: #43100c !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #010068 !important;
+  color: #43100c !important;
 }
 
 .text-secondary {
@@ -10132,7 +10133,7 @@ h3 {
   color: #99979c;
 }
 .toc-entry a:hover {
-  color: #007bff;
+  color: #43100c;
   text-decoration: none;
 }
 
@@ -10835,7 +10836,7 @@ h3 {
 
 .swatch-blue {
   color: #fff;
-  background-color: #007bff;
+  background-color: #43100c;
 }
 
 .swatch-indigo {

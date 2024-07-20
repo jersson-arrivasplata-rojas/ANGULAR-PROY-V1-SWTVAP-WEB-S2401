@@ -34,7 +34,7 @@ export class NavComponent implements OnInit, OnDestroy {
   @Input() sticky: boolean = true;
   @Input() catalogs: any = [];
 
-  assetUrl = environment.assetUrl;
+  assetUrl = environment.appUrl;
   homeEnum = HomeEnum;
   currencySymbolEnum = CurrencySymbolEnum;
   currencyEnum = CurrencyEnum;

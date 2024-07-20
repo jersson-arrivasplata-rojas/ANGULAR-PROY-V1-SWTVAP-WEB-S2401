@@ -39,7 +39,7 @@ const routes: Routes = [
         component: BillingComponent
       },
       {
-        path: 'c/:name',
+        path: 'c/:path',
         component: ProductComponent,
         resolve: {
           process: EcommerceProductResolve

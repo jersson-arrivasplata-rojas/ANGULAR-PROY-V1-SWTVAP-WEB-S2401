@@ -17,10 +17,10 @@ export class ComponentAddCatalogsComponent {
   ) {
     this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(200)]],
-      name_en: [''],
+      nameEn: [''],
       code: ['', [Validators.required, Validators.maxLength(50)]],
       description: [null],
-      description_en: [null],
+      descriptionEn: [null],
       lang: ['ES', [Validators.required]],
       status: ['ACTIVE', [Validators.required]]
     });
@@ -36,10 +36,10 @@ export class ComponentAddCatalogsComponent {
   init() {
     return {
       name: '',
-      name_en: '',
+      nameEn: '',
       code: '',
       description: '',
-      description_en: '',
+      descriptionEn: '',
       lang: 'ES',
       status: 'ACTIVE'
     };

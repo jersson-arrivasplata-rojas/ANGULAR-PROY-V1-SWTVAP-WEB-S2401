@@ -23,6 +23,7 @@ import { ProductUnitsHttp } from './product-units.http';
 import { ProductHttp } from './products.http';
 import { ProviderHttp } from './providers.http';
 import { ReviewHttp } from './reviews.http';
+import { StorageHttp } from './storage.http';
 import { SubscriptionHttp } from './subscriptions.http';
 import { UnitHttp } from './units.http';
 import { WAnalyticsHttp } from './w-analytics.http';
@@ -72,6 +73,7 @@ import { WReviewsHttp } from './w-reviews.http';
     WReviewsHttp,
     WCommentsHttp,
     WOrderHttp,
+    StorageHttp
   ],
 })
 export class HttpModule {}

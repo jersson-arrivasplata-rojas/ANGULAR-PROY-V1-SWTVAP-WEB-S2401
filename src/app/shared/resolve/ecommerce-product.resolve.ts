@@ -26,16 +26,16 @@ export class EcommerceProductResolve implements Resolve<Observable<any>> {
     console.log('La ruta actual es', this.document.location.hash.substring(1));
     console.log('Translate', this.translateService.getCurrentLang());
     const lang = this.translateService.getCurrentLang();
-    const name = activatedRouteSnapshot.paramMap.get('name');
+    const path = activatedRouteSnapshot.paramMap.get('path');
 
-    return this.wProductsHttp.getWProductByName(name, lang).pipe(
+    return this.wProductsHttp.getWProductByPath(path).pipe(
       tap((data: any) => {
         console.log('Data', data);
-        this.analyticsService.sendForAnalytics(EcommerceWhiteEnum.PRODUCTS + name);
+        this.analyticsService.sendForAnalytics(EcommerceWhiteEnum.PRODUCTS + path);
         this.wProduct = data;
       }),
       catchError((err) => {
-        this.router.navigate(['/not-found'], { queryParams: { name: name, lang: lang, type: 'P' } });
+        this.router.navigate(['/not-found'], { queryParams: { path: path, type: 'P' } });
         return throwError(() => err);
       })
     );

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductImagesHttp } from 'src/app/shared/http/product-images.http';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-component-list-products-images',
@@ -15,6 +16,7 @@ export class ComponentListProductsImagesComponent {
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() showed: EventEmitter<any> = new EventEmitter();
 
+  assetUrl = environment.assetUrl;
   item: any;
 
   showItem = false;

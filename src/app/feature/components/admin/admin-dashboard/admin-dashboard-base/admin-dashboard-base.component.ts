@@ -2,6 +2,7 @@ import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthHttp } from 'src/app/shared/http/auth.http';
 import { LocalService } from 'src/app/shared/services/local.service';
+import { TokenService } from 'src/app/shared/services/token.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,8 +13,11 @@ import { environment } from 'src/environments/environment';
 export class AdminDashboardBaseComponent {
   public APP_URL = environment.apiUrl;
   public assetUrl = environment.assetUrl;
+  public appUrl = environment.appUrl;
+
   public dropdownActive = false;
   constructor(@Inject(PLATFORM_ID) public platformId,
+    private tokenService: TokenService,
     private authHttp: AuthHttp,
     private localService: LocalService,
     private router: Router) { }
@@ -44,10 +48,11 @@ export class AdminDashboardBaseComponent {
   }
 
   getImagePrincipal() {
-    return `${this.assetUrl}100x100`;
+    return `${this.appUrl}/assets/img/bg-xsm.png`;
   }
 
   logout() {
+    this.tokenService.removeTokenLocal();
     this.router.navigate(['/auth/logout']);
   }
 }

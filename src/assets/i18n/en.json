@@ -131,6 +131,9 @@
             }
         },
         "common": {
+            "craft": "Craft",
+            "price": "Price",
+            "description": "Description",
             "sendUsAEmail": "Send Us an Email",
             "callUs": "Call Us",
             "chatWithUs": "Chat With Us",

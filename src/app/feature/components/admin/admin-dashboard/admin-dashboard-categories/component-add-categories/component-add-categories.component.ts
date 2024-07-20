@@ -17,9 +17,9 @@ export class ComponentAddCategoriesComponent {
   ) {
     this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(200)]],
-      name_en: [''],
+      nameEn: [''],
       description: [null],
-      description_en: [null],
+      descriptionEn: [null],
       status: [true, [Validators.required]]
     });
   }
@@ -35,9 +35,9 @@ export class ComponentAddCategoriesComponent {
   init() {
     return {
       name: '',
-      name_en: '',
+      nameEn: '',
       description: '',
-      description_en: '',
+      descriptionEn: '',
       status: false
     };
   }

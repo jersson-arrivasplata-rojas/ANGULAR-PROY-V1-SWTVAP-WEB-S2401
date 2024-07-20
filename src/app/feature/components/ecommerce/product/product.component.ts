@@ -1,9 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LangChangeEvent } from '@ngx-translate/core';
 import { AnimationType } from 'src/app/shared/components/carousels/carousel/carousel.animations';
 import { CarouselComponent } from 'src/app/shared/components/carousels/carousel/carousel.component';
+import { CurrencySymbolEnum } from 'src/app/shared/config/currency-symbol.enum';
 import { HomeEnum } from 'src/app/shared/config/home.enum';
+import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { ProductInInterface } from 'src/app/shared/interfaces/product-in.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
+import { CurrencyService } from 'src/app/shared/services/currency.service';
+import { TranslateService } from 'src/app/shared/services/translate.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-ecommerce-product',
@@ -18,48 +25,45 @@ export class ProductComponent implements OnInit {
   carrousel: any;
   homeEnum = HomeEnum;
   currentSlide = 0;
+  assetUrl = environment.assetUrl;
 
   animationType = AnimationType.Scale;
 
-  slides: any[] = [
-    {
-      currentSlide: 0,
-      name: "Scale",
-      value: AnimationType.Scale,
-      headline: "For Your Current Mood",
-      src: "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-    },
-    {
-      currentSlide: 1,
-      name: "Fade",
-      value: AnimationType.Fade,
-      headline: "Miouw",
-      src: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
-    },
-    {
-      currentSlide: 2,
-      name: "Flip",
-      value: AnimationType.Flip,
-      headline: "In The Wilderness",
-      src: "https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80"
-    },
-    {
-      currentSlide: 3,
-      name: "Jack In The Box",
-      value: AnimationType.JackInTheBox,
-      headline: "Focus On The Writing",
-      src: "https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
-    }
-  ];
+  sliders: any[] = [];
+  showCurrencyName = false;
+  showEnglishName = false;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private translateService: TranslateService,
+    private currencyService: CurrencyService, public cartService: CartService) {
+    this.translateService.getOnLangChange().subscribe((event: LangChangeEvent) => {
+      this.showEnglishName = event.lang === LangEnum.EN;
+    });
+    this.currencyService.getCurrenCurrency().subscribe((currency: string) => {
+      this.showCurrencyName = currency === CurrencySymbolEnum.PEN;
+    });
+  }
 
   ngOnInit() {
     const { wParameters: { profile, carrousel } } = this.activatedRoute.parent.snapshot.data.process;
     this.profile = profile?.[0] ?? {};
     this.carrousel = carrousel?.[0] ?? {};
+    this.showEnglishName = this.translateService.getCurrentLang() === LangEnum.EN;
 
     this.product = this.activatedRoute.snapshot.data.process;
+
+    for (let index = 0; index < this.product.images.length; index++) {
+      const element = this.product.images[index];
+      this.sliders.push({
+        currentSlide: 0,
+        name: 'Scale',
+        value: AnimationType.Scale,
+        headline: this.product.name,
+        //src: array[Math.floor(Math.random() * array.length)],
+        src: this.assetUrl + 'Chascaperuart/products/' +  element.path,
+      });
+    }
+
+
   }
 
   checkout($event) {
@@ -75,5 +79,10 @@ export class ProductComponent implements OnInit {
 
   setCurrentSlide(slide) {
     this.currentSlide = slide;
+  }
+
+  addToCart(productId, productQty, productSize?) {
+    this.cartService.addToCart(productId, Number(productQty), '');
+    (window as any).success('Producto agregado al carrito');
   }
 }

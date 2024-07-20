@@ -19,7 +19,7 @@ body {
 
   --icon_whatsapp: #4dc247;
 
-  --border-radius: 15px;
+  --border-radius: 0px;
 
   --theme_color_info: #003473;
   --theme_color_info_text: #ffffff;
@@ -58,7 +58,7 @@ input.app-pagination-input-search {
 }
 
 swtvap-ecommerce-products .swtvap-carousel-slider {
-  .small-img{
+  .small-img {
     border-style: solid;
     border-width: 1px;
     border-color: #bfbfbf;
@@ -78,4 +78,77 @@ swtvap-ecommerce-products .swtvap-carousel-slider {
       height: 0.25em !important;
     }
   }
+}
+button.btn-load-more,
+button.btn.btn-primary,
+button.btn.btn-secondary,
+a.btn-primary {
+  height: 40px !important;
+  padding: 0 25px !important;
+  border-radius: 0px !important;
+}
+
+input.form-control {
+  border-radius: 0px !important;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary) !important;
+}
+
+.card, button.btn-list, button.btn-quantity, div.btn-quantity-container {
+  border-radius: 0px!important;
+}
+
+
+$primary-color: #43100c; /* color base */
+$secondary-color: #8b0000; /* color secundario */
+$danger-color: #8b005d; /* color peligro */
+$text-color: #ffffff; /* color de texto */
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+/* Botón primary */
+.btn___primary {
+  background-color: $primary-color;
+}
+
+/* Botón secondary */
+.btn___secondary {
+  background-color: $secondary-color;
+}
+
+/* Botón danger */
+.btn___danger {
+  background-color: $danger-color;
+}
+.btn___primary,
+.btn___secondary,
+.btn___danger {
+  color: $text-color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0px;
+  cursor: pointer;
+  height: 40px;
+  line-height: 1.4!important;
+  box-shadow: $box-shadow;
+}
+
+
+/* Opcional: estilos para hover */
+.btn___primary:hover,
+.btn___secondary:hover,
+.btn___danger:hover {
+  opacity: 0.8;
+  color:  $text-color;
+}
+
+/* Opcional: estilos para hover */
+.btn___primary:hover,
+.btn___secondary:hover,
+.btn___danger:hover {
+  opacity: 0.8;
 }

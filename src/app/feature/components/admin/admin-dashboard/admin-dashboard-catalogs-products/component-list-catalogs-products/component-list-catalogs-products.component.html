@@ -28,7 +28,7 @@
                 <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
                   <td>{{ item.code | uppercase }}</td>
                   <td>{{ item.name }}</td>
-                  <td>{{ item.name_en }}</td>
+                  <td>{{ item.nameEn }}</td>
                   <td class="text-left">
                     <span *ngIf="item.price">S/{{ item.price | addZeros }}</span><br/>
                     <span *ngIf="item.priceUSD">$/{{ item.priceUSD | addZeros }}</span><br/>
@@ -39,7 +39,7 @@
                 </ng-container>
                 <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
                   <td>{{ item.name }}</td>
-                  <td>{{ item.name_en }}</td>
+                  <td>{{ item.nameEn }}</td>
                 </ng-container>
                 <td>{{ item.status | status }}</td>
                 <td>

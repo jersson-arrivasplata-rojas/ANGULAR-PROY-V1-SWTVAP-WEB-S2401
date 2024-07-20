@@ -4,7 +4,7 @@
   <ng-template #elseTitleBlock>
     <h3 class="text-center mb-2 mt-1" >{{ 'ecommerce.pages.cart.title' | translate }}</h3>
   </ng-template>
-  <div class="row {{showProduct?'flex-column ': ' mb-4 '}}">
+  <div class=" {{showProduct?'flex-column ': ' mb-4 '}}">
     <div class="{{showProduct?'mb-3 ': 'col-lg-8 col-md-7'}}  col-12">
       <div class="card">
         <div class="d-flex justify-content-between align-items-center">
@@ -33,7 +33,7 @@
                 <div class="col-lg-3">
                     <img
                         class="image-store"
-                        [src]="item?.product?.productImages[0].path"
+                        [src]="assetUrl + 'Chascaperuart/products/' + item?.product?.productImages[0].path"
                         [alt]="showEnglishName ? item?.product?.nameEn : item?.product?.name"
                     >
                 </div>
@@ -136,7 +136,7 @@
             <div class="mt-1 row m-0">
               <button
                   type="button"
-                  class="w-100 btn btn-md btn-primary btn-block"
+                  class="w-100 btn btn-md btn___primary btn-block"
                   *ngIf="cartService.cartItemsList && cartService.cartTotal"
                   (click)="checkOut(); $event.preventDefault()"
               >

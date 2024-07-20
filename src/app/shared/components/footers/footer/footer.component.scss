@@ -1,7 +1,7 @@
 // Color palette
-$color-footer-background: #151414;
+$color-footer-background: #43100c;
 $color-border: #373636;
-$color-icon: #ff5e14;
+$color-icon: #eae9e7;
 $color-title: #fff;
 $color-text: #757575;
 $color-footer-text: #7e7e7e;
@@ -9,7 +9,7 @@ $color-social-icon: #fff;
 $color-widget-title: #fff;
 $color-link: #878787;
 $color-subscribe-form-bg: #2e2e2e;
-$color-subscribe-button-bg: #ff5e14;
+$color-subscribe-button-bg: #43100c;
 $color-copyright-bg: #202020;
 $color-subscribe-form-border: #2e2e2e;
 $color-subscribe-form-text: #fff;
@@ -62,7 +62,7 @@ ul {
 }
 
 .footer-cta {
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid $color-title;
 }
 
 // CTA styles
@@ -120,7 +120,7 @@ ul {
   p {
     margin-bottom: $spacing-footer-text-bottom;
     font-size: $font-size-footer-text;
-    color: $color-footer-text;
+    color: $color-icon;
     line-height: 28px;
   }
 }
@@ -197,7 +197,7 @@ ul {
     width: 100%;
     padding: $padding-subscribe-input;
     background: $color-subscribe-form-bg;
-    border: 1px solid $color-subscribe-form-border;
+    border: 1px solid $color-icon;
     color: $color-subscribe-form-text;
   }
   input::placeholder {
@@ -209,7 +209,7 @@ ul {
     right: 0;
     background: $color-subscribe-button-bg;
     padding: $spacing-subscribe-button;
-    border: 1px solid $color-subscribe-button-bg;
+    border: 1px solid $color-icon;
     top: 0;
 
     i {

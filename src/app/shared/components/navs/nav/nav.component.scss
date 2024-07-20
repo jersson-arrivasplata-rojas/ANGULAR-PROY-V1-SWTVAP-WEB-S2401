@@ -1,5 +1,5 @@
-$color-header-background: #151414;
-$color-theme: #ff5e14;
+$color-header-background: #43100c;
+$color-theme: #eae9e7;
 
 $blue: #545bc4;
 $color-text: #555;
@@ -30,8 +30,18 @@ header {
   z-index: 10;
   background: var(--white);
 
+  img{
+    max-width: 100px;
+    border-radius: 5px;
+  }
   @media (max-width: 560px) {
     position: relative;
+    div:nth-child(1) {
+      a {
+        width: 100%;
+      }
+
+    }
     div:nth-child(2) {
       flex-direction: column;
       height: 180px !important;
@@ -46,7 +56,7 @@ header {
       }
     }
     div:nth-child(3) {
-      margin-top: 0 !important;
+      margin-top: 1rem  !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
@@ -270,7 +280,7 @@ header {
       //nav items
       .nav-content-item {
         &:nth-child(2):hover .fas {
-          color: #e74c3c;
+          color: #43100c;
         }
 
         &:hover .fas {
@@ -489,7 +499,7 @@ header {
     /*height: 322px;*/
     overflow-y: scroll;
     height: 100%;
-    left: 80%;
+    left: 100%;
     min-height: 297px;
     min-width: 400px;
     opacity: 0;
@@ -782,7 +792,7 @@ header {
         red($color-header-background),
         green($color-header-background),
         blue($color-header-background),
-        0.5
+        0.6
       );
       position: relative;
       border: none;

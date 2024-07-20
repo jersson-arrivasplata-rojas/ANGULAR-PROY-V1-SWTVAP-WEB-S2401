@@ -4,6 +4,7 @@ import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { translateFN } from 'src/app/shared/functions/translate.function';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-cart-add',
@@ -16,6 +17,7 @@ export class CartAddComponent implements OnInit {
   @Input() showProduct = false;
 
   showEnglishName = false;
+  assetUrl = environment.assetUrl;
 
   constructor(public cartService: CartService, private translateService: TranslateService) {
     this.translateService.getOnLangChange().subscribe((event: LangChangeEvent) => {

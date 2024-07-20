@@ -4,9 +4,9 @@
   >
   <div class="alert alert-success d-print-none" role="alert" [ngStyle]="{borderBottom:'8px',borderRadius:'8px', borderStyle:'none'}">
     {{ 'ecommerce.pages.order.success' | translate:{name: customerDetails.name } }}
-    <button class="btn btn-sm btn-primary ml-2 mr-1" (click)="print()">
+    <button class="btn btn-sm btn___primary ml-2 mr-1" (click)="print()">
       {{ 'ecommerce.pages.order.printReceipt' | translate }}</button
-    ><button class="btn btn-sm btn-primary ml-2" (click)="clearCart();continue();">
+    ><button class="btn btn-sm btn___primary ml-2" (click)="clearCart();continue();">
       {{ 'ecommerce.pages.order.newOrder' | translate }}
     </button>
   </div>

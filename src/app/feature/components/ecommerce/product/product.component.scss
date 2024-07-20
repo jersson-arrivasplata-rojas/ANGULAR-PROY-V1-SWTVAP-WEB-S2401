@@ -41,7 +41,6 @@
         }
 
         .product-price {
-            color: green;
             font-size: 20px;
         }
 
@@ -62,20 +61,10 @@
 
         .product-add-to-cart button,
         .product-comments button {
-            background-color: #4CAF50; // Verde para agregar al carrito
-            color: white;
-            padding: 10px 24px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             transition: 0.3s;
             display: block; // Asegura que el botón se ajuste al contenedor
             width: 100%; // Botones de ancho completo
 
-            &:hover {
-                background-color: darken(#4CAF50, 10%);
-            }
         }
 
         .product-comments {
@@ -166,7 +155,6 @@
     }
 
     .button {
-        background: #3f51b5;
         cursor: pointer;
         border-radius: 0.3em;
     }
@@ -191,7 +179,9 @@
 
     .button:hover,
     .active {
-        background: #2196f3;
+        background: #ffffff;
+        color:#000;
+        cursor: pointer;
     }
 
 }

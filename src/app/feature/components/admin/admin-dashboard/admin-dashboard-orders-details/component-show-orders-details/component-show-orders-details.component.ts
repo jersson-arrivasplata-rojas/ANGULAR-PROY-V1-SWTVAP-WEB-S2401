@@ -25,7 +25,7 @@ export class ComponentShowOrdersDetailsComponent implements OnChanges {
   getProductName(id: number){
     this.productHttp.getById(id).subscribe((res) => {
       this.productName = res.name;
-      this.productNameEn = res.name_en;
+      this.productNameEn = res.nameEn;
     });
   }
 }

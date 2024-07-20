@@ -19,16 +19,16 @@ export class ComponentAddProductsComponent {
     this.itemForm = this.formBuilder.group({
       code: ['', Validators.required],
       name: ['', Validators.required],
-      name_en: [''],
+      nameEn: [''],
       description: ['', Validators.required],
-      description_en: [''],
+      descriptionEn: [''],
       price: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       priceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       priceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       stock: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       stockMin: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
-      otherDetails_en: [''],
+      otherDetailsEn: [''],
       status: [true, [Validators.required]]
     });
   }
@@ -45,9 +45,9 @@ export class ComponentAddProductsComponent {
     return {
       code: '',
       name: '',
-      name_en: '',
+      nameEn: '',
       description: '',
-      description_en: '',
+      descriptionEn: '',
       price: 0,
       priceUSD: 0,
       priceEUR: 0,

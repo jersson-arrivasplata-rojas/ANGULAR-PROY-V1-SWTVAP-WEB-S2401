@@ -7,12 +7,12 @@
         <div class="d-flex ">
             <div class="product-image">
                 <div class="container">
-                    <swtvap-carousel [slides]="slides" [currentSlide]="currentSlide" [animationType]="animationType" (currentSlideIndex)="setCurrentSlide($event)"></swtvap-carousel>
+                    <swtvap-carousel [slides]="sliders" [currentSlide]="currentSlide" [animationType]="animationType" (currentSlideIndex)="setCurrentSlide($event)"></swtvap-carousel>
                     <div class="animition-type-selector">
-                        <div class="mr-1 ml-1" *ngFor="let item of slides; let i = index" [class.active]="currentSlide === item.currentSlide">
+                        <div class="mr-1 ml-1" *ngFor="let item of sliders; let i = index" [class.active]="currentSlide === item.currentSlide">
                             <!--(click)="setAnimationType(item)"-->
                             <div class="small-img d-flex flex-column text-center" (click)="setCurrentSlide(item.currentSlide)">
-                                <img [ngStyle]="{height:'50px', width: '50px'}" [src]="item?.src" [alt]="item?.name">
+                                <img [ngStyle]="{height:'50px', width: '50px'}" [src]="assetUrl  + 'Chascaperuart/products/'+ item?.src" [alt]="item?.name">
                                 <!-- Modal -->
                                 <div data-toggle="modal" [attr.data-target]="'#imageModal'+i" >
                                     <i class="fas fa-search-plus" ></i>
@@ -23,6 +23,9 @@
                                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
+                                            <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                                              <i class="mdi mdi-close" ></i>
+                                            </button>
                                             <img [src]="item?.src" [alt]="item?.name" class="img-fluid">
                                         </div>
                                     </div>
@@ -34,66 +37,24 @@
             </div>
             <div class="product-info">
                 <div class="product-name">
-                    <h1>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+                    <h1>{{ showEnglishName ? product.nameEn : product.name }}</h1>
                 </div>
                 <div class="product-description">
-                    Descripción: <p>Este morral no solo es práctico, sino también elegante. Perfecto para el día a día o
-                        para tus aventuras al aire libre. Hecho con técnicas artesanales tradicionales, garantiza
-                        durabilidad y estilo.</p>
+                  {{ 'ecommerce.common.description' | translate }}: <p>{{ showEnglishName ? product.descriptionEn : product.description }}</p>
                 </div>
-                <div class="product-material">
-                    Material: <span>100% tela reciclada de alta calidad</span>
-                </div>
-                <div class="product-dimensions">
-                    Dimensiones: <span>Altura: 40cm, Ancho: 30cm, Profundidad: 20cm</span>
-                </div>
-                <div class="product-weight">Peso: 1Kg</div>
-                <div class="product-price">Precio: $590</div>
-                <div class="product-technique">
-                    Técnica de fabricación: <span>Tejido a mano</span>
-                </div>
-                <div class="product-history">
-                    Historia/Inspiración: <p>Inspirado en los paisajes nórdicos, este morral combina funcionalidad con
-                        un diseño minimalista.</p>
-                </div>
-                <div class="product-customization">
-                    Personalización disponible: <span>Sí (contactar para detalles)</span>
-                </div>
+                <div class="product-price">{{ 'ecommerce.common.price' | translate }}: {{ (showCurrencyName ? product?.price : product?.priceUSD) | currencyCustom}}</div>
                 <div class="product-quantity">
-                    Cantidad: <input type="number" min="1" value="1">
-                </div>
-                <div class="product-type">
-                    Tipo de compra:
-                    <select>
-                        <option value="minorista">Por menor</option>
-                        <option value="mayorista">Por mayor</option>
-                    </select>
-                </div>
-                <div class="product-color">
-                    Color:
-                    <select>
-                        <option value="negro">Negro</option>
-                        <option value="azul">Azul</option>
-                        <option value="verde">Verde</option>
-                    </select>
-                </div>
-                <div class="product-image-type">
-                    Tipo de imagen:
-                    <select>
-                        <option value="frontal">Frontal</option>
-                        <option value="lateral">Lateral</option>
-                        <option value="superior">Superior</option>
-                    </select>
+                  {{ 'ecommerce.pages.cart.items.item3' | translate }}: <input type="number" #inputToCart min="1" value="1">
                 </div>
                 <!-- Botón Agregar al carrito -->
                 <div class="product-add-to-cart">
-                    <button type="button">Agregar al carrito</button>
+                    <button type="button" class="btn btn___primary"(click)="addToCart(product.productId,inputToCart.value,'')">{{ 'ecommerce.pages.cart.addToCart' | translate }}</button>
                 </div>
 
             </div>
         </div>
     </div>
-    <div class="mt-4 mb-4">
+    <div class="mt-4 mb-4 d-none">
         <h3>Comentarios del producto</h3>
         <swtvap-comment-in></swtvap-comment-in>
     </div>

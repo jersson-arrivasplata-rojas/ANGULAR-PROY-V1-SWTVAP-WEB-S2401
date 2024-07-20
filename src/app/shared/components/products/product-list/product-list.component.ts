@@ -5,6 +5,7 @@ import { LangEnum } from 'src/app/shared/config/lang.enum';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-product-list',
@@ -26,6 +27,7 @@ export class ProductListComponent implements OnInit {
   showCurrencyName = false;
   category: any;
   catalog: any;
+  assetsUrl = environment.assetUrl;
 
   constructor(public cartService: CartService, private translateService: TranslateService,
     private currencyService: CurrencyService) {

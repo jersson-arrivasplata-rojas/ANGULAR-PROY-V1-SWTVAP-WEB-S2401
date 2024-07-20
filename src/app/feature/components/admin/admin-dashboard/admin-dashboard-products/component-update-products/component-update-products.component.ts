@@ -22,13 +22,16 @@ export class ComponentUpdateProductsComponent implements OnInit, OnChanges {
     this.itemForm = this.formBuilder.group({
       code: ['', Validators.required],
       name: ['', Validators.required],
+      nameEn: [''],
       description: ['', Validators.required],
+      descriptionEn: [''],
       price: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       priceUSD: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       priceEUR: [0, [Validators.required, Validators.pattern(PatternEnum.AMOUNT)]],
       stock: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       stockMin: [0, [Validators.required, Validators.pattern(PatternEnum.NUMBER)]],
       otherDetails: [''],
+      otherDetailsEn: [''],
       status: [false, [Validators.required]]
     });
   }
@@ -54,4 +57,5 @@ export class ComponentUpdateProductsComponent implements OnInit, OnChanges {
       });
     }
   }
+
 }

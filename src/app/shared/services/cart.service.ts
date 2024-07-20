@@ -1,5 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AnimationType } from '../components/carousels/carousel/carousel.animations';
 import { CartEnum } from '../config/cart.enum';
 import { CurrencySymbolEnum } from '../config/currency-symbol.enum';
@@ -18,6 +19,7 @@ export class CartService implements OnDestroy {
   public cartItemsList: any = [];
   public cartTotal: any = 0;
   public cartItemsStorageName = '';
+  assetUrl = environment.assetUrl;
 
   private subscription: Subscription = new Subscription();
   private product$ = new Subject<any>();
@@ -192,12 +194,12 @@ export class CartService implements OnDestroy {
   }
 
   getAllProducts(products: any[]) {
-    const array = [
+    /*const array = [
       'https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80',
       'https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80',
       'https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80',
       'https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80',
-    ];
+    ];*/
 
     for (let index = 0; index < products.length; index++) {
       const element = products[index];
@@ -210,7 +212,8 @@ export class CartService implements OnDestroy {
           name: 'Scale',
           value: AnimationType.Scale,
           headline: element.name,
-          src: array[Math.floor(Math.random() * array.length)],
+          //src: array[Math.floor(Math.random() * array.length)],
+          src: this.assetUrl + 'Chascaperuart/products/' +  data.path,
         });
       });
       element.sliders = sliders;
@@ -232,6 +235,7 @@ export class CartService implements OnDestroy {
       if (element.categories.length > 0) {
         for (let indexj = 0; index < element.categories.length; indexj++) {
           const item = element.categories[indexj];
+          if(!item) break;
 
           if (productFlag) break;
 

@@ -131,6 +131,9 @@
             }
         },
         "common": {
+            "craft": "Artesanía",
+            "price": "Precio",
+            "description": "Descripción",
             "sendUsAEmail": "Envíanos un correo",
             "callUs": "Llámanos",
             "chatWithUs": "Chatea con nosotros",

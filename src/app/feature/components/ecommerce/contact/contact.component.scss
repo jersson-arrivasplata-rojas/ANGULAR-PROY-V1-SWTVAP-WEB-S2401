@@ -47,14 +47,14 @@
         .submit-button {
             cursor: pointer;
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #43100c;
             color: white;
             border: none;
             border-radius: 4px;
             transition: background-color 0.3s;
 
             &:hover {
-                background-color: darken(#007bff, 10%);
+                background-color: darken(#43100c, 10%);
             }
         }
     }

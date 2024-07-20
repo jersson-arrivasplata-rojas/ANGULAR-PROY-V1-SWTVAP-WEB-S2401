@@ -8,7 +8,7 @@
           <p>Descripci&oacute;n: {{ item.description }}</p>
           <p *ngIf="item.price">Precio en Soles: S/{{ item.price }}</p>
           <p *ngIf="item.priceUSD">Precio en D&oacute;lares: $/{{ item.priceUSD }}</p>
-          <p *ngIf="item.priceEUR">Precio en Euros: €/{{ item.priceEUR }}</p>
+          <p class="d-none" *ngIf="item.priceEUR">Precio en Euros: €/{{ item.priceEUR }}</p>
           <p>Stock: {{ item.stock }}</p>
           <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
           <p>Otros Detalles: {{ item.otherDetails }}</p>

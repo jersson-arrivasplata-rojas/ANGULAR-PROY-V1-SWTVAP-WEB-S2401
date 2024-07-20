@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthLoginDefaultComponent {
   public assetUrl = environment.assetUrl;
+  public appUrl = environment.appUrl;
+
   public title = 'Sumac Chasca Per\u00FA S.A.C.';
   public textPassword: string = 'Ver';
 

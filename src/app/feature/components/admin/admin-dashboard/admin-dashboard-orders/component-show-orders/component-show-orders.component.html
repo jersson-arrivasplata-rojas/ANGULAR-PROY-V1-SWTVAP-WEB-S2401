@@ -7,14 +7,14 @@
         <p>Direcci&oacute;n: {{ item.address }}</p>
         <p *ngIf="item.subtotal">SubTotal en Soles: S/{{ item.subtotal | addZeros }}</p>
         <p *ngIf="item.subtotalUSD">SubTotal en D&oacute;lares: $/{{ item.subtotalUSD | addZeros }}</p>
-        <p *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR | addZeros }}</p>
+        <p class="d-none" *ngIf="item.subtotalEUR">SubTotal en Euros: €/{{ item.subtotalEUR | addZeros }}</p>
         <p *ngIf="item.taxes">Impuesto en Soles: S/{{ item.taxes | addZeros }}</p>
         <p *ngIf="item.taxesUSD">Impuesto en D&oacute;lares: $/{{ item.taxesUSD | addZeros }}</p>
         <p *ngIf="item.taxesEUR">Impuesto en Euros: €/{{ item.taxesEUR | addZeros }}</p>
         <p>Monto de descuento: {{ item.discountAmount | transformText }}</p>
         <p *ngIf="item.total">Total en Soles: S/{{ item.total | addZeros }}</p>
         <p *ngIf="item.totalUSD">Total en D&oacute;lares: $/{{ item.totalUSD | addZeros }}</p>
-        <p *ngIf="item.totalEUR">Total en Euros: €/{{ item.totalEUR | addZeros }}</p>
+        <p class="d-none" class="d-none" *ngIf="item.totalEUR">Total en Euros: €/{{ item.totalEUR | addZeros }}</p>
         <p *ngIf="item.otherDetails">Otros Detalles: {{ item.otherDetails }}</p>
         <p>Recojo en Tienda: {{ item.pickUp ? 'Si': 'No' }}</p>
         <p>Estado: {{ item.status | orderStatusPipe }}</p>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'swtvap-footer-store-default',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class FooterStoreDefaultComponent {
   @Input() public textWhatsapp: string = '';
   @Input() public phoneWhatsapp: string = '';
-  @Input() public image: string = 'https://via.placeholder.com/100x100';
+  @Input() public image: string = environment.appUrl + '/assets/img/bg-xsm.png';
   @Input() public container: string = 'container';
 
   @Input() public store: string = 'Sumac Chasca Per\u00FA S.A.C.';

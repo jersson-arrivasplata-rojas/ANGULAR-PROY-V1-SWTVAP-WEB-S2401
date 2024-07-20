@@ -18,7 +18,7 @@ export class ComponentAddProductsImagesComponent implements OnInit {
   ) {
     this.itemForm = this.formBuilder.group({
       productId: ['', Validators.required],
-      path: ['', Validators.required]
+      files: [],
     });
   }
 
@@ -33,10 +33,15 @@ export class ComponentAddProductsImagesComponent implements OnInit {
     }
   }
 
+  handleFileInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.itemForm.patchValue({ files: inputElement.files });
+  }
+
   init() {
     return {
       productId: this.productId,
-      path: ''
+      files: []
     };
   }
 }

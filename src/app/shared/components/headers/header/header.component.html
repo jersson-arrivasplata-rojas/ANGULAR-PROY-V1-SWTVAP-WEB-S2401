@@ -10,11 +10,18 @@
         <img class="d-block w-100"
             [src]="item?.description"
             alt="First slide">
-        <div class="carousel-caption d-md-block mb-4" *ngIf="item?.value">
+            <div class="carousel-caption d-md-block mb-4" >
+              <h3 class="text-white">Sumac Chasca Per&uacute; {{ 'ecommerce.common.craft' | translate }}</h3>
+              <p style="visibility: hidden!important;">x</p>
+              <a style="visibility: hidden!important;" href="#" class="btn btn___primary text-white">x</a>
+            </div>
+        <!--
+            <div class="carousel-caption d-md-block mb-4 d-none" *ngIf="item?.value">
           <h3 class="text-white">{{item?.value | sticks:0 }}</h3>
           <p>{{item?.value | sticks:1 }}</p>
-          <a href="#" class="btn btn-primary text-white">{{item?.value | sticks:2 }}</a>
+          <a href="#" class="btn btn___primary text-white">{{item?.value | sticks:2 }}</a>
         </div>
+        -->
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">

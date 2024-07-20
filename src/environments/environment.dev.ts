@@ -3,6 +3,6 @@ export const environment = {
   appUrl: 'https://chascaperuart.com',
   apiUrl: 'https://admin.chascaperuart.com/',
   apiStorage: '',
-  assetUrl: 'https://via.placeholder.com/',
+  assetUrl: 'https://chascaperuart.sfo3.digitaloceanspaces.com/',
   type: 'dev'
 };

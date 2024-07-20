@@ -23,11 +23,11 @@
       .icon {
         width: 50px;
         height: 50px;
-        border: 2px solid #046AFF;
+        border: 2px solid #43100c;
         border-radius: 50%;
         margin-right: 10px;
         box-sizing: border-box;
-        color: #046AFF;
+        color: #43100c;
         line-height: 50px;
         text-align: center;
 
@@ -55,4 +55,8 @@
       }
     }
   }
+}
+
+a{
+  line-height: 2.5;
 }

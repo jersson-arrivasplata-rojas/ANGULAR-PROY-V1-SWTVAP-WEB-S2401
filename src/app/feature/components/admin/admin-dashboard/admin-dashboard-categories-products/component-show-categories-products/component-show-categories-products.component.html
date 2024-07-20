@@ -5,9 +5,9 @@
         <ng-container *ngIf="!(properties.type === typesEnum.PRODUCTS)">
           <p>C&oacute;digo: {{ item.code | uppercase }}</p>
           <p>Nombre: {{ item.name }}</p>
-          <p>Nombre (en): {{ item.name_en }}</p>
+          <p>Nombre (en): {{ item.nameEn }}</p>
           <p>Descripci&oacute;n: {{ item.description }}</p>
-          <p>Descripci&oacute;n (en): {{ item.description_en }}</p>
+          <p>Descripci&oacute;n (en): {{ item.descriptionEn }}</p>
           <p>Precio: {{ item.price | addZeros }}</p>
           <p>Stock: {{ item.stock }}</p>
           <p>Stock M&iacute;nimo: {{ item.stockMin }}</p>
@@ -15,9 +15,9 @@
         </ng-container>
         <ng-container *ngIf="(properties.type === typesEnum.PRODUCTS)">
           <p>Nombre: {{ item.name }}</p>
-          <p>Nombre (en): {{ item.name_en }}</p>
+          <p>Nombre (en): {{ item.nameEn }}</p>
           <p>Descripci&oacute;n: {{ item.description }}</p>
-          <p>Descripci&oacute;n (en): {{ item.description_en }}</p>
+          <p>Descripci&oacute;n (en): {{ item.descriptionEn }}</p>
         </ng-container>
         <p>Estado: {{ item.status | status }}</p>
         <p>

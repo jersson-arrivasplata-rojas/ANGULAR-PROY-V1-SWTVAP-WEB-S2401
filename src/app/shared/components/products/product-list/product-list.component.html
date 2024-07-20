@@ -8,7 +8,7 @@
                 <div class="small-img ml-1 d-flex flex-column text-center">
                     <img [ngStyle]="{height:'50px', width: '50px'}" [appLazyLoad]="slider?.src" alt="" (click)="setCurrentSlide(i, item)">
                     <!-- Modal -->
-                    <div data-toggle="modal" [attr.data-target]="'#imageModal'+i" >
+                    <div data-toggle="modal" [attr.data-target]="'#imageModal'+i" style="cursor: pointer;">
                         <i class="fas fa-search-plus" ></i>
                     </div>
                 </div>
@@ -17,7 +17,10 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <img [appLazyLoad]="slider?.src" [alt]="showEnglishName ? item?.name_en : item?.name" class="img-fluid">
+                                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                                  <i class="mdi mdi-close" ></i>
+                                </button>
+                                <img [appLazyLoad]="slider?.src" [alt]="showEnglishName ? item?.nameEn : item?.name" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -49,13 +52,13 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <button class="btn btn-sm btn-primary" (click)="addToCart(item.productId,1,'')">
+            <button class="btn btn-sm btn___primary" (click)="addToCart(item.productId,1,'')">
               {{ 'ecommerce.pages.cart.addToCart' | translate}}
             </button>
           </div>
           <div class="col-md-6">
             <p class="text-right font-weight-bolder">
-              {{ (showCurrencyName ? item?.priceUSD : item?.price) | currencyCustom}}
+              {{ (showCurrencyName ? item?.price : item?.priceUSD) | currencyCustom}}
             </p>
           </div>
         </div>
